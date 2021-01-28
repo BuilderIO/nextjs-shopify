@@ -18,7 +18,7 @@ const Footer: FC<Props> = ({ className }) => {
 
   return (
     <footer className={rootClassName}>
-            <div className="flex items-center h-10 justify-between pb-24 pt-12 px-12">
+            <div className="flex items-center h-10 justify-between p-7">
             <Link href="/">
               <a className="flex flex-initial items-center font-bold md:mr-24">
                 <span className="rounded-full border border-gray-700 mr-2">

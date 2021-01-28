@@ -1,7 +1,7 @@
 import { Builder, builder } from '@builder.io/react'
 import dynamic from 'next/dynamic'
 
-const LazyProductView = dynamic(() => import(`@components/product/ProductView`))
+const LazyProductView = dynamic(() => import(`sections/ProductView/ProductView`), { ssr: true})
 
 Builder.registerComponent(LazyProductView, {
   name: 'ProductView',

@@ -26,7 +26,6 @@ export async function getStaticProps({
   const product = await getProduct(builderConfig, {
     handle: params?.handle,
   })
-  console.log('found product ', params?.handle, Boolean(product));
 
   const page = await resolveBuilderContent('product-page-template', {
     productHandle: params?.handle,
