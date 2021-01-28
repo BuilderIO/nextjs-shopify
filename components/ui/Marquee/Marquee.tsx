@@ -4,13 +4,13 @@ import { FC, ReactNode, Component } from 'react'
 import Ticker from 'react-ticker'
 import { useInView } from 'react-intersection-observer'
 
-interface Props {
+export interface MarqueeProps {
   className?: string
   children?: ReactNode[] | Component[] | any[]
   variant?: 'primary' | 'secondary'
 }
 
-const Maquee: FC<Props> = ({
+const Marquee: FC<MarqueeProps> = ({
   className = '',
   children,
   variant = 'primary',
@@ -39,4 +39,4 @@ const Maquee: FC<Props> = ({
   )
 }
 
-export default Maquee
+export default Marquee

@@ -15,21 +15,11 @@ import {
   clearAllBodyScrollLocks,
 } from 'body-scroll-lock'
 
-import useLogout from '@bigcommerce/storefront-data-hooks/use-logout'
-
 interface DropdownMenuProps {
   open?: boolean
 }
 
 const LINKS = [
-  {
-    name: 'My Orders',
-    href: '/orders',
-  },
-  {
-    name: 'My Profile',
-    href: '/profile',
-  },
   {
     name: 'My Cart',
     href: '/cart',
@@ -37,7 +27,6 @@ const LINKS = [
 ]
 
 const DropdownMenu: FC<DropdownMenuProps> = ({ open = false }) => {
-  const logout = useLogout()
   const { pathname } = useRouter()
   const { theme, setTheme } = useTheme()
   const [display, setDisplay] = useState(false)
@@ -106,14 +95,6 @@ const DropdownMenu: FC<DropdownMenuProps> = ({ open = false }) => {
                     <Sun width="20" height={20} />
                   )}
                 </div>
-              </a>
-            </li>
-            <li>
-              <a
-                className={cn(s.link, 'border-t border-accents-2 mt-4')}
-                onClick={() => logout()}
-              >
-                Logout
               </a>
             </li>
           </ul>

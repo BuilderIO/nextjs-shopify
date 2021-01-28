@@ -3,35 +3,38 @@ import cn from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Trash, Plus, Minus } from '@components/icons'
-import usePrice from '@bigcommerce/storefront-data-hooks/use-price'
-import useUpdateItem from '@bigcommerce/storefront-data-hooks/cart/use-update-item'
-import useRemoveItem from '@bigcommerce/storefront-data-hooks/cart/use-remove-item'
+import { getPrice } from '@lib/shopify/storefront-data-hooks/src/utils/product'
+import {
+  useUpdateItemQuantity,
+  useRemoveItemFromCart,
+  useCheckoutUrl,
+} from '@lib/shopify/storefront-data-hooks'
 import s from './CartItem.module.css'
 
 const CartItem = ({
   item,
   currencyCode,
 }: {
-  item: any
+  item: /*ShopifyBuy.LineItem todo: check if updated types*/ any
   currencyCode: string
 }) => {
-  const { price } = usePrice({
-    amount: item.extended_sale_price,
-    baseAmount: item.extended_list_price,
-    currencyCode,
-  })
-  const updateItem = useUpdateItem(item)
-  const removeItem = useRemoveItem()
+  // TODO: get real maxVariantPrice
+  const price = getPrice(
+    item.variant.priceV2.amount,
+    item.variant.priceV2.currencyCode
+  )
+  const updateItem = useUpdateItemQuantity()
+  const removeItem = useRemoveItemFromCart()
   const [quantity, setQuantity] = useState(item.quantity)
   const [removing, setRemoving] = useState(false)
-  const updateQuantity = async (val: number) => {
-    await updateItem({ quantity: val })
+  const updateQuantity = async (quantity: number) => {
+    await updateItem(item.variant.id, quantity)
   }
   const handleQuantity = (e: ChangeEvent<HTMLInputElement>) => {
     const val = Number(e.target.value)
 
     if (Number.isInteger(val) && val >= 0) {
-      setQuantity(e.target.value)
+      setQuantity(val)
     }
   }
   const handleBlur = () => {
@@ -55,8 +58,9 @@ const CartItem = ({
     try {
       // If this action succeeds then there's no need to do `setRemoving(true)`
       // because the component will be removed from the view
-      await removeItem({ id: item.id })
+      await removeItem(item.variant.id)
     } catch (error) {
+      console.log(error)
       setRemoving(false)
     }
   }
@@ -77,7 +81,7 @@ const CartItem = ({
       <div className="w-16 h-16 bg-violet relative overflow-hidden">
         <Image
           className={s.productImage}
-          src={item.image_url}
+          src={item.variant.image.src}
           width={150}
           height={150}
           alt="Product Image"
@@ -87,9 +91,9 @@ const CartItem = ({
       </div>
       <div className="flex-1 flex flex-col text-base">
         {/** TODO: Replace this. No `path` found at Cart */}
-        <Link href={`/product/${item.url.split('/')[3]}`}>
+        <Link href={`/product/${item.variant.product.handle}`}>
           <span className="font-bold mb-5 text-lg cursor-pointer">
-            {item.name}
+            {item.title}
           </span>
         </Link>
 

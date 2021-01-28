@@ -1,37 +1,27 @@
-
-
 const bundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: !!process.env.BUNDLE_ANALYZE
+  enabled: !!process.env.BUNDLE_ANALYZE,
 })
 
 module.exports = bundleAnalyzer({
   images: {
-    domains: ['cdn11.bigcommerce.com'],
+    domains: ['cdn.shopify.com', 'cdn.builder.io'],
+  },
+  env: {
+    // expose env to the browser
+    SHOPIFY_STOREFRONT_API_TOKEN: process.env.SHOPIFY_STOREFRONT_API_TOKEN,
+    SHOPIFY_STORE_DOMAIN: process.env.SHOPIFY_STORE_DOMAIN,
+    BUILDER_PUBLIC_KEY: process.env.BUILDER_PUBLIC_KEY,
   },
   i18n: {
+    // These are all the locales you want to support in
+    // your application
     locales: ['en-US', 'es'],
+    // This is the default locale you want to be used when visiting
+    // a non-locale prefixed path e.g. `/hello`
     defaultLocale: 'en-US',
   },
   rewrites() {
     return [
-      {
-        source: '/:locale/checkout',
-        destination: '/api/bigcommerce/checkout',
-      },
-      {
-        source: '/checkout',
-        destination: '/api/bigcommerce/checkout',
-      },
-      // The logout is also an action so this route is not required, but it's also another way
-      // you can allow a logout!
-      {
-        source: '/:locale/logout',
-        destination: '/api/bigcommerce/customers/logout?redirect_to=/',
-      },
-      {
-        source: '/logout',
-        destination: '/api/bigcommerce/customers/logout?redirect_to=/',
-      },
       // Rewrites for /search
       {
         source: '/:locale/search',
@@ -53,8 +43,8 @@ module.exports = bundleAnalyzer({
         // This rewrite will also handle `/search/designers`
         source: '/search/:category',
         destination: '/search',
-        locale: false
+        locale: false,
       },
     ]
   },
-});
+})

@@ -1,41 +1,18 @@
 import type { GetStaticPropsContext } from 'next'
-import { getConfig } from '@bigcommerce/storefront-data-hooks/api'
-import getAllPages from '@bigcommerce/storefront-data-hooks/api/operations/get-all-pages'
-import useCart from '@bigcommerce/storefront-data-hooks/cart/use-cart'
-import usePrice from '@bigcommerce/storefront-data-hooks/use-price'
+import { useCart, useCheckoutUrl } from '@lib/shopify/storefront-data-hooks'
 import { Layout } from '@components/common'
 import { Button } from '@components/ui'
 import { Bag, Cross, Check } from '@components/icons'
 import { CartItem } from '@components/cart'
 import { Text } from '@components/ui'
 
-export async function getStaticProps({
-  preview,
-  locale,
-}: GetStaticPropsContext) {
-  const config = getConfig({ locale })
-  const { pages } = await getAllPages({ config, preview })
-  return {
-    props: { pages },
-  }
-}
-
 export default function Cart() {
-  const { data, isEmpty } = useCart()
-  const { price: subTotal } = usePrice(
-    data && {
-      amount: data.base_amount,
-      currencyCode: data.currency.code,
-    }
-  )
-  const { price: total } = usePrice(
-    data && {
-      amount: data.cart_amount,
-      currencyCode: data.currency.code,
-    }
-  )
-
-  const items = data?.line_items.physical_items ?? []
+  const cart = useCart()
+  const checkoutUrl = useCheckoutUrl()
+  const subTotal = cart?.subtotalPrice
+  const total = ' - '
+  const items = cart?.lineItems ?? []
+  const isEmpty = items.length === 0
 
   const error = null
   const success = null
@@ -79,11 +56,12 @@ export default function Cart() {
             <Text variant="pageHeading">My Cart</Text>
             <Text variant="sectionHeading">Review your Order</Text>
             <ul className="py-6 space-y-6 sm:py-0 sm:space-y-0 sm:divide-y sm:divide-accents-2 border-b border-accents-2">
-              {items.map((item) => (
+              {items.map((item: any) => (
                 <CartItem
                   key={item.id}
                   item={item}
-                  currencyCode={data?.currency.code!}
+                  // todo update types
+                  currencyCode={item.variant.priceV2.currencyCode || 'USD'}
                 />
               ))}
             </ul>
@@ -129,10 +107,12 @@ export default function Cart() {
                 <Button href="/" Component="a" width="100%">
                   Continue Shopping
                 </Button>
-              ) : (
-                <Button href="/checkout" Component="a" width="100%">
+              ) : checkoutUrl ? (
+                <Button href={checkoutUrl} Component="a" width="100%">
                   Proceed to Checkout
                 </Button>
+              ) : (
+                <></>
               )}
             </div>
           </div>

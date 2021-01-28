@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start",
     "analyze": "BUNDLE_ANALYZE=both yarn build",
-    "find:unused": "next-unused"
+    "find:unused": "next-unused",
+    "prettier": "prettier"
   },
   "prettier": {
     "semi": false,
@@ -34,7 +35,8 @@
     "include": [
       "components",
       "lib",
-      "pages"
+      "pages",
+      "sections"
     ],
     "exclude": [],
     "entrypoints": [
@@ -42,16 +44,25 @@
     ]
   },
   "dependencies": {
-    "@bigcommerce/storefront-data-hooks": "^1.0.2",
+    "@builder.io/react": "^1.1.31",
+    "@builder.io/utils": "file:../../clone-2/packages/utils",
     "@reach/portal": "^0.11.2",
     "@tailwindcss/ui": "^0.6.2",
+    "@testing-library/react-hooks": "^3.7.0",
     "@types/body-scroll-lock": "^2.6.1",
     "@types/lodash.throttle": "^4.1.6",
+    "@types/qs": "^6.9.5",
+    "@types/react-sticky": "^6.0.3",
+    "@types/shopify-buy": "^2.10.3",
+    "@types/traverse": "^0.6.32",
     "@vercel/fetch": "^6.1.0",
+    "atob": "^2.1.2",
     "body-scroll-lock": "^3.1.5",
     "bowser": "^2.11.0",
     "classnames": "^2.2.6",
+    "css-color-names": "^1.0.1",
     "email-validator": "^2.0.4",
+    "jest": "^26.6.3",
     "js-cookie": "^2.2.1",
     "keen-slider": "^5.2.4",
     "lodash.random": "^3.2.0",
@@ -60,15 +71,21 @@
     "next-seo": "^4.11.0",
     "next-themes": "^0.0.4",
     "postcss-nesting": "^7.0.1",
+    "qs": "^6.9.6",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-intersection-observer": "^8.30.1",
+    "react-json-tree": "^0.13.0",
     "react-merge-refs": "^1.1.0",
+    "react-sticky": "^6.0.3",
     "react-ticker": "^1.2.2",
-    "tailwindcss": "^1.9"
+    "shopify-buy": "^2.11.0",
+    "tailwindcss": "^1.9",
+    "traverse": "^0.6.6"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^10.0.1",
+    "@types/atob": "^2.1.2",
     "@types/bunyan": "^1.8.6",
     "@types/bunyan-prettystream": "^0.1.31",
     "@types/classnames": "^2.2.10",

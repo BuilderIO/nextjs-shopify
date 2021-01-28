@@ -4,6 +4,7 @@ import s from './Swatch.module.css'
 import { Check } from '@components/icons'
 import Button, { ButtonProps } from '@components/ui/Button'
 import { isDark } from '@lib/colors'
+import colorNames from 'css-color-names'
 interface Props {
   active?: boolean
   children?: any
@@ -13,7 +14,11 @@ interface Props {
   color?: string
 }
 
-const Swatch: FC<Props & ButtonProps> = ({
+function getHexColor(strColor: string) {
+  return (colorNames as Record<string, string>)[strColor.toLowerCase()]
+}
+
+const Swatch: FC<Props & Omit<ButtonProps, 'variant'>> = ({
   className,
   color = '',
   label,
@@ -23,14 +28,16 @@ const Swatch: FC<Props & ButtonProps> = ({
 }) => {
   variant = variant?.toLowerCase()
   label = label?.toLowerCase()
-
+  const hexColor = variant == 'color' && getHexColor(color)
   const rootClassName = cn(
     s.root,
     {
       [s.active]: active,
-      [s.size]: variant === 'size',
-      [s.color]: color,
-      [s.dark]: color ? isDark(color) : false,
+      [s.size]: !hexColor,
+      ...(hexColor && {
+        [s.color]: color,
+        [s.dark]: color ? isDark(hexColor) : false,
+      }),
     },
     className
   )
@@ -38,16 +45,16 @@ const Swatch: FC<Props & ButtonProps> = ({
   return (
     <Button
       className={rootClassName}
-      style={color ? { backgroundColor: color } : {}}
+      style={hexColor ? { backgroundColor: hexColor } : {}}
       aria-label="Variant Swatch"
       {...props}
     >
-      {variant === 'color' && active && (
+      {hexColor && active && (
         <span>
           <Check />
         </span>
       )}
-      {variant === 'size' ? label : null}
+      {!hexColor ? label : null}
     </Button>
   )
 }

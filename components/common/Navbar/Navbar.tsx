@@ -5,9 +5,12 @@ import { Logo, Container } from '@components/ui'
 import { Searchbar, UserNav } from '@components/common'
 import cn from 'classnames'
 import throttle from 'lodash.throttle'
+import { getAllCollections } from '@lib/shopify/storefront-data-hooks/src/api/operations-builder'
+import builderConfig from '@config/builder'
 
 const Navbar: FC = () => {
   const [hasScrolled, setHasScrolled] = useState(false)
+  const [collections, setCollections] = useState([] as any[])
 
   useEffect(() => {
     const handleScroll = throttle(() => {
@@ -23,6 +26,14 @@ const Navbar: FC = () => {
     }
   }, [])
 
+  useEffect(() => {
+    const fetchCollections = async () => {
+      const result = await getAllCollections(builderConfig, 3)
+      setCollections(result)
+    }
+    fetchCollections()
+  }, [])
+
   return (
     <div className={cn(s.root, { 'shadow-magical': hasScrolled })}>
       <Container>
@@ -34,15 +45,11 @@ const Navbar: FC = () => {
               </a>
             </Link>
             <nav className="hidden ml-6 space-x-4 lg:block">
-              <Link href="/search">
-                <a className={s.link}>All</a>
-              </Link>
-              <Link href="/search?q=clothes">
-                <a className={s.link}>Clothes</a>
-              </Link>
-              <Link href="/search?q=accessories">
-                <a className={s.link}>Accessories</a>
-              </Link>
+              {collections.map((cl) => (
+                <Link href={`/collection/${cl.handle}`}>
+                  <a className={s.link}>{cl.title}</a>
+                </Link>
+              ))}
             </nav>
           </div>
 

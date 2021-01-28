@@ -4,29 +4,20 @@ import { UserNav } from '@components/common'
 import { Button } from '@components/ui'
 import { Bag, Cross, Check } from '@components/icons'
 import { useUI } from '@components/ui/context'
-import useCart from '@bigcommerce/storefront-data-hooks/cart/use-cart'
-import usePrice from '@bigcommerce/storefront-data-hooks/use-price'
+import { useCart, useCheckoutUrl } from '@lib/shopify/storefront-data-hooks'
 import CartItem from '../CartItem'
 import s from './CartSidebarView.module.css'
 
 const CartSidebarView: FC = () => {
   const { closeSidebar } = useUI()
-  const { data, isEmpty } = useCart()
-  const { price: subTotal } = usePrice(
-    data && {
-      amount: data.base_amount,
-      currencyCode: data.currency.code,
-    }
-  )
-  const { price: total } = usePrice(
-    data && {
-      amount: data.cart_amount,
-      currencyCode: data.currency.code,
-    }
-  )
+  const checkoutUrl = useCheckoutUrl()
+  const cart = useCart()
+  const subTotal = cart?.subtotalPrice
+  const total = ' - '
   const handleClose = () => closeSidebar()
 
-  const items = data?.line_items.physical_items ?? []
+  const items = cart?.lineItems ?? []
+  const isEmpty = items.length === 0
 
   const error = null
   const success = null
@@ -94,11 +85,12 @@ const CartSidebarView: FC = () => {
               My Cart
             </h2>
             <ul className="py-6 space-y-6 sm:py-0 sm:space-y-0 sm:divide-y sm:divide-accents-3 border-t border-accents-3">
-              {items.map((item) => (
+              {items.map((item: any) => (
                 <CartItem
                   key={item.id}
                   item={item}
-                  currencyCode={data?.currency.code!}
+                  // todo update types
+                  currencyCode={item.variant.priceV2.currencyCode || 'USD'}
                 />
               ))}
             </ul>
@@ -125,9 +117,11 @@ const CartSidebarView: FC = () => {
                 <span>{total}</span>
               </div>
             </div>
-            <Button href="/checkout" Component="a" width="100%">
-              Proceed to Checkout
-            </Button>
+            {checkoutUrl && (
+              <Button href={checkoutUrl!} Component="a" width="100%">
+                Proceed to Checkout
+              </Button>
+            )}
           </div>
         </>
       )}

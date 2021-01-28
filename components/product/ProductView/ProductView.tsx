@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useState, useMemo, useEffect } from 'react'
 import cn from 'classnames'
 import Image from 'next/image'
 import { NextSeo } from 'next-seo'
@@ -8,46 +8,58 @@ import { useUI } from '@components/ui/context'
 import { Swatch, ProductSlider } from '@components/product'
 import { Button, Container, Text } from '@components/ui'
 
-import usePrice from '@bigcommerce/storefront-data-hooks/use-price'
-import useAddItem from '@bigcommerce/storefront-data-hooks/cart/use-add-item'
-import type { ProductNode } from '@bigcommerce/storefront-data-hooks/api/operations/get-product'
+import { useAddItemToCart } from '@lib/shopify/storefront-data-hooks'
 import {
-  getCurrentVariant,
-  getProductOptions,
-  SelectedOptions,
-} from '../helpers'
-import WishlistButton from '@components/wishlist/WishlistButton'
+  prepareVariantsWithOptions,
+  getPrice,
+} from '@lib/shopify/storefront-data-hooks/src/utils/product'
 
 interface Props {
   className?: string
   children?: any
-  product: ProductNode
+  product: ShopifyBuy.Product
 }
 
 const ProductView: FC<Props> = ({ product }) => {
-  const addItem = useAddItem()
-  const { price } = usePrice({
-    amount: product.prices?.price?.value,
-    baseAmount: product.prices?.retailPrice?.value,
-    currencyCode: product.prices?.price?.currencyCode!,
-  })
+  const addItem = useAddItemToCart()
+  const colors: string[] | undefined = product.options
+    ?.find((option) => option?.name?.toLowerCase() === 'color')
+    ?.values?.map((op) => op.value as string)
+
+  const sizes: string[] | undefined = product.options
+    ?.find((option) => option?.name?.toLowerCase() === 'size')
+    ?.values?.map((op) => op.value as string)
+
+  const variants = useMemo(
+    () => prepareVariantsWithOptions(product!.variants! as any),
+    [product.variants]
+  )
+  // const images = useMemo(() => prepareVariantsImages(variants, 'color'), [
+  //   variants,
+  // ])
+
   const { openSidebar } = useUI()
-  const options = getProductOptions(product)
   const [loading, setLoading] = useState(false)
-  const [choices, setChoices] = useState<SelectedOptions>({
-    size: null,
-    color: null,
-  })
-  const variant =
-    getCurrentVariant(product, choices) || product.variants.edges?.[0]
+  const [variant, setVariant] = useState(variants[0])
+  const [color, setColor] = useState(variant.color)
+  const [size, setSize] = useState(variant.size)
+
+  useEffect(() => {
+    const newVariant = variants.find((variant) => {
+      return variant.size === size && variant.color === color
+    })
+
+    console.log('new variant  ', newVariant)
+
+    if (variant.id !== newVariant.id) {
+      setVariant(newVariant)
+    }
+  }, [size, color, variants, variant.id])
 
   const addToCart = async () => {
     setLoading(true)
     try {
-      await addItem({
-        productId: product.entityId,
-        variantId: product.variants.edges?.[0]?.node.entityId!,
-      })
+      await addItem(variant.id, 1)
       openSidebar()
       setLoading(false)
     } catch (err) {
@@ -56,20 +68,20 @@ const ProductView: FC<Props> = ({ product }) => {
   }
 
   return (
-    <Container className="max-w-none w-full" clean>
+    <Container className="max-w-8xl w-full" clean>
       <NextSeo
-        title={product.name}
+        title={product.title}
         description={product.description}
         openGraph={{
           type: 'website',
-          title: product.name,
+          title: product.title,
           description: product.description,
           images: [
             {
-              url: product.images.edges?.[0]?.node.urlOriginal!,
+              url: product.images?.[0]?.src!,
               width: 800,
               height: 600,
-              alt: product.name,
+              alt: product.title,
             },
           ],
         }}
@@ -77,26 +89,24 @@ const ProductView: FC<Props> = ({ product }) => {
       <div className={cn(s.root, 'fit')}>
         <div className={cn(s.productDisplay, 'fit')}>
           <div className={s.nameBox}>
-            <h1 className={s.name}>{product.name}</h1>
+            <h1 className={s.name}>{product.title}</h1>
             <div className={s.price}>
-              {price}
-              {` `}
-              {product.prices?.price.currencyCode}
+              {getPrice(variant.priceV2.amount, variant.priceV2.currencyCode)}
             </div>
           </div>
 
           <div className={s.sliderContainer}>
             <ProductSlider>
-              {product.images.edges?.map((image, i) => (
-                <div key={image?.node.urlOriginal} className={s.imageContainer}>
+              {product.images.map((image, i) => (
+                <div key={image.src + i} className={s.imageContainer}>
                   <Image
                     className={s.img}
-                    src={image?.node.urlOriginal!}
-                    alt={image?.node.altText || 'Product Image'}
+                    src={image.src}
+                    alt={product.title}
                     width={1050}
                     height={1050}
                     priority={i === 0}
-                    quality="85"
+                    quality={85}
                   />
                 </div>
               ))}
@@ -106,34 +116,43 @@ const ProductView: FC<Props> = ({ product }) => {
 
         <div className={s.sidebar}>
           <section>
-            {options?.map((opt: any) => (
-              <div className="pb-4" key={opt.displayName}>
-                <h2 className="uppercase font-medium">{opt.displayName}</h2>
+            {colors && colors?.length > 0 && (
+              <div className="pb-4">
+                <h2 className="uppercase font-medium">Color:</h2>
                 <div className="flex flex-row py-4">
-                  {opt.values.map((v: any, i: number) => {
-                    const active = (choices as any)[opt.displayName]
-
-                    return (
-                      <Swatch
-                        key={`${v.entityId}-${i}`}
-                        active={v.label === active}
-                        variant={opt.displayName}
-                        color={v.hexColors ? v.hexColors[0] : ''}
-                        label={v.label}
-                        onClick={() => {
-                          setChoices((choices) => {
-                            return {
-                              ...choices,
-                              [opt.displayName]: v.label,
-                            }
-                          })
-                        }}
-                      />
-                    )
-                  })}
+                  {colors.map((option) => (
+                    <Swatch
+                      variant="color"
+                      active={color === option}
+                      key={option}
+                      color={option}
+                      label={option}
+                      onClick={() => {
+                        setColor(option)
+                      }}
+                    />
+                  ))}
                 </div>
               </div>
-            ))}
+            )}
+            {sizes && sizes.length > 0 && (
+              <div className="pb-4">
+                <h2 className="uppercase font-medium">Size</h2>
+                <div className="flex flex-row py-4">
+                  {sizes.map((option) => (
+                    <Swatch
+                      active={size === option}
+                      key={option}
+                      variant="size"
+                      label={option}
+                      onClick={() => {
+                        setSize(option)
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div className="pb-14 break-words w-full max-w-xl">
               <Text html={product.description} />
@@ -152,12 +171,6 @@ const ProductView: FC<Props> = ({ product }) => {
             </Button>
           </div>
         </div>
-
-        <WishlistButton
-          className={s.wishlistButton}
-          productId={product.entityId}
-          variant={product.variants.edges?.[0]!}
-        />
       </div>
     </Container>
   )
