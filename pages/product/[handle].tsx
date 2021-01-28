@@ -26,10 +26,7 @@ export async function getStaticProps({
   const product = await getProduct(builderConfig, {
     handle: params?.handle,
   })
-
-  if (!product) {
-    throw new Error(`Product with handle '${params!.handle}' not found`)
-  }
+  console.log('found product ', params?.handle, Boolean(product));
 
   const page = await resolveBuilderContent('product-page-template', {
     productHandle: params?.handle,
