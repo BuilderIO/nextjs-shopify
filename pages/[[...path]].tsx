@@ -73,7 +73,7 @@ export default function Path({
     )
   }
 
-  const { title, description, image } = page?.data!
+  const { title, description, image } = page?.data! || {}
   // inline content json to builder when live for ssr
   const isLive = !Builder.isEditing && !Builder.isPreviewing
   return (
