@@ -28,7 +28,7 @@ const Navbar: FC = () => {
 
   useEffect(() => {
     const fetchCollections = async () => {
-      const result = await getAllCollections(builderConfig, 3)
+      const result = await getAllCollections(builderConfig, 3, 0, 'data.handle,data.title')
       setCollections(result)
     }
     fetchCollections()
@@ -46,7 +46,7 @@ const Navbar: FC = () => {
             </Link>
             <nav className="hidden ml-6 space-x-4 lg:block">
               {collections.map((cl) => (
-                <Link href={`/collection/${cl.handle}`}>
+                <Link key={cl.handle} href={`/collection/${cl.handle}`}>
                   <a className={s.link}>{cl.title}</a>
                 </Link>
               ))}

@@ -101,13 +101,13 @@ export async function getProduct(
 
 export async function getAllCollections(
   config: BuillderConfig,
-  limit = 100,
+  limit = 20,
   offset = 0,
-  fields?: string[]
+  fields?: string
 ) {
   const query = qs.stringify(
     {
-      fields: fields || ['data'],
+      fields: fields || 'data',
       limit,
       offset,
       apiKey: config.apiKey,
@@ -117,7 +117,7 @@ export async function getAllCollections(
 
   const collectionsContent: BuilderContent[] = (
     await fetch(
-      `https://cdn.builder.io/api/v2/content/${config.collectionsModel}?apiKey=${config.apiKey}&limit=${limit}&offset=${offset}`
+      `https://cdn.builder.io/api/v2/content/${config.collectionsModel}?${query}`
     ).then((res) => res.json())
   ).results
 

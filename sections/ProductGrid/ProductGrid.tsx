@@ -3,8 +3,6 @@ import {
   Grid,
   GridProps,
   LoadingDots,
-  Marquee,
-  MarqueeProps,
 } from '@components/ui'
 import { ProductCard, ProductCardProps } from '@components/product'
 import {
@@ -26,8 +24,6 @@ export interface ProductGridProps {
   limit: number
   cardProps: ProductCardProps
   highlightCard?: HighlightedCardProps
-  marquee?: boolean
-  marqueeOptions?: MarqueeProps
 }
 
 export const ProductGrid: FC<ProductGridProps> = ({
@@ -39,8 +35,6 @@ export const ProductGrid: FC<ProductGridProps> = ({
   cardProps,
   highlightCard,
   gridProps,
-  marquee,
-  marqueeOptions,
 }) => {
   const [products, setProducts] = useState(initialProducts || [])
   const [loading, setLoading] = useState(false)
@@ -79,20 +73,16 @@ export const ProductGrid: FC<ProductGridProps> = ({
     return <LoadingDots />
   }
 
-  const children = products
+  return <Grid {...gridProps}>{products
     .slice(offset, limit)
     .map((product, i) => (
       <ProductCard
         key={String(product.id)}
-        {...(!marquee && highlightCard?.index === i
+        {...(highlightCard?.index === i
           ? highlightCard
           : cardProps)}
         product={product}
       />
     ))
-
-  if (marquee) {
-    return <Marquee {...marqueeOptions}>{children}</Marquee>
-  }
-  return <Grid {...gridProps}>{children}</Grid>
+}</Grid>
 }

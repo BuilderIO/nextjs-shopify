@@ -18,7 +18,7 @@ const Loading = () => (
 )
 
 const FeatureBar = dynamic(() => import('@components/common/FeatureBar'), {
-  loading: () => <Loading />,
+  ssr: false,
 })
 
 const Layout: FC = ({ children }) => {

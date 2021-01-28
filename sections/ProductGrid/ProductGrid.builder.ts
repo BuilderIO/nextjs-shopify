@@ -61,28 +61,7 @@ const gridFields: Input[] = [
 ]
 export const productGridSchema: Input[] = [
   {
-    name: 'marquee',
-    type: 'boolean',
-    defaultValue: false,
-  },
-  {
-    name: 'marqueeOptions',
-    showIf: `options.get('marquee')`,
-    defaultValue: {
-      variant: 'primary',
-    },
-    type: 'object',
-    subFields: [
-      {
-        name: 'variant',
-        type: 'enum',
-        enum: ['primary', 'secondary'],
-      },
-    ],
-  },
-  {
     name: 'gridProps',
-    showIf: `!options.get('marquee')`,
     defaultValue: {
       variant: 'default',
       layout: 'A',
@@ -106,7 +85,6 @@ export const productGridSchema: Input[] = [
   },
   {
     name: 'highlightCard',
-    showIf: `!options.get('marquee')`,
     defaultValue: {
       imgWidth: 1080,
       imgHeight: 1080,
