@@ -1,0 +1,227 @@
+{
+  "createdBy": "agZ9n5CUKRfbL9t6CaJOyVSK4Es2",
+  "createdDate": 1609185755277,
+  "data": {
+    "author": {
+      "@type": "@builder.io/core:Reference",
+      "id": "",
+      "model": ""
+    },
+    "httpRequests": {
+      "products": "https://shop.ladygaga.com/products.json"
+    },
+    "inputs": [],
+    "site": "ladygaga.com",
+    "title": "Homepage - english",
+    "blocks": [
+      {
+        "@type": "@builder.io/sdk:Element",
+        "@version": 2,
+        "id": "builder-65ff6d2d7569447a82adec925ffd3a59",
+        "component": {
+          "name": "Hero",
+          "options": {
+            "headline": "The simplest way to build Ecommerce sites with Next.js",
+            "description": "Stop waiting on development release cycles. Start dragging and dropping to build and optimize digital experiences for your website, app, or ecommerce store.",
+            "ctaLink": "https://builder.io",
+            "ctaText": "read more"
+          }
+        },
+        "responsiveStyles": {
+          "large": {
+            "display": "flex",
+            "flexDirection": "column",
+            "position": "relative",
+            "flexShrink": "0",
+            "boxSizing": "border-box",
+            "marginTop": "20px"
+          }
+        }
+      },
+      {
+        "@type": "@builder.io/sdk:Element",
+        "@version": 2,
+        "id": "builder-e42ef040359d47b38715acf70cc5b91a",
+        "component": {
+          "name": "ProductCollectionGrid",
+          "options": {
+            "marqueeOptions": {
+              "variant": "primary"
+            },
+            "gridProps": {
+              "variant": "default",
+              "layout": "B"
+            },
+            "cardProps": {
+              "variant": "simple",
+              "imgPriority": true,
+              "imgLayout": "responsive",
+              "imgLoading": "eager",
+              "imgWidth": 540,
+              "imgHeight": 540,
+              "layout": "fixed"
+            },
+            "highlightCard": {
+              "imgWidth": 1080,
+              "imgHeight": 1080,
+              "variant": "simple",
+              "imgPriority": true,
+              "imgLayout": "responsive",
+              "imgLoading": "eager",
+              "layout": "fixed",
+              "index": 6
+            },
+            "limit": 3,
+            "collection": "men",
+            "marquee": false
+          }
+        },
+        "responsiveStyles": {
+          "large": {
+            "display": "flex",
+            "flexDirection": "column",
+            "position": "relative",
+            "flexShrink": "0",
+            "boxSizing": "border-box",
+            "marginTop": "20px"
+          }
+        }
+      },
+      {
+        "@type": "@builder.io/sdk:Element",
+        "@version": 2,
+        "id": "builder-62aacf55b05b4085b82b988d27cab2d9",
+        "component": {
+          "name": "Hero",
+          "options": {
+            "headline": "Ready to go headless?",
+            "description": "Prism adaptogen migas truffaut bicycle rights cred brunch cornhole chia chicharrones. Humblebrag wayfarers keffiyeh XOXO vexillologist, tacos banjo iPhone biodiesel direct trade typewriter. Fingerstache chia schlitz bespoke cronut unicorn crucifix listicle man bun mlkshk tilde bicycle rights offal 3 wolf moon humblebrag. DIY retro enamel pin sartorial ethical, glossier schlitz stumptown meh swag ",
+            "ctaLink": "https://www.builder.io",
+            "ctaText": "read more"
+          }
+        },
+        "responsiveStyles": {
+          "large": {
+            "display": "flex",
+            "flexDirection": "column",
+            "position": "relative",
+            "flexShrink": "0",
+            "boxSizing": "border-box",
+            "marginTop": "20px"
+          }
+        }
+      },
+      {
+        "@type": "@builder.io/sdk:Element",
+        "@version": 2,
+        "id": "builder-00c5a817f2374831b396881b418d2c42",
+        "component": {
+          "name": "ProductCollectionGrid",
+          "options": {
+            "marqueeOptions": {
+              "variant": "primary"
+            },
+            "gridProps": {
+              "variant": "default",
+              "layout": "D"
+            },
+            "cardProps": {
+              "variant": "simple",
+              "imgPriority": true,
+              "imgLayout": "responsive",
+              "imgLoading": "eager",
+              "imgWidth": 540,
+              "imgHeight": 540,
+              "layout": "fixed"
+            },
+            "highlightCard": {
+              "imgWidth": 1080,
+              "imgHeight": 1080,
+              "variant": "simple",
+              "imgPriority": true,
+              "imgLayout": "responsive",
+              "imgLoading": "eager",
+              "layout": "fixed",
+              "index": 1
+            },
+            "limit": 3,
+            "collection": "womens"
+          }
+        },
+        "responsiveStyles": {
+          "large": {
+            "display": "flex",
+            "flexDirection": "column",
+            "position": "relative",
+            "flexShrink": "0",
+            "boxSizing": "border-box",
+            "marginTop": "20px"
+          }
+        }
+      },
+      {
+        "id": "builder-pixel-zswrt8jv0s8",
+        "@type": "@builder.io/sdk:Element",
+        "tagName": "img",
+        "properties": {
+          "src": "https://cdn.builder.io/api/v1/pixel?apiKey=6e5b10afb1a9457ba648112d4c5d30e8",
+          "role": "presentation",
+          "width": "0",
+          "height": "0"
+        },
+        "responsiveStyles": {
+          "large": {
+            "height": "0",
+            "width": "0",
+            "display": "inline-block",
+            "opacity": "0",
+            "overflow": "hidden",
+            "pointerEvents": "none"
+          }
+        }
+      }
+    ],
+    "url": "/",
+    "state": {
+      "deviceSize": "large",
+      "location": {
+        "path": "",
+        "query": {}
+      }
+    }
+  },
+  "id": "fde6ca2cfb594ecc8a33d69cdd2267a2",
+  "lastUpdatedBy": "agZ9n5CUKRfbL9t6CaJOyVSK4Es2",
+  "meta": {
+    "hasLinks": false,
+    "kind": "page",
+    "shopifyDomain": "builder-io-demo.myshopify.com/",
+    "needsHydration": false
+  },
+  "modelId": "14975eb5a86b4f8490c78ffa183fddaf",
+  "name": "homepage",
+  "published": "published",
+  "query": [
+    {
+      "operator": "is",
+      "property": "urlPath",
+      "value": "/"
+    },
+    {
+      "operator": "is",
+      "property": "locale",
+      "value": [
+        "en-US",
+        "es"
+      ]
+    }
+  ],
+  "testRatio": 1,
+  "variations": {},
+  "lastUpdated": 1611810403584,
+  "screenshot": "https://cdn.builder.io/api/v1/image/assets%2F6e5b10afb1a9457ba648112d4c5d30e8%2F6fe65dec13d14ed7831e30ed560b9348",
+  "rev": "p29f1c0pgsg",
+  "@originOrg": "6e5b10afb1a9457ba648112d4c5d30e8",
+  "@originContentId": "adecec8b579748e2856e82a90d3cc06a",
+  "@originModelId": "255f235b881247c5ba8bf8211f860b25"
+}

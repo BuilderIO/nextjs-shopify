@@ -1,0 +1,91 @@
+{
+  "createdBy": "agZ9n5CUKRfbL9t6CaJOyVSK4Es2",
+  "createdDate": 1610516058604,
+  "data": {
+    "inputs": [],
+    "preview": {
+      "@type": "@builder.io/core:Request",
+      "options": {
+        "product": 6206263558323
+      },
+      "request": {
+        "method": "GET",
+        "url": "https://cdn.builder.io/api/v1/shopify/products/{{this.options.product}}.json?apiKey=6e5b10afb1a9457ba648112d4c5d30e8"
+      }
+    },
+    "blocks": [
+      {
+        "@type": "@builder.io/sdk:Element",
+        "@version": 2,
+        "bindings": {
+          "component.options.product": "state.product",
+          "component.options.title": "state.product.title",
+          "component.options.description": "state.product.descriptionHtml"
+        },
+        "id": "builder-0651a7f9080a46b2a5cf92ab47265e54",
+        "component": {
+          "name": "ProductView",
+          "options": {}
+        },
+        "responsiveStyles": {
+          "large": {
+            "display": "flex",
+            "flexDirection": "column",
+            "position": "relative",
+            "flexShrink": "0",
+            "boxSizing": "border-box",
+            "marginTop": "20px"
+          }
+        }
+      },
+      {
+        "id": "builder-pixel-z6b6ol1xs6q",
+        "@type": "@builder.io/sdk:Element",
+        "tagName": "img",
+        "properties": {
+          "src": "https://cdn.builder.io/api/v1/pixel?apiKey=6e5b10afb1a9457ba648112d4c5d30e8",
+          "role": "presentation",
+          "width": "0",
+          "height": "0"
+        },
+        "responsiveStyles": {
+          "large": {
+            "height": "0",
+            "width": "0",
+            "display": "inline-block",
+            "opacity": "0",
+            "overflow": "hidden",
+            "pointerEvents": "none"
+          }
+        }
+      }
+    ],
+    "state": {
+      "deviceSize": "large",
+      "location": {
+        "path": "",
+        "query": {}
+      }
+    }
+  },
+  "id": "b843406cbcfe4e6bba90b5bb25eca7b2",
+  "lastUpdatedBy": "agZ9n5CUKRfbL9t6CaJOyVSK4Es2",
+  "meta": {
+    "hasLinks": false,
+    "kind": "component",
+    "shopifyDomain": "builder-io-demo.myshopify.com/",
+    "needsHydration": false
+  },
+  "modelId": "0b0dffa3eda746d1b45dc0be0864b8a3",
+  "name": "Generic template",
+  "published": "published",
+  "query": [],
+  "testRatio": 1,
+  "variations": {},
+  "lastUpdated": 1611873566299,
+  "screenshot": "https://cdn.builder.io/api/v1/image/assets%2F6e5b10afb1a9457ba648112d4c5d30e8%2F52a6831152264f29a2b28166304a30d5",
+  "rev": "sgvn6hktp3h",
+  "@originOrg": "6e5b10afb1a9457ba648112d4c5d30e8",
+  "@originContentId": "3085d5f0178848fd9013da0b71744a50",
+  "@originModelId": "9fe91514032044879c64afcfe1f4ab5c"
+}

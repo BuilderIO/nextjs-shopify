@@ -1,0 +1,111 @@
+{
+  "createdBy": "agZ9n5CUKRfbL9t6CaJOyVSK4Es2",
+  "createdDate": 1611769584081,
+  "data": {
+    "collectionPreview": {
+      "@type": "@builder.io/core:Request",
+      "options": {
+        "collection": 246620422323
+      },
+      "request": {
+        "method": "GET",
+        "url": "https://cdn.builder.io/api/v1/shopify/collections/{{this.options.collection}}.json?apiKey=6e5b10afb1a9457ba648112d4c5d30e8"
+      }
+    },
+    "blocks": [
+      {
+        "@type": "@builder.io/sdk:Element",
+        "@version": 2,
+        "bindings": {
+          "component.options.collection": "state.collection",
+          "component.options.renderSeo": "true"
+        },
+        "id": "builder-02434c3799094ba2a50eb11212e7e54c",
+        "component": {
+          "name": "CollectionView",
+          "options": {
+            "productGridOptions": {
+              "cardProps": {
+                "variant": "slim",
+                "imgPriority": true,
+                "imgLayout": "responsive",
+                "imgLoading": "eager",
+                "imgWidth": 440,
+                "imgHeight": 440,
+                "layout": "fixed"
+              },
+              "gridProps": {
+                "variant": "filled",
+                "layout": "D"
+              },
+              "limit": 6,
+              "highlightCard": {
+                "index": null,
+                "variant": "simple",
+                "imgPriority": true
+              }
+            }
+          }
+        },
+        "responsiveStyles": {
+          "large": {
+            "display": "flex",
+            "flexDirection": "column",
+            "position": "relative",
+            "flexShrink": "0",
+            "boxSizing": "border-box",
+            "marginTop": "20px"
+          }
+        }
+      },
+      {
+        "id": "builder-pixel-bmbho8mcznw",
+        "@type": "@builder.io/sdk:Element",
+        "tagName": "img",
+        "properties": {
+          "src": "https://cdn.builder.io/api/v1/pixel?apiKey=6e5b10afb1a9457ba648112d4c5d30e8",
+          "role": "presentation",
+          "width": "0",
+          "height": "0"
+        },
+        "responsiveStyles": {
+          "large": {
+            "height": "0",
+            "width": "0",
+            "display": "inline-block",
+            "opacity": "0",
+            "overflow": "hidden",
+            "pointerEvents": "none"
+          }
+        }
+      }
+    ],
+    "state": {
+      "deviceSize": "large",
+      "location": {
+        "path": "",
+        "query": {}
+      }
+    }
+  },
+  "id": "628b61d1acbd4e50b2a62653f92cc8ce",
+  "lastUpdatedBy": "agZ9n5CUKRfbL9t6CaJOyVSK4Es2",
+  "meta": {
+    "hasLinks": false,
+    "kind": "component",
+    "shopifyDomain": "builder-io-demo.myshopify.com/",
+    "needsHydration": false
+  },
+  "modelId": "d8f5e7d2989d4d12a7d9952afdf6180a",
+  "name": "generic collection",
+  "published": "published",
+  "query": [],
+  "testRatio": 1,
+  "variations": {},
+  "lastUpdated": 1611873828163,
+  "screenshot": "https://cdn.builder.io/api/v1/image/assets%2F6e5b10afb1a9457ba648112d4c5d30e8%2F5d265f62812440d689ce0dc7030d4b4d",
+  "rev": "vugk44723n",
+  "@originOrg": "6e5b10afb1a9457ba648112d4c5d30e8",
+  "@originContentId": "3ee104501a9a4871a34361c2afbfd38d",
+  "@originModelId": "06511396f1224019b86204f5c567eac4"
+}

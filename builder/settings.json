@@ -1,0 +1,83 @@
+{
+  "customTargetingAttributes": {
+    "locale": {
+      "enum": [
+        "en-US",
+        "es"
+      ],
+      "type": "string"
+    },
+    "productHandle": {
+      "type": "ShopifyProductHandle"
+    },
+    "collectionHandle": {
+      "type": "ShopifyCollectionHandle"
+    }
+  },
+  "settings": {
+    "editorShowShopifyBlocks": false,
+    "reloadPreviewForMobile": true,
+    "showSitePreviewTab": false,
+    "optimizeContentVisibility": true,
+    "allowBuiltInComponents": true,
+    "plugins": {
+      "@builder.io/plugin-shopify": {
+        "apiPassword": "",
+        "hasConnected": true,
+        "syncPreviewUrlWithTargeting": true,
+        "storefrontAccessToken": "",
+        "storeDomain": "",
+        "demoMode": true,
+        "apiKey": ""
+      }
+    },
+    "componentsOnlyMode": false
+  },
+  "hasIntegrated": "local",
+  "type": "space",
+  "@version": 3,
+  "siteUrl": "https://headless.builders",
+  "loadPlugins": [
+    "@builder.io/plugin-shopify@dev"
+  ],
+  "name": "nextjs-shopify",
+  "cloneInfo": {
+    "contentIdMap": {
+      "3ee104501a9a4871a34361c2afbfd38d": "628b61d1acbd4e50b2a62653f92cc8ce",
+      "3085d5f0178848fd9013da0b71744a50": "b843406cbcfe4e6bba90b5bb25eca7b2",
+      "7728a247a4934bcd9101a41f48eead80": "4bbfc956290346d0a80cd974603ea080",
+      "adecec8b579748e2856e82a90d3cc06a": "fde6ca2cfb594ecc8a33d69cdd2267a2",
+      "728e9c7cb7354ca383fd095b5f6f7a37": "d9cbac398261436b8c6e84cbe1adf57d",
+      "89a993cc98544a17bb635807d80862f0": "2b16613f9c2543818a8c7552f1610403",
+      "b5667c4440d94a72881c8f61c7981603": "eaccfcfb69f144d5bb18b905df7722f6",
+      "bba6c183f26740b68f9534100d783558": "84d659ceba6c46429646088db0c07f36",
+      "1229a9f5737f4bf7bcc7d20b6fe7a641": "343dd6b545324319b8eac983368f5f16",
+      "a119c23b38b2480eb38bebf7ab6d41c5": "bb462d0d00cf4a9c8050b8aa75f02c20",
+      "6569746f354d4e5c90187d7cd6656ddd": "fbcfcbcf8c8f4d10b3504a7adf4a04fc",
+      "c6c88dff9aaa4086ade799b29e774d09": "656ea467485d46ed9b8d75d05ef84b10",
+      "75b83e075f154adf893ffa05e9b77cc4": "d58593bb51584a09bb15a880a5e7d986",
+      "8e1f7caa9fa54e5db320bda0c9c79e66": "d7a1b559335049f183bba2e5af309639",
+      "5b990b67ed994c4b9c73c65d83449f77": "c7b5e418297345c4ba885dd017072a1f",
+      "476e129dfe3d4fe19496e3daee9c36a1": "f3204611b4d3403f85da5e75bd2de9f3",
+      "4286b4d987e7426da8b36bf59dc75343": "af83cc35169540ae9e3bd89633bb70ec",
+      "b2a8332a2b25446085610a3d231ee851": "6d3f0158b0124aab93e3243e882524fb",
+      "4b6cf9ac538f45e5930fc3cf98962126": "3013eda39e5440eeb3d4b093b9d5281a",
+      "1501c09396124ba58f751fd9e451b36c": "390f6d6329b64ab495638252244b3d91",
+      "55c46b2069d1495884502dae24f9ae95": "f6ff744156b54867963062867e9daedb",
+      "66ab93a30e0047078dd2e83c38333304": "e9594288cf474530be7025ed1c408425",
+      "f219d8a6586544f2aead8effd4e1bb8f": "99f2c49b55254449a0420e3add79e43d",
+      "531939dc83934aa09fd0116d4eacea23": "7b107a76334549f6b4566190adead3c6",
+      "2d7acc8d99204f2ba0ecb5633a699600": "9dc0684855df41a79ff7d5412d4bb97c",
+      "d30134d86cd54c4fa76266f1369de5f9": "c18f1699b98e4d9696734830e1530b3d",
+      "d3802320fc1a428687b1c7bc2eae613a": "c1acd39611fb4825b8102062fce9c980",
+      "fbcea22641f24036bf8f47361d4a2963": "548cc675b07a4ca1bb95118ea3b403e5"
+    },
+    "modelIdMap": {
+      "06511396f1224019b86204f5c567eac4": "d8f5e7d2989d4d12a7d9952afdf6180a",
+      "9fe91514032044879c64afcfe1f4ab5c": "0b0dffa3eda746d1b45dc0be0864b8a3",
+      "255f235b881247c5ba8bf8211f860b25": "14975eb5a86b4f8490c78ffa183fddaf",
+      "2ac6608fcf5444a6b76c77be29e53e52": "6b0d05f2e6f242f5b198e3903d7e43ff",
+      "0e30c28980a246c89b3308434cbc971f": "d07d319a3b5a4ac09270d36cfcf5c0c1"
+    }
+  }
+}
