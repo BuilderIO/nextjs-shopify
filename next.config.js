@@ -6,6 +6,19 @@ module.exports = bundleAnalyzer({
   images: {
     domains: ['cdn.shopify.com', 'cdn.builder.io'],
   },
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: 'frame-ancestors https://*.builder.io',
+          },
+        ],
+      },
+    ]
+  },
   env: {
     // expose env to the browser
     SHOPIFY_STOREFRONT_API_TOKEN: process.env.SHOPIFY_STOREFRONT_API_TOKEN,
