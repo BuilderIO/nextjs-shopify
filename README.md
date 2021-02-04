@@ -47,7 +47,7 @@ BUILDER_PUBLIC_KEY=...
 ### Connect Shopify
 Now you have a space clone matching the spec defined in this repo, you'll need to connect it to your shopify store.
 
-- Create a [private app](https://help.shopify.com/en/manual/apps/private-apps) in your Shpoify store and generate both admin api keys and storefront API token.
+Create a [private app](https://help.shopify.com/en/manual/apps/private-apps) in your Shpoify store and generate both admin api keys and storefront API token.
 
 <!-- TODO: how do they get here?? -->
 Add these tokens in the `@builder.io/plugin-shopify` settings, if this is your first time it'll pop up asking you for those details.
