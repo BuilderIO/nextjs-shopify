@@ -1,5 +1,3 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fbuilderio%2Fnextjs-shopify)
-
 Next.js + Shopify + Builder.io starter kit.
 
 Demo live at: [headless.builders](https://headless.builders/)
@@ -50,7 +48,7 @@ Now you have a space clone matching the spec defined in this repo, you'll need t
 Create a [private app](https://help.shopify.com/en/manual/apps/private-apps) in your Shpoify store and generate both admin api keys and storefront API token.
 
 <!-- TODO: how do they get here?? -->
-Add these tokens in the `@builder.io/plugin-shopify` settings, if this is your first time it'll pop up asking you for those details.
+Access your newly created space, by selecting it from the [list of spaces](https://builder.io/spaces) in your organization, a prompt will ask you for all the requied details to connect shopify with builder and import your products/collections and register webhooks to listen to product/collection updates, fill in the required tokens and press `Connect your store`, this might take a couple of minutes depending on your store size.
 
 Add your storefront api token to the .env files (`.env.production` and `.env.development`)
 
@@ -76,6 +74,6 @@ Go to your [new space settings](https://builder.io/account/space) and change the
 ### Deploy
 
 You can deploy anywhere you like, but for this project we recommend [Vercel](https://nextjs.org/docs/deployment). 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fbuilderio%2Fnextjs-shopify)
 
-For easy deployment just signup for Vercel, connect to this repo, and done!
 
