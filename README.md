@@ -29,7 +29,7 @@ git clone https://github.com/BuilderIO/nextjs-shopify.git
 - [Signup for Builder.io](builder.io/signup), go to your [organization settings page](https://builder.io/account/organization), create a private key and copy it
 ```
 cd nextjs-shopify
-builder create -k [private-key] -n [space-name]
+builder create -k [private-key] -n [space-name] -d
 ```
 This command when done it'll print your new space's public api key, copy it and add it to your env files in this repo.
 
