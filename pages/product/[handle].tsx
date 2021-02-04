@@ -70,7 +70,7 @@ export default function Handle({
     )
   }
 
-  return router.isFallback ? (
+  return router.isFallback && isLive ? (
     <h1>Loading...</h1> // TODO (BC) Add Skeleton Views
   ) : (
     <BuilderComponent
