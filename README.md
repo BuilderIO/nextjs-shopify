@@ -55,8 +55,8 @@ Add these tokens in the `@builder.io/plugin-shopify` settings, if this is your f
 Add your storefront api token to the .env files (`.env.production` and `.env.development`)
 
 ```
-SHOPIFY_STOREFRONT_API_TOKEN=dd0057d1e48d2d61ca8ec27b07d3c5e6
-SHOPIFY_STORE_DOMAIN=builder-io-demo.myshopify.com
+SHOPIFY_STOREFRONT_API_TOKEN=...
+SHOPIFY_STORE_DOMAIN=...
 ```
 
 ### Install dependencies
