@@ -22,24 +22,24 @@
     "allowBuiltInComponents": true,
     "plugins": {
       "@builder.io/plugin-shopify": {
-        "apiPassword": "",
-        "hasConnected": false,
+        "apiKey": "14f064d7f94eeaadf93bd8690fca1207",
+        "storefrontAccessToken": "dd0057d1e48d2d61ca8ec27b07d3c5e6",
         "syncPreviewUrlWithTargeting": true,
-        "storefrontAccessToken": "",
-        "storeDomain": "",
-        "apiKey": ""
+        "apiPassword": "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",
+        "storeDomain": "builder-io-demo.myshopify.com/",
+        "hasConnected": false
       }
     },
     "componentsOnlyMode": false
   },
   "hasIntegrated": "local",
   "type": "space",
-  "@version": 3,
+  "@version": 5,
   "siteUrl": "https://headless.builders",
   "loadPlugins": [
     "@builder.io/plugin-shopify@dev"
   ],
-  "name": "nextjs-shopify",
+  "name": "nextjs-shopify-starter",
   "cloneInfo": {
     "contentIdMap": {
       "3ee104501a9a4871a34361c2afbfd38d": "628b61d1acbd4e50b2a62653f92cc8ce",
