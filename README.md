@@ -24,7 +24,7 @@ npm install @builder.io/cli -g
 ```
 - Clone this repo
 ```
-git@github.com:BuilderIO/nextjs-shopify.git
+git clone https://github.com/BuilderIO/nextjs-shopify.git
 ```
 - [Signup for Builder.io](builder.io/signup), go to your [organization settings page](https://builder.io/account/organization), create a private key and copy it
 ```
