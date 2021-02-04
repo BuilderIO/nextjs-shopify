@@ -15,11 +15,9 @@ Demo live at: [headless.builders](https://headless.builders/)
 - Standardized Data Hooks
 - Integrations - Integrate seamlessly with the most common ecommerce platforms.
 
-## Integrations
 
-This starter is configured for headless shopify. 
 
-# step by step hosted to headless shopify:
+# Get Started
 - install builder cli
 ```
 npm install @builder.io/cli -g
@@ -28,7 +26,7 @@ npm install @builder.io/cli -g
 ```
 git@github.com:BuilderIO/nextjs-shopify.git
 ```
-- Signup for builder and copy your private key then
+- [Signup for Builder.io](builder.io/signup), go to your [organization settings page](https://builder.io/account/organization), create a private key and copy it
 ```
 cd nextjs-shopify
 builder create -k [private-key] -n [space-name]
