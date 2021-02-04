@@ -89,7 +89,7 @@
   "defaultQuery": [],
   "helperText": "",
   "hideOptions": false,
-  "examplePageUrl": "https://headless.builders/product/${previewProduct.handle}",
+  "examplePageUrl": "${space.siteUrl}/product/${previewProduct.handle}",
   "allowTests": true,
   "injectWcPosition": "",
   "allowHeatmap": true,

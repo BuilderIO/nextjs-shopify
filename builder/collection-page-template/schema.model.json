@@ -61,7 +61,7 @@
           "collection": 203670618263
         },
         "request": {
-          "url": "http://localhost:5000/api/v1/shopify/collections/{{this.options.collection}}.json?apiKey=6e5b10afb1a9457ba648112d4c5d30e8",
+          "url": "https://cdn.builder.io/api/v1/shopify/collections/{{this.options.collection}}.json?apiKey=6e5b10afb1a9457ba648112d4c5d30e8",
           "method": "GET"
         },
         "@type": "@builder.io/core:Request"
@@ -89,7 +89,7 @@
   "useQueryParamTargetingClientSide": false,
   "publicReadable": true,
   "allowTests": true,
-  "examplePageUrl": "https://headless.builders/collection/${previewCollection.handle}",
+  "examplePageUrl": "${space.siteUrl}/collection/${previewCollection.handle}",
   "injectWcPosition": "",
   "allowMetrics": true,
   "hidden": false,
