@@ -61,7 +61,7 @@ SHOPIFY_STORE_DOMAIN=builder-io-demo.myshopify.com
 
 ### Install dependencies
 ```
-npm i install
+npm install
 ```
 
 ### Run the dev server
