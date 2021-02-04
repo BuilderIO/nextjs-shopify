@@ -18,11 +18,11 @@ Demo live at: [headless.builders](https://headless.builders/)
 
 
 # Get Started
-- install builder cli
+- Install the Builder.io cli
 ```
 npm install @builder.io/cli -g
 ```
-- clone this repo
+- Clone this repo
 ```
 git@github.com:BuilderIO/nextjs-shopify.git
 ```
