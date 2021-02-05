@@ -30,14 +30,13 @@ const CollectionPreview: FC<Props> = ({
       const result = await getCollection(builderConfig, {
         handle: collection,
       })
-      console.log('here setting colection  ', result)
       setCollection(result)
       setLoading(false)
     }
     if (typeof collection === 'string') {
       fetchCollection()
     }
-  }, [collection])
+  }, [collection, initalCollection])
 
   if (!collection || typeof collection === 'string' || loading) {
     return <LoadingDots />

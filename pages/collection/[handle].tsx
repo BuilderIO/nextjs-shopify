@@ -17,6 +17,7 @@ import Head from 'next/head'
 
 builder.init(builderConfig.apiKey!)
 Builder.isStatic = true
+const builderModel = 'collection-page';
 
 export async function getStaticProps({
   params,
@@ -26,7 +27,7 @@ export async function getStaticProps({
     handle: params?.handle,
   })
 
-  const page = await resolveBuilderContent('collection-page-template', {
+  const page = await resolveBuilderContent(builderModel, {
     collectionHandle: params?.handle,
     locale,
   })
@@ -75,7 +76,7 @@ export default function Handle({
     <BuilderComponent
       isStatic
       key={collection.id}
-      model="collection-page-template"
+      model={builderModel}
       data={{ collection }}
       {...(isLive && page && { content: page })}
     />

@@ -17,7 +17,7 @@
   "injectWcAt": "",
   "individualEmbed": false,
   "strictPrivateRead": false,
-  "name": "collection-page-template",
+  "name": "collection-page",
   "bigData": false,
   "publicWritable": false,
   "strictPrivateWrite": false,

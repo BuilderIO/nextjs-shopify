@@ -49,7 +49,7 @@ const ProductView: FC<Props> = ({ product }) => {
       return variant.size === size && variant.color === color
     })
 
-    if (variant.id !== newVariant.id) {
+    if (variant.id !== newVariant?.id) {
       setVariant(newVariant)
     }
   }, [size, color, variants, variant.id])

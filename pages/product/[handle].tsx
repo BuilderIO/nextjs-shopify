@@ -19,6 +19,8 @@ import Head from 'next/head'
 builder.init(builderConfig.apiKey!)
 Builder.isStatic = true
 
+const builderModel= 'product-page';
+
 export async function getStaticProps({
   params,
   locale,
@@ -27,7 +29,7 @@ export async function getStaticProps({
     handle: params?.handle,
   })
 
-  const page = await resolveBuilderContent('product-page-template', {
+  const page = await resolveBuilderContent(builderModel, {
     productHandle: params?.handle,
     locale,
   })
@@ -37,9 +39,7 @@ export async function getStaticProps({
       page,
       product,
     },
-    // 4 hours in production, 1s in development
-    // todo: 14400
-    revalidate: 1,
+    revalidate: 120,
   }
 }
 
@@ -76,7 +76,7 @@ export default function Handle({
     <BuilderComponent
       isStatic
       key={product.id}
-      model="product-page-template"
+      model={builderModel}
       data={{ product }}
       {...(isLive && page && { content: page })}
     />
