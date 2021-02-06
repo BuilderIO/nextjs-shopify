@@ -14,7 +14,6 @@ Demo live at: [headless.builders](https://headless.builders/)
 - Integrations - Integrate seamlessly with the most common ecommerce platforms.
 
 
-
 ## Get Started
 
 ### Install the Builder.io cli
@@ -29,7 +28,7 @@ git clone https://github.com/BuilderIO/nextjs-shopify.git
 
 ### Generate your Builder.io space
 <!-- TODO: link "private key" to a forum post or doc showing how to create that -->
-[Signup for Builder.io](builder.io/signup), then go to your [organization settings page](https://builder.io/account/organization?root=true), create a private key and copy it
+[Signup for Builder.io](builder.io/signup), then go to your [organization settings page](https://builder.io/account/organization?root=true), create a private key and copy it and supply it for `[private-key]` below. For `[space-name]` create a name for your space, such as "Next.js Shopify"
 
 ```
 cd nextjs-shopify
