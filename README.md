@@ -1,4 +1,4 @@
-Next.js + Shopify + Builder.io starter kit.
+# Next.js + Shopify + Builder.io starter kit
 
 Demo live at: [headless.builders](https://headless.builders/)
 
@@ -50,7 +50,9 @@ Create a [private app](https://help.shopify.com/en/manual/apps/private-apps) in 
 
 
 <!-- TODO: how do they get here?? -->
-Access your newly created space, by selecting it from the [list of spaces](https://builder.io/spaces) in your organization, a prompt will ask you for all the requied details to connect shopify with builder and import your products/collections and register webhooks to listen to product/collection updates, fill in the required tokens and press `Connect your store`, this might take a couple of minutes depending on your store size.
+Access your newly created space, by selecting it from the [list of spaces](https://builder.io/spaces) in your organization, a prompt will ask you for all the requied details to connect shopify with builder and import your products/collections and register webhooks to listen to product/collection updates. 
+
+Fill in the required tokens and press `Connect your store`, this might take a couple of minutes depending on your store size.
 
 Add your storefront api token to the .env files (`.env.production` and `.env.development`)
 
