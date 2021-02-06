@@ -44,7 +44,10 @@ BUILDER_PUBLIC_KEY=...
 ### Connect Shopify
 Now you have a space clone matching the spec defined in this repo, you'll need to connect it to your shopify store.
 
-Create a [private app](https://help.shopify.com/en/manual/apps/private-apps) in your Shpoify store and generate both admin api keys and storefront API token.
+Create a [private app](https://help.shopify.com/en/manual/apps/private-apps) in your Shpoify store. Be sure to check the box for Storefront API access.
+
+<img src="https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F844a1eb444f44c759a8f931251cfee70" />
+
 
 <!-- TODO: how do they get here?? -->
 Access your newly created space, by selecting it from the [list of spaces](https://builder.io/spaces) in your organization, a prompt will ask you for all the requied details to connect shopify with builder and import your products/collections and register webhooks to listen to product/collection updates, fill in the required tokens and press `Connect your store`, this might take a couple of minutes depending on your store size.
