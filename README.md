@@ -77,7 +77,9 @@ Go to your [new space settings](https://builder.io/account/space) and change the
 
 ### Deploy
 
-You can deploy anywhere you like, but for this project we recommend [Vercel](https://nextjs.org/docs/deployment). 
+You can deploy this code anywhere you like - you can find many deployment options for Next.js [here](https://nextjs.org/docs/deployment). For this project, we particularly recommend Vercel - it's as easy as signing up for Vercel and choosing your repo to deploy. See more info [here](https://nextjs.org/docs/deployment), or use the one click deploy option below:
+
+
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fbuilderio%2Fnextjs-shopify)
 
 
