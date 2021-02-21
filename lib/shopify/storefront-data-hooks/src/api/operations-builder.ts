@@ -206,16 +206,17 @@ export async function getCollection(
     ...options.productsQuery,
     apiKey: config.apiKey,
   }
-  const { products, nextPageCursor } = await getCollectionProducts(productsQuery);
+  const { products, nextPageCursor, hasNextPage } = await getCollectionProducts(productsQuery);
 
   return {
     ...collection,
     products,
     nextPageCursor,
+    hasNextPage
   }
 }
 
-export const getCollectionProducts = (productsQuery: CollectionProductsQuery): Promise<{ nextPageCursor: string, products: any[]}> => {
+export const getCollectionProducts = (productsQuery: CollectionProductsQuery): Promise<{ nextPageCursor: string, products: any[], hasNextPage: boolean}> => {
   const search = qs.stringify(productsQuery)
-  return fetch(`http://localhost:5000/api/v1/shopify-sync/collection-products?${search}`).then(res => res.json());
+  return fetch(`https://cdn.builder.io/api/v1/shopify-sync/collection-products?${search}`).then(res => res.json());
 }
