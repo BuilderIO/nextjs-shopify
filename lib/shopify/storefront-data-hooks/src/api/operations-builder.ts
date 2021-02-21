@@ -7,6 +7,13 @@ export interface BuillderConfig {
   collectionsModel: string
 }
 
+export interface CollectionProductsQuery {
+  handle: string;
+  limit?: number;
+  cursor?: string;
+  apiKey: string;
+}
+
 export async function getAllProducts(
   config: BuillderConfig,
   limit = 100,
@@ -167,7 +174,7 @@ export async function getAllCollectionPaths(
 
 export async function getCollection(
   config: BuillderConfig,
-  options: { id?: string; handle?: string; withContent?: boolean }
+  options: { id?: string; handle?: string, productsQuery?: Omit<CollectionProductsQuery, 'handle'> }
 ) {
   if (Boolean(options.id) === Boolean(options.handle)) {
     throw new Error('Either a handle or id is required')
@@ -192,8 +199,23 @@ export async function getCollection(
     ).then((res) => res.json())
   ).results
 
-  if (options.withContent) {
-    return collectionsContent[0]
+  const collection = collectionsContent[0]?.data
+  const productsQuery = {
+    limit: 20,
+    handle: collection.handle,
+    ...options.productsQuery,
+    apiKey: config.apiKey,
   }
-  return collectionsContent[0]?.data
+  const { products, nextPageCursor } = await getCollectionProducts(productsQuery);
+
+  return {
+    ...collection,
+    products,
+    nextPageCursor,
+  }
+}
+
+export const getCollectionProducts = (productsQuery: CollectionProductsQuery): Promise<{ nextPageCursor: string, products: any[]}> => {
+  const search = qs.stringify(productsQuery)
+  return fetch(`http://localhost:5000/api/v1/shopify-sync/collection-products?${search}`).then(res => res.json());
 }

@@ -45,7 +45,6 @@ export async function resolveBuilderContent(
       async CollectionBox(props) {
         let collection = props.collection
         if (collection && typeof collection === 'string') {
-          console.log('resolving azooz ', collection)
           collection = await getCollection(builderConfig, {
             handle: collection,
           })
