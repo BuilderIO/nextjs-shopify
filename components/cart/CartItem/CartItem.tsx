@@ -60,7 +60,7 @@ const CartItem = ({
       // because the component will be removed from the view
       await removeItem(item.variant.id)
     } catch (error) {
-      console.log(error)
+      console.error(error)
       setRemoving(false)
     }
   }

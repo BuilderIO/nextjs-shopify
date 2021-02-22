@@ -30,7 +30,6 @@ const CartSidebarView: FC = () => {
         } as any
       }).toPromise();
       setCartUpsell(cartUpsellContent);
-      console.log('here cart upsell ', cartUpsellContent);
     }
     fetchContent();
   }, [cart?.lineItems])
