@@ -27,35 +27,6 @@ const Footer: FC<Props> = ({ className }) => {
                 <span>ACME</span>
               </a>
             </Link>
-            <div className="flex items-center text-primary">
-            <span className="text-primary">Crafted by</span>
-            <a
-              rel="noopener"
-              href="https://builder.io"
-              aria-label="Builder.io Link"
-              target="_blank"
-              className="text-primary"
-            >
-              <Builder
-                className="inline-block h-6 ml-4 text-primary"
-                alt="Builder.io Logo"
-              />
-            </a>
-
-            <a
-              rel="noopener"
-              href="https://vercel.com"
-              aria-label="Vercel.com Link"
-              target="_blank"
-              className="text-primary"
-            >
-              <Vercel
-                className="inline-block h-6 ml-4 text-primary"
-                alt="Vercel.com Logo"
-              />
-            </a>
-          </div>
-
             <div className="flex space-x-6 items-center h-10">
               <a
                 aria-label="Github Repository"

@@ -73,8 +73,7 @@ export default function Path({
   }
 
   const { title, description, image } = page?.data! || {}
-  // inline content json to builder when live for ssr
-  const isLive = !Builder.isEditing && !Builder.isPreviewing
+
   return (
     <>
       <NextSeo
@@ -98,7 +97,7 @@ export default function Path({
       <BuilderComponent
         options={{ includeRefs: true } as any}
         model="page"
-        {...(isLive && page && { content: page })}
+        {... page && { content: page }}
       />
     </>
   )
