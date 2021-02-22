@@ -1,15 +1,25 @@
 {
+  "@originContentId": "305a0edb85a20e908d05105ab640fba80c57bdc9ac548763a96b84998b97d97f",
+  "@originModelId": "20570a04bdd8a5052351fe9cb2fd5caf41763d4f44dba9e6385a9fff84dcdcf7",
+  "@originOrg": "9aa8825c0d33424ca3e9076c2cc4a328",
   "createdBy": "agZ9n5CUKRfbL9t6CaJOyVSK4Es2",
   "createdDate": 1611769584081,
   "data": {
     "collectionPreview": {
       "@type": "@builder.io/core:Request",
       "options": {
-        "collection": 246620422323
+        "collection": 246780657843
       },
       "request": {
         "method": "GET",
-        "url": "https://cdn.builder.io/api/v1/shopify/collections/{{this.options.collection}}.json?apiKey=6e5b10afb1a9457ba648112d4c5d30e8"
+        "url": "https://cdn.builder.io/api/v1/shopify/collections/{{this.options.collection}}.json?apiKey=9aa8825c0d33424ca3e9076c2cc4a328"
+      }
+    },
+    "state": {
+      "deviceSize": "large",
+      "location": {
+        "path": "",
+        "query": {}
       }
     },
     "blocks": [
@@ -26,7 +36,7 @@
           "options": {
             "productGridOptions": {
               "cardProps": {
-                "variant": "slim",
+                "variant": "simple",
                 "imgPriority": true,
                 "imgLayout": "responsive",
                 "imgLoading": "eager",
@@ -36,14 +46,15 @@
               },
               "gridProps": {
                 "variant": "filled",
-                "layout": "D"
+                "layout": "normal"
               },
-              "limit": 6,
+              "limit": 9,
               "highlightCard": {
                 "index": null,
                 "variant": "simple",
                 "imgPriority": true
-              }
+              },
+              "offset": 0
             }
           }
         },
@@ -59,9 +70,10 @@
         }
       },
       {
-        "id": "builder-pixel-bmbho8mcznw",
         "@type": "@builder.io/sdk:Element",
+        "@version": 2,
         "tagName": "img",
+        "id": "builder-pixel-bmbho8mcznw",
         "properties": {
           "src": "https://cdn.builder.io/api/v1/pixel?apiKey=6e5b10afb1a9457ba648112d4c5d30e8",
           "role": "presentation",
@@ -78,34 +90,46 @@
             "pointerEvents": "none"
           }
         }
+      },
+      {
+        "id": "builder-pixel-6m1lsokmqp2",
+        "@type": "@builder.io/sdk:Element",
+        "tagName": "img",
+        "properties": {
+          "src": "https://cdn.builder.io/api/v1/pixel?apiKey=9aa8825c0d33424ca3e9076c2cc4a328",
+          "role": "presentation",
+          "width": "0",
+          "height": "0"
+        },
+        "responsiveStyles": {
+          "large": {
+            "height": "0",
+            "width": "0",
+            "display": "inline-block",
+            "opacity": "0",
+            "overflow": "hidden",
+            "pointerEvents": "none"
+          }
+        }
       }
-    ],
-    "state": {
-      "deviceSize": "large",
-      "location": {
-        "path": "",
-        "query": {}
-      }
-    }
+    ]
   },
-  "id": "628b61d1acbd4e50b2a62653f92cc8ce",
+  "id": "6dfb279860194151b8efb4773b876710",
+  "lastUpdated": 1612948484060,
   "lastUpdatedBy": "agZ9n5CUKRfbL9t6CaJOyVSK4Es2",
   "meta": {
     "hasLinks": false,
     "kind": "component",
-    "shopifyDomain": "builder-io-demo.myshopify.com/",
-    "needsHydration": false
+    "needsHydration": false,
+    "shopifyDomain": "builder-io-demo.myshopify.com/"
   },
-  "modelId": "d8f5e7d2989d4d12a7d9952afdf6180a",
+  "modelId": "ac20ade4039843c4acf49569e5ecb65b",
   "name": "generic collection",
   "published": "published",
   "query": [],
+  "rev": "ltblzpzzw7",
+  "screenshot": "https://cdn.builder.io/api/v1/image/assets%2F9aa8825c0d33424ca3e9076c2cc4a328%2F9c84aa35d8c54162ac7d2aa0a1708f53",
   "testRatio": 1,
   "variations": {},
-  "lastUpdated": 1611873828163,
-  "screenshot": "https://cdn.builder.io/api/v1/image/assets%2F6e5b10afb1a9457ba648112d4c5d30e8%2F5d265f62812440d689ce0dc7030d4b4d",
-  "rev": "vugk44723n",
-  "@originOrg": "6e5b10afb1a9457ba648112d4c5d30e8",
-  "@originContentId": "3ee104501a9a4871a34361c2afbfd38d",
-  "@originModelId": "06511396f1224019b86204f5c567eac4"
+  "previewUrl": "https://headless.builders/collection/spring"
 }

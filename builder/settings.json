@@ -1,82 +1,60 @@
 {
+  "loadPlugins": [
+    "@builder.io/plugin-shopify@dev"
+  ],
   "customTargetingAttributes": {
-    "locale": {
-      "enum": [
-        "en-US",
-        "es"
-      ],
-      "type": "string"
-    },
-    "productHandle": {
+    "itemInCart": {
       "type": "ShopifyProductHandle"
     },
     "collectionHandle": {
       "type": "ShopifyCollectionHandle"
+    },
+    "locale": {
+      "type": "string",
+      "enum": [
+        "en-US",
+        "es"
+      ]
+    },
+    "productHandle": {
+      "type": "ShopifyProductHandle"
     }
   },
   "settings": {
-    "editorShowShopifyBlocks": false,
-    "reloadPreviewForMobile": true,
-    "showSitePreviewTab": false,
-    "optimizeContentVisibility": true,
-    "allowBuiltInComponents": true,
     "plugins": {
       "@builder.io/plugin-shopify": {
-        "apiKey": "14f064d7f94eeaadf93bd8690fca1207",
         "storefrontAccessToken": "dd0057d1e48d2d61ca8ec27b07d3c5e6",
-        "syncPreviewUrlWithTargeting": true,
-        "apiPassword": "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",
+        "apiKey": "14f064d7f94eeaadf93bd8690fca1207",
         "storeDomain": "builder-io-demo.myshopify.com/",
-        "hasConnected": false
+        "apiPassword": "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",
+        "syncPreviewUrlWithTargeting": true
       }
     },
-    "componentsOnlyMode": false
+    "componentsOnlyMode": false,
+    "showSitePreviewTab": false,
+    "editorShowShopifyBlocks": false,
+    "allowBuiltInComponents": true,
+    "optimizeContentVisibility": true,
+    "reloadPreviewForMobile": false
   },
-  "hasIntegrated": "local",
-  "type": "space",
   "@version": 5,
   "siteUrl": "https://headless.builders",
-  "loadPlugins": [
-    "@builder.io/plugin-shopify@dev"
-  ],
-  "name": "nextjs-shopify-starter",
+  "name": "NextJS Shopify Space",
   "cloneInfo": {
     "contentIdMap": {
-      "3ee104501a9a4871a34361c2afbfd38d": "628b61d1acbd4e50b2a62653f92cc8ce",
-      "3085d5f0178848fd9013da0b71744a50": "b843406cbcfe4e6bba90b5bb25eca7b2",
-      "7728a247a4934bcd9101a41f48eead80": "4bbfc956290346d0a80cd974603ea080",
-      "adecec8b579748e2856e82a90d3cc06a": "fde6ca2cfb594ecc8a33d69cdd2267a2",
-      "728e9c7cb7354ca383fd095b5f6f7a37": "d9cbac398261436b8c6e84cbe1adf57d",
-      "89a993cc98544a17bb635807d80862f0": "2b16613f9c2543818a8c7552f1610403",
-      "b5667c4440d94a72881c8f61c7981603": "eaccfcfb69f144d5bb18b905df7722f6",
-      "bba6c183f26740b68f9534100d783558": "84d659ceba6c46429646088db0c07f36",
-      "1229a9f5737f4bf7bcc7d20b6fe7a641": "343dd6b545324319b8eac983368f5f16",
-      "a119c23b38b2480eb38bebf7ab6d41c5": "bb462d0d00cf4a9c8050b8aa75f02c20",
-      "6569746f354d4e5c90187d7cd6656ddd": "fbcfcbcf8c8f4d10b3504a7adf4a04fc",
-      "c6c88dff9aaa4086ade799b29e774d09": "656ea467485d46ed9b8d75d05ef84b10",
-      "75b83e075f154adf893ffa05e9b77cc4": "d58593bb51584a09bb15a880a5e7d986",
-      "8e1f7caa9fa54e5db320bda0c9c79e66": "d7a1b559335049f183bba2e5af309639",
-      "5b990b67ed994c4b9c73c65d83449f77": "c7b5e418297345c4ba885dd017072a1f",
-      "476e129dfe3d4fe19496e3daee9c36a1": "f3204611b4d3403f85da5e75bd2de9f3",
-      "4286b4d987e7426da8b36bf59dc75343": "af83cc35169540ae9e3bd89633bb70ec",
-      "b2a8332a2b25446085610a3d231ee851": "6d3f0158b0124aab93e3243e882524fb",
-      "4b6cf9ac538f45e5930fc3cf98962126": "3013eda39e5440eeb3d4b093b9d5281a",
-      "1501c09396124ba58f751fd9e451b36c": "390f6d6329b64ab495638252244b3d91",
-      "55c46b2069d1495884502dae24f9ae95": "f6ff744156b54867963062867e9daedb",
-      "66ab93a30e0047078dd2e83c38333304": "e9594288cf474530be7025ed1c408425",
-      "f219d8a6586544f2aead8effd4e1bb8f": "99f2c49b55254449a0420e3add79e43d",
-      "531939dc83934aa09fd0116d4eacea23": "7b107a76334549f6b4566190adead3c6",
-      "2d7acc8d99204f2ba0ecb5633a699600": "9dc0684855df41a79ff7d5412d4bb97c",
-      "d30134d86cd54c4fa76266f1369de5f9": "c18f1699b98e4d9696734830e1530b3d",
-      "d3802320fc1a428687b1c7bc2eae613a": "c1acd39611fb4825b8102062fce9c980",
-      "fbcea22641f24036bf8f47361d4a2963": "548cc675b07a4ca1bb95118ea3b403e5"
+      "2ff2162732634c548109ea15ffac439e": "979ead8ab38642cb9e4af0fc6d266d0d",
+      "a0fdc1246d5a414f96097bccd83df8cf": "4d1c85845d1542738d0983e91f4adde4",
+      "24a736d21fa9aa6dcae63bacad30827338d62ef2d06c49b3ef6cf954f7509a1b": "af23af75faf04581afedcb0dd3a85928",
+      "01cf07d29bfae5d1cd1d79e89775055b157054c04bc32eb08a813945bae112a7": "6f362196a8994130957d293ecb918a49",
+      "305a0edb85a20e908d05105ab640fba80c57bdc9ac548763a96b84998b97d97f": "6dfb279860194151b8efb4773b876710",
+      "63e0ed29cc5b3963df6ca7aea973bee1af21b7ee24661413466e43a99c37cb21": "8beec11409774b259fb52f850adf1cf0"
     },
     "modelIdMap": {
-      "06511396f1224019b86204f5c567eac4": "d8f5e7d2989d4d12a7d9952afdf6180a",
-      "9fe91514032044879c64afcfe1f4ab5c": "0b0dffa3eda746d1b45dc0be0864b8a3",
-      "255f235b881247c5ba8bf8211f860b25": "14975eb5a86b4f8490c78ffa183fddaf",
-      "2ac6608fcf5444a6b76c77be29e53e52": "6b0d05f2e6f242f5b198e3903d7e43ff",
-      "0e30c28980a246c89b3308434cbc971f": "d07d319a3b5a4ac09270d36cfcf5c0c1"
+      "67e94ebf439847799f211fd2ef9f98cc": "c776a70407824450aaf37a9dfde135e2",
+      "98571179689745e0ac542ba85dd66e92": "fbabc299e090451b8d1b405297e3ee38",
+      "7f9f177ee1b8e6fc95d1c321ee75f0296666eac56b1684a69796ff4cac91f38a": "e7527e05596545fc82efcc1d5e3bf779",
+      "20570a04bdd8a5052351fe9cb2fd5caf41763d4f44dba9e6385a9fff84dcdcf7": "ac20ade4039843c4acf49569e5ecb65b",
+      "74749846840337000adf33ad7fdb712b95330b74d3089e137083f66c11a0d8b3": "76279319415d497db8cc239349938302"
     }
   }
 }

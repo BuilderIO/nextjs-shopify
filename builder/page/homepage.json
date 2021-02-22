@@ -1,4 +1,7 @@
 {
+  "@originContentId": "24a736d21fa9aa6dcae63bacad30827338d62ef2d06c49b3ef6cf954f7509a1b",
+  "@originModelId": "7f9f177ee1b8e6fc95d1c321ee75f0296666eac56b1684a69796ff4cac91f38a",
+  "@originOrg": "9aa8825c0d33424ca3e9076c2cc4a328",
   "createdBy": "agZ9n5CUKRfbL9t6CaJOyVSK4Es2",
   "createdDate": 1609185755277,
   "data": {
@@ -12,7 +15,15 @@
     },
     "inputs": [],
     "site": "ladygaga.com",
+    "state": {
+      "deviceSize": "large",
+      "location": {
+        "path": "",
+        "query": {}
+      }
+    },
     "title": "Homepage - english",
+    "url": "/",
     "blocks": [
       {
         "@type": "@builder.io/sdk:Element",
@@ -34,7 +45,17 @@
             "position": "relative",
             "flexShrink": "0",
             "boxSizing": "border-box",
-            "marginTop": "20px"
+            "marginTop": "20px",
+            "contentVisibility": "auto",
+            "containIntrinsicSize": "384px"
+          },
+          "medium": {
+            "contentVisibility": "auto",
+            "containIntrinsicSize": "424px"
+          },
+          "small": {
+            "contentVisibility": "auto",
+            "containIntrinsicSize": "492px"
           }
         }
       },
@@ -72,7 +93,7 @@
               "index": 6
             },
             "limit": 3,
-            "collection": "men",
+            "collection": "spring",
             "marquee": false
           }
         },
@@ -83,7 +104,17 @@
             "position": "relative",
             "flexShrink": "0",
             "boxSizing": "border-box",
-            "marginTop": "20px"
+            "marginTop": "20px",
+            "contentVisibility": "auto",
+            "containIntrinsicSize": "1412px"
+          },
+          "medium": {
+            "contentVisibility": "auto",
+            "containIntrinsicSize": "2994px"
+          },
+          "small": {
+            "contentVisibility": "auto",
+            "containIntrinsicSize": "1914px"
           }
         }
       },
@@ -107,23 +138,30 @@
             "position": "relative",
             "flexShrink": "0",
             "boxSizing": "border-box",
-            "marginTop": "20px"
+            "marginTop": "20px",
+            "contentVisibility": "auto",
+            "containIntrinsicSize": "452px"
+          },
+          "medium": {
+            "contentVisibility": "auto",
+            "containIntrinsicSize": "564px"
+          },
+          "small": {
+            "contentVisibility": "auto",
+            "containIntrinsicSize": "564px"
           }
         }
       },
       {
         "@type": "@builder.io/sdk:Element",
         "@version": 2,
-        "id": "builder-00c5a817f2374831b396881b418d2c42",
+        "id": "builder-c4b33d688dc145f0a6adff90058591fe",
         "component": {
-          "name": "ProductCollectionGrid",
+          "name": "ProductGrid",
           "options": {
-            "marqueeOptions": {
-              "variant": "primary"
-            },
             "gridProps": {
               "variant": "default",
-              "layout": "D"
+              "layout": "A"
             },
             "cardProps": {
               "variant": "simple",
@@ -145,7 +183,17 @@
               "index": 1
             },
             "limit": 3,
-            "collection": "womens"
+            "productsList": [
+              {
+                "product": "cardigan-sweater-womens-autumn-and-winter-new-loose-cute-print-joker-long-sleeve-womens-knitted-jacket-sweaters-oversize-2020"
+              },
+              {
+                "product": "ayunsue-stylish-womens-jacket-turn-collar-duck-down-coats-european-parka-female-thick-long-abrigo-mujer-st325"
+              },
+              {
+                "product": "loose-sweaters-women-2020-spring-autumn-bottoming-shirt-pullover-sweaters-winter-plus-size-4xl-knit-female-tops-outerwear-j85"
+              }
+            ]
           }
         },
         "responsiveStyles": {
@@ -160,11 +208,11 @@
         }
       },
       {
-        "id": "builder-pixel-zswrt8jv0s8",
+        "id": "builder-pixel-eiv8savjsam",
         "@type": "@builder.io/sdk:Element",
         "tagName": "img",
         "properties": {
-          "src": "https://cdn.builder.io/api/v1/pixel?apiKey=6e5b10afb1a9457ba648112d4c5d30e8",
+          "src": "https://cdn.builder.io/api/v1/pixel?apiKey=9aa8825c0d33424ca3e9076c2cc4a328",
           "role": "presentation",
           "width": "0",
           "height": "0"
@@ -180,25 +228,18 @@
           }
         }
       }
-    ],
-    "url": "/",
-    "state": {
-      "deviceSize": "large",
-      "location": {
-        "path": "",
-        "query": {}
-      }
-    }
+    ]
   },
-  "id": "fde6ca2cfb594ecc8a33d69cdd2267a2",
-  "lastUpdatedBy": "agZ9n5CUKRfbL9t6CaJOyVSK4Es2",
+  "id": "af23af75faf04581afedcb0dd3a85928",
+  "lastUpdated": 1613875078741,
+  "lastUpdatedBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
   "meta": {
     "hasLinks": false,
     "kind": "page",
-    "shopifyDomain": "builder-io-demo.myshopify.com/",
-    "needsHydration": false
+    "needsHydration": false,
+    "shopifyDomain": "builder-io-demo.myshopify.com/"
   },
-  "modelId": "14975eb5a86b4f8490c78ffa183fddaf",
+  "modelId": "e7527e05596545fc82efcc1d5e3bf779",
   "name": "homepage",
   "published": "published",
   "query": [
@@ -216,12 +257,8 @@
       ]
     }
   ],
+  "rev": "hzfyjvqy5b",
+  "screenshot": "https://cdn.builder.io/api/v1/image/assets%2F9aa8825c0d33424ca3e9076c2cc4a328%2Fa93244fbb04b484ea0f93c98e683d24d",
   "testRatio": 1,
-  "variations": {},
-  "lastUpdated": 1611810403584,
-  "screenshot": "https://cdn.builder.io/api/v1/image/assets%2F6e5b10afb1a9457ba648112d4c5d30e8%2F6fe65dec13d14ed7831e30ed560b9348",
-  "rev": "p29f1c0pgsg",
-  "@originOrg": "6e5b10afb1a9457ba648112d4c5d30e8",
-  "@originContentId": "adecec8b579748e2856e82a90d3cc06a",
-  "@originModelId": "255f235b881247c5ba8bf8211f860b25"
+  "variations": {}
 }

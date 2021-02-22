@@ -1,0 +1,90 @@
+{
+  "createdBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
+  "createdDate": 1613961025095,
+  "data": {
+    "blocks": [
+      {
+        "@type": "@builder.io/sdk:Element",
+        "@version": 2,
+        "id": "builder-6e6067861ced40a6b4760093ea015e04",
+        "component": {
+          "name": "Text",
+          "options": {
+            "text": "<p>You picked loose sweaters</p>"
+          }
+        },
+        "responsiveStyles": {
+          "large": {
+            "display": "flex",
+            "flexDirection": "column",
+            "position": "relative",
+            "flexShrink": "0",
+            "boxSizing": "border-box",
+            "marginTop": "0px",
+            "lineHeight": "normal",
+            "height": "auto",
+            "textAlign": "center",
+            "backgroundColor": "rgba(0, 0, 0, 1)",
+            "color": "rgba(255, 251, 251, 1)",
+            "paddingTop": "10px",
+            "paddingBottom": "10px"
+          }
+        }
+      },
+      {
+        "id": "builder-pixel-eliffqcy4gs",
+        "@type": "@builder.io/sdk:Element",
+        "tagName": "img",
+        "properties": {
+          "src": "https://cdn.builder.io/api/v1/pixel?apiKey=9aa8825c0d33424ca3e9076c2cc4a328",
+          "role": "presentation",
+          "width": "0",
+          "height": "0"
+        },
+        "responsiveStyles": {
+          "large": {
+            "height": "0",
+            "width": "0",
+            "display": "inline-block",
+            "opacity": "0",
+            "overflow": "hidden",
+            "pointerEvents": "none"
+          }
+        }
+      }
+    ],
+    "state": {
+      "deviceSize": "large",
+      "location": {
+        "path": "",
+        "query": {}
+      }
+    }
+  },
+  "id": "979ead8ab38642cb9e4af0fc6d266d0d",
+  "lastUpdatedBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
+  "meta": {
+    "hasLinks": false,
+    "kind": "component",
+    "shopifyDomain": "builder-io-demo.myshopify.com/",
+    "needsHydration": false
+  },
+  "modelId": "c776a70407824450aaf37a9dfde135e2",
+  "name": "announcement for loose sweaters",
+  "published": "published",
+  "query": [
+    {
+      "operator": "is",
+      "property": "itemInCart",
+      "value": "loose-sweaters-women-2020-spring-autumn-bottoming-shirt-pullover-sweaters-winter-plus-size-4xl-knit-female-tops-outerwear-j85"
+    }
+  ],
+  "testRatio": 1,
+  "variations": {},
+  "lastUpdated": 1613962660457,
+  "screenshot": "https://cdn.builder.io/api/v1/image/assets%2F9aa8825c0d33424ca3e9076c2cc4a328%2F0eff1cf140714ca08daa3aeeb2930c06",
+  "rev": "ojoyz0d2zzl",
+  "@originOrg": "9aa8825c0d33424ca3e9076c2cc4a328",
+  "@originContentId": "2ff2162732634c548109ea15ffac439e",
+  "@originModelId": "67e94ebf439847799f211fd2ef9f98cc"
+}

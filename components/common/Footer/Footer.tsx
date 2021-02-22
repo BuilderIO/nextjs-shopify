@@ -1,11 +1,10 @@
 import { FC } from 'react'
 import cn from 'classnames'
 import Link from 'next/link'
-import { Github, Vercel } from '@components/icons'
-import { Logo, Container } from '@components/ui'
+import { Github } from '@components/icons'
+import { Logo } from '@components/ui'
 import { I18nWidget } from '@components/common'
 import s from './Footer.module.css'
-import Builder from '@components/icons/Builder'
 
 interface Props {
   className?: string

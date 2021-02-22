@@ -1,0 +1,88 @@
+{
+  "createdBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
+  "createdDate": 1613962807575,
+  "data": {
+    "blocks": [
+      {
+        "@type": "@builder.io/sdk:Element",
+        "@version": 2,
+        "id": "builder-e5275b993d72497bb205c76b82d27afd",
+        "component": {
+          "name": "Text",
+          "options": {
+            "text": "<p>Fur purka is awesome, here's an extra 90% .. this is a targeted message from builder.io</p>"
+          }
+        },
+        "responsiveStyles": {
+          "large": {
+            "display": "flex",
+            "flexDirection": "column",
+            "position": "relative",
+            "flexShrink": "0",
+            "boxSizing": "border-box",
+            "marginTop": "20px",
+            "lineHeight": "normal",
+            "height": "auto",
+            "textAlign": "center",
+            "paddingTop": "10px",
+            "paddingBottom": "10px"
+          }
+        }
+      },
+      {
+        "id": "builder-pixel-tarysqk63j",
+        "@type": "@builder.io/sdk:Element",
+        "tagName": "img",
+        "properties": {
+          "src": "https://cdn.builder.io/api/v1/pixel?apiKey=9aa8825c0d33424ca3e9076c2cc4a328",
+          "role": "presentation",
+          "width": "0",
+          "height": "0"
+        },
+        "responsiveStyles": {
+          "large": {
+            "height": "0",
+            "width": "0",
+            "display": "inline-block",
+            "opacity": "0",
+            "overflow": "hidden",
+            "pointerEvents": "none"
+          }
+        }
+      }
+    ],
+    "state": {
+      "deviceSize": "large",
+      "location": {
+        "path": "",
+        "query": {}
+      }
+    }
+  },
+  "id": "4d1c85845d1542738d0983e91f4adde4",
+  "lastUpdatedBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
+  "meta": {
+    "hasLinks": false,
+    "kind": "component",
+    "shopifyDomain": "builder-io-demo.myshopify.com/",
+    "needsHydration": false
+  },
+  "modelId": "fbabc299e090451b8d1b405297e3ee38",
+  "name": "fur purka upsell",
+  "published": "published",
+  "query": [
+    {
+      "operator": "is",
+      "property": "itemInCart",
+      "value": "leather-fur-parka-for-male-wear-in-winter-black-thick-fur-lined-raccon-fur-hoodies-mr-mrs-unisex-wear"
+    }
+  ],
+  "testRatio": 1,
+  "variations": {},
+  "lastUpdated": 1613963041567,
+  "screenshot": "https://cdn.builder.io/api/v1/image/assets%2F9aa8825c0d33424ca3e9076c2cc4a328%2Fc2b32e129c014208ae8a5fd81dd99ae3",
+  "rev": "5m4hvfuxmhq",
+  "@originOrg": "9aa8825c0d33424ca3e9076c2cc4a328",
+  "@originContentId": "a0fdc1246d5a414f96097bccd83df8cf",
+  "@originModelId": "98571179689745e0ac542ba85dd66e92"
+}
