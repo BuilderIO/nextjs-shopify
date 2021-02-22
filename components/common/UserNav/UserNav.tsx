@@ -19,10 +19,10 @@ const UserNav: FC<Props> = ({ className, children, ...props }) => {
       <div className={s.mainContainer}>
         <ul className={s.list}>
           <NoSSR>
-          <li className={s.item} onClick={toggleSidebar}>
-            <Bag />
-            {itemsCount > 0 && <span className={s.bagCount}>{itemsCount}</span>}
-          </li>
+            <li className={s.item} onClick={toggleSidebar}>
+              <Bag />
+              {itemsCount > 0 && <span className={s.bagCount}>{itemsCount}</span>}
+            </li>
           </NoSSR>
         </ul>
       </div>

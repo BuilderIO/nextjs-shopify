@@ -42,9 +42,7 @@ export function CommerceProvider({
           return getNewCart()
         }
 
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-        // @ts-ignore
-        const cartHasBeenPurchased = refreshedCart.completedAt != null
+        const cartHasBeenPurchased = Boolean(refreshedCart.completedAt);
 
         if (cartHasBeenPurchased) {
           getNewCart()

@@ -7,10 +7,26 @@ import cn from 'classnames'
 import throttle from 'lodash.throttle'
 import { getAllCollections } from '@lib/shopify/storefront-data-hooks/src/api/operations-builder'
 import builderConfig from '@config/builder'
+import { BuilderComponent, builder } from '@builder.io/react'
+import { useCart } from '@lib/shopify/storefront-data-hooks'
 
 const Navbar: FC = () => {
   const [hasScrolled, setHasScrolled] = useState(false)
   const [collections, setCollections] = useState([] as any[])
+  const [announcement, setAnnouncement] = useState();
+  const cart = useCart()
+  useEffect(() => {
+    async function fetchContent() {
+      const items = cart?.lineItems || [];
+      const anouncementContent = await builder.get('announcement-bar', {
+        userAttributes: {
+          itemInCart: items.map((item: any) => item.variant.product.handle)
+        } as any
+      }).toPromise();
+      setAnnouncement(anouncementContent);
+    }
+    fetchContent();
+  }, [cart?.lineItems])
 
   useEffect(() => {
     const handleScroll = throttle(() => {
@@ -36,6 +52,7 @@ const Navbar: FC = () => {
 
   return (
     <div className={cn(s.root, { 'shadow-magical': hasScrolled })}>
+      <BuilderComponent content={announcement} model="announcement-bar"/>
       <Container>
         <div className="relative flex flex-row justify-between py-4 align-center md:py-6">
           <div className="flex items-center flex-1">

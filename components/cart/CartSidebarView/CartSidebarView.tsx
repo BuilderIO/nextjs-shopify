@@ -1,12 +1,13 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import cn from 'classnames'
 import { UserNav } from '@components/common'
 import { Button } from '@components/ui'
-import { Bag, Cross, Check } from '@components/icons'
+import { Bag, Cross } from '@components/icons'
 import { useUI } from '@components/ui/context'
 import { useCart, useCheckoutUrl } from '@lib/shopify/storefront-data-hooks'
 import CartItem from '../CartItem'
 import s from './CartSidebarView.module.css'
+import { BuilderComponent, builder } from '@builder.io/react'
 
 const CartSidebarView: FC = () => {
   const { closeSidebar } = useUI()
@@ -18,15 +19,25 @@ const CartSidebarView: FC = () => {
 
   const items = cart?.lineItems ?? []
   const isEmpty = items.length === 0
+  const [cartUpsell, setCartUpsell] = useState();
 
-  const error = null
-  const success = null
+  useEffect(() => {
+    async function fetchContent() {
+      const items = cart?.lineItems || [];
+      const cartUpsellContent = await builder.get('cart-upsell-sidebar', {
+        userAttributes: {
+          itemInCart: items.map((item: any) => item.variant.product.handle)
+        } as any
+      }).toPromise();
+      setCartUpsell(cartUpsellContent);
+      console.log('here cart upsell ', cartUpsellContent);
+    }
+    fetchContent();
+  }, [cart?.lineItems])
 
   return (
     <div
       className={cn(s.root, {
-        [s.empty]: error,
-        [s.empty]: success,
         [s.empty]: isEmpty,
       })}
     >
@@ -59,25 +70,6 @@ const CartSidebarView: FC = () => {
             Biscuit oat cake wafer icing ice cream tiramisu pudding cupcake.
           </p>
         </div>
-      ) : error ? (
-        <div className="flex-1 px-4 flex flex-col justify-center items-center">
-          <span className="border border-white rounded-full flex items-center justify-center w-16 h-16">
-            <Cross width={24} height={24} />
-          </span>
-          <h2 className="pt-6 text-xl font-light text-center">
-            We couldn’t process the purchase. Please check your card information
-            and try again.
-          </h2>
-        </div>
-      ) : success ? (
-        <div className="flex-1 px-4 flex flex-col justify-center items-center">
-          <span className="border border-white rounded-full flex items-center justify-center w-16 h-16">
-            <Check />
-          </span>
-          <h2 className="pt-6 text-xl font-light text-center">
-            Thank you for your order.
-          </h2>
-        </div>
       ) : (
         <>
           <div className="px-4 sm:px-6 flex-1">
@@ -90,7 +82,7 @@ const CartSidebarView: FC = () => {
                   key={item.id}
                   item={item}
                   // todo update types
-                  currencyCode={item.variant.priceV2.currencyCode || 'USD'}
+                  currencyCode={item.variant?.priceV2?.currencyCode || 'USD'}
                 />
               ))}
             </ul>
@@ -117,6 +109,7 @@ const CartSidebarView: FC = () => {
                 <span>{total}</span>
               </div>
             </div>
+            <BuilderComponent content={cartUpsell} model="cart-upsell-sidebar" />
             {checkoutUrl && (
               <Button href={checkoutUrl!} Component="a" width="100%">
                 Proceed to Checkout

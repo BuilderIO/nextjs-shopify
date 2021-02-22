@@ -1,7 +1,6 @@
 import cn from 'classnames'
 import dynamic from 'next/dynamic'
 import s from './Layout.module.css'
-import { useRouter } from 'next/router'
 import React, { FC } from 'react'
 import { useUI } from '@components/ui/context'
 import { Navbar, Footer } from '@components/common'
@@ -10,12 +9,7 @@ import { Sidebar, Button, LoadingDots } from '@components/ui'
 import { CartSidebarView } from '@components/cart'
 import { CommerceProvider } from '@lib/shopify/storefront-data-hooks'
 import shopifyConfig from '@config/shopify'
-
-const Loading = () => (
-  <div className="w-80 h-80 flex items-center text-center justify-center p-3">
-    <LoadingDots />
-  </div>
-)
+import { builder } from '@builder.io/react'
 
 const FeatureBar = dynamic(() => import('@components/common/FeatureBar'), {
   ssr: false,
@@ -32,7 +26,7 @@ const Layout: FC = ({ children }) => {
         <main className="fit max-w-8xl mx-auto">{children}</main>
         <Footer />
 
-        <Sidebar open={displaySidebar} onClose={closeSidebar}>
+        <Sidebar open={displaySidebar || builder.editingModel === 'cart-upsell-sidebar'} onClose={closeSidebar}>
           <CartSidebarView />
         </Sidebar>
 

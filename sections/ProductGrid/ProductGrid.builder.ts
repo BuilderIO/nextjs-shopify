@@ -21,21 +21,24 @@ const productCardFields: Input[] = [
     type: 'number',
     defaultValue: 540,
   },
-  //   imgPriority?: boolean
   {
     name: 'imgPriority',
     type: 'boolean',
+    advanced: true,
     defaultValue: true,
   },
   {
     name: 'imgLoading',
     type: 'enum',
+    advanced: true,
+    defaultValue: 'lazy',
     enum: ['eager', 'lazy'],
   },
   {
     name: 'imgLayout',
     type: 'enum',
     enum: ['fixed', 'intrinsic', 'responsive', 'fill'],
+    advanced: true,
     defaultValue: 'fill',
   },
 ]
@@ -62,6 +65,7 @@ const gridFields: Input[] = [
 export const productGridSchema: Input[] = [
   {
     name: 'gridProps',
+    advanced: true,
     defaultValue: {
       variant: 'default',
       layout: 'A',
@@ -85,6 +89,7 @@ export const productGridSchema: Input[] = [
   },
   {
     name: 'highlightCard',
+    advanced: true,
     defaultValue: {
       imgWidth: 1080,
       imgHeight: 1080,
@@ -113,7 +118,7 @@ export const productGridSchema: Input[] = [
 Builder.registerComponent(LazyProductGrid, {
   name: 'ProductGrid',
   description: 'Pick products free form',
-  inputs: productGridSchema.concat({
+  inputs: [{
     name: 'productsList',
     type: 'list',
     subFields: [
@@ -121,22 +126,14 @@ Builder.registerComponent(LazyProductGrid, {
         name: 'product',
         type: 'ShopifyProductHandle',
       },
-    ],
-  }),
+    ]
+  }].concat(productGridSchema as any),
 })
 
 Builder.registerComponent(LazyProductGrid, {
   name: 'ProductCollectionGrid',
-  inputs: productGridSchema.concat({
+  inputs: [{
     name: 'collection',
     type: 'ShopifyCollectionHandle',
-  }),
-})
-
-Builder.registerComponent(LazyProductGrid, {
-  name: 'ProductCollectionGrid',
-  inputs: productGridSchema.concat({
-    name: 'collection',
-    type: 'ShopifyCollectionHandle',
-  }),
+  }].concat(productGridSchema),
 })

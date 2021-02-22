@@ -35,7 +35,7 @@ export async function getStaticProps({
     // Next.js will attempt to re-generate the page:
     // - When a request comes in
     // - At most once every 4 minutes ( 240 seconds)
-    revalidate: isProduction ? 240 : 1,
+    revalidate: 240,
   }
 }
 
@@ -46,7 +46,6 @@ export async function getStaticPaths({ locales }: GetStaticPathsContext) {
   })
 
   return {
-    // exclude home page to always render on the server instead of static
     paths: pages.map((page) => `${page.data?.url}`),
     fallback: true,
   }
