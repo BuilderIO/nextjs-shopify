@@ -75,8 +75,8 @@ export default function Path({
   const { title, description, image } = page?.data! || {}
 
   return (
-    <>
-      <NextSeo
+    <div>
+      { title && <NextSeo
         title={title}
         description={description}
         openGraph={{
@@ -84,7 +84,7 @@ export default function Path({
           title,
           description,
           locale,
-          images: [
+          ...(image && {images: [
             {
               url: image,
               width: 800,
@@ -92,14 +92,14 @@ export default function Path({
               alt: title,
             },
           ],
-        }}
-      />
+        })}}
+      />}
       <BuilderComponent
         options={{ includeRefs: true } as any}
         model="page"
         {... page && { content: page }}
       />
-    </>
+    </div>
   )
 }
 

@@ -23,7 +23,7 @@ const Layout: FC = ({ children }) => {
     <CommerceProvider {...shopifyConfig}>
       <div className={cn(s.root)}>
         <Navbar />
-        <main className="fit max-w-8xl mx-auto">{children}</main>
+        <main className="fit">{children}</main>
         <Footer />
 
         <Sidebar open={displaySidebar || builder.editingModel === 'cart-upsell-sidebar'} onClose={closeSidebar}>

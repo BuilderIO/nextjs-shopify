@@ -104,7 +104,6 @@
   "sendToMongoDb": true,
   "webhooks": [],
   "allowHeatmap": true,
-  "pathPrefix": "/?preview=12312412",
   "injectWcPosition": "",
   "strictPrivateRead": false,
   "isPage": false,
