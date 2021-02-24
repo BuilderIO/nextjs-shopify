@@ -5,16 +5,7 @@
   "createdBy": "agZ9n5CUKRfbL9t6CaJOyVSK4Es2",
   "createdDate": 1609185755277,
   "data": {
-    "author": {
-      "@type": "@builder.io/core:Reference",
-      "id": "",
-      "model": ""
-    },
-    "httpRequests": {
-      "products": "https://shop.ladygaga.com/products.json"
-    },
     "inputs": [],
-    "site": "ladygaga.com",
     "state": {
       "deviceSize": "large",
       "location": {
@@ -93,7 +84,7 @@
               "index": 6
             },
             "limit": 3,
-            "collection": "spring",
+            "collection": "frontpage",
             "marquee": false
           }
         },
@@ -151,82 +142,6 @@
             "containIntrinsicSize": "564px"
           }
         }
-      },
-      {
-        "@type": "@builder.io/sdk:Element",
-        "@version": 2,
-        "id": "builder-c4b33d688dc145f0a6adff90058591fe",
-        "component": {
-          "name": "ProductGrid",
-          "options": {
-            "gridProps": {
-              "variant": "default",
-              "layout": "A"
-            },
-            "cardProps": {
-              "variant": "simple",
-              "imgPriority": true,
-              "imgLayout": "responsive",
-              "imgLoading": "eager",
-              "imgWidth": 540,
-              "imgHeight": 540,
-              "layout": "fixed"
-            },
-            "highlightCard": {
-              "imgWidth": 1080,
-              "imgHeight": 1080,
-              "variant": "simple",
-              "imgPriority": true,
-              "imgLayout": "responsive",
-              "imgLoading": "eager",
-              "layout": "fixed",
-              "index": 1
-            },
-            "limit": 3,
-            "productsList": [
-              {
-                "product": "cardigan-sweater-womens-autumn-and-winter-new-loose-cute-print-joker-long-sleeve-womens-knitted-jacket-sweaters-oversize-2020"
-              },
-              {
-                "product": "ayunsue-stylish-womens-jacket-turn-collar-duck-down-coats-european-parka-female-thick-long-abrigo-mujer-st325"
-              },
-              {
-                "product": "loose-sweaters-women-2020-spring-autumn-bottoming-shirt-pullover-sweaters-winter-plus-size-4xl-knit-female-tops-outerwear-j85"
-              }
-            ]
-          }
-        },
-        "responsiveStyles": {
-          "large": {
-            "display": "flex",
-            "flexDirection": "column",
-            "position": "relative",
-            "flexShrink": "0",
-            "boxSizing": "border-box",
-            "marginTop": "20px"
-          }
-        }
-      },
-      {
-        "id": "builder-pixel-eiv8savjsam",
-        "@type": "@builder.io/sdk:Element",
-        "tagName": "img",
-        "properties": {
-          "src": "https://cdn.builder.io/api/v1/pixel?apiKey=9aa8825c0d33424ca3e9076c2cc4a328",
-          "role": "presentation",
-          "width": "0",
-          "height": "0"
-        },
-        "responsiveStyles": {
-          "large": {
-            "height": "0",
-            "width": "0",
-            "display": "inline-block",
-            "opacity": "0",
-            "overflow": "hidden",
-            "pointerEvents": "none"
-          }
-        }
       }
     ]
   },
@@ -236,8 +151,7 @@
   "meta": {
     "hasLinks": false,
     "kind": "page",
-    "needsHydration": false,
-    "shopifyDomain": "builder-io-demo.myshopify.com/"
+    "needsHydration": false
   },
   "modelId": "e7527e05596545fc82efcc1d5e3bf779",
   "name": "homepage",
