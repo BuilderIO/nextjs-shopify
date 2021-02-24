@@ -63,7 +63,10 @@ Head over to your [organization settings page](https://builder.io/account/organi
 private key, copy the key for the next step.
 
 - Visit the [organization settings page](https://builder.io/account/organization?root=true), or select
-  an organization from the list ![organizations drop down list](./docs/images/builder-io-organizations.png)
+  an organization from the list 
+
+![organizations drop down list](./docs/images/builder-io-organizations.png)
+
 - Click "Account" from the left hand sidebar
 - Click the edit icon for the "Private keys" row
 - Copy the value of the auto-generated key, or create a new one with a name that's meaningful to you
