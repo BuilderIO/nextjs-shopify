@@ -1,16 +1,11 @@
 {
-  "title": "ACME Storefront | Powered by Next.js Commerce",
+  "title": "ACME Storefront | Builder.io + Shopify + Next.js",
   "titleTemplate": "%s - ACME Storefront",
-  "description": "Next.js Commerce -> https://www.nextjs.org/commerce",
+  "description": "A starter kit demo store for using headless shopify with Builder.io ->  https://github.com/BuilderIO/nextjs-shopify",
   "openGraph": {
     "type": "website",
     "locale": "en_IE",
-    "url": "https://nextjs.org/commerce",
-    "site_name": "Next.js Commerce"
-  },
-  "twitter": {
-    "handle": "@nextjs",
-    "site": "@nextjs",
-    "cardType": "summary_large_image"
+    "url": " https://github.com/BuilderIO/nextjs-shopify",
+    "site_name": "Builder.io + Shopify + Next.js"
   }
 }
