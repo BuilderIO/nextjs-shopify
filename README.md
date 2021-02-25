@@ -8,8 +8,8 @@ Demo live at: [headless.builders](https://headless.builders/)
 - High performance
 - SEO optimized
 - Themable
-- Internationalizable
-- Builder.io visual CMS integrated
+- Personalizable (interntionalization, a/b testing, etc)
+- Builder.io Visual CMS best practices integrated
 - Connect to Shopify data through Builder's high speed data layer
 
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
