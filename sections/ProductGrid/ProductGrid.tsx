@@ -1,9 +1,5 @@
 import { FC, useEffect, useState, useMemo } from 'react'
-import {
-  Grid,
-  GridProps,
-  LoadingDots,
-} from '@components/ui'
+import { Grid, GridProps, LoadingDots } from '@components/ui'
 import { ProductCard, ProductCardProps } from '@components/product'
 import {
   getCollection,
@@ -73,16 +69,15 @@ export const ProductGrid: FC<ProductGridProps> = ({
     return <LoadingDots />
   }
 
-  return <Grid {...gridProps}>{products
-    .slice(offset, limit)
-    .map((product, i) => (
-      <ProductCard
-        key={String(product.id)}
-        {...(highlightCard?.index === i
-          ? highlightCard
-          : cardProps)}
-        product={product}
-      />
-    ))
-}</Grid>
+  return (
+    <Grid {...gridProps}>
+      {products.slice(offset, limit).map((product, i) => (
+        <ProductCard
+          key={String(product.id)}
+          {...(highlightCard?.index === i ? highlightCard : cardProps)}
+          product={product}
+        />
+      ))}
+    </Grid>
+  )
 }

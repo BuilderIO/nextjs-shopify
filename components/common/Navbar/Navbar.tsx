@@ -13,19 +13,21 @@ import { useCart } from '@lib/shopify/storefront-data-hooks'
 const Navbar: FC = () => {
   const [hasScrolled, setHasScrolled] = useState(false)
   const [collections, setCollections] = useState([] as any[])
-  const [announcement, setAnnouncement] = useState();
+  const [announcement, setAnnouncement] = useState()
   const cart = useCart()
   useEffect(() => {
     async function fetchContent() {
-      const items = cart?.lineItems || [];
-      const anouncementContent = await builder.get('announcement-bar', {
-        userAttributes: {
-          itemInCart: items.map((item: any) => item.variant.product.handle)
-        } as any
-      }).toPromise();
-      setAnnouncement(anouncementContent);
+      const items = cart?.lineItems || []
+      const anouncementContent = await builder
+        .get('announcement-bar', {
+          userAttributes: {
+            itemInCart: items.map((item: any) => item.variant.product.handle),
+          } as any,
+        })
+        .toPromise()
+      setAnnouncement(anouncementContent)
     }
-    fetchContent();
+    fetchContent()
   }, [cart?.lineItems])
 
   useEffect(() => {
@@ -44,7 +46,12 @@ const Navbar: FC = () => {
 
   useEffect(() => {
     const fetchCollections = async () => {
-      const result = await getAllCollections(builderConfig, 3, 0, 'data.handle,data.title')
+      const result = await getAllCollections(
+        builderConfig,
+        3,
+        0,
+        'data.handle,data.title'
+      )
       setCollections(result)
     }
     fetchCollections()
@@ -52,7 +59,7 @@ const Navbar: FC = () => {
 
   return (
     <div className={cn(s.root, { 'shadow-magical': hasScrolled })}>
-      <BuilderComponent content={announcement} model="announcement-bar"/>
+      <BuilderComponent content={announcement} model="announcement-bar" />
       <Container>
         <div className="relative flex flex-row justify-between py-4 align-center md:py-6">
           <div className="flex items-center flex-1">

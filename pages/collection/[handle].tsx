@@ -17,7 +17,7 @@ import Head from 'next/head'
 
 builder.init(builderConfig.apiKey!)
 Builder.isStatic = true
-const builderModel = 'collection-page';
+const builderModel = 'collection-page'
 
 export async function getStaticProps({
   params,

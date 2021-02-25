@@ -1,7 +1,5 @@
 {
-  "loadPlugins": [
-    "@builder.io/plugin-shopify@dev"
-  ],
+  "loadPlugins": ["@builder.io/plugin-shopify@dev"],
   "customTargetingAttributes": {
     "itemInCart": {
       "type": "ShopifyProductHandle"
@@ -11,10 +9,7 @@
     },
     "locale": {
       "type": "string",
-      "enum": [
-        "en-US",
-        "es"
-      ]
+      "enum": ["en-US", "es"]
     },
     "productHandle": {
       "type": "ShopifyProductHandle"

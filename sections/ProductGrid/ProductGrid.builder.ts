@@ -118,22 +118,26 @@ export const productGridSchema: Input[] = [
 Builder.registerComponent(LazyProductGrid, {
   name: 'ProductGrid',
   description: 'Pick products free form',
-  inputs: [{
-    name: 'productsList',
-    type: 'list',
-    subFields: [
-      {
-        name: 'product',
-        type: 'ShopifyProductHandle',
-      },
-    ]
-  }].concat(productGridSchema as any),
+  inputs: [
+    {
+      name: 'productsList',
+      type: 'list',
+      subFields: [
+        {
+          name: 'product',
+          type: 'ShopifyProductHandle',
+        },
+      ],
+    },
+  ].concat(productGridSchema as any),
 })
 
 Builder.registerComponent(LazyProductGrid, {
   name: 'ProductCollectionGrid',
-  inputs: [{
-    name: 'collection',
-    type: 'ShopifyCollectionHandle',
-  }].concat(productGridSchema),
+  inputs: [
+    {
+      name: 'collection',
+      type: 'ShopifyCollectionHandle',
+    },
+  ].concat(productGridSchema),
 })

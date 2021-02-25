@@ -19,14 +19,11 @@
       {
         "@type": "@builder.io/sdk:Element",
         "@version": 2,
-        "id": "builder-65ff6d2d7569447a82adec925ffd3a59",
+        "id": "builder-7dac34a18c3d4ef5af39e9d0dbcae5ea",
         "component": {
-          "name": "Hero",
+          "name": "Custom Code",
           "options": {
-            "headline": "The simplest way to build Ecommerce sites with Next.js",
-            "description": "Stop waiting on development release cycles. Start dragging and dropping to build and optimize digital experiences for your website, app, or ecommerce store.",
-            "ctaLink": "https://builder.io",
-            "ctaText": "read more"
+            "code": "<div style=\"position: relative; padding-bottom: 45.91836734693878%; height: 0;\">\n  <iframe\n    src=\"https://www.loom.com/embed/9b947acbbf714ee3ac6c319c130cdb85\"\n    frameborder=\"0\"\n    webkitallowfullscreen\n    mozallowfullscreen\n    allowfullscreen\n    style=\"position: absolute; top: 0; left: 15%; width: 70%; height: 90%;\"\n  ></iframe>\n</div>\n"
           }
         },
         "responsiveStyles": {
@@ -36,110 +33,7 @@
             "position": "relative",
             "flexShrink": "0",
             "boxSizing": "border-box",
-            "marginTop": "20px",
-            "contentVisibility": "auto",
-            "containIntrinsicSize": "384px"
-          },
-          "medium": {
-            "contentVisibility": "auto",
-            "containIntrinsicSize": "424px"
-          },
-          "small": {
-            "contentVisibility": "auto",
-            "containIntrinsicSize": "492px"
-          }
-        }
-      },
-      {
-        "@type": "@builder.io/sdk:Element",
-        "@version": 2,
-        "id": "builder-e42ef040359d47b38715acf70cc5b91a",
-        "component": {
-          "name": "ProductCollectionGrid",
-          "options": {
-            "marqueeOptions": {
-              "variant": "primary"
-            },
-            "gridProps": {
-              "variant": "default",
-              "layout": "B"
-            },
-            "cardProps": {
-              "variant": "simple",
-              "imgPriority": true,
-              "imgLayout": "responsive",
-              "imgLoading": "eager",
-              "imgWidth": 540,
-              "imgHeight": 540,
-              "layout": "fixed"
-            },
-            "highlightCard": {
-              "imgWidth": 1080,
-              "imgHeight": 1080,
-              "variant": "simple",
-              "imgPriority": true,
-              "imgLayout": "responsive",
-              "imgLoading": "eager",
-              "layout": "fixed",
-              "index": 6
-            },
-            "limit": 3,
-            "collection": "frontpage",
-            "marquee": false
-          }
-        },
-        "responsiveStyles": {
-          "large": {
-            "display": "flex",
-            "flexDirection": "column",
-            "position": "relative",
-            "flexShrink": "0",
-            "boxSizing": "border-box",
-            "marginTop": "20px",
-            "contentVisibility": "auto",
-            "containIntrinsicSize": "1412px"
-          },
-          "medium": {
-            "contentVisibility": "auto",
-            "containIntrinsicSize": "2994px"
-          },
-          "small": {
-            "contentVisibility": "auto",
-            "containIntrinsicSize": "1914px"
-          }
-        }
-      },
-      {
-        "@type": "@builder.io/sdk:Element",
-        "@version": 2,
-        "id": "builder-62aacf55b05b4085b82b988d27cab2d9",
-        "component": {
-          "name": "Hero",
-          "options": {
-            "headline": "Ready to go headless?",
-            "description": "Prism adaptogen migas truffaut bicycle rights cred brunch cornhole chia chicharrones. Humblebrag wayfarers keffiyeh XOXO vexillologist, tacos banjo iPhone biodiesel direct trade typewriter. Fingerstache chia schlitz bespoke cronut unicorn crucifix listicle man bun mlkshk tilde bicycle rights offal 3 wolf moon humblebrag. DIY retro enamel pin sartorial ethical, glossier schlitz stumptown meh swag ",
-            "ctaLink": "https://www.builder.io",
-            "ctaText": "read more"
-          }
-        },
-        "responsiveStyles": {
-          "large": {
-            "display": "flex",
-            "flexDirection": "column",
-            "position": "relative",
-            "flexShrink": "0",
-            "boxSizing": "border-box",
-            "marginTop": "20px",
-            "contentVisibility": "auto",
-            "containIntrinsicSize": "452px"
-          },
-          "medium": {
-            "contentVisibility": "auto",
-            "containIntrinsicSize": "564px"
-          },
-          "small": {
-            "contentVisibility": "auto",
-            "containIntrinsicSize": "564px"
+            "marginTop": "20px"
           }
         }
       }
@@ -165,10 +59,7 @@
     {
       "operator": "is",
       "property": "locale",
-      "value": [
-        "en-US",
-        "es"
-      ]
+      "value": ["en-US", "es"]
     }
   ],
   "rev": "hzfyjvqy5b",

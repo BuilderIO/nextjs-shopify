@@ -19,19 +19,21 @@ const CartSidebarView: FC = () => {
 
   const items = cart?.lineItems ?? []
   const isEmpty = items.length === 0
-  const [cartUpsell, setCartUpsell] = useState();
+  const [cartUpsell, setCartUpsell] = useState()
 
   useEffect(() => {
     async function fetchContent() {
-      const items = cart?.lineItems || [];
-      const cartUpsellContent = await builder.get('cart-upsell-sidebar', {
-        userAttributes: {
-          itemInCart: items.map((item: any) => item.variant.product.handle)
-        } as any
-      }).toPromise();
-      setCartUpsell(cartUpsellContent);
+      const items = cart?.lineItems || []
+      const cartUpsellContent = await builder
+        .get('cart-upsell-sidebar', {
+          userAttributes: {
+            itemInCart: items.map((item: any) => item.variant.product.handle),
+          } as any,
+        })
+        .toPromise()
+      setCartUpsell(cartUpsellContent)
     }
-    fetchContent();
+    fetchContent()
   }, [cart?.lineItems])
 
   return (
@@ -108,7 +110,10 @@ const CartSidebarView: FC = () => {
                 <span>{total}</span>
               </div>
             </div>
-            <BuilderComponent content={cartUpsell} model="cart-upsell-sidebar" />
+            <BuilderComponent
+              content={cartUpsell}
+              model="cart-upsell-sidebar"
+            />
             {checkoutUrl && (
               <Button href={checkoutUrl!} Component="a" width="100%">
                 Proceed to Checkout

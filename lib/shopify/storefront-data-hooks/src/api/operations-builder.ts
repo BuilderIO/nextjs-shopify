@@ -8,10 +8,10 @@ export interface BuillderConfig {
 }
 
 export interface CollectionProductsQuery {
-  handle: string;
-  limit?: number;
-  cursor?: string;
-  apiKey: string;
+  handle: string
+  limit?: number
+  cursor?: string
+  apiKey: string
 }
 
 export async function getAllProducts(
@@ -174,7 +174,11 @@ export async function getAllCollectionPaths(
 
 export async function getCollection(
   config: BuillderConfig,
-  options: { id?: string; handle?: string, productsQuery?: Omit<CollectionProductsQuery, 'handle'> }
+  options: {
+    id?: string
+    handle?: string
+    productsQuery?: Omit<CollectionProductsQuery, 'handle'>
+  }
 ) {
   if (Boolean(options.id) === Boolean(options.handle)) {
     throw new Error('Either a handle or id is required')
@@ -206,17 +210,27 @@ export async function getCollection(
     ...options.productsQuery,
     apiKey: config.apiKey,
   }
-  const { products, nextPageCursor, hasNextPage } = await getCollectionProducts(productsQuery);
+  const { products, nextPageCursor, hasNextPage } = await getCollectionProducts(
+    productsQuery
+  )
 
   return {
     ...collection,
     products,
     nextPageCursor,
-    hasNextPage
+    hasNextPage,
   }
 }
 
-export const getCollectionProducts = (productsQuery: CollectionProductsQuery): Promise<{ nextPageCursor: string, products: any[], hasNextPage: boolean}> => {
+export const getCollectionProducts = (
+  productsQuery: CollectionProductsQuery
+): Promise<{
+  nextPageCursor: string
+  products: any[]
+  hasNextPage: boolean
+}> => {
   const search = qs.stringify(productsQuery)
-  return fetch(`https://cdn.builder.io/api/v1/shopify-sync/collection-products?${search}`).then(res => res.json());
+  return fetch(
+    `https://cdn.builder.io/api/v1/shopify-sync/collection-products?${search}`
+  ).then((res) => res.json())
 }

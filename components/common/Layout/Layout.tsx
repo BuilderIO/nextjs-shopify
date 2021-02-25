@@ -26,7 +26,12 @@ const Layout: FC = ({ children }) => {
         <main className="fit">{children}</main>
         <Footer />
 
-        <Sidebar open={displaySidebar || builder.editingModel === 'cart-upsell-sidebar'} onClose={closeSidebar}>
+        <Sidebar
+          open={
+            displaySidebar || builder.editingModel === 'cart-upsell-sidebar'
+          }
+          onClose={closeSidebar}
+        >
           <CartSidebarView />
         </Sidebar>
 

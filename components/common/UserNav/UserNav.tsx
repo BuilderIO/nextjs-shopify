@@ -21,7 +21,9 @@ const UserNav: FC<Props> = ({ className, children, ...props }) => {
           <NoSSR>
             <li className={s.item} onClick={toggleSidebar}>
               <Bag />
-              {itemsCount > 0 && <span className={s.bagCount}>{itemsCount}</span>}
+              {itemsCount > 0 && (
+                <span className={s.bagCount}>{itemsCount}</span>
+              )}
             </li>
           </NoSSR>
         </ul>

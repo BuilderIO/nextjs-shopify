@@ -42,7 +42,7 @@ export function CommerceProvider({
           return getNewCart()
         }
 
-        const cartHasBeenPurchased = Boolean(refreshedCart.completedAt);
+        const cartHasBeenPurchased = Boolean(refreshedCart.completedAt)
 
         if (cartHasBeenPurchased) {
           getNewCart()

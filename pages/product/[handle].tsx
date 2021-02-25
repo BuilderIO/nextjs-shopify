@@ -19,7 +19,7 @@ import Head from 'next/head'
 builder.init(builderConfig.apiKey!)
 Builder.isStatic = true
 
-const builderModel= 'product-page';
+const builderModel = 'product-page'
 
 export async function getStaticProps({
   params,

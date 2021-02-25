@@ -1,4 +1,4 @@
-import { } from 'react'
+import {} from 'react'
 import { useCart, useCheckoutUrl } from '@lib/shopify/storefront-data-hooks'
 import { Layout } from '@components/common'
 import { Button } from '@components/ui'

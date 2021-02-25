@@ -76,28 +76,32 @@ export default function Path({
 
   return (
     <div>
-      { title && <NextSeo
-        title={title}
-        description={description}
-        openGraph={{
-          type: 'website',
-          title,
-          description,
-          locale,
-          ...(image && {images: [
-            {
-              url: image,
-              width: 800,
-              height: 600,
-              alt: title,
-            },
-          ],
-        })}}
-      />}
+      {title && (
+        <NextSeo
+          title={title}
+          description={description}
+          openGraph={{
+            type: 'website',
+            title,
+            description,
+            locale,
+            ...(image && {
+              images: [
+                {
+                  url: image,
+                  width: 800,
+                  height: 600,
+                  alt: title,
+                },
+              ],
+            }),
+          }}
+        />
+      )}
       <BuilderComponent
         options={{ includeRefs: true } as any}
         model="page"
-        {... page && { content: page }}
+        {...(page && { content: page })}
       />
     </div>
   )
