@@ -41,7 +41,7 @@ export const ProductGrid: FC<ProductGridProps> = ({
       const promises = productsList
         .map((entry) => entry.product)
         .map(
-          async (handle: string) => await getProduct(builderConfig, { handle })
+          async (handle: string) => handle && await getProduct(builderConfig, { handle })
         )
       setProducts(await Promise.all(promises))
       setLoading(false)
