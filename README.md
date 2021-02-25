@@ -194,6 +194,9 @@ Go to your [new space settings](https://builder.io/account/space) and change the
 <!-- that's intially published is hard coded to the collections on the demo store -->
 <!-- and won' work out of the box. -->
 
+### 8. Start building
+Now that we have everything setup, start building and publishing pages on builder.io, for a demo on building something similar to the [demo homepage](https://headless.builders), follow the steps in this [short video](https://www.loom.com/share/9b947acbbf714ee3ac6c319c130cdb85)
+
 ## Deploy
 
 You can deploy this code anywhere you like - you can find many deployment options for Next.js [here](https://nextjs.org/docs/deployment). For this project, we particularly recommend Vercel - it's as easy as signing up for Vercel and choosing your repo to deploy. See more info [here](https://nextjs.org/docs/deployment), or use the one click deploy option below:
