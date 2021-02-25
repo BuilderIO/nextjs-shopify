@@ -30,8 +30,9 @@ export async function resolveBuilderContent(
         if (props.productsList) {
           const promises = props.productsList
             .map((entry: any) => entry.product)
+            .filter((handle: string | undefined) => typeof handle === 'string')
             .map(
-              async (handle: string) => handle &&
+              async (handle: string) =>
                 await getProduct(builderConfig, { handle })
             )
           products = await Promise.all(promises)
