@@ -1,3 +1,17 @@
+
+# Next.js + Shopify + Builder.io starter kit
+
+Demo live at: [headless.builders](https://headless.builders/)
+
+## Goals and Features
+
+- High performance
+- SEO optimized
+- Themable
+- Internationalizable
+- Builder.io visual CMS integrated
+- Connect to Shopify data through Builder's high speed data layer
+
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
 
@@ -14,20 +28,6 @@
     - [Deploy](#deploy)
 
 <!-- markdown-toc end -->
-# Next.js + Shopify + Builder.io starter kit
-
-Demo live at: [headless.builders](https://headless.builders/)
-
-## Goals and Features
-
-- Performant by default
-- SEO Ready
-- Internationalization
-- Responsive
-- UI Components
-- Theming
-- Standardized Data Hooks
-- Integrations - Integrate seamlessly with the most common ecommerce platforms.
 
 ## Getting Started
 
