@@ -1,13 +1,23 @@
 
 # Next.js + Shopify + Builder.io starter kit
 
+The ultimate starter for headless Shopify stores. 
+
 Demo live at: [headless.builders](https://headless.builders/)
+
+## Goals and Features
+
+- Ultra high performance
+- SEO optimized
+- Themable
+- Personalizable (interntionalization, a/b testing, etc)
+- Builder.io Visual CMS integrated
+- Connect to Shopify data through Builder's high speed data layer
 
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
 
 
-  - [Goals and Features](#goals-and-features)
   - [Getting Started](#getting-started)
       - [1: Create an account for Builder.io](#1-create-an-account-for-builderio)
       - [2: Your Builder.io private key](#2-your-builderio-private-key)
@@ -20,14 +30,6 @@ Demo live at: [headless.builders](https://headless.builders/)
 
 <!-- markdown-toc end -->
 
-## Goals and Features
-
-- Ultra high performance
-- SEO optimized
-- Themable
-- Personalizable (interntionalization, a/b testing, etc)
-- Builder.io Visual CMS integrated
-- Connect to Shopify data through Builder's high speed data layer
 
 ## Getting Started
 
