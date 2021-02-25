@@ -31,7 +31,7 @@ export async function resolveBuilderContent(
           const promises = props.productsList
             .map((entry: any) => entry.product)
             .map(
-              async (handle: string) =>
+              async (handle: string) => handle &&
                 await getProduct(builderConfig, { handle })
             )
           products = await Promise.all(promises)
