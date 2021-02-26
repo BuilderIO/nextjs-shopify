@@ -50,10 +50,10 @@ export async function searchProducts(
         config.productsModel
       }?${query}&query.$or=${JSON.stringify([
         {
-          'data.description': { $regex: `${searchString}` },
+          'data.description': { $regex: `${searchString}`, $options: 'i' },
         },
         {
-          'data.title': { $regex: `${searchString}` },
+          'data.title': { $regex: `${searchString}`, $options: 'i' },
         },
       ])}`
     ).then((res) => res.json())
