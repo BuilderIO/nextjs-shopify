@@ -90,7 +90,7 @@ meaningful to you -- don't worry, you can change it later!
 git clone https://github.com/BuilderIO/nextjs-shopify.git
 cd nextjs-shopify
 
-npm install --global @builder.io/cli
+npm install --global "@builder.io/cli"
 
 builder create --key "<private-key>" --name "<space-name>" --debug
 ```
