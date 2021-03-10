@@ -10,7 +10,7 @@ Demo live at: [headless.builders](https://headless.builders/)
 - Ultra high performance
 - SEO optimized
 - Themable
-- Personalizable (interntionalization, a/b testing, etc)
+- Personalizable (internationalization, a/b testing, etc)
 - Builder.io Visual CMS integrated
 - Connect to Shopify data through Builder's high speed data layer
 
