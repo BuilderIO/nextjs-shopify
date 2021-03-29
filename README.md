@@ -142,7 +142,7 @@ SHOPIFY_STORE_DOMAIN=
 
 ### 4. Shopify private app
 
-Create a [private app](https://help.shopify.com/en/manual/apps/private-apps) for your Shopify store.
+Create a [private app](https://help.shopify.com/en/manual/apps/private-apps) for your Shopify store. If you don't have a Shopify store already, you can create a [development store](https://help.shopify.com/en/partners/dashboard/managing-stores/development-stores).
 
 ![Example of how to create find private app section](./docs/images/shopify-private-app-flow.png)
 
