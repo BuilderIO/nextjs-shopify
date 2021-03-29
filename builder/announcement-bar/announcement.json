@@ -1,16 +1,16 @@
 {
   "createdBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
-  "createdDate": 1613962807575,
+  "createdDate": 1613961025095,
   "data": {
     "blocks": [
       {
         "@type": "@builder.io/sdk:Element",
         "@version": 2,
-        "id": "builder-e5275b993d72497bb205c76b82d27afd",
+        "id": "builder-6e6067861ced40a6b4760093ea015e04",
         "component": {
           "name": "Text",
           "options": {
-            "text": "<p>Fur purka is awesome, here's an extra 90% .. this is a targeted message from builder.io</p>"
+            "text": "<p>You picked loose sweaters</p>"
           }
         },
         "responsiveStyles": {
@@ -20,10 +20,12 @@
             "position": "relative",
             "flexShrink": "0",
             "boxSizing": "border-box",
-            "marginTop": "20px",
+            "marginTop": "0px",
             "lineHeight": "normal",
             "height": "auto",
             "textAlign": "center",
+            "backgroundColor": "rgba(0, 0, 0, 1)",
+            "color": "rgba(255, 251, 251, 1)",
             "paddingTop": "10px",
             "paddingBottom": "10px"
           }
@@ -38,7 +40,7 @@
       }
     }
   },
-  "id": "4d1c85845d1542738d0983e91f4adde4",
+  "id": "979ead8ab38642cb9e4af0fc6d266d0d",
   "lastUpdatedBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
   "meta": {
     "hasLinks": false,
@@ -46,22 +48,17 @@
     "shopifyDomain": "builder-io-demo.myshopify.com/",
     "needsHydration": false
   },
-  "modelId": "fbabc299e090451b8d1b405297e3ee38",
-  "name": "fur purka upsell",
+  "modelId": "c776a70407824450aaf37a9dfde135e2",
+  "name": "announcement for loose sweaters",
   "published": "published",
   "query": [
-    {
-      "operator": "is",
-      "property": "itemInCart",
-      "value": "leather-fur-parka-for-male-wear-in-winter-black-thick-fur-lined-raccon-fur-hoodies-mr-mrs-unisex-wear"
-    }
   ],
   "testRatio": 1,
   "variations": {},
-  "lastUpdated": 1613963041567,
-  "screenshot": "https://cdn.builder.io/api/v1/image/assets%2F9aa8825c0d33424ca3e9076c2cc4a328%2Fc2b32e129c014208ae8a5fd81dd99ae3",
-  "rev": "5m4hvfuxmhq",
+  "lastUpdated": 1613962660457,
+  "screenshot": "https://cdn.builder.io/api/v1/image/assets%2F9aa8825c0d33424ca3e9076c2cc4a328%2F0eff1cf140714ca08daa3aeeb2930c06",
+  "rev": "ojoyz0d2zzl",
   "@originOrg": "9aa8825c0d33424ca3e9076c2cc4a328",
-  "@originContentId": "a0fdc1246d5a414f96097bccd83df8cf",
-  "@originModelId": "98571179689745e0ac542ba85dd66e92"
+  "@originContentId": "2ff2162732634c548109ea15ffac439e",
+  "@originModelId": "67e94ebf439847799f211fd2ef9f98cc"
 }
