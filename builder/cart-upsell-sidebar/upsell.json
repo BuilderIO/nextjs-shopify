@@ -10,7 +10,7 @@
         "component": {
           "name": "Text",
           "options": {
-            "text": "<p>Fur purka is awesome, here's an extra 90% .. this is a targeted message from builder.io</p>"
+            "text": "<p>Target this message content based on items in cart in Builder.io</p>"
           }
         },
         "responsiveStyles": {

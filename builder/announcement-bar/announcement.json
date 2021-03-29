@@ -10,7 +10,7 @@
         "component": {
           "name": "Text",
           "options": {
-            "text": "<p>You picked loose sweaters</p>"
+            "text": "<p>Announcement bar section</p>"
           }
         },
         "responsiveStyles": {
