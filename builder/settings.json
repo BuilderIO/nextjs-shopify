@@ -7,10 +7,6 @@
     "collectionHandle": {
       "type": "ShopifyCollectionHandle"
     },
-    "locale": {
-      "type": "string",
-      "enum": ["en-US", "es"]
-    },
     "productHandle": {
       "type": "ShopifyProductHandle"
     }

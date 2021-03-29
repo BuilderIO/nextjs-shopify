@@ -10,7 +10,7 @@
         "component": {
           "name": "Text",
           "options": {
-            "text": "<p>Fur purka is awesome, here's an extra 90% .. this is a targeted message from builder.io</p>"
+            "text": "<p>Target this message content based on items in cart in Builder.io</p>"
           }
         },
         "responsiveStyles": {
@@ -49,13 +49,7 @@
   "modelId": "fbabc299e090451b8d1b405297e3ee38",
   "name": "fur purka upsell",
   "published": "published",
-  "query": [
-    {
-      "operator": "is",
-      "property": "itemInCart",
-      "value": "leather-fur-parka-for-male-wear-in-winter-black-thick-fur-lined-raccon-fur-hoodies-mr-mrs-unisex-wear"
-    }
-  ],
+  "query": [],
   "testRatio": 1,
   "variations": {},
   "lastUpdated": 1613963041567,

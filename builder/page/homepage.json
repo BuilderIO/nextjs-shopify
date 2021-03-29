@@ -55,11 +55,6 @@
       "operator": "is",
       "property": "urlPath",
       "value": "/"
-    },
-    {
-      "operator": "is",
-      "property": "locale",
-      "value": ["en-US", "es"]
     }
   ],
   "rev": "hzfyjvqy5b",

@@ -10,7 +10,7 @@
         "component": {
           "name": "Text",
           "options": {
-            "text": "<p>You picked loose sweaters</p>"
+            "text": "<p>Announcement bar section</p>"
           }
         },
         "responsiveStyles": {
@@ -52,11 +52,6 @@
   "name": "announcement for loose sweaters",
   "published": "published",
   "query": [
-    {
-      "operator": "is",
-      "property": "itemInCart",
-      "value": "loose-sweaters-women-2020-spring-autumn-bottoming-shirt-pullover-sweaters-winter-plus-size-4xl-knit-female-tops-outerwear-j85"
-    }
   ],
   "testRatio": 1,
   "variations": {},
