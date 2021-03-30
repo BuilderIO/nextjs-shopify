@@ -8,6 +8,7 @@ import { useCart, useCheckoutUrl } from '@lib/shopify/storefront-data-hooks'
 import CartItem from '../CartItem'
 import s from './CartSidebarView.module.css'
 import { BuilderComponent, builder } from '@builder.io/react'
+import env from '@config/env'
 
 const CartSidebarView: FC = () => {
   const { closeSidebar } = useUI()
@@ -26,6 +27,7 @@ const CartSidebarView: FC = () => {
       const items = cart?.lineItems || []
       const cartUpsellContent = await builder
         .get('cart-upsell-sidebar', {
+          cachebust: env.isDev,
           userAttributes: {
             itemInCart: items.map((item: any) => item.variant.product.handle),
           } as any,

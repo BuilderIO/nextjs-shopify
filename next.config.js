@@ -3,6 +3,7 @@ const bundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 module.exports = bundleAnalyzer({
+  target: 'serverless',
   images: {
     domains: ['cdn.shopify.com', 'cdn.builder.io'],
   },
