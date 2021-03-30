@@ -7,6 +7,7 @@ import cn from 'classnames'
 import throttle from 'lodash.throttle'
 import { getAllCollections } from '@lib/shopify/storefront-data-hooks/src/api/operations-builder'
 import builderConfig from '@config/builder'
+import env from '@config/env'
 import { BuilderComponent, builder } from '@builder.io/react'
 import { useCart } from '@lib/shopify/storefront-data-hooks'
 
@@ -20,6 +21,7 @@ const Navbar: FC = () => {
       const items = cart?.lineItems || []
       const anouncementContent = await builder
         .get('announcement-bar', {
+          cachebust: env.isDev,
           userAttributes: {
             itemInCart: items.map((item: any) => item.variant.product.handle),
           } as any,
