@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 import { Layout } from '@components/common'
 import { BuilderComponent, Builder, builder } from '@builder.io/react'
 import { resolveBuilderContent } from '@lib/resolve-builder-content'
-import '../../sections/ProductView/ProductView.builder'
+import '../../blocks/ProductView/ProductView.builder'
 import builderConfig from '@config/builder'
 import {
   getAllProductPaths,

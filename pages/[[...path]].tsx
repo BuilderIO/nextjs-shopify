@@ -13,9 +13,9 @@ import Head from 'next/head'
 import { resolveBuilderContent } from '@lib/resolve-builder-content'
 
 builder.init(builderConfig.apiKey)
-import '../sections/ProductGrid/ProductGrid.builder'
-import '../sections/CollectionView/CollectionView.builder'
-import '../sections/Hero/Hero.builder'
+import '../blocks/ProductGrid/ProductGrid.builder'
+import '../blocks/CollectionView/CollectionView.builder'
+import '../blocks/Hero/Hero.builder'
 
 const isProduction = process.env.NODE_ENV === 'production'
 
