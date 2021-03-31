@@ -2,7 +2,7 @@ import { Builder, builder } from '@builder.io/react'
 import dynamic from 'next/dynamic'
 
 const LazyProductView = dynamic(
-  () => import(`sections/ProductView/ProductView`),
+  () => import(`blocks/ProductView/ProductView`),
   { ssr: true }
 )
 
