@@ -19,65 +19,28 @@ import NoSSR from '@components/common/NoSSR/NoSSR'
 interface Props {
   className?: string
   children?: any
-  product: ShopifyBuy.Product
+  product: ShopifyBuy.Product & Record<string, any>
 }
 
 const ProductView: React.FC<Props> = ({ product }) => {
-  const addItem = useAddItemToCart()
-  const colors: string[] | undefined = product.options
-    ?.find((option) => option?.name?.toLowerCase() === 'color')
-    ?.values?.map((op) => op.value as string)
-
-  const sizes: string[] | undefined = product.options
-    ?.find((option) => option?.name?.toLowerCase() === 'size')
-    ?.values?.map((op) => op.value as string)
-
-  const variants = useMemo(
-    () => prepareVariantsWithOptions(product!.variants! as any),
-    [product.variants]
+  const variants = product.variants as any[]
+  const images = product.images
+  const variant = variants.find((v) => v.available) || variants[0]
+  const price = getPrice(variant.compare_at_price || variant.price, 'USD')
+  const [image, setImage] = useState(
+    variant.featured_image || product.images[0]
   )
-  const images = useMemo(() => prepareVariantsImages(variants, 'color'), [
-    variants,
-  ])
 
-  const { openSidebar } = useUI()
-  const [loading, setLoading] = useState(false)
-  const [variant, setVariant] = useState(variants[0])
-  const [color, setColor] = useState(variant.color)
-  const [size, setSize] = useState(variant.size)
-
-  useEffect(() => {
-    const newVariant = variants.find((variant) => {
-      return variant.size === size && variant.color === color
-    })
-
-    if (variant.id !== newVariant?.id) {
-      setVariant(newVariant)
-    }
-  }, [size, color, variants, variant.id])
-
-  const addToCart = async () => {
-    setLoading(true)
-    try {
-      await addItem(variant.id, 1)
-      openSidebar()
-      setLoading(false)
-    } catch (err) {
-      setLoading(false)
-    }
-  }
   const gallery =
     images.length > 1 ? (
       <NoSSR>
         <Grid gap={2} columns={6}>
-          {images.map(({ src, color }) => (
+          {images.map(({ src }) => (
             <Thumbnail
-              width={30}
+              width={20}
               height={60}
-              name={color}
-              key={color}
-              src={src.src}
-              onClick={() => setColor(color)}
+              src={src}
+              onHover={() => setImage({ src })}
             />
           ))}
         </Grid>
@@ -88,11 +51,11 @@ const ProductView: React.FC<Props> = ({ product }) => {
     <React.Fragment>
       <NextSeo
         title={product.title}
-        description={product.description}
+        description={product.body_html}
         openGraph={{
           type: 'website',
           title: product.title,
-          description: product.description,
+          description: product.body_html,
           images: [
             {
               url: product.images?.[0]?.src!,
@@ -112,9 +75,9 @@ const ProductView: React.FC<Props> = ({ product }) => {
               marginBottom: 2,
             }}
           >
-            {variant.image && (
+            {image && (
               <Image
-                src={variant.image.src}
+                src={image.src}
                 alt={product.title}
                 width={1050}
                 height={1050}
@@ -129,36 +92,27 @@ const ProductView: React.FC<Props> = ({ product }) => {
           <span sx={{ mt: 0, mb: 2 }}>
             <Themed.h1>{product.title}</Themed.h1>
             <Themed.h4 aria-label="price" sx={{ mt: 0, mb: 2 }}>
-              {getPrice(variant.priceV2.amount, variant.priceV2.currencyCode)}
+              {price}
             </Themed.h4>
           </span>
-          <div dangerouslySetInnerHTML={{ __html: product.description! }} />
+          <div dangerouslySetInnerHTML={{ __html: product.body_html }} />
           <div>
             <Grid padding={2} columns={2}>
-              {colors?.length && (
-                <OptionPicker
-                  key="Color"
-                  name="Color"
-                  options={colors}
-                  selected={color}
-                  onChange={(event) => setColor(event.target.value)}
-                />
-              )}
-              {sizes?.length && (
-                <OptionPicker
-                  key="Size"
-                  name="Size"
-                  options={sizes}
-                  selected={size}
-                  onChange={(event) => setSize(event.target.value)}
-                />
-              )}
+              {product.options.map((opt: any) => {
+                return (
+                  <OptionPicker
+                    key={opt.name}
+                    name={opt.name}
+                    options={opt.values}
+                  />
+                )
+              })}
             </Grid>
           </div>
           <Button
+            disabled
             name="add-to-cart"
             sx={{ margin: 2, display: 'block' }}
-            onClick={addToCart}
           >
             Add to Cart
           </Button>

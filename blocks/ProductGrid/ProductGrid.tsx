@@ -1,10 +1,15 @@
-import { FC, useEffect, useState, useMemo } from 'react'
-import { Grid, GridProps, LoadingDots } from '@components/ui'
-import { ProductCard, ProductCardProps } from '@components/product'
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
+import { FC, useEffect, useState } from 'react'
+import { LoadingDots } from '@components/ui'
+import { Grid } from '@theme-ui/components'
+import { ProductCard, ProductCardProps } from '@components/common/product-card'
+import { ProductCardDemo } from '@components/common/ProductCardDemo'
+
 import {
   getCollection,
   getProduct,
-  searchProducts,
 } from '@lib/shopify/storefront-data-hooks/src/api/operations-builder'
 import builderConfig from '@config/builder'
 interface HighlightedCardProps extends ProductCardProps {
@@ -12,7 +17,6 @@ interface HighlightedCardProps extends ProductCardProps {
 }
 
 export interface ProductGridProps {
-  gridProps?: GridProps
   products?: ShopifyBuy.Product[]
   productsList: Array<{ product: string }>
   collection?: string | any // ShopifyBuy.Collection
@@ -30,7 +34,6 @@ export const ProductGrid: FC<ProductGridProps> = ({
   limit = 10,
   cardProps,
   highlightCard,
-  gridProps,
 }) => {
   const [products, setProducts] = useState(initialProducts || [])
   const [loading, setLoading] = useState(false)
@@ -69,11 +72,21 @@ export const ProductGrid: FC<ProductGridProps> = ({
   if (loading) {
     return <LoadingDots />
   }
+  const ProductComponent: any = process.env.IS_DEMO
+    ? ProductCardDemo
+    : ProductCard
 
   return (
-    <Grid {...gridProps}>
+    <Grid
+      sx={{
+        maxWidth: [500, 1200, 1920],
+        margin: '0 auto',
+      }}
+      gap={2}
+      columns={[1, 2, 3]}
+    >
       {products.slice(offset, limit).map((product, i) => (
-        <ProductCard
+        <ProductComponent
           key={String(product.id)}
           {...(highlightCard?.index === i ? highlightCard : cardProps)}
           product={product}

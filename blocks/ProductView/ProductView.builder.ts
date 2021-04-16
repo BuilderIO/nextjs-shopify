@@ -1,8 +1,12 @@
 import { Builder, builder } from '@builder.io/react'
 import dynamic from 'next/dynamic'
 
+const isDemo = Boolean(process.env.IS_DEMO)
 const LazyProductView = dynamic(
-  () => import(`blocks/ProductView/ProductView`),
+  () =>
+    isDemo
+      ? import(`blocks/ProductView/ProductViewDemo`)
+      : import(`blocks/ProductView/ProductView`),
   { ssr: true }
 )
 

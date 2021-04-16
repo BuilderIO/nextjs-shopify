@@ -4,6 +4,7 @@ import { Input } from '@builder.io/sdk'
 const LazyProductGrid = dynamic(async () => {
   return (await import('./ProductGrid')).ProductGrid
 })
+const isDemo = Boolean(process.env.IS_DEMO)
 
 const productCardFields: Input[] = [
   {
@@ -125,19 +126,20 @@ Builder.registerComponent(LazyProductGrid, {
       subFields: [
         {
           name: 'product',
-          type: 'ShopifyProductHandle',
+          type: `${isDemo ? 'ShopifyStore' : 'Shopify'}ProductHandle`,
         },
       ],
     },
   ].concat(productGridSchema as any),
 })
 
+// collection do not work in demo mode
 Builder.registerComponent(LazyProductGrid, {
   name: 'ProductCollectionGrid',
   inputs: [
     {
       name: 'collection',
-      type: 'ShopifyCollectionHandle',
+      type: `${isDemo ? 'ShopifyStore' : 'Shopify'}CollectionHandle`,
     },
   ].concat(productGridSchema),
 })

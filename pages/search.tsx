@@ -9,7 +9,7 @@ import { Layout } from '@components/common'
 import { Container, Grid, LoadingDots, Skeleton } from '@components/ui'
 import builderConfig from '@config/builder'
 import rangeMap from '@lib/range-map'
-import { ProductCard } from '@components/product'
+import { ProductCard } from '@components/common/product-card'
 import { searchProducts } from '@lib/shopify/storefront-data-hooks/src/api/operations-builder'
 import NoSSR from '@components/common/NoSSR/NoSSR'
 
@@ -71,7 +71,6 @@ export default function Search({
             <Grid layout="normal">
               {products.map((product: ShopifyBuy.Product) => (
                 <ProductCard
-                  variant="simple"
                   key={product.id}
                   className="animated fadeIn"
                   product={product}

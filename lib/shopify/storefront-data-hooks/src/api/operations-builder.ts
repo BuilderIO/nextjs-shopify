@@ -5,6 +5,7 @@ export interface BuillderConfig {
   apiKey: string
   productsModel: string
   collectionsModel: string
+  isDemo?: boolean
 }
 
 export interface CollectionProductsQuery {
@@ -186,6 +187,7 @@ export async function getCollection(
   const query = qs.stringify({
     limit: 1,
     apiKey: config.apiKey,
+    cachebust: process.env.NODE_ENV !== 'production',
     query: {
       data: options.id
         ? {
@@ -204,6 +206,9 @@ export async function getCollection(
   ).results
 
   const collection = collectionsContent[0]?.data
+  if (config.isDemo) {
+    return collection
+  }
   const productsQuery = {
     limit: 20,
     handle: collection.handle,

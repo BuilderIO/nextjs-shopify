@@ -2,6 +2,7 @@ import { Builder } from '@builder.io/react'
 import { Input } from '@builder.io/sdk'
 import dynamic from 'next/dynamic'
 import { productGridSchema } from '../ProductGrid/ProductGrid.builder'
+import builderConfig from '@config/builder'
 const LazyCollectionView = dynamic(() => import(`./CollectionView`))
 
 const collectionBoxSchema: Input[] = [
@@ -37,13 +38,17 @@ const collectionBoxSchema: Input[] = [
 Builder.registerComponent(LazyCollectionView, {
   name: 'CollectionBox',
   description: 'Dynamic collection detaills',
-  inputs: collectionBoxSchema.concat([
-    {
-      name: 'collection',
-      // ShopifyCollectionHandle is a custom type defined in @builder.io/plugin-shopify that let's the user pick a collection from a picker and resolves to it's handle
-      type: 'ShopifyCollectionHandle',
-    },
-  ]),
+  inputs: collectionBoxSchema
+    .concat([
+      {
+        name: 'collection',
+        // ShopifyCollectionHandle is a custom type defined in @builder.io/plugin-shopify that let's the user pick a collection from a picker and resolves to it's handle
+        type: `${
+          builderConfig.isDemo ? 'ShopifyStore' : 'Shopify'
+        }CollectionHandle`,
+      },
+    ])
+    .reverse(),
 })
 
 Builder.registerComponent(LazyCollectionView, {

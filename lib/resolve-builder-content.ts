@@ -11,7 +11,7 @@ Builder.isStatic = true
 
 export async function resolveBuilderContent(
   modelName: string,
-  targetingAttributes: any
+  targetingAttributes?: any
 ) {
   let page = await builder
     .get(modelName, {
@@ -19,7 +19,6 @@ export async function resolveBuilderContent(
       includeRefs: true,
       preview: modelName,
       cachebust: true,
-      noCache: true,
     } as any)
     .toPromise()
 

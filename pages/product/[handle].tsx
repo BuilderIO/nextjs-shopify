@@ -15,7 +15,7 @@ import {
 } from '@lib/shopify/storefront-data-hooks/src/api/operations-builder'
 import DefaultErrorPage from 'next/error'
 import Head from 'next/head'
-
+import { useThemeUI } from 'theme-ui'
 builder.init(builderConfig.apiKey!)
 Builder.isStatic = true
 
@@ -34,10 +34,13 @@ export async function getStaticProps({
     locale,
   })
 
+  const theme = await resolveBuilderContent('theme')
+
   return {
     props: {
       page,
       product,
+      theme,
     },
     revalidate: 120,
   }
@@ -57,6 +60,7 @@ export default function Handle({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter()
   const isLive = !Builder.isEditing && !Builder.isPreviewing
+  const { theme } = useThemeUI()
   // This includes setting the noindex header because static files always return a status 200 but the rendered not found page page should obviously not be indexed
   if (!product && isLive) {
     return (
@@ -77,8 +81,8 @@ export default function Handle({
       isStatic
       key={product.id}
       model={builderModel}
-      data={{ product }}
-      {...(isLive && page && { content: page })}
+      data={{ product, theme }}
+      {...(page && { content: page })}
     />
   )
 }

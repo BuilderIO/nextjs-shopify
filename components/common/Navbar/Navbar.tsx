@@ -1,21 +1,21 @@
-import { FC, useState, useEffect } from 'react'
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import React, { FC, useState, useEffect } from 'react'
 import Link from 'next/link'
-import s from './Navbar.module.css'
-import { Logo, Container } from '@components/ui'
-import { Searchbar, UserNav } from '@components/common'
-import cn from 'classnames'
-import throttle from 'lodash.throttle'
-import { getAllCollections } from '@lib/shopify/storefront-data-hooks/src/api/operations-builder'
-import builderConfig from '@config/builder'
+import { UserNav } from '@components/common'
 import env from '@config/env'
 import { BuilderComponent, builder } from '@builder.io/react'
 import { useCart } from '@lib/shopify/storefront-data-hooks'
+import { jsx, Themed, useThemeUI } from 'theme-ui'
+import { useUI } from '@components/ui/context'
+import Image from 'next/image'
 
 const Navbar: FC = () => {
-  const [hasScrolled, setHasScrolled] = useState(false)
-  const [collections, setCollections] = useState([] as any[])
   const [announcement, setAnnouncement] = useState()
-  const cart = useCart()
+  const { theme } = useThemeUI()
+  const { navigationLinks, logo } = useUI()
+  const cart = useCart();
+
   useEffect(() => {
     async function fetchContent() {
       const items = cart?.lineItems || []
@@ -32,67 +32,82 @@ const Navbar: FC = () => {
     fetchContent()
   }, [cart?.lineItems])
 
-  useEffect(() => {
-    const handleScroll = throttle(() => {
-      const offset = 0
-      const { scrollTop } = document.documentElement
-      const scrolled = scrollTop > offset
-      setHasScrolled(scrolled)
-    }, 200)
-
-    document.addEventListener('scroll', handleScroll)
-    return () => {
-      document.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
-
-  useEffect(() => {
-    const fetchCollections = async () => {
-      const result = await getAllCollections(
-        builderConfig,
-        3,
-        0,
-        'data.handle,data.title'
-      )
-      setCollections(result)
-    }
-    fetchCollections()
-  }, [])
-
   return (
-    <div className={cn(s.root, { 'shadow-magical': hasScrolled })}>
-      <BuilderComponent content={announcement} model="announcement-bar" />
-      <Container>
-        <div className="relative flex flex-row justify-between py-4 align-center md:py-6">
-          <div className="flex items-center flex-1">
-            <Link href="/">
-              <a className={s.logo} aria-label="Logo">
-                <Logo />
-              </a>
-            </Link>
-            <nav className="hidden ml-6 space-x-4 lg:block">
-              {collections.map((cl) => (
-                <Link key={cl.handle} href={`/collection/${cl.handle}`}>
-                  <a className={s.link}>{cl.title}</a>
-                </Link>
-              ))}
-            </nav>
+    <React.Fragment>
+      <BuilderComponent
+        content={announcement}
+        data={{ theme }}
+        model="announcement-bar"
+      />
+      <Themed.div as="header"           sx={{
+            margin: `0 auto`,
+            maxWidth: 1920,
+            py: 2,
+            px: 2,
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            position: 'relative',
+          }}
+>
+          <div sx={{ display: ['none', 'none', 'flex'], flexBasis: 0, zIndex: 1, minWidth: 240, justifyContent: 'space-evenly' }}>
+            {navigationLinks?.map((link, index) => (
+              <Themed.a
+                key={index}
+                sx={{ padding: 10, minWidth: 90 }}
+                as={Link}
+                href={link.link}
+              >
+                {link.title}
+              </Themed.a>
+            ))}
           </div>
-
-          <div className="justify-center flex-1 hidden lg:flex">
-            <Searchbar />
-          </div>
-
-          <div className="flex justify-end flex-1 space-x-8">
-            <UserNav />
-          </div>
-        </div>
-
-        <div className="flex pb-4 lg:px-6 lg:hidden">
-          <Searchbar id="mobile-search" />
-        </div>
-      </Container>
-    </div>
+          <Themed.div
+            sx={{ position: 'absolute', width: '100%', textAlign: 'center' }}
+          >
+            <Themed.h1
+              sx={{
+                fontSize: 20,
+                fontWeight: 'bold',
+              }}
+            >
+              {logo && logo.image && (
+                <Themed.a
+                  as={Link}
+                  href="/"
+                  sx={{
+                    letterSpacing: -1,
+                    textDecoration: `none`,
+                    paddingLeft: '5px',
+                  }}
+                >
+                  <Image
+                    layout="fixed"
+                    width={logo.width}
+                    height={logo.height}
+                    src={logo.image}
+                  ></Image>
+                </Themed.a>
+              )}
+              {logo && logo.text && !logo.image && (
+                <Themed.a
+                  as={Link}
+                  href="/"
+                  sx={{
+                    letterSpacing: -1,
+                    textDecoration: `none`,
+                    paddingLeft: '5px',
+                  }}
+                >
+                  {logo.text}
+                </Themed.a>
+              )}
+            </Themed.h1>
+          </Themed.div>
+          <UserNav />
+          {/* <Searchbar /> */}
+      </Themed.div>
+    </React.Fragment>
   )
 }
 
