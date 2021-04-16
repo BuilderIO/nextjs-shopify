@@ -75,7 +75,7 @@ const ProductView: React.FC<Props> = ({ product }) => {
               width={30}
               height={60}
               name={color}
-              key={color}
+              key={src.src}
               src={src.src}
               onClick={() => setColor(color)}
             />

@@ -36,9 +36,9 @@ export async function getStaticProps({
 
   return {
     props: {
-      page,
-      theme,
-      collection,
+      page: page || null,
+      theme: theme || null,
+      collection: collection || null,
     },
     // 4 hours in production, 1s in development
     // todo: 14400

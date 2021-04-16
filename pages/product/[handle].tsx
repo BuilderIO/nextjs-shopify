@@ -38,9 +38,9 @@ export async function getStaticProps({
 
   return {
     props: {
-      page,
-      product,
-      theme,
+      page: page || null,
+      product: product || null,
+      theme: theme || null,
     },
     revalidate: 120,
   }
