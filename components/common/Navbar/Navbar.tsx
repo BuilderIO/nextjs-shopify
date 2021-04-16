@@ -14,7 +14,7 @@ const Navbar: FC = () => {
   const [announcement, setAnnouncement] = useState()
   const { theme } = useThemeUI()
   const { navigationLinks, logo } = useUI()
-  const cart = useCart();
+  const cart = useCart()
 
   useEffect(() => {
     async function fetchContent() {
@@ -39,73 +39,83 @@ const Navbar: FC = () => {
         data={{ theme }}
         model="announcement-bar"
       />
-      <Themed.div as="header"           sx={{
-            margin: `0 auto`,
-            maxWidth: 1920,
-            py: 2,
-            px: 2,
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            position: 'relative',
+      <Themed.div
+        as="header"
+        sx={{
+          margin: `0 auto`,
+          maxWidth: 1920,
+          py: 2,
+          px: 2,
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          position: 'relative',
+        }}
+      >
+        <div
+          sx={{
+            display: ['none', 'none', 'flex'],
+            flexBasis: 0,
+            zIndex: 1,
+            minWidth: 240,
+            justifyContent: 'space-evenly',
           }}
->
-          <div sx={{ display: ['none', 'none', 'flex'], flexBasis: 0, zIndex: 1, minWidth: 240, justifyContent: 'space-evenly' }}>
-            {navigationLinks?.map((link, index) => (
-              <Themed.a
-                key={index}
-                sx={{ padding: 10, minWidth: 90 }}
-                as={Link}
-                href={link.link}
-              >
-                {link.title}
-              </Themed.a>
-            ))}
-          </div>
-          <Themed.div
-            sx={{ position: 'absolute', width: '100%', textAlign: 'center' }}
-          >
-            <Themed.h1
-              sx={{
-                fontSize: 20,
-                fontWeight: 'bold',
-              }}
+        >
+          {navigationLinks?.map((link, index) => (
+            <Themed.a
+              key={index}
+              sx={{ padding: 10, minWidth: 90 }}
+              as={Link}
+              href={link.link}
             >
-              {logo && logo.image && (
-                <Themed.a
-                  as={Link}
-                  href="/"
-                  sx={{
-                    letterSpacing: -1,
-                    textDecoration: `none`,
-                    paddingLeft: '5px',
-                  }}
-                >
-                  <Image
-                    layout="fixed"
-                    width={logo.width}
-                    height={logo.height}
-                    src={logo.image}
-                  ></Image>
-                </Themed.a>
-              )}
-              {logo && logo.text && !logo.image && (
-                <Themed.a
-                  as={Link}
-                  href="/"
-                  sx={{
-                    letterSpacing: -1,
-                    textDecoration: `none`,
-                    paddingLeft: '5px',
-                  }}
-                >
-                  {logo.text}
-                </Themed.a>
-              )}
-            </Themed.h1>
-          </Themed.div>
-          <UserNav />
-          {/* <Searchbar /> */}
+              {link.title}
+            </Themed.a>
+          ))}
+        </div>
+        <Themed.div
+          sx={{ position: 'absolute', width: '100%', textAlign: 'center' }}
+        >
+          <Themed.h1
+            sx={{
+              fontSize: 20,
+              fontWeight: 'bold',
+            }}
+          >
+            {logo && logo.image && (
+              <Themed.a
+                as={Link}
+                href="/"
+                sx={{
+                  letterSpacing: -1,
+                  textDecoration: `none`,
+                  paddingLeft: '5px',
+                }}
+              >
+                <Image
+                  layout="fixed"
+                  width={logo.width}
+                  height={logo.height}
+                  src={logo.image}
+                ></Image>
+              </Themed.a>
+            )}
+            {logo && logo.text && !logo.image && (
+              <Themed.a
+                as={Link}
+                href="/"
+                sx={{
+                  letterSpacing: -1,
+                  textDecoration: `none`,
+                  paddingLeft: '5px',
+                }}
+              >
+                {logo.text}
+              </Themed.a>
+            )}
+          </Themed.h1>
+        </Themed.div>
+        <UserNav />
+        {/* <Searchbar /> */}
       </Themed.div>
     </React.Fragment>
   )

@@ -41,8 +41,8 @@ export async function getStaticProps({
     },
     // Next.js will attempt to re-generate the page:
     // - When a request comes in
-    // - At most once every 10 seconds
-    revalidate: 10,
+    // - At most once every 80 seconds
+    revalidate: 80,
   }
 }
 
@@ -114,7 +114,7 @@ export default function Path({
           if (props.target === '_blank') {
             return <Themed.a {...props} />
           }
-            return <Themed.a {...props} as={Link} />
+          return <Themed.a {...props} as={Link} />
         }}
         {...(page && { content: page })}
       />

@@ -58,6 +58,7 @@ export default function Handle({
   product,
   page,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  Builder.isStatic = true
   const router = useRouter()
   const isLive = !Builder.isEditing && !Builder.isPreviewing
   const { theme } = useThemeUI()

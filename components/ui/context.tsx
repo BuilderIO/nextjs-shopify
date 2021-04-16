@@ -25,7 +25,6 @@ export const UIContext = React.createContext<State>(initialState)
 
 UIContext.displayName = 'UIContext'
 
-
 export const UIProvider: FC<{ siteSettings: Partial<State> }> = ({
   siteSettings,
   children,
@@ -37,7 +36,8 @@ export const UIProvider: FC<{ siteSettings: Partial<State> }> = ({
 
   const openSidebar = () => setState(() => ({ displaySidebar: true }))
   const closeSidebar = () => setState(() => ({ displaySidebar: false }))
-  const toggleSidebar = () => setState((prev) => ({ displaySidebar: !prev.displaySidebar }));
+  const toggleSidebar = () =>
+    setState((prev) => ({ displaySidebar: !prev.displaySidebar }))
 
   const value = {
     ...state,

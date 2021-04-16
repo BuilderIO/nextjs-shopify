@@ -34,11 +34,11 @@ const ProductView: React.FC<Props> = ({ product }) => {
   const gallery =
     images.length > 1 ? (
       <NoSSR>
-        <Grid gap={2} columns={6}>
+        <Grid gap={1} columns={8}>
           {images.map(({ src }) => (
             <Thumbnail
-              width={20}
-              height={60}
+              width={60}
+              height={80}
               src={src}
               onHover={() => setImage({ src })}
             />

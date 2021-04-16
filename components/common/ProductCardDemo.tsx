@@ -6,6 +6,7 @@ import { Card, Text } from '@theme-ui/components'
 import { Link } from '@components/ui'
 import { getPrice } from '@lib/shopify/storefront-data-hooks/src/utils/product'
 import { useState } from 'react'
+import NoSSR from './NoSSR/NoSSR'
 
 export interface ProductCardProps {
   className?: string
@@ -27,13 +28,16 @@ export const ProductCardDemo: React.FC<ProductCardProps> = ({
   imgSizes,
   imgLayout = 'responsive',
 }) => {
-  const [showAlternate, setShowAlternate ] = useState(false);
-  const [canToggle, setCanToggle ] = useState(false);
+  const [showAlternate, setShowAlternate] = useState(false)
+  const [canToggle, setCanToggle] = useState(false)
   const src = product.images[0].src
   const handle = (product as any).handle
   const productVariant: any = product.variants[0]
-  const price = getPrice(productVariant.compare_at_price || productVariant.price, 'USD')
-  const alternateImage = product.images[1]?.src;
+  const price = getPrice(
+    productVariant.compare_at_price || productVariant.price,
+    'USD'
+  )
+  const alternateImage = product.images[1]?.src
 
   return (
     <Card
@@ -48,33 +52,42 @@ export const ProductCardDemo: React.FC<ProductCardProps> = ({
     >
       <Link href={`/product/${handle}/`}>
         <div sx={{ flexGrow: 1 }}>
-          { alternateImage &&
-          <div sx={{ display: showAlternate && canToggle ? 'block' : 'none' }}>
-              <Image
-                quality="85"
-                src={alternateImage}
-                alt={product.title}
-                width={imgWidth || 540}
-                sizes={imgSizes}
-                height={imgHeight || 540}
-                layout={imgLayout}
-                onLoad={() => setCanToggle(true)}
-                loading='eager'
-            />
+          {alternateImage && (
+            <div
+              sx={{ display: showAlternate && canToggle ? 'block' : 'none' }}
+            >
+              <NoSSR>
+                <Image
+                  quality="85"
+                  src={alternateImage}
+                  alt={product.title}
+                  width={imgWidth || 540}
+                  sizes={imgSizes}
+                  height={imgHeight || 540}
+                  layout={imgLayout}
+                  onLoad={() => setCanToggle(true)}
+                  loading="eager"
+                />
+              </NoSSR>
             </div>
-          }
-          <div                 sx={{ display: canToggle && showAlternate && alternateImage ? 'none' : 'block'}}>
-          <Image
-            quality="85"
-            src={src}
-            alt={product.title}
-            width={imgWidth || 540}
-            sizes={imgSizes}
-            height={imgHeight || 540}
-            layout={imgLayout}
-            loading={imgLoading}
-            priority={imgPriority}
-          />
+          )}
+          <div
+            sx={{
+              display:
+                canToggle && showAlternate && alternateImage ? 'none' : 'block',
+            }}
+          >
+            <Image
+              quality="85"
+              src={src}
+              alt={product.title}
+              width={imgWidth || 540}
+              sizes={imgSizes}
+              height={imgHeight || 540}
+              layout={imgLayout}
+              loading={imgLoading}
+              priority={imgPriority}
+            />
           </div>
         </div>
         <div sx={{ textAlign: 'center' }}>

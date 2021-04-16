@@ -13,7 +13,7 @@ import shopifyConfig from '@config/shopify'
 import { builder, BuilderContent, Builder } from '@builder.io/react'
 import themesMap from '@config/theme'
 import { Themed } from 'theme-ui'
-import '@builder.io/widgets';
+import '@builder.io/widgets'
 
 const FeatureBar = dynamic(() => import('@components/common/FeatureBar'), {
   ssr: false,
@@ -36,9 +36,7 @@ const Layout: React.FC<{ pageProps: any }> = ({ children, pageProps }) => {
           const siteSettings = data?.siteSettings
           return (
             <ManagedUIContext key={data?.id} siteSettings={siteSettings}>
-              <InnerLayout
-                themeName={data?.theme || 'base'}
-              >
+              <InnerLayout themeName={data?.theme || 'base'}>
                 {children}
               </InnerLayout>
             </ManagedUIContext>
@@ -55,7 +53,7 @@ const InnerLayout: React.FC<{ themeName: string }> = ({
 }) => {
   const theme = themesMap[themeName]
   const { displaySidebar, closeSidebar } = useUI()
-  const { acceptedCookies, onAcceptCookies } = useAcceptCookies();
+  const { acceptedCookies, onAcceptCookies } = useAcceptCookies()
   return (
     <ThemeProvider theme={theme}>
       <Navbar />
