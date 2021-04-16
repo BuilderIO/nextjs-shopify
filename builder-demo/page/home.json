@@ -1,0 +1,415 @@
+{
+  "createdBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
+  "createdDate": 1618517732360,
+  "data": {
+    "title": "home",
+    "blocks": [
+      {
+        "@type": "@builder.io/sdk:Element",
+        "@version": 2,
+        "id": "builder-b0660ad8575a43958d522bc3be79eacd",
+        "groupLocked": true,
+        "component": {
+          "name": "Columns",
+          "options": {
+            "columns": [
+              {
+                "blocks": [
+                  {
+                    "@type": "@builder.io/sdk:Element",
+                    "@version": 2,
+                    "id": "builder-5d4381134be44ce1910479a1947c2c2a",
+                    "component": {
+                      "name": "Image",
+                      "options": {
+                        "image": "https://cdn.builder.io/api/v1/image/assets%2FagZ9n5CUKRfbL9t6CaJOyVSK4Es2%2F58ecf77d848f49c8b25d6cec90487212?width=998&height=1000",
+                        "backgroundPosition": "center",
+                        "backgroundSize": "cover",
+                        "aspectRatio": 0.7004048582995948,
+                        "lazy": true,
+                        "srcset": "https://cdn.builder.io/api/v1/image/assets%2FagZ9n5CUKRfbL9t6CaJOyVSK4Es2%2F58ecf77d848f49c8b25d6cec90487212?width=100&height=1000 100w, https://cdn.builder.io/api/v1/image/assets%2FagZ9n5CUKRfbL9t6CaJOyVSK4Es2%2F58ecf77d848f49c8b25d6cec90487212?width=200&height=1000 200w, https://cdn.builder.io/api/v1/image/assets%2FagZ9n5CUKRfbL9t6CaJOyVSK4Es2%2F58ecf77d848f49c8b25d6cec90487212?width=400&height=1000 400w, https://cdn.builder.io/api/v1/image/assets%2FagZ9n5CUKRfbL9t6CaJOyVSK4Es2%2F58ecf77d848f49c8b25d6cec90487212?width=800&height=1000 800w, https://cdn.builder.io/api/v1/image/assets%2FagZ9n5CUKRfbL9t6CaJOyVSK4Es2%2F58ecf77d848f49c8b25d6cec90487212?width=1200&height=1000 1200w, https://cdn.builder.io/api/v1/image/assets%2FagZ9n5CUKRfbL9t6CaJOyVSK4Es2%2F58ecf77d848f49c8b25d6cec90487212?width=1600&height=1000 1600w, https://cdn.builder.io/api/v1/image/assets%2FagZ9n5CUKRfbL9t6CaJOyVSK4Es2%2F58ecf77d848f49c8b25d6cec90487212?width=2000&height=1000 2000w, https://cdn.builder.io/api/v1/image/assets%2FagZ9n5CUKRfbL9t6CaJOyVSK4Es2%2F58ecf77d848f49c8b25d6cec90487212?width=998&height=1000 998w, https://cdn.builder.io/api/v1/image/assets%2FagZ9n5CUKRfbL9t6CaJOyVSK4Es2%2F58ecf77d848f49c8b25d6cec90487212?width=638&height=1000 638w, https://cdn.builder.io/api/v1/image/assets%2FagZ9n5CUKRfbL9t6CaJOyVSK4Es2%2F58ecf77d848f49c8b25d6cec90487212?width=582&height=1000 582w",
+                        "sizes": "(max-width: 638px) 100vw, 42vw",
+                        "height": 665,
+                        "width": 998
+                      }
+                    },
+                    "responsiveStyles": {
+                      "large": {
+                        "display": "flex",
+                        "flexDirection": "column",
+                        "alignItems": "stretch",
+                        "flexShrink": "0",
+                        "position": "relative",
+                        "textAlign": "center",
+                        "lineHeight": "normal",
+                        "height": "auto"
+                      }
+                    }
+                  },
+                  {
+                    "@type": "@builder.io/sdk:Element",
+                    "@version": 2,
+                    "layerName": "Centered Box",
+                    "id": "builder-dee83b4ef7874dc4baa96a33da6c41dc",
+                    "children": [
+                      {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "layerName": "Title",
+                        "tagName": "a",
+                        "id": "builder-b85b1a755b324564bca7ce0351aaf5c5",
+                        "properties": {
+                          "href": "/collection/waist"
+                        },
+                        "linkUrl": "/collection/waist",
+                        "component": {
+                          "name": "Text",
+                          "options": {
+                            "text": "<p>Shop our latest collection</p>"
+                          }
+                        },
+                        "responsiveStyles": {
+                          "large": {
+                            "display": "flex",
+                            "flexDirection": "column",
+                            "alignItems": "stretch",
+                            "flexShrink": "0",
+                            "position": "relative",
+                            "marginTop": "-1.65625px",
+                            "textAlign": "center",
+                            "lineHeight": "normal",
+                            "height": "auto",
+                            "fontSize": "28px",
+                            "cursor": "pointer",
+                            "pointerEvents": "auto"
+                          },
+                          "medium": {
+                            "marginTop": "1.34375px",
+                            "textAlign": "center"
+                          },
+                          "small": {
+                            "fontSize": "25px"
+                          }
+                        }
+                      },
+                      {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "layerName": "Subtitle",
+                        "id": "builder-8d46423e6b3c480bb3c38fbd82c6938d",
+                        "component": {
+                          "name": "Text",
+                          "options": {
+                            "text": "<p>Some more great things to elaborate on that wonderful things you have to tell your audience</p>"
+                          }
+                        },
+                        "responsiveStyles": {
+                          "large": {
+                            "display": "flex",
+                            "flexDirection": "column",
+                            "alignItems": "stretch",
+                            "flexShrink": "0",
+                            "position": "relative",
+                            "marginTop": "23.59375px",
+                            "textAlign": "center",
+                            "lineHeight": "normal",
+                            "height": "auto",
+                            "fontSize": "18px",
+                            "color": "rgba(86, 86, 86, 1)"
+                          },
+                          "medium": {
+                            "textAlign": "center"
+                          },
+                          "small": {
+                            "fontSize": "15px"
+                          }
+                        }
+                      }
+                    ],
+                    "responsiveStyles": {
+                      "large": {
+                        "display": "flex",
+                        "flexDirection": "column",
+                        "alignItems": "stretch",
+                        "position": "relative",
+                        "flexShrink": "0",
+                        "boxSizing": "border-box",
+                        "marginTop": "9px",
+                        "marginBottom": "auto",
+                        "paddingBottom": "17px",
+                        "paddingTop": "17px"
+                      },
+                      "medium": {
+                        "paddingBottom": "49px"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "blocks": [
+                  {
+                    "@type": "@builder.io/sdk:Element",
+                    "@version": 2,
+                    "id": "builder-931a6752a9a8448297c182c07daffda0",
+                    "component": {
+                      "name": "Image",
+                      "options": {
+                        "image": "https://cdn.builder.io/api/v1/image/assets%2FagZ9n5CUKRfbL9t6CaJOyVSK4Es2%2Fd938526f46db4a38aa96b879f51b2df5?width=998&height=1000",
+                        "backgroundPosition": "center",
+                        "backgroundSize": "cover",
+                        "aspectRatio": 0.7004048582995948,
+                        "lazy": true,
+                        "srcset": "https://cdn.builder.io/api/v1/image/assets%2FagZ9n5CUKRfbL9t6CaJOyVSK4Es2%2Fd938526f46db4a38aa96b879f51b2df5?width=100&height=1000 100w, https://cdn.builder.io/api/v1/image/assets%2FagZ9n5CUKRfbL9t6CaJOyVSK4Es2%2Fd938526f46db4a38aa96b879f51b2df5?width=200&height=1000 200w, https://cdn.builder.io/api/v1/image/assets%2FagZ9n5CUKRfbL9t6CaJOyVSK4Es2%2Fd938526f46db4a38aa96b879f51b2df5?width=400&height=1000 400w, https://cdn.builder.io/api/v1/image/assets%2FagZ9n5CUKRfbL9t6CaJOyVSK4Es2%2Fd938526f46db4a38aa96b879f51b2df5?width=800&height=1000 800w, https://cdn.builder.io/api/v1/image/assets%2FagZ9n5CUKRfbL9t6CaJOyVSK4Es2%2Fd938526f46db4a38aa96b879f51b2df5?width=1200&height=1000 1200w, https://cdn.builder.io/api/v1/image/assets%2FagZ9n5CUKRfbL9t6CaJOyVSK4Es2%2Fd938526f46db4a38aa96b879f51b2df5?width=1600&height=1000 1600w, https://cdn.builder.io/api/v1/image/assets%2FagZ9n5CUKRfbL9t6CaJOyVSK4Es2%2Fd938526f46db4a38aa96b879f51b2df5?width=2000&height=1000 2000w, https://cdn.builder.io/api/v1/image/assets%2FagZ9n5CUKRfbL9t6CaJOyVSK4Es2%2Fd938526f46db4a38aa96b879f51b2df5?width=998&height=1000 998w, https://cdn.builder.io/api/v1/image/assets%2FagZ9n5CUKRfbL9t6CaJOyVSK4Es2%2Fd938526f46db4a38aa96b879f51b2df5?width=638&height=1000 638w, https://cdn.builder.io/api/v1/image/assets%2FagZ9n5CUKRfbL9t6CaJOyVSK4Es2%2Fd938526f46db4a38aa96b879f51b2df5?width=582&height=1000 582w",
+                        "sizes": "(max-width: 638px) 100vw, 42vw",
+                        "height": 665,
+                        "width": 998
+                      }
+                    },
+                    "responsiveStyles": {
+                      "large": {
+                        "display": "flex",
+                        "flexDirection": "column",
+                        "alignItems": "stretch",
+                        "flexShrink": "0",
+                        "position": "relative",
+                        "textAlign": "center",
+                        "lineHeight": "normal",
+                        "height": "auto"
+                      },
+                      "medium": {
+                        "contentVisibility": "auto",
+                        "containIntrinsicSize": "699px"
+                      }
+                    }
+                  },
+                  {
+                    "@type": "@builder.io/sdk:Element",
+                    "@version": 2,
+                    "layerName": "Centered Box",
+                    "id": "builder-b7ec81a258524328b0b4c99c65b2717b",
+                    "children": [
+                      {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "layerName": "Title",
+                        "tagName": "a",
+                        "id": "builder-168ac7e1dab24eacbe54446cacf79a92",
+                        "properties": {
+                          "href": "/collection/bestsellers",
+                          "target": "_blank"
+                        },
+                        "linkUrl": "/collection/bestsellers",
+                        "component": {
+                          "name": "Text",
+                          "options": {
+                            "text": "<p>Shop our best sellers</p>"
+                          }
+                        },
+                        "responsiveStyles": {
+                          "large": {
+                            "display": "flex",
+                            "flexDirection": "column",
+                            "alignItems": "stretch",
+                            "flexShrink": "0",
+                            "position": "relative",
+                            "marginTop": "-1.65625px",
+                            "textAlign": "center",
+                            "lineHeight": "normal",
+                            "height": "auto",
+                            "fontSize": "28px",
+                            "cursor": "pointer",
+                            "pointerEvents": "auto"
+                          },
+                          "medium": {
+                            "marginTop": "1.34375px",
+                            "textAlign": "center"
+                          },
+                          "small": {
+                            "fontSize": "25px"
+                          }
+                        }
+                      },
+                      {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "layerName": "Subtitle",
+                        "id": "builder-32fca3a1ebbe406dae79c012253872c1",
+                        "component": {
+                          "name": "Text",
+                          "options": {
+                            "text": "<p>Some more great things to elaborate on that wonderful things you have to tell your audience</p>"
+                          }
+                        },
+                        "responsiveStyles": {
+                          "large": {
+                            "display": "flex",
+                            "flexDirection": "column",
+                            "alignItems": "stretch",
+                            "flexShrink": "0",
+                            "position": "relative",
+                            "marginTop": "23.59375px",
+                            "textAlign": "center",
+                            "lineHeight": "normal",
+                            "height": "auto",
+                            "fontSize": "18px",
+                            "color": "rgba(86, 86, 86, 1)"
+                          },
+                          "medium": {
+                            "textAlign": "center"
+                          },
+                          "small": {
+                            "fontSize": "15px"
+                          }
+                        }
+                      }
+                    ],
+                    "responsiveStyles": {
+                      "large": {
+                        "display": "flex",
+                        "flexDirection": "column",
+                        "alignItems": "stretch",
+                        "position": "relative",
+                        "flexShrink": "0",
+                        "boxSizing": "border-box",
+                        "marginTop": "9px",
+                        "marginBottom": "auto",
+                        "paddingBottom": "17px",
+                        "paddingTop": "17px"
+                      },
+                      "medium": {
+                        "paddingBottom": "49px",
+                        "contentVisibility": "auto",
+                        "containIntrinsicSize": "109px"
+                      },
+                      "small": {
+                        "contentVisibility": "auto",
+                        "containIntrinsicSize": "137px"
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
+            "space": 36,
+            "stackColumnsAt": "tablet",
+            "reverseColumnsWhenStacked": false
+          }
+        },
+        "responsiveStyles": {
+          "large": {
+            "display": "flex",
+            "flexDirection": "column",
+            "alignItems": "stretch",
+            "position": "relative",
+            "flexShrink": "0",
+            "boxSizing": "border-box",
+            "marginTop": "22px",
+            "paddingLeft": "0px",
+            "paddingRight": "0px"
+          }
+        }
+      },
+      {
+        "@type": "@builder.io/sdk:Element",
+        "@version": 2,
+        "id": "builder-51118ceedd6b40bb9771c1164ed33943",
+        "component": {
+          "name": "ProductCollectionGrid",
+          "options": {
+            "gridProps": {
+              "variant": "default",
+              "layout": "A"
+            },
+            "cardProps": {
+              "variant": "simple",
+              "imgPriority": true,
+              "imgLayout": "responsive",
+              "imgLoading": "eager",
+              "imgWidth": 540,
+              "imgHeight": 540,
+              "layout": "fixed"
+            },
+            "highlightCard": {
+              "imgWidth": 1080,
+              "imgHeight": 1080,
+              "variant": "simple",
+              "imgPriority": true,
+              "imgLayout": "responsive",
+              "imgLoading": "eager",
+              "layout": "fixed",
+              "index": 1
+            },
+            "limit": 11,
+            "collection": "butt"
+          }
+        },
+        "responsiveStyles": {
+          "large": {
+            "display": "flex",
+            "flexDirection": "column",
+            "position": "relative",
+            "flexShrink": "0",
+            "boxSizing": "border-box",
+            "marginTop": "20px"
+          }
+        }
+      },
+      {
+        "id": "builder-pixel-j5ulq723rr",
+        "@type": "@builder.io/sdk:Element",
+        "tagName": "img",
+        "properties": {
+          "src": "https://cdn.builder.io/api/v1/pixel?apiKey=b99ba3685ce3427ba25ec84d21651ce3",
+          "role": "presentation",
+          "width": "0",
+          "height": "0"
+        },
+        "responsiveStyles": {
+          "large": {
+            "height": "0",
+            "width": "0",
+            "display": "inline-block",
+            "opacity": "0",
+            "overflow": "hidden",
+            "pointerEvents": "none"
+          }
+        }
+      }
+    ],
+    "url": "/",
+    "state": {
+      "deviceSize": "large",
+      "location": {
+        "path": "",
+        "query": {}
+      }
+    }
+  },
+  "id": "97c2adfc405b452a8832e756ee88e001",
+  "lastUpdatedBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
+  "meta": {
+    "hasLinks": true,
+    "kind": "page",
+    "shopifyDomain": "builder-io-demo.myshopify.com/",
+    "needsHydration": false
+  },
+  "modelId": "b3682ca3a27f4fe3b968b637ca3d7a1c",
+  "name": "home",
+  "published": "published",
+  "query": [
+    {
+      "operator": "is",
+      "property": "urlPath",
+      "value": "/"
+    }
+  ],
+  "testRatio": 1,
+  "variations": {},
+  "lastUpdated": 1618548599437,
+  "screenshot": "https://cdn.builder.io/api/v1/image/assets%2Fb99ba3685ce3427ba25ec84d21651ce3%2Fb647bf4f01ae42eda2e12644841dd916",
+  "rev": "geumoceskmr",
+  "@originOrg": "b99ba3685ce3427ba25ec84d21651ce3",
+  "@originContentId": "b816735392ca4b4084a400b3553b790a",
+  "@originModelId": "06270f8867d18be74445a25369931d5214e3720f4fff57aa60da6f372e6f4be4"
+}

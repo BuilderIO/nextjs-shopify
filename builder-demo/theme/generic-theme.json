@@ -1,0 +1,47 @@
+{
+  "createdBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
+  "createdDate": 1618273525995,
+  "data": {
+    "siteSettings": {
+      "logo": {
+        "height": 60,
+        "text": "Underoutfit",
+        "width": 80
+      },
+      "naviationLinks": [
+        {
+          "link": "/about-us",
+          "title": "test"
+        }
+      ],
+      "navigationLinks": [
+        {
+          "link": "/about-us",
+          "title": "About us"
+        },
+        {
+          "link": "/faq",
+          "title": "FAQ"
+        }
+      ]
+    },
+    "theme": "deep"
+  },
+  "id": "2d4e241cf22a488681e60f6e062e611e",
+  "lastUpdatedBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
+  "meta": {
+    "kind": "data",
+    "shopifyDomain": "builder-io-demo.myshopify.com/"
+  },
+  "modelId": "856ed0ef7eeb488bb81dd0b547dd6ffd",
+  "name": "generic theme",
+  "published": "published",
+  "query": [],
+  "testRatio": 1,
+  "variations": {},
+  "lastUpdated": 1618547047618,
+  "rev": "c7jvztjb75",
+  "@originOrg": "b99ba3685ce3427ba25ec84d21651ce3",
+  "@originContentId": "e4a2f308c7724b1098bf6be93342fa38",
+  "@originModelId": "1e1d3f4631cf4a13b4405a0dfe902766"
+}
