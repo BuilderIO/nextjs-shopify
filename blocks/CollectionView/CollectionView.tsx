@@ -3,8 +3,6 @@
 import React, { FC, useState, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import { Themed, jsx } from 'theme-ui'
-import { Grid } from '@theme-ui/components'
-import Image from 'next/image'
 import { LoadingDots } from '@components/ui'
 import builderConfig from '@config/builder'
 import { ProductGrid, ProductGridProps } from '../ProductGrid/ProductGrid'
@@ -64,17 +62,6 @@ const CollectionPreview: FC<Props> = ({
           }}
         />
       )}
-      {collection.image && (
-        <Image
-          src={collection.image.src}
-          alt={collection.title}
-          width={1050}
-          height={400}
-          priority
-          quality={85}
-        />
-      )}
-
       <div sx={{ display: 'flex', flexDirection: 'column' }}>
         <span sx={{ mt: 0, mb: 2 }}>
           <Themed.h1>{collection.title}</Themed.h1>
