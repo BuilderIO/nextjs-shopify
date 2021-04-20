@@ -41,8 +41,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <Card
       sx={{
-        minWidth: 340,
-        maxWidth: [700, 500],
+        maxWidth: [700, imgWidth || 540],
         p: 3,
         display: 'flex',
         flexDirection: 'column',

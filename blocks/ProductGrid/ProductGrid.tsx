@@ -77,14 +77,7 @@ export const ProductGrid: FC<ProductGridProps> = ({
     : ProductCard
 
   return (
-    <Grid
-      sx={{
-        maxWidth: [500, 1200, 1920],
-        margin: '0 auto',
-      }}
-      gap={2}
-      columns={[1, 2, 3]}
-    >
+    <Grid gap={2} width={['100%', '40%', '24%']}>
       {products.slice(offset, limit).map((product, i) => (
         <ProductComponent
           key={String(product.id) + i}

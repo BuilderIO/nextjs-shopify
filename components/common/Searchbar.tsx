@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { LoadingDots } from '@components/ui'
 import builderConfig from '@config/builder'
 import { ProductGrid } from 'blocks/ProductGrid/ProductGrid'
-import { Button, Themed, jsx, Input } from 'theme-ui'
+import { Button, Themed, jsx, Input, Label } from 'theme-ui'
 import { searchProducts } from '@lib/shopify/storefront-data-hooks/src/api/operations-builder'
 import { ExpandModal } from 'react-spring-modal'
 import { throttle } from 'lodash'
@@ -138,16 +138,21 @@ const SearchModalContent = (props: {
       {loading ? (
         <LoadingDots />
       ) : products.length ? (
-        <ProductGrid
-          cardProps={{
-            imgHeight: 540,
-            imgWidth: 540,
-            imgPriority: false,
-          }}
-          products={products}
-          offset={0}
-          limit={products.length}
-        ></ProductGrid>
+        <>
+          <Label>
+            Search Results for "<strong>{search}</strong>"
+          </Label>
+          <ProductGrid
+            cardProps={{
+              imgHeight: 540,
+              imgWidth: 540,
+              imgPriority: false,
+            }}
+            products={products}
+            offset={0}
+            limit={products.length}
+          ></ProductGrid>
+        </>
       ) : (
         <span>
           {search ? (

@@ -12,17 +12,12 @@ const collectionBoxSchema: Input[] = [
     subFields: productGridSchema,
     defaultValue: {
       cardProps: {
-        variant: 'simple',
         imgPriority: true,
         imgLayout: 'responsive',
         imgLoading: 'eager',
         imgWidth: 540,
         imgHeight: 540,
         layout: 'fixed',
-      },
-      gridProps: {
-        variant: 'default',
-        layout: 'normal',
       },
     },
   },

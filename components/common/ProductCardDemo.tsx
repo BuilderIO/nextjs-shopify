@@ -42,7 +42,6 @@ const ProductCardDemo: React.FC<ProductCardProps> = ({
   return (
     <Card
       sx={{
-        minWidth: 340,
         maxWidth: [700, 500],
         p: 3,
         display: 'flex',
