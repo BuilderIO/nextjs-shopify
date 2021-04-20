@@ -68,11 +68,11 @@ const CartItem = ({
   }, [item.quantity])
 
   return (
-    <Grid gap={2} columns={[1, 2]}>
-      <div sx={{ padding: 1, border: '1px solid gray', textAlign: 'center' }}>
+    <Grid gap={2} sx={{ width: '100%', m: 12 }} columns={[2]}>
+      <div sx={{ padding: 1, border: '1px solid gray', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Image
-          height={150}
-          width={150}
+          height={130}
+          width={130}
           unoptimized
           alt={item.variant.image.altText}
           src={item.variant.image.src}
