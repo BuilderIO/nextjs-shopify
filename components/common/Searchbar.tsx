@@ -36,7 +36,7 @@ const Searchbar: FC<Props> = () => {
           left: '50%',
           transform: 'translateX(-50%)',
           overflow: 'auto',
-          top: (buttonRef.current?.getBoundingClientRect().bottom || 0) + 5,
+          top: (buttonRef.current?.getBoundingClientRect().bottom || 0) + 15,
         }
       }}
  isOpen={isOpen}>

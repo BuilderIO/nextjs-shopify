@@ -36,7 +36,7 @@ const CartSidebarView: FC = () => {
   }, [cart?.lineItems])
 
   return (
-    <Themed.div sx={{ height: '100%', bg: 'text', display: 'flex', flexDirection: 'column', alignItems: 'center', px: 2, color: 'background', ...isEmpty && {justifyContent: 'center'} }}>
+    <Themed.div sx={{ height: '100%', overflow: 'auto', paddingBottom: 5, bg: 'text', display: 'flex', flexDirection: 'column', alignItems: 'center', px: 2, color: 'background', ...isEmpty && {justifyContent: 'center'} }}>
     {isEmpty ? (
       <>
           <Bag/>

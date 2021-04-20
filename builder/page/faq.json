@@ -9,7 +9,6 @@
         "@type": "@builder.io/sdk:Element",
         "@version": 2,
         "id": "builder-2c84810c96c14645858a2b7043e2c64e",
-        "groupLocked": true,
         "component": {
           "name": "Core:Section",
           "options": {
@@ -3826,7 +3825,7 @@
     "shopifyDomain": "builder-io-demo.myshopify.com/",
     "needsHydration": false
   },
-  "modelId": "9411a2346ddf4e9b81cbf7ef7d494c3d",
+  "modelId": "e7527e05596545fc82efcc1d5e3bf779",
   "name": "faq",
   "published": "published",
   "query": [

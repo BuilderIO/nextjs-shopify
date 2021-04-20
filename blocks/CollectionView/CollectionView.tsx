@@ -19,12 +19,14 @@ interface Props {
 }
 
 const CollectionPreview: FC<Props> = ({
-  collection: initalCollection,
+  collection: initialCollection,
   productGridOptions,
   renderSeo,
 }) => {
-  const [collection, setCollection] = useState(initalCollection)
+  const [collection, setCollection] = useState(initialCollection)
   const [loading, setLoading] = useState(false)
+
+  useEffect(() => setCollection(initialCollection) , [initialCollection])
 
   useEffect(() => {
     const fetchCollection = async () => {
@@ -38,16 +40,15 @@ const CollectionPreview: FC<Props> = ({
     if (typeof collection === 'string') {
       fetchCollection()
     }
-  }, [collection, initalCollection])
+  }, [collection])
 
   if (!collection || typeof collection === 'string' || loading) {
     return <LoadingDots />
   }
 
   const { title, description, products } = collection
-  console.log('here c', collection);
 
-  return (<React.Fragment>
+  return (<Themed.div sx={{ display: 'flex', flexDirection: 'column'}} key={collection.id}>
       {renderSeo && (
         <NextSeo
           title={collection.title}
@@ -78,7 +79,7 @@ const CollectionPreview: FC<Props> = ({
       </div>
       <ProductGrid {...productGridOptions} products={products} />
 
-    </React.Fragment>
+    </Themed.div>
   )
 }
 

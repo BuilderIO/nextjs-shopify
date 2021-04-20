@@ -85,7 +85,7 @@ const InnerLayout: React.FC<{ themeName: string, colorOverrides?: {
       </div>
 
       <Sidebar
-        open={displaySidebar || builder.editingModel === 'cart-upsell-sidebar' || builder.editingModel === 'theme'}
+        open={displaySidebar || builder.editingModel === 'cart-upsell-sidebar'}
         onClose={closeSidebar}
       >
         <CartSidebarView />

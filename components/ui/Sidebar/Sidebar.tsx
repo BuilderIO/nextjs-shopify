@@ -18,6 +18,7 @@ const Sidebar: FC<Props> = ({ children, open = false, onClose }) => {
     onDismiss={onClose}
     contentProps={{
       style: {
+        width: '500px',
         position: 'absolute',
         top: 0,
         right: 0,

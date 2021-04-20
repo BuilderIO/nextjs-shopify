@@ -69,7 +69,7 @@ const CartItem = ({
 
   return (
     <Grid gap={2} columns={[1, 2]}>
-      <div sx={{ padding: 1, border: '1px solid gray' }}>
+      <div sx={{ padding: 1, border: '1px solid gray' , textAlign: 'center'}}>
         <Image height={150} width={150} unoptimized alt={item.variant.image.altText} src={item.variant.image.src} />
       </div>
     <div>
@@ -100,6 +100,10 @@ const CartItem = ({
 
           <label>
             <Input
+              sx={{
+                height: '100%',
+                textAlign: 'center'
+              }}
               type="number"
               max={99}
               min={0}

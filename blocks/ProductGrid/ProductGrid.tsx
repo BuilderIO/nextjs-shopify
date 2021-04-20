@@ -83,7 +83,7 @@ export const ProductGrid: FC<ProductGridProps> = ({
         margin: '0 auto',
       }}
       gap={2}
-      columns={[1, 2, 3, 4]}
+      columns={[1, 2, 3]}
     >
       {products.slice(offset, limit).map((product, i) => (
         <ProductComponent
