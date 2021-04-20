@@ -12,8 +12,6 @@
       },
       "@builder.io/plugin-shopify-demo": {
         "syncPreviewUrlWithTargeting": true,
-        "shopUrl": "https://underoutfit.com",
-        "hasConnected": true
       }
     },
     "allowBuiltInComponents": true,
