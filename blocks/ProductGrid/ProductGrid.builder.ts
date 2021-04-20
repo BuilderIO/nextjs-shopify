@@ -84,7 +84,8 @@ Builder.registerComponent(LazyProductGrid, {
 
 Builder.registerComponent(LazyProductGrid, {
   name: 'ProductCollectionGrid',
-  image:'https://cdn0.iconfinder.com/data/icons/office-outline-14/36/office_line-05-512.png' ,
+  image:
+    'https://cdn0.iconfinder.com/data/icons/office-outline-14/36/office_line-05-512.png',
   inputs: [
     {
       name: 'collection',

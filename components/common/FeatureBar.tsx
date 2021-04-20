@@ -2,7 +2,7 @@
 /** @jsx jsx */
 import React from 'react'
 import { Themed, jsx } from 'theme-ui'
-import { BottomModal, ModalTitle, ModalCloseTarget } from 'react-spring-modal';
+import { BottomModal, ModalTitle, ModalCloseTarget } from 'react-spring-modal'
 
 interface FeatureBarProps {
   className?: string
@@ -18,14 +18,15 @@ const FeatureBar: React.FC<FeatureBarProps> = ({
   action,
   hide,
 }) => {
-return       <BottomModal isOpen={!hide}>
-<ModalTitle>{title}</ModalTitle>
-{description}
-<Themed.div sx={{ display: 'flex', justifyContent: 'center', p: [1,2] }}>
-{action && action}
-</Themed.div>
-</BottomModal>
-
+  return (
+    <BottomModal isOpen={!hide}>
+      <ModalTitle>{title}</ModalTitle>
+      {description}
+      <Themed.div sx={{ display: 'flex', justifyContent: 'center', p: [1, 2] }}>
+        {action && action}
+      </Themed.div>
+    </BottomModal>
+  )
 }
 
 export default FeatureBar

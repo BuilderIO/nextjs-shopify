@@ -1,7 +1,5 @@
 {
-  "loadPlugins": [
-    "@builder.io/plugin-shopify-demo@dev"
-  ],
+  "loadPlugins": ["@builder.io/plugin-shopify-demo@dev"],
   "settings": {
     "plugins": {
       "@builder.io/plugin-shopify": {

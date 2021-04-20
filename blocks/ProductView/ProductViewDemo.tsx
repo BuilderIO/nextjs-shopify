@@ -6,9 +6,7 @@ import { Grid, Button } from '@theme-ui/components'
 import Thumbnail from '@components/common/Thumbnail'
 import OptionPicker from '@components/common/OptionPicker'
 import { NextSeo } from 'next-seo'
-import {
-  getPrice,
-} from '@lib/shopify/storefront-data-hooks/src/utils/product'
+import { getPrice } from '@lib/shopify/storefront-data-hooks/src/utils/product'
 import Image from 'next/image'
 import NoSSR from '@components/common/NoSSR'
 

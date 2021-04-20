@@ -42,7 +42,9 @@ const ProductView: React.FC<Props> = ({ product }) => {
 
   const { openSidebar } = useUI()
   const [loading, setLoading] = useState(false)
-  const [peakingImage, setPeakingImage] = useState(null as { src: string } | null )
+  const [peakingImage, setPeakingImage] = useState(
+    null as { src: string } | null
+  )
   const [variant, setVariant] = useState(variants[0])
   const [color, setColor] = useState(variant.color)
   const [size, setSize] = useState(variant.size)
@@ -53,8 +55,8 @@ const ProductView: React.FC<Props> = ({ product }) => {
     })
 
     if (variant.id !== newVariant?.id) {
-      setVariant(newVariant);
-      setPeakingImage(null);
+      setVariant(newVariant)
+      setPeakingImage(null)
     }
   }, [size, color, variants, variant.id])
 
@@ -68,9 +70,11 @@ const ProductView: React.FC<Props> = ({ product }) => {
       setLoading(false)
     }
   }
-  const gallery = <NoSSR>
-    <Grid gap={2} columns={[3,6]}>
-        { images.length && images.map(({ src, color }, index) => (
+  const gallery = (
+    <NoSSR>
+      <Grid gap={2} columns={[3, 6]}>
+        {images.length &&
+          images.map(({ src, color }, index) => (
             <Thumbnail
               width={30}
               height={60}
@@ -79,23 +83,26 @@ const ProductView: React.FC<Props> = ({ product }) => {
               src={src.src}
               onClick={() => {
                 setColor(color)
-                setPeakingImage(null);
-
+                setPeakingImage(null)
               }}
             />
           ))}
-                    {product.images && product.images.filter(({src}) => !images.find(image => image.src.src === src)).map(({ src }, index) => (
-            <Thumbnail
-              width={30}
-              height={60}
-              name={color}
-              key={src + index}
-              src={src}
-              onClick={() => setPeakingImage({ src })}
-            />
-          ))}
-        </Grid>
-      </NoSSR>
+        {product.images &&
+          product.images
+            .filter(({ src }) => !images.find((image) => image.src.src === src))
+            .map(({ src }, index) => (
+              <Thumbnail
+                width={30}
+                height={60}
+                name={color}
+                key={src + index}
+                src={src}
+                onClick={() => setPeakingImage({ src })}
+              />
+            ))}
+      </Grid>
+    </NoSSR>
+  )
 
   return (
     <React.Fragment>

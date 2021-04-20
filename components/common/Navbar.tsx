@@ -76,7 +76,8 @@ const Navbar: FC = () => {
           sx={{
             transform: 'translateX(-50%)',
             left: '50%',
-            position: 'absolute'}}
+            position: 'absolute',
+          }}
         >
           <Themed.h1
             sx={{
@@ -119,14 +120,14 @@ const Navbar: FC = () => {
         </Themed.div>
         <Themed.div
           sx={{
-            display:'flex',
+            display: 'flex',
             minWidth: 140,
             width: '100%',
-            justifyContent: ['space-between' , 'flex-end'],
+            justifyContent: ['space-between', 'flex-end'],
           }}
         >
-        <Searchbar />
-        <UserNav />
+          <Searchbar />
+          <UserNav />
         </Themed.div>
       </Themed.div>
     </React.Fragment>

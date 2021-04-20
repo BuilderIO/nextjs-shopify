@@ -187,10 +187,7 @@
             },
             {
               "bubble": false,
-              "allowedFileTypes": [
-                "jpeg",
-                "png"
-              ],
+              "allowedFileTypes": ["jpeg", "png"],
               "mandatory": false,
               "model": "",
               "hidden": false,

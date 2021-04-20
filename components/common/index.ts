@@ -4,6 +4,6 @@ export { default as Navbar } from './Navbar'
 export { default as Searchbar } from './Searchbar'
 export { default as UserNav } from './UserNav'
 export { default as Head } from './Head'
-export { default as OptionPicker } from './OptionPicker';
-export { default as ProductCard } from './ProductCard';
-export { default as ProductCardDemo } from './ProductCardDemo';
+export { default as OptionPicker } from './OptionPicker'
+export { default as ProductCard } from './ProductCard'
+export { default as ProductCardDemo } from './ProductCardDemo'

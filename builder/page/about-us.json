@@ -14,13 +14,8 @@
         },
         "kind": "webfonts#webfont",
         "lastModified": "2017-10-10",
-        "subsets": [
-          "latin",
-          "latin-ext"
-        ],
-        "variants": [
-          "regular"
-        ],
+        "subsets": ["latin", "latin-ext"],
+        "variants": ["regular"],
         "version": "v6"
       }
     ],

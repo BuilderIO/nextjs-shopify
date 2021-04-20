@@ -14,7 +14,7 @@ import shopifyConfig from '@config/shopify'
 import { builder, BuilderContent, Builder } from '@builder.io/react'
 import themesMap from '@config/theme'
 import '@builder.io/widgets'
-import 'react-spring-modal/styles.css';
+import 'react-spring-modal/styles.css'
 import seoConfig from '@config/seo.json'
 
 const FeatureBar = dynamic(() => import('@components/common/FeatureBar'), {
@@ -37,11 +37,14 @@ const Layout: React.FC<{ pageProps: any }> = ({ children, pageProps }) => {
           }
           const siteSettings = data?.siteSettings
           const colorOverrides = data?.colorOverrides
-          const siteSeoInfo = data?.siteInformation;
+          const siteSeoInfo = data?.siteInformation
           return (
             <ManagedUIContext key={data?.id} siteSettings={siteSettings}>
-              <Head seoInfo={siteSeoInfo || seoConfig}/>
-              <InnerLayout themeName={data?.theme || 'base'} colorOverrides={colorOverrides}>
+              <Head seoInfo={siteSeoInfo || seoConfig} />
+              <InnerLayout
+                themeName={data?.theme || 'base'}
+                colorOverrides={colorOverrides}
+              >
                 {children}
               </InnerLayout>
             </ManagedUIContext>
@@ -52,23 +55,22 @@ const Layout: React.FC<{ pageProps: any }> = ({ children, pageProps }) => {
   )
 }
 
-const InnerLayout: React.FC<{ themeName: string, colorOverrides?: {
-  text?: string;
-  background?: string;
-  primary?: string;
-  secondary?: string;
-  muted?: string;
-} }> = ({
-  themeName,
-  children,
-  colorOverrides
-}) => {
+const InnerLayout: React.FC<{
+  themeName: string
+  colorOverrides?: {
+    text?: string
+    background?: string
+    primary?: string
+    secondary?: string
+    muted?: string
+  }
+}> = ({ themeName, children, colorOverrides }) => {
   const theme = {
     ...themesMap[themeName],
     colors: {
       ...themesMap[themeName].colors,
       ...colorOverrides,
-    }
+    },
   }
   const { displaySidebar, closeSidebar } = useUI()
   const { acceptedCookies, onAcceptCookies } = useAcceptCookies()
@@ -97,9 +99,7 @@ const InnerLayout: React.FC<{ themeName: string, colorOverrides?: {
         title="This site uses cookies to improve your experience. By clicking, you agree to our Privacy Policy."
         hide={acceptedCookies}
         action={
-          <Button onClick={() => onAcceptCookies()}>
-            Accept cookies
-          </Button>
+          <Button onClick={() => onAcceptCookies()}>Accept cookies</Button>
         }
       />
     </ThemeProvider>

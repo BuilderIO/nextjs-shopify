@@ -49,7 +49,10 @@ export async function searchProducts(
     await fetch(
       `https://cdn.builder.io/api/v2/content/${
         config.productsModel
-      }?${query}&query.data.title=${JSON.stringify({ $regex: `${searchString}`, $options: 'i' })}`
+      }?${query}&query.data.title=${JSON.stringify({
+        $regex: `${searchString}`,
+        $options: 'i',
+      })}`
     ).then((res) => res.json())
   ).results
   return productsContent?.map((product) => product.data) || []

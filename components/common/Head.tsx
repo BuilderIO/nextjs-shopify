@@ -2,7 +2,7 @@ import { FC } from 'react'
 import NextHead from 'next/head'
 import { DefaultSeo } from 'next-seo'
 
-const Head: FC<{ seoInfo: any}> = props => {
+const Head: FC<{ seoInfo: any }> = (props) => {
   return (
     <>
       <DefaultSeo {...props.seoInfo} />

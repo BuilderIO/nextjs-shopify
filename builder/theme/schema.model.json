@@ -185,10 +185,7 @@
               "@type": "@builder.io/core:Field"
             },
             {
-              "allowedFileTypes": [
-                "jpeg",
-                "png"
-              ],
+              "allowedFileTypes": ["jpeg", "png"],
               "advanced": false,
               "disallowRemove": false,
               "onChange": "",

@@ -13,9 +13,9 @@ const UserNav: FC<Props> = ({ className, children, ...props }) => {
   const { toggleSidebar } = useUI()
 
   return (
-      <Button onClick={toggleSidebar} aria-label="Cart">
-        <Bag />
-      </Button>
+    <Button onClick={toggleSidebar} aria-label="Cart">
+      <Bag />
+    </Button>
   )
 }
 

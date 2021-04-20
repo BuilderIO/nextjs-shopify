@@ -51,6 +51,7 @@
     "@tailwindcss/ui": "^0.6.2",
     "@testing-library/react-hooks": "^3.7.0",
     "@theme-ui/components": "^0.6.2",
+    "@theme-ui/match-media": "^0.7.2",
     "@theme-ui/preset-base": "^0.6.0",
     "@theme-ui/presets": "^0.6.2",
     "@types/body-scroll-lock": "^2.6.1",
