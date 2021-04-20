@@ -4,7 +4,7 @@ import React from 'react'
 import { ThemeProvider, jsx, Themed, Close } from 'theme-ui'
 import dynamic from 'next/dynamic'
 import { ManagedUIContext, useUI } from '@components/ui/context'
-import { Navbar } from '@components/common'
+import { Head, Navbar } from '@components/common'
 import { useAcceptCookies } from '@lib/hooks/useAcceptCookies'
 import { Button } from 'theme-ui'
 import { Sidebar } from '@components/ui'
@@ -15,7 +15,7 @@ import { builder, BuilderContent, Builder } from '@builder.io/react'
 import themesMap from '@config/theme'
 import '@builder.io/widgets'
 import 'react-spring-modal/styles.css';
-import { Bag } from '@components/icons'
+import seoConfig from '@config/seo.json'
 
 const FeatureBar = dynamic(() => import('@components/common/FeatureBar'), {
   ssr: false,
@@ -37,8 +37,10 @@ const Layout: React.FC<{ pageProps: any }> = ({ children, pageProps }) => {
           }
           const siteSettings = data?.siteSettings
           const colorOverrides = data?.colorOverrides
+          const siteSeoInfo = data?.siteInformation;
           return (
             <ManagedUIContext key={data?.id} siteSettings={siteSettings}>
+              <Head seoInfo={siteSeoInfo || seoConfig}/>
               <InnerLayout themeName={data?.theme || 'base'} colorOverrides={colorOverrides}>
                 {children}
               </InnerLayout>

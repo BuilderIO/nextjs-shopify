@@ -77,8 +77,10 @@ const CollectionPreview: FC<Props> = ({
           </span>
           <div dangerouslySetInnerHTML={{ __html: collection.description! }} />
       </div>
+      <Themed.div sx={{p: 5}}>
       <ProductGrid {...productGridOptions} products={products} />
 
+      </Themed.div>
     </Themed.div>
   )
 }

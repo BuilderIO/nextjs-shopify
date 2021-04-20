@@ -4,7 +4,6 @@ import 'keen-slider/keen-slider.min.css'
 import { FC } from 'react'
 import type { AppProps } from 'next/app'
 
-import { Head } from '@components/common'
 import { builder } from '@builder.io/react'
 import builderConfig from '@config/builder'
 builder.init(builderConfig.apiKey)
@@ -19,7 +18,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Head />
       <Layout pageProps={pageProps}>
         <Component {...pageProps} />
       </Layout>
