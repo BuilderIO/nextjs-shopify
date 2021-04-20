@@ -1,4 +1,7 @@
 {
+  "@originContentId": "d823ef3cf0c147f9a449deed26c00b8f",
+  "@originModelId": "b798c9133380b5cda025a0540d5cbd789c49566ae06145a6a85e7387b4a63bef",
+  "@originOrg": "303981477d1e41d08587796c8f3bf623",
   "createdBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
   "createdDate": 1618540272925,
   "data": {
@@ -22,7 +25,15 @@
       }
     ],
     "inputs": [],
+    "state": {
+      "deviceSize": "large",
+      "location": {
+        "path": "",
+        "query": {}
+      }
+    },
     "title": "about-us",
+    "url": "/about-us",
     "blocks": [
       {
         "@type": "@builder.io/sdk:Element",
@@ -1814,26 +1825,40 @@
             "pointerEvents": "none"
           }
         }
+      },
+      {
+        "id": "builder-pixel-das6p5e9xug",
+        "@type": "@builder.io/sdk:Element",
+        "tagName": "img",
+        "properties": {
+          "src": "https://cdn.builder.io/api/v1/pixel?apiKey=303981477d1e41d08587796c8f3bf623",
+          "role": "presentation",
+          "width": "0",
+          "height": "0"
+        },
+        "responsiveStyles": {
+          "large": {
+            "height": "0",
+            "width": "0",
+            "display": "inline-block",
+            "opacity": "0",
+            "overflow": "hidden",
+            "pointerEvents": "none"
+          }
+        }
       }
-    ],
-    "url": "/about-us",
-    "state": {
-      "deviceSize": "large",
-      "location": {
-        "path": "",
-        "query": {}
-      }
-    }
+    ]
   },
-  "id": "d823ef3cf0c147f9a449deed26c00b8f",
+  "id": "af8959f5d40a481cbfa6d55f8fefc414",
+  "lastUpdated": 1618545639341,
   "lastUpdatedBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
   "meta": {
     "hasLinks": false,
     "kind": "page",
-    "shopifyDomain": "builder-io-demo.myshopify.com/",
-    "needsHydration": false
+    "needsHydration": false,
+    "shopifyDomain": "builder-io-demo.myshopify.com/"
   },
-  "modelId": "e7527e05596545fc82efcc1d5e3bf779",
+  "modelId": "11194fd7edd743719276f4324a7bd972",
   "name": "about-us",
   "published": "published",
   "query": [
@@ -1843,12 +1868,8 @@
       "value": "/about-us"
     }
   ],
-  "testRatio": 1,
-  "variations": {},
-  "lastUpdated": 1618545639341,
+  "rev": "159wo8k3pqjj",
   "screenshot": "https://cdn.builder.io/api/v1/image/assets%2Fb99ba3685ce3427ba25ec84d21651ce3%2F5e55a3f435124f63b838d57cfd1da3a5",
-  "rev": "p1t60eeoqq",
-  "@originOrg": "b99ba3685ce3427ba25ec84d21651ce3",
-  "@originContentId": "f8f74fb221bc45749ba9c67ff76b7c1d",
-  "@originModelId": "06270f8867d18be74445a25369931d5214e3720f4fff57aa60da6f372e6f4be4"
+  "testRatio": 1,
+  "variations": {}
 }

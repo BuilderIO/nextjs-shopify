@@ -4,7 +4,7 @@ import { Themed, jsx, Grid, Button, Input, Text, IconButton } from 'theme-ui'
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Trash, Plus, Minus } from '@components/icons'
+import { Plus, Minus } from '@components/icons'
 import { getPrice } from '@lib/shopify/storefront-data-hooks/src/utils/product'
 import {
   useUpdateItemQuantity,
