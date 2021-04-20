@@ -69,7 +69,15 @@ const CartItem = ({
 
   return (
     <Grid gap={2} sx={{ width: '100%', m: 12 }} columns={[2]}>
-      <div sx={{ padding: 1, border: '1px solid gray', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <div
+        sx={{
+          padding: 1,
+          border: '1px solid gray',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
         <Image
           height={130}
           width={130}

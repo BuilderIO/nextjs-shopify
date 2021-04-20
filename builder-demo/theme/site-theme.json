@@ -1,6 +1,6 @@
 {
   "createdBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
-  "createdDate": 1618890934748,
+  "createdDate": 1618273525995,
   "data": {
     "siteInformation": {
       "titleTemplate": "%s - Headless Demo",
@@ -27,21 +27,16 @@
       ]
     }
   },
-  "id": "6c21f1828cc14a2e83566dbc587b3b93",
-  "lastUpdatedBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
-  "meta": {
-    "kind": "data",
-    "shopifyDomain": "builder-io-demo.myshopify.com/"
-  },
-  "modelId": "75d7d923971f422e816a647dc70c3666",
+  "id": "01a5e8f7b2824817b9e00e13eaa0a700",
+  "modelId": "7bc4629d590b4728ad10b31a711f329d",
   "name": "Site theme",
   "published": "published",
   "query": [],
   "testRatio": 1,
   "variations": {},
-  "lastUpdated": 1618894011624,
-  "rev": "rosgwf7mxe",
-  "@originOrg": "303981477d1e41d08587796c8f3bf623",
-  "@originContentId": "8354d78d332347eea236c378df1970ff",
-  "@originModelId": "68f8ce55161bb70a95d9916ec9e7c41b0cf93215ea0be6c4137ababfc7ce3f7d"
+  "lastUpdated": 1618875290826,
+  "rev": "xg6lih6m0cc",
+  "@originOrg": "b99ba3685ce3427ba25ec84d21651ce3",
+  "@originContentId": "e4a2f308c7724b1098bf6be93342fa38",
+  "@originModelId": "1e1d3f4631cf4a13b4405a0dfe902766"
 }
