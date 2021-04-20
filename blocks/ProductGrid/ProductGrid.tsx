@@ -4,25 +4,25 @@ import { jsx } from 'theme-ui'
 import { FC, useEffect, useState } from 'react'
 import { LoadingDots } from '@components/ui'
 import { Grid } from '@theme-ui/components'
-import { ProductCard, ProductCardProps } from '@components/common/product-card'
-import { ProductCardDemo } from '@components/common/ProductCardDemo'
+import { ProductCardProps } from '@components/common/ProductCard'
+import { ProductCardDemo, ProductCard } from '@components/common'
 
 import {
   getCollection,
   getProduct,
 } from '@lib/shopify/storefront-data-hooks/src/api/operations-builder'
 import builderConfig from '@config/builder'
-interface HighlightedCardProps extends ProductCardProps {
+interface HighlightedCardProps extends Omit<ProductCardProps, 'product'> {
   index: number
 }
 
 export interface ProductGridProps {
   products?: ShopifyBuy.Product[]
-  productsList: Array<{ product: string }>
+  productsList?: Array<{ product: string }>
   collection?: string | any // ShopifyBuy.Collection
   offset: number
   limit: number
-  cardProps: ProductCardProps
+  cardProps: Omit<ProductCardProps, 'product'>
   highlightCard?: HighlightedCardProps
 }
 
@@ -41,7 +41,7 @@ export const ProductGrid: FC<ProductGridProps> = ({
   useEffect(() => {
     const getProducts = async () => {
       setLoading(true)
-      const promises = productsList
+      const promises = productsList!
         .map((entry) => entry.product)
         .filter((handle: string | undefined) => typeof handle === 'string')
         .map(
@@ -87,7 +87,7 @@ export const ProductGrid: FC<ProductGridProps> = ({
     >
       {products.slice(offset, limit).map((product, i) => (
         <ProductComponent
-          key={String(product.id)}
+          key={String(product.id) + i}
           {...(highlightCard?.index === i ? highlightCard : cardProps)}
           product={product}
         />

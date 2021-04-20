@@ -53,7 +53,7 @@
         }
       },
       {
-        "id": "builder-pixel-fr57m68u2km",
+        "id": "builder-pixel-uxarhn461je",
         "@type": "@builder.io/sdk:Element",
         "tagName": "img",
         "properties": {
@@ -82,7 +82,7 @@
       }
     }
   },
-  "id": "babde10291d54063b2d3048f73aab842",
+  "id": "2527deb21f164e248c2e7ae05b5910ff",
   "lastUpdatedBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
   "meta": {
     "hasLinks": false,
@@ -90,7 +90,7 @@
     "shopifyDomain": "builder-io-demo.myshopify.com/",
     "needsHydration": false
   },
-  "modelId": "df01f1488b1143bba28dc14c721c82cb",
+  "modelId": "9676fff898a844e7a746e055f97e09c2",
   "name": "generic collection",
   "published": "published",
   "query": [],
@@ -99,7 +99,7 @@
   "lastUpdated": 1618519751951,
   "previewUrl": "http://localhost:3000/collection/butt",
   "screenshot": "https://cdn.builder.io/api/v1/image/assets%2Fb99ba3685ce3427ba25ec84d21651ce3%2Fed38d8dd48c54587b617e28d681abbaf",
-  "rev": "zlqzlvq1ck",
+  "rev": "3f19dcolzev",
   "@originOrg": "b99ba3685ce3427ba25ec84d21651ce3",
   "@originContentId": "a91ed54ff744431b947c83c8e0865165",
   "@originModelId": "be774383409464b85429e7db1e1c87bf3eba1d67d4a78d802d8e75325bc1205f"

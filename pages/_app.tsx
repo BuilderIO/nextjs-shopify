@@ -11,7 +11,6 @@ builder.init(builderConfig.apiKey)
 
 import '../blocks/ProductGrid/ProductGrid.builder'
 import '../blocks/CollectionView/CollectionView.builder'
-import '../blocks/Hero/Hero.builder'
 
 const Noop: FC = ({ children }) => <>{children}</>
 

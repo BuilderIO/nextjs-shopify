@@ -40,7 +40,7 @@
         }
       },
       {
-        "id": "builder-pixel-2nt43zigebj",
+        "id": "builder-pixel-k1islbt70gi",
         "@type": "@builder.io/sdk:Element",
         "tagName": "img",
         "properties": {
@@ -62,7 +62,7 @@
       }
     ]
   },
-  "id": "7c7e4f81e75b43c5a7db215612eb1926",
+  "id": "c4b93e54027f48dc9a4ffa8aa3a7da45",
   "lastUpdated": 1613963041567,
   "lastUpdatedBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
   "meta": {
@@ -71,11 +71,11 @@
     "needsHydration": false,
     "shopifyDomain": "builder-io-demo.myshopify.com/"
   },
-  "modelId": "5a4c2ca9531d42389710999128e2acf4",
+  "modelId": "77311e6e9bb8483bb48b5abbccde6a4a",
   "name": "fur purka upsell",
   "published": "published",
   "query": [],
-  "rev": "9fz4bbl67at",
+  "rev": "whax04uc3rt",
   "screenshot": "https://cdn.builder.io/api/v1/image/assets%2F9aa8825c0d33424ca3e9076c2cc4a328%2Fc2b32e129c014208ae8a5fd81dd99ae3",
   "testRatio": 1,
   "variations": {}

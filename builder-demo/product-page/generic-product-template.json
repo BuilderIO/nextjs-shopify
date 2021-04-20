@@ -49,7 +49,7 @@
         }
       },
       {
-        "id": "builder-pixel-xvbtnvt5vfh",
+        "id": "builder-pixel-z5phsmjqkwh",
         "@type": "@builder.io/sdk:Element",
         "tagName": "img",
         "properties": {
@@ -78,7 +78,7 @@
       }
     }
   },
-  "id": "ee1a9d23b04047509098279c77578109",
+  "id": "a5d810cfe6f84964b38819af7cbce272",
   "lastUpdated": 1618593868343,
   "lastUpdatedBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
   "meta": {
@@ -89,7 +89,7 @@
     "winningTest": null,
     "needsHydration": false
   },
-  "modelId": "0659c164ae1140c8a4ab791cd1873b10",
+  "modelId": "04a22eff0ce441739c3dcfa003105e85",
   "name": "generic product template",
   "previewUrl": "http://localhost:3000/product/open-bust-slip-dress",
   "published": "published",
@@ -103,7 +103,7 @@
   "screenshot": "https://cdn.builder.io/api/v1/image/assets%2Fb99ba3685ce3427ba25ec84d21651ce3%2F0c438220a2344ace9eec42088029e69a",
   "testRatio": 1,
   "variations": {},
-  "rev": "zvqaae1gq2b",
+  "rev": "ej9h1j0xooe",
   "@originOrg": "b99ba3685ce3427ba25ec84d21651ce3",
   "@originContentId": "7b4fa207991c465ebe8cf60f351ee026",
   "@originModelId": "6e725073e644dd9bd6a7b6d85ca412cc3622cace708b78190f92962e1dfd2661"

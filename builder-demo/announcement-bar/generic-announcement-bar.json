@@ -51,7 +51,7 @@
         }
       },
       {
-        "id": "builder-pixel-w77jwftvpg",
+        "id": "builder-pixel-yqxopoijss",
         "@type": "@builder.io/sdk:Element",
         "tagName": "img",
         "properties": {
@@ -73,7 +73,7 @@
       }
     ]
   },
-  "id": "b8d9976dd05544bea0ff2d026772123f",
+  "id": "8a9a18aeb691433cb32dd290911c4c74",
   "lastUpdated": 1618548626543,
   "lastUpdatedBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
   "meta": {
@@ -82,11 +82,11 @@
     "needsHydration": false,
     "shopifyDomain": "builder-io-demo.myshopify.com/"
   },
-  "modelId": "578fed605c1e459286159ebfab573457",
+  "modelId": "4c91c167cdea4996b5cd6f327093def5",
   "name": "generic announcement bar",
   "published": "published",
   "query": [],
-  "rev": "75zva943byn",
+  "rev": "fbdpeahmxq",
   "screenshot": "https://cdn.builder.io/api/v1/image/assets%2Fb99ba3685ce3427ba25ec84d21651ce3%2F3ea6b3ba7ca94162bfeeb632e2d1244b",
   "testRatio": 1,
   "variations": {}

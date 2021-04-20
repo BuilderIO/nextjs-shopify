@@ -4,7 +4,7 @@ import React, { useMemo, useState, useEffect } from 'react'
 import { Themed, jsx } from 'theme-ui'
 import { Grid, Button } from '@theme-ui/components'
 import Thumbnail from '@components/common/Thumbnail'
-import OptionPicker from '@components/common/option-picker'
+import OptionPicker from '@components/common/OptionPicker'
 import { NextSeo } from 'next-seo'
 import { useUI } from '@components/ui/context'
 import { useAddItemToCart } from '@lib/shopify/storefront-data-hooks'
@@ -14,7 +14,7 @@ import {
   getPrice,
 } from '@lib/shopify/storefront-data-hooks/src/utils/product'
 import Image from 'next/image'
-import NoSSR from '@components/common/NoSSR/NoSSR'
+import NoSSR from '@components/common/NoSSR'
 
 interface Props {
   className?: string
@@ -42,6 +42,7 @@ const ProductView: React.FC<Props> = ({ product }) => {
 
   const { openSidebar } = useUI()
   const [loading, setLoading] = useState(false)
+  const [peakingImage, setPeakingImage] = useState(null as { src: string } | null )
   const [variant, setVariant] = useState(variants[0])
   const [color, setColor] = useState(variant.color)
   const [size, setSize] = useState(variant.size)
@@ -52,7 +53,8 @@ const ProductView: React.FC<Props> = ({ product }) => {
     })
 
     if (variant.id !== newVariant?.id) {
-      setVariant(newVariant)
+      setVariant(newVariant);
+      setPeakingImage(null);
     }
   }, [size, color, variants, variant.id])
 
@@ -66,23 +68,34 @@ const ProductView: React.FC<Props> = ({ product }) => {
       setLoading(false)
     }
   }
-  const gallery =
-    images.length > 1 ? (
-      <NoSSR>
-        <Grid gap={2} columns={6}>
-          {images.map(({ src, color }) => (
+  const gallery = <NoSSR>
+    <Grid gap={2} columns={[3,6]}>
+        { images.length && images.map(({ src, color }, index) => (
             <Thumbnail
               width={30}
               height={60}
               name={color}
-              key={src.src}
+              key={src.src + index}
               src={src.src}
-              onClick={() => setColor(color)}
+              onClick={() => {
+                setColor(color)
+                setPeakingImage(null);
+
+              }}
+            />
+          ))}
+                    {product.images && product.images.filter(({src}) => !images.find(image => image.src.src === src)).map(({ src }, index) => (
+            <Thumbnail
+              width={30}
+              height={60}
+              name={color}
+              key={src + index}
+              src={src}
+              onClick={() => setPeakingImage({ src })}
             />
           ))}
         </Grid>
       </NoSSR>
-    ) : null
 
   return (
     <React.Fragment>
@@ -114,7 +127,7 @@ const ProductView: React.FC<Props> = ({ product }) => {
           >
             {variant.image && (
               <Image
-                src={variant.image.src}
+                src={peakingImage?.src || variant.image.src}
                 alt={product.title}
                 width={1050}
                 height={1050}

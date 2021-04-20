@@ -6,7 +6,7 @@ import { Card, Text } from '@theme-ui/components'
 import { Link } from '@components/ui'
 import { getPrice } from '@lib/shopify/storefront-data-hooks/src/utils/product'
 import { useState } from 'react'
-import NoSSR from './NoSSR/NoSSR'
+import NoSSR from './NoSSR'
 
 export interface ProductCardProps {
   className?: string
@@ -19,7 +19,7 @@ export interface ProductCardProps {
   imgSizes?: string
 }
 
-export const ProductCardDemo: React.FC<ProductCardProps> = ({
+const ProductCardDemo: React.FC<ProductCardProps> = ({
   product,
   imgWidth,
   imgHeight,
@@ -42,13 +42,14 @@ export const ProductCardDemo: React.FC<ProductCardProps> = ({
   return (
     <Card
       sx={{
+        minWidth: 340,
         maxWidth: [700, 500],
         p: 3,
         display: 'flex',
         flexDirection: 'column',
       }}
-      onMouseLeave={() => setShowAlternate(false)}
-      onMouseEnter={() => setShowAlternate(true)}
+      onMouseOut={() => setShowAlternate(false)}
+      onMouseOver={() => setShowAlternate(true)}
     >
       <Link href={`/product/${handle}/`}>
         <div sx={{ flexGrow: 1 }}>
@@ -100,3 +101,5 @@ export const ProductCardDemo: React.FC<ProductCardProps> = ({
     </Card>
   )
 }
+
+export default ProductCardDemo;

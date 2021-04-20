@@ -32,7 +32,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
           borderColor: 'black',
         },
       }}
-      onMouseEnter={onHover}
+      onMouseOver={onHover}
       onClick={onClick}
     >
       <Image src={src} width={width} height={height} loading='eager' />

@@ -15,7 +15,6 @@ import { resolveBuilderContent } from '@lib/resolve-builder-content'
 builder.init(builderConfig.apiKey)
 import '../blocks/ProductGrid/ProductGrid.builder'
 import '../blocks/CollectionView/CollectionView.builder'
-import '../blocks/Hero/Hero.builder'
 import { useThemeUI } from '@theme-ui/core'
 import { Link } from '@components/ui'
 import { Themed } from '@theme-ui/mdx'

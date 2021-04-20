@@ -1,0 +1,217 @@
+{
+  "createdBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
+  "createdDate": 1618519447569,
+  "data": {
+    "body_html": "<p>No-show socks that stay in place all day &amp; won't stick out of your shoes. </p>\n<ul>\n<li><span class=\"a-list-item\">Low profile liner with a laser seamless finish silicon cut </span></li>\n<li>Soft cotton step on, front anti-slip</li>\n<li>Fits shoe sizes 4-10<br>\n</li>\n<li><span data-mce-fragment=\"1\">Top layer: 88% Nylon 12% Spandex; </span></li>\n<li><span data-mce-fragment=\"1\">Bottom: 95% cotton 5% Nylon.</span></li>\n</ul>",
+    "created_at": "2020-09-17T05:27:02-04:00",
+    "handle": "no-show-liner-socks",
+    "id": 5784136024216,
+    "images": [
+      {
+        "created_at": "2020-11-16T06:14:53-05:00",
+        "height": 3995,
+        "id": 22594836463768,
+        "position": 1,
+        "product_id": 5784136024216,
+        "src": "https://cdn.shopify.com/s/files/1/0355/6301/2231/products/So1.jpg?v=1605525911",
+        "updated_at": "2020-11-16T06:25:11-05:00",
+        "variant_ids": [
+          36348728639640
+        ],
+        "width": 3996
+      },
+      {
+        "created_at": "2020-10-04T06:56:42-04:00",
+        "height": 439,
+        "id": 20217878315160,
+        "position": 2,
+        "product_id": 5784136024216,
+        "src": "https://cdn.shopify.com/s/files/1/0355/6301/2231/products/UNADJUSTEDNONRAW_thumb_1102.jpg?v=1605525911",
+        "updated_at": "2020-11-16T06:25:11-05:00",
+        "variant_ids": [],
+        "width": 439
+      },
+      {
+        "created_at": "2020-11-16T06:14:52-05:00",
+        "height": 3996,
+        "id": 22594836267160,
+        "position": 3,
+        "product_id": 5784136024216,
+        "src": "https://cdn.shopify.com/s/files/1/0355/6301/2231/products/soo2.jpg?v=1605525911",
+        "updated_at": "2020-11-16T06:25:11-05:00",
+        "variant_ids": [
+          36348728737944
+        ],
+        "width": 3996
+      },
+      {
+        "created_at": "2020-11-16T06:21:28-05:00",
+        "height": 3996,
+        "id": 22595382673560,
+        "position": 4,
+        "product_id": 5784136024216,
+        "src": "https://cdn.shopify.com/s/files/1/0355/6301/2231/products/s34.jpg?v=1605525911",
+        "updated_at": "2020-11-16T06:25:11-05:00",
+        "variant_ids": [
+          36348728672408
+        ],
+        "width": 3996
+      },
+      {
+        "created_at": "2020-09-17T06:22:57-04:00",
+        "height": 404,
+        "id": 19497250160792,
+        "position": 5,
+        "product_id": 5784136024216,
+        "src": "https://cdn.shopify.com/s/files/1/0355/6301/2231/products/silicon.jpg?v=1605525911",
+        "updated_at": "2020-11-16T06:25:11-05:00",
+        "variant_ids": [],
+        "width": 404
+      }
+    ],
+    "options": [
+      {
+        "name": "Size",
+        "position": 1,
+        "values": [
+          "One Size"
+        ]
+      },
+      {
+        "name": "Color",
+        "position": 2,
+        "values": [
+          "Sand",
+          "Black",
+          "Coffee"
+        ]
+      }
+    ],
+    "product_type": "",
+    "published_at": "2021-03-16T09:49:46-04:00",
+    "tags": [],
+    "title": "NO SHOW LINER SOCKS",
+    "updated_at": "2021-04-15T13:44:05-04:00",
+    "variants": [
+      {
+        "available": true,
+        "compare_at_price": null,
+        "created_at": "2020-09-17T05:27:02-04:00",
+        "featured_image": {
+          "alt": "color_sand",
+          "created_at": "2020-11-16T06:21:28-05:00",
+          "height": 3996,
+          "id": 22595382673560,
+          "position": 4,
+          "product_id": 5784136024216,
+          "src": "https://cdn.shopify.com/s/files/1/0355/6301/2231/products/s34.jpg?v=1605525911",
+          "updated_at": "2020-11-16T06:25:11-05:00",
+          "variant_ids": [
+            36348728672408
+          ],
+          "width": 3996
+        },
+        "grams": 25,
+        "id": 36348728672408,
+        "option1": "One Size",
+        "option2": "Sand",
+        "option3": null,
+        "position": 1,
+        "price": "4.00",
+        "product_id": 5784136024216,
+        "requires_shipping": true,
+        "sku": "UN-PS-501-ONE-SAND",
+        "taxable": true,
+        "title": "One Size / Sand",
+        "updated_at": "2021-04-15T13:44:05-04:00"
+      },
+      {
+        "available": true,
+        "compare_at_price": null,
+        "created_at": "2020-09-17T05:27:02-04:00",
+        "featured_image": {
+          "alt": "color_black",
+          "created_at": "2020-11-16T06:14:53-05:00",
+          "height": 3995,
+          "id": 22594836463768,
+          "position": 1,
+          "product_id": 5784136024216,
+          "src": "https://cdn.shopify.com/s/files/1/0355/6301/2231/products/So1.jpg?v=1605525911",
+          "updated_at": "2020-11-16T06:25:11-05:00",
+          "variant_ids": [
+            36348728639640
+          ],
+          "width": 3996
+        },
+        "grams": 25,
+        "id": 36348728639640,
+        "option1": "One Size",
+        "option2": "Black",
+        "option3": null,
+        "position": 2,
+        "price": "4.00",
+        "product_id": 5784136024216,
+        "requires_shipping": true,
+        "sku": "UN-PS-501-ONE-BLK",
+        "taxable": true,
+        "title": "One Size / Black",
+        "updated_at": "2021-04-13T07:33:25-04:00"
+      },
+      {
+        "available": true,
+        "compare_at_price": null,
+        "created_at": "2020-09-17T05:27:02-04:00",
+        "featured_image": {
+          "alt": "color_sand",
+          "created_at": "2020-11-16T06:14:52-05:00",
+          "height": 3996,
+          "id": 22594836267160,
+          "position": 3,
+          "product_id": 5784136024216,
+          "src": "https://cdn.shopify.com/s/files/1/0355/6301/2231/products/soo2.jpg?v=1605525911",
+          "updated_at": "2020-11-16T06:25:11-05:00",
+          "variant_ids": [
+            36348728737944
+          ],
+          "width": 3996
+        },
+        "grams": 25,
+        "id": 36348728737944,
+        "option1": "One Size",
+        "option2": "Coffee",
+        "option3": null,
+        "position": 3,
+        "price": "4.00",
+        "product_id": 5784136024216,
+        "requires_shipping": true,
+        "sku": "UN-PS-501-ONE-COE",
+        "taxable": true,
+        "title": "One Size / Coffee",
+        "updated_at": "2021-04-11T09:36:05-04:00"
+      }
+    ],
+    "vendor": "Underoutfit"
+  },
+  "id": "e5b1be30c1da4747ae3f1a9316a0aadb",
+  "lastUpdatedBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
+  "meta": {
+    "addedBy": "@builder.io/plugin-shopify-demo",
+    "importedDate": 1618519447568
+  },
+  "modelId": "4ac186c554804a71bf4cad4912a6f38b",
+  "name": "NO SHOW LINER SOCKS",
+  "published": "published",
+  "query": [
+    {
+      "operator": "is",
+      "property": "productHandle",
+      "value": "no-show-liner-socks"
+    }
+  ],
+  "testRatio": 1,
+  "variations": {},
+  "rev": "mpl6dwnlj5",
+  "@originOrg": "b99ba3685ce3427ba25ec84d21651ce3",
+  "@originContentId": "2fdbf56ca20b48e6bb8fb66124424513",
+  "@originModelId": "8885876ac827496c91e8cfefa7f1bba0"
+}

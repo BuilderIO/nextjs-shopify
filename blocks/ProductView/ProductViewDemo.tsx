@@ -4,17 +4,13 @@ import React, { useMemo, useState, useEffect } from 'react'
 import { Themed, jsx } from 'theme-ui'
 import { Grid, Button } from '@theme-ui/components'
 import Thumbnail from '@components/common/Thumbnail'
-import OptionPicker from '@components/common/option-picker'
+import OptionPicker from '@components/common/OptionPicker'
 import { NextSeo } from 'next-seo'
-import { useUI } from '@components/ui/context'
-import { useAddItemToCart } from '@lib/shopify/storefront-data-hooks'
 import {
-  prepareVariantsWithOptions,
-  prepareVariantsImages,
   getPrice,
 } from '@lib/shopify/storefront-data-hooks/src/utils/product'
 import Image from 'next/image'
-import NoSSR from '@components/common/NoSSR/NoSSR'
+import NoSSR from '@components/common/NoSSR'
 
 interface Props {
   className?: string
@@ -34,7 +30,7 @@ const ProductView: React.FC<Props> = ({ product }) => {
   const gallery =
     images.length > 1 ? (
       <NoSSR>
-        <Grid gap={1} columns={8}>
+        <Grid gap={1} columns={[4, 7]}>
           {images.map(({ src }) => (
             <Thumbnail
               width={60}
