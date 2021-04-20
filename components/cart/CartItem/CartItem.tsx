@@ -1,15 +1,15 @@
-import { ChangeEvent, useEffect, useState } from 'react'
-import cn from 'classnames'
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { Themed, jsx, Grid, Button, Input, Text, IconButton } from 'theme-ui'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Trash, Plus, Minus } from '@components/icons'
+import { Plus, Minus } from '@components/icons'
 import { getPrice } from '@lib/shopify/storefront-data-hooks/src/utils/product'
 import {
   useUpdateItemQuantity,
   useRemoveItemFromCart,
-  useCheckoutUrl,
 } from '@lib/shopify/storefront-data-hooks'
-import s from './CartItem.module.css'
 
 const CartItem = ({
   item,
@@ -18,11 +18,6 @@ const CartItem = ({
   item: /*ShopifyBuy.LineItem todo: check if updated types*/ any
   currencyCode: string
 }) => {
-  // TODO: get real maxVariantPrice
-  const price = getPrice(
-    item.variant.priceV2.amount,
-    item.variant.priceV2.currencyCode
-  )
   const updateItem = useUpdateItemQuantity()
   const removeItem = useRemoveItemFromCart()
   const [quantity, setQuantity] = useState(item.quantity)
@@ -73,58 +68,79 @@ const CartItem = ({
   }, [item.quantity])
 
   return (
-    <li
-      className={cn('flex flex-row space-x-8 py-8', {
-        'opacity-75 pointer-events-none': removing,
-      })}
-    >
-      <div className="w-16 h-16 bg-violet relative overflow-hidden">
+    <Grid gap={2} columns={[1, 2]}>
+      <div sx={{ padding: 1, border: '1px solid gray', textAlign: 'center' }}>
         <Image
-          className={s.productImage}
-          src={item.variant.image.src}
-          width={150}
           height={150}
-          alt="Product Image"
-          // The cart item image is already optimized and very small in size
+          width={150}
           unoptimized
+          alt={item.variant.image.altText}
+          src={item.variant.image.src}
         />
       </div>
-      <div className="flex-1 flex flex-col text-base">
-        {/** TODO: Replace this. No `path` found at Cart */}
-        <Link href={`/product/${item.variant.product.handle}`}>
-          <span className="font-bold mb-5 text-lg cursor-pointer">
+      <div>
+        <Themed.div
+          as={Link}
+          href={`/product/${item.variant.product.handle}/`}
+          sx={{ fontSize: 3, m: 0, fontWeight: 700 }}
+        >
+          <>
             {item.title}
-          </span>
-        </Link>
+            <Text
+              sx={{
+                fontSize: 4,
+                fontWeight: 700,
+                display: 'block',
+                marginLeft: 'auto',
+              }}
+            >
+              {getPrice(
+                item.variant.priceV2.amount,
+                item.variant.priceV2.currencyCode || 'USD'
+              )}
+            </Text>
+          </>
+        </Themed.div>
+        <Themed.ul sx={{ mt: 2, mb: 0, padding: 0, listStyle: 'none' }}>
+          <li>
+            <div sx={{ display: 'flex', justifyItems: 'center' }}>
+              <IconButton onClick={() => increaseQuantity(-1)}>
+                <Minus width={18} height={18} />
+              </IconButton>
 
-        <div className="flex items-center">
-          <button type="button" onClick={() => increaseQuantity(-1)}>
-            <Minus width={18} height={18} />
-          </button>
-          <label>
-            <input
-              type="number"
-              max={99}
-              min={0}
-              className={s.quantity}
-              value={quantity}
-              onChange={handleQuantity}
-              onBlur={handleBlur}
-            />
-          </label>
-          <button type="button" onClick={() => increaseQuantity(1)}>
-            <Plus width={18} height={18} />
-          </button>
-        </div>
+              <label>
+                <Input
+                  sx={{
+                    height: '100%',
+                    textAlign: 'center',
+                  }}
+                  type="number"
+                  max={99}
+                  min={0}
+                  value={quantity}
+                  onChange={handleQuantity}
+                  onBlur={handleBlur}
+                />
+              </label>
+              <IconButton onClick={() => increaseQuantity(1)}>
+                <Plus width={18} height={18} />
+              </IconButton>
+            </div>
+          </li>
+          {item.variant.selectedOptions.map((option: any) => (
+            <li key={option.value}>
+              {option.name}:{option.value}
+            </li>
+          ))}
+        </Themed.ul>
       </div>
-      <div className="flex flex-col justify-between space-y-2 text-base">
-        <span>{price}</span>
-        <button className="flex justify-end" onClick={handleRemove}>
-          <Trash />
-        </button>
-      </div>
-    </li>
+    </Grid>
   )
 }
+
+/**
+ *         
+
+ */
 
 export default CartItem

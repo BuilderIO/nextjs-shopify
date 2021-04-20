@@ -14,6 +14,7 @@ import {
 } from '@lib/shopify/storefront-data-hooks/src/api/operations-builder'
 import DefaultErrorPage from 'next/error'
 import Head from 'next/head'
+import { useThemeUI } from '@theme-ui/core'
 
 builder.init(builderConfig.apiKey!)
 Builder.isStatic = true
@@ -31,11 +32,13 @@ export async function getStaticProps({
     collectionHandle: params?.handle,
     locale,
   })
+  const theme = await resolveBuilderContent('theme')
 
   return {
     props: {
-      page,
-      collection,
+      page: page || null,
+      theme: theme || null,
+      collection: collection || null,
     },
     // 4 hours in production, 1s in development
     // todo: 14400
@@ -57,7 +60,7 @@ export default function Handle({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter()
   const isLive = !Builder.isEditing && !Builder.isPreviewing
-
+  const { theme } = useThemeUI()
   if (!collection && isLive) {
     return (
       <>
@@ -77,8 +80,8 @@ export default function Handle({
       isStatic
       key={collection.id}
       model={builderModel}
-      data={{ collection }}
-      {...(isLive && page && { content: page })}
+      data={{ collection, theme }}
+      {...(page && { content: page })}
     />
   )
 }

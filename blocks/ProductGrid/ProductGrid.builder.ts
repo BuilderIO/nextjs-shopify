@@ -4,13 +4,9 @@ import { Input } from '@builder.io/sdk'
 const LazyProductGrid = dynamic(async () => {
   return (await import('./ProductGrid')).ProductGrid
 })
+const isDemo = Boolean(process.env.IS_DEMO)
 
 const productCardFields: Input[] = [
-  {
-    name: 'variant',
-    type: 'enum',
-    enum: ['slim', 'simple'],
-  },
   {
     name: 'imgWidth',
     type: 'number',
@@ -43,40 +39,10 @@ const productCardFields: Input[] = [
   },
 ]
 
-const highlightedCardFields = productCardFields.concat({
-  name: 'index',
-  type: 'number',
-})
-
-const gridFields: Input[] = [
-  {
-    name: 'variant',
-    type: 'enum',
-    defaultValue: 'default',
-    enum: ['default', 'filled'],
-  },
-  {
-    name: 'layout',
-    type: 'enum',
-    defaultValue: 'A',
-    enum: ['A', 'B', 'C', 'D', 'normal'],
-  },
-]
 export const productGridSchema: Input[] = [
-  {
-    name: 'gridProps',
-    advanced: true,
-    defaultValue: {
-      variant: 'default',
-      layout: 'A',
-    },
-    type: 'object',
-    subFields: gridFields,
-  },
   {
     name: 'cardProps',
     defaultValue: {
-      variant: 'simple',
       imgPriority: true,
       imgLayout: 'responsive',
       imgLoading: 'eager',
@@ -88,22 +54,6 @@ export const productGridSchema: Input[] = [
     subFields: productCardFields,
   },
   {
-    name: 'highlightCard',
-    advanced: true,
-    defaultValue: {
-      imgWidth: 1080,
-      imgHeight: 1080,
-      variant: 'simple',
-      imgPriority: true,
-      imgLayout: 'responsive',
-      imgLoading: 'eager',
-      layout: 'fixed',
-      index: 1,
-    },
-    type: 'object',
-    subFields: highlightedCardFields,
-  },
-  {
     name: 'offset',
     type: 'number',
     defaultValue: 0,
@@ -111,7 +61,7 @@ export const productGridSchema: Input[] = [
   {
     name: 'limit',
     type: 'number',
-    defaultValue: 3,
+    defaultValue: 9,
   },
 ]
 
@@ -125,7 +75,7 @@ Builder.registerComponent(LazyProductGrid, {
       subFields: [
         {
           name: 'product',
-          type: 'ShopifyProductHandle',
+          type: `${isDemo ? 'ShopifyStore' : 'Shopify'}ProductHandle`,
         },
       ],
     },
@@ -134,10 +84,12 @@ Builder.registerComponent(LazyProductGrid, {
 
 Builder.registerComponent(LazyProductGrid, {
   name: 'ProductCollectionGrid',
+  image:
+    'https://cdn0.iconfinder.com/data/icons/office-outline-14/36/office_line-05-512.png',
   inputs: [
     {
       name: 'collection',
-      type: 'ShopifyCollectionHandle',
+      type: `${isDemo ? 'ShopifyStore' : 'Shopify'}CollectionHandle`,
     },
   ].concat(productGridSchema),
 })

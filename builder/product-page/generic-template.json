@@ -1,7 +1,7 @@
 {
-  "@originContentId": "63e0ed29cc5b3963df6ca7aea973bee1af21b7ee24661413466e43a99c37cb21",
-  "@originModelId": "74749846840337000adf33ad7fdb712b95330b74d3089e137083f66c11a0d8b3",
-  "@originOrg": "9aa8825c0d33424ca3e9076c2cc4a328",
+  "@originContentId": "80fd158e3036edff53ddf0a208d0a589888f6aaa0bf04f5c737d31f55db9e85e",
+  "@originModelId": "6bd686e19fb086590883f023855c3a1514eeed08f6c5d45f10d35213f8fa9313",
+  "@originOrg": "303981477d1e41d08587796c8f3bf623",
   "createdBy": "agZ9n5CUKRfbL9t6CaJOyVSK4Es2",
   "createdDate": 1610516058604,
   "data": {
@@ -47,10 +47,31 @@
             "marginTop": "20px"
           }
         }
+      },
+      {
+        "id": "builder-pixel-wk9suykmin",
+        "@type": "@builder.io/sdk:Element",
+        "tagName": "img",
+        "properties": {
+          "src": "https://cdn.builder.io/api/v1/pixel?apiKey=303981477d1e41d08587796c8f3bf623",
+          "role": "presentation",
+          "width": "0",
+          "height": "0"
+        },
+        "responsiveStyles": {
+          "large": {
+            "height": "0",
+            "width": "0",
+            "display": "inline-block",
+            "opacity": "0",
+            "overflow": "hidden",
+            "pointerEvents": "none"
+          }
+        }
       }
     ]
   },
-  "id": "8beec11409774b259fb52f850adf1cf0",
+  "id": "664fca5a42e849c597a3d0d4da1c82f2",
   "lastUpdated": 1611873566299,
   "lastUpdatedBy": "agZ9n5CUKRfbL9t6CaJOyVSK4Es2",
   "meta": {
@@ -59,11 +80,11 @@
     "needsHydration": false,
     "shopifyDomain": "builder-io-demo.myshopify.com/"
   },
-  "modelId": "76279319415d497db8cc239349938302",
+  "modelId": "92b6ba9ca20b4d3b8a0fcbc302ec8021",
   "name": "Generic template",
   "published": "published",
   "query": [],
-  "rev": "pn8b9n3ozni",
+  "rev": "j4qsk89ziu",
   "screenshot": "https://cdn.builder.io/api/v1/image/assets%2F6e5b10afb1a9457ba648112d4c5d30e8%2F52a6831152264f29a2b28166304a30d5",
   "testRatio": 1,
   "variations": {}

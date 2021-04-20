@@ -1,18 +1,20 @@
-import { FC, useState, useMemo, useEffect } from 'react'
-import cn from 'classnames'
-import Image from 'next/image'
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import React, { useMemo, useState, useEffect } from 'react'
+import { Themed, jsx } from 'theme-ui'
+import { Grid, Button } from '@theme-ui/components'
+import Thumbnail from '@components/common/Thumbnail'
+import OptionPicker from '@components/common/OptionPicker'
 import { NextSeo } from 'next-seo'
-
-import s from './ProductView.module.css'
 import { useUI } from '@components/ui/context'
-import { Swatch, ProductSlider } from '@components/product'
-import { Button, Container, Text } from '@components/ui'
-
 import { useAddItemToCart } from '@lib/shopify/storefront-data-hooks'
 import {
   prepareVariantsWithOptions,
+  prepareVariantsImages,
   getPrice,
 } from '@lib/shopify/storefront-data-hooks/src/utils/product'
+import Image from 'next/image'
+import NoSSR from '@components/common/NoSSR'
 
 interface Props {
   className?: string
@@ -20,7 +22,7 @@ interface Props {
   product: ShopifyBuy.Product
 }
 
-const ProductView: FC<Props> = ({ product }) => {
+const ProductView: React.FC<Props> = ({ product }) => {
   const addItem = useAddItemToCart()
   const colors: string[] | undefined = product.options
     ?.find((option) => option?.name?.toLowerCase() === 'color')
@@ -34,12 +36,15 @@ const ProductView: FC<Props> = ({ product }) => {
     () => prepareVariantsWithOptions(product!.variants! as any),
     [product.variants]
   )
-  // const images = useMemo(() => prepareVariantsImages(variants, 'color'), [
-  //   variants,
-  // ])
+  const images = useMemo(() => prepareVariantsImages(variants, 'color'), [
+    variants,
+  ])
 
   const { openSidebar } = useUI()
   const [loading, setLoading] = useState(false)
+  const [peakingImage, setPeakingImage] = useState(
+    null as { src: string } | null
+  )
   const [variant, setVariant] = useState(variants[0])
   const [color, setColor] = useState(variant.color)
   const [size, setSize] = useState(variant.size)
@@ -51,6 +56,7 @@ const ProductView: FC<Props> = ({ product }) => {
 
     if (variant.id !== newVariant?.id) {
       setVariant(newVariant)
+      setPeakingImage(null)
     }
   }, [size, color, variants, variant.id])
 
@@ -64,9 +70,42 @@ const ProductView: FC<Props> = ({ product }) => {
       setLoading(false)
     }
   }
+  const gallery = (
+    <NoSSR>
+      <Grid gap={2} columns={[3, 6]}>
+        {images.length &&
+          images.map(({ src, color }, index) => (
+            <Thumbnail
+              width={30}
+              height={60}
+              name={color}
+              key={src.src + index}
+              src={src.src}
+              onClick={() => {
+                setColor(color)
+                setPeakingImage(null)
+              }}
+            />
+          ))}
+        {product.images &&
+          product.images
+            .filter(({ src }) => !images.find((image) => image.src.src === src))
+            .map(({ src }, index) => (
+              <Thumbnail
+                width={30}
+                height={60}
+                name={color}
+                key={src + index}
+                src={src}
+                onClick={() => setPeakingImage({ src })}
+              />
+            ))}
+      </Grid>
+    </NoSSR>
+  )
 
   return (
-    <Container className="max-w-8xl w-full" clean>
+    <React.Fragment>
       <NextSeo
         title={product.title}
         description={product.description}
@@ -84,93 +123,68 @@ const ProductView: FC<Props> = ({ product }) => {
           ],
         }}
       />
-      <div className={cn(s.root, 'fit')}>
-        <div className={cn(s.productDisplay, 'fit')}>
-          <div className={s.nameBox}>
-            <h1 className={s.name}>{product.title}</h1>
-            <div className={s.price}>
+      <Grid gap={4} columns={[1, 2]}>
+        <div>
+          <div
+            sx={{
+              border: '1px solid gray',
+              padding: 2,
+              marginBottom: 2,
+            }}
+          >
+            {variant.image && (
+              <Image
+                src={peakingImage?.src || variant.image.src}
+                alt={product.title}
+                width={1050}
+                height={1050}
+                priority
+                quality={85}
+              />
+            )}
+          </div>
+          {gallery}
+        </div>
+        <div sx={{ display: 'flex', flexDirection: 'column' }}>
+          <span sx={{ mt: 0, mb: 2 }}>
+            <Themed.h1>{product.title}</Themed.h1>
+            <Themed.h4 aria-label="price" sx={{ mt: 0, mb: 2 }}>
               {getPrice(variant.priceV2.amount, variant.priceV2.currencyCode)}
-            </div>
-          </div>
-
-          <div className={s.sliderContainer}>
-            <ProductSlider>
-              {product.images.map((image, i) => (
-                <div key={image.src + i} className={s.imageContainer}>
-                  <Image
-                    className={s.img}
-                    src={image.src}
-                    alt={product.title}
-                    width={1050}
-                    height={1050}
-                    priority={i === 0}
-                    quality={85}
-                  />
-                </div>
-              ))}
-            </ProductSlider>
-          </div>
-        </div>
-
-        <div className={s.sidebar}>
-          <section>
-            {colors && colors?.length > 0 && (
-              <div className="pb-4">
-                <h2 className="uppercase font-medium">Color:</h2>
-                <div className="flex flex-row py-4">
-                  {colors.map((option) => (
-                    <Swatch
-                      variant="color"
-                      active={color === option}
-                      key={option}
-                      color={option}
-                      label={option}
-                      onClick={() => {
-                        setColor(option)
-                      }}
-                    />
-                  ))}
-                </div>
-              </div>
-            )}
-            {sizes && sizes.length > 0 && (
-              <div className="pb-4">
-                <h2 className="uppercase font-medium">Size</h2>
-                <div className="flex flex-row py-4">
-                  {sizes.map((option) => (
-                    <Swatch
-                      active={size === option}
-                      key={option}
-                      variant="size"
-                      label={option}
-                      onClick={() => {
-                        setSize(option)
-                      }}
-                    />
-                  ))}
-                </div>
-              </div>
-            )}
-
-            <div className="pb-14 break-words w-full max-w-xl">
-              <Text html={product.description} />
-            </div>
-          </section>
+            </Themed.h4>
+          </span>
+          <div dangerouslySetInnerHTML={{ __html: product.description! }} />
           <div>
-            <Button
-              aria-label="Add to Cart"
-              type="button"
-              className={s.button}
-              onClick={addToCart}
-              loading={loading}
-              disabled={!variant}
-            >
-              Add to Cart
-            </Button>
+            <Grid padding={2} columns={2}>
+              {colors?.length && (
+                <OptionPicker
+                  key="Color"
+                  name="Color"
+                  options={colors}
+                  selected={color}
+                  onChange={(event) => setColor(event.target.value)}
+                />
+              )}
+              {sizes?.length && (
+                <OptionPicker
+                  key="Size"
+                  name="Size"
+                  options={sizes}
+                  selected={size}
+                  onChange={(event) => setSize(event.target.value)}
+                />
+              )}
+            </Grid>
           </div>
+          <Button
+            name="add-to-cart"
+            sx={{ margin: 2, display: 'block' }}
+            onClick={addToCart}
+          >
+            Add to Cart
+          </Button>
         </div>
-      </div>
-    </Container>
+      </Grid>
+    </React.Fragment>
   )
 }
 

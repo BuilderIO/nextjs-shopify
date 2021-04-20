@@ -15,7 +15,9 @@ import { resolveBuilderContent } from '@lib/resolve-builder-content'
 builder.init(builderConfig.apiKey)
 import '../blocks/ProductGrid/ProductGrid.builder'
 import '../blocks/CollectionView/CollectionView.builder'
-import '../blocks/Hero/Hero.builder'
+import { useThemeUI } from '@theme-ui/core'
+import { Link } from '@components/ui'
+import { Themed } from '@theme-ui/mdx'
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -27,15 +29,19 @@ export async function getStaticProps({
     locale,
     urlPath: '/' + (params?.path?.join('/') || ''),
   })
+
+  const theme = await resolveBuilderContent('theme')
+
   return {
     props: {
       page,
+      theme,
       locale,
     },
     // Next.js will attempt to re-generate the page:
     // - When a request comes in
-    // - At most once every 4 minutes ( 240 seconds)
-    revalidate: 240,
+    // - At most once every 80 seconds
+    revalidate: 80,
   }
 }
 
@@ -56,6 +62,7 @@ export default function Path({
   locale,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter()
+  const { theme } = useThemeUI()
   if (router.isFallback) {
     return <h1>Loading...</h1>
   }
@@ -101,6 +108,13 @@ export default function Path({
       <BuilderComponent
         options={{ includeRefs: true } as any}
         model="page"
+        data={{ theme }}
+        renderLink={(props: any) => {
+          if (props.target === '_blank') {
+            return <Themed.a {...props} />
+          }
+          return <Themed.a {...props} as={Link} />
+        }}
         {...(page && { content: page })}
       />
     </div>

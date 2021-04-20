@@ -1,24 +1,28 @@
-import { FC, useEffect, useState, useMemo } from 'react'
-import { Grid, GridProps, LoadingDots } from '@components/ui'
-import { ProductCard, ProductCardProps } from '@components/product'
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
+import { FC, useEffect, useState } from 'react'
+import { LoadingDots } from '@components/ui'
+import { Grid } from '@theme-ui/components'
+import { ProductCardProps } from '@components/common/ProductCard'
+import { ProductCardDemo, ProductCard } from '@components/common'
+
 import {
   getCollection,
   getProduct,
-  searchProducts,
 } from '@lib/shopify/storefront-data-hooks/src/api/operations-builder'
 import builderConfig from '@config/builder'
-interface HighlightedCardProps extends ProductCardProps {
+interface HighlightedCardProps extends Omit<ProductCardProps, 'product'> {
   index: number
 }
 
 export interface ProductGridProps {
-  gridProps?: GridProps
   products?: ShopifyBuy.Product[]
-  productsList: Array<{ product: string }>
+  productsList?: Array<{ product: string }>
   collection?: string | any // ShopifyBuy.Collection
   offset: number
   limit: number
-  cardProps: ProductCardProps
+  cardProps: Omit<ProductCardProps, 'product'>
   highlightCard?: HighlightedCardProps
 }
 
@@ -30,7 +34,6 @@ export const ProductGrid: FC<ProductGridProps> = ({
   limit = 10,
   cardProps,
   highlightCard,
-  gridProps,
 }) => {
   const [products, setProducts] = useState(initialProducts || [])
   const [loading, setLoading] = useState(false)
@@ -38,7 +41,7 @@ export const ProductGrid: FC<ProductGridProps> = ({
   useEffect(() => {
     const getProducts = async () => {
       setLoading(true)
-      const promises = productsList
+      const promises = productsList!
         .map((entry) => entry.product)
         .filter((handle: string | undefined) => typeof handle === 'string')
         .map(
@@ -69,12 +72,22 @@ export const ProductGrid: FC<ProductGridProps> = ({
   if (loading) {
     return <LoadingDots />
   }
+  const ProductComponent: any = process.env.IS_DEMO
+    ? ProductCardDemo
+    : ProductCard
 
   return (
-    <Grid {...gridProps}>
+    <Grid
+      sx={{
+        maxWidth: [500, 1200, 1920],
+        margin: '0 auto',
+      }}
+      gap={2}
+      columns={[1, 2, 3]}
+    >
       {products.slice(offset, limit).map((product, i) => (
-        <ProductCard
-          key={String(product.id)}
+        <ProductComponent
+          key={String(product.id) + i}
           {...(highlightCard?.index === i ? highlightCard : cardProps)}
           product={product}
         />
