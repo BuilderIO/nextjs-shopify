@@ -16,6 +16,7 @@ import themesMap from '@config/theme'
 import '@builder.io/widgets'
 import 'react-spring-modal/styles.css'
 import seoConfig from '@config/seo.json'
+import NoSSR from './NoSSR'
 
 const FeatureBar = dynamic(() => import('@components/common/FeatureBar'), {
   ssr: false,
@@ -94,14 +95,15 @@ const InnerLayout: React.FC<{
       >
         <CartSidebarView />
       </Sidebar>
-
-      <FeatureBar
-        title="This site uses cookies to improve your experience. By clicking, you agree to our Privacy Policy."
-        hide={acceptedCookies}
-        action={
-          <Button onClick={() => onAcceptCookies()}>Accept cookies</Button>
-        }
-      />
+      <NoSSR>
+        <FeatureBar
+          title="This site uses cookies to improve your experience. By clicking, you agree to our Privacy Policy."
+          hide={acceptedCookies}
+          action={
+            <Button onClick={() => onAcceptCookies()}>Accept cookies</Button>
+          }
+        />
+      </NoSSR>
     </ThemeProvider>
   )
 }
