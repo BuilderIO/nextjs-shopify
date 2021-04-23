@@ -15,7 +15,7 @@ interface Props {
   className?: string
   children?: any
   product: ShopifyBuy.Product & Record<string, any>
-  renderSeo?: boolean;
+  renderSeo?: boolean
 }
 
 const ProductBox: React.FC<Props> = ({ product, renderSeo = true }) => {
@@ -45,24 +45,25 @@ const ProductBox: React.FC<Props> = ({ product, renderSeo = true }) => {
 
   return (
     <React.Fragment>
-      { renderSeo && <NextSeo
-        title={product.title}
-        description={product.body_html}
-        openGraph={{
-          type: 'website',
-          title: product.title,
-          description: product.body_html,
-          images: [
-            {
-              url: product.images?.[0]?.src!,
-              width: 800,
-              height: 600,
-              alt: product.title,
-            },
-          ],
-        }}
-      />
-}
+      {renderSeo && (
+        <NextSeo
+          title={product.title}
+          description={product.body_html}
+          openGraph={{
+            type: 'website',
+            title: product.title,
+            description: product.body_html,
+            images: [
+              {
+                url: product.images?.[0]?.src!,
+                width: 800,
+                height: 600,
+                alt: product.title,
+              },
+            ],
+          }}
+        />
+      )}
       <Grid gap={4} columns={[1, 2]}>
         <div>
           <div
@@ -119,13 +120,16 @@ const ProductBox: React.FC<Props> = ({ product, renderSeo = true }) => {
   )
 }
 const ProductView: React.FC<{
-  product: string | ShopifyBuy.Product,
-  renderSeo?: boolean;
-}> = props => {
-
-  return <ProductLoader {...props}>
-    {product => <ProductBox product={product} renderSeo={props.renderSeo}/>}
-  </ProductLoader>
+  product: string | ShopifyBuy.Product
+  renderSeo?: boolean
+}> = (props) => {
+  return (
+    <ProductLoader {...props}>
+      {(product) => (
+        <ProductBox product={product} renderSeo={props.renderSeo} />
+      )}
+    </ProductLoader>
+  )
 }
 
 export default ProductView

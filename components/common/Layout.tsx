@@ -90,7 +90,11 @@ const InnerLayout: React.FC<{
       </div>
 
       <Sidebar
-        open={displaySidebar || (builder.editingModel || Builder.previewingModel ) === 'cart-upsell-sidebar'}
+        open={
+          displaySidebar ||
+          (builder.editingModel || Builder.previewingModel) ===
+            'cart-upsell-sidebar'
+        }
         onClose={closeSidebar}
       >
         <CartSidebarView />

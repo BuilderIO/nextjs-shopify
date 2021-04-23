@@ -11,7 +11,7 @@
         "hasConnected": true
       },
       "@builder.io/plugin-shopify-demo": {
-        "syncPreviewUrlWithTargeting": true,
+        "syncPreviewUrlWithTargeting": true
       }
     },
     "allowBuiltInComponents": true,

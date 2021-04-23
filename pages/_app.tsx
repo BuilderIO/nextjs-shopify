@@ -23,7 +23,6 @@ import '../blocks/ProductView/ProductView.builder'
 //   items: [{ name: 'ProductGrid' } , { name: 'ProductBox'}, { name: 'ProductView'}]
 // });
 
-
 const Noop: FC = ({ children }) => <>{children}</>
 
 export default function MyApp({ Component, pageProps }: AppProps) {

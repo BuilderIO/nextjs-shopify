@@ -22,11 +22,11 @@ interface Props {
   className?: string
   children?: any
   product: ShopifyBuy.Product
-  renderSeo?: boolean;
+  renderSeo?: boolean
 }
 
 const ProductBox: React.FC<Props> = ({ product, renderSeo = true }) => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false)
   const addItem = useAddItemToCart()
   const colors: string[] | undefined = product?.options
     ?.find((option) => option?.name?.toLowerCase() === 'color')
@@ -108,27 +108,27 @@ const ProductBox: React.FC<Props> = ({ product, renderSeo = true }) => {
     </NoSSR>
   )
 
-
   return (
     <React.Fragment>
-      { renderSeo && <NextSeo
-        title={product.title}
-        description={product.description}
-        openGraph={{
-          type: 'website',
-          title: product.title,
-          description: product.description,
-          images: [
-            {
-              url: product.images?.[0]?.src!,
-              width: 800,
-              height: 600,
-              alt: product.title,
-            },
-          ],
-        }}
-      />
-      }
+      {renderSeo && (
+        <NextSeo
+          title={product.title}
+          description={product.description}
+          openGraph={{
+            type: 'website',
+            title: product.title,
+            description: product.description,
+            images: [
+              {
+                url: product.images?.[0]?.src!,
+                width: 800,
+                height: 600,
+                alt: product.title,
+              },
+            ],
+          }}
+        />
+      )}
       <Grid gap={4} columns={[1, 2]}>
         <div>
           <div
@@ -187,7 +187,7 @@ const ProductBox: React.FC<Props> = ({ product, renderSeo = true }) => {
             sx={{ margin: 2, display: 'block' }}
             onClick={addToCart}
           >
-            Add to Cart { loading && <LoadingDots />}
+            Add to Cart {loading && <LoadingDots />}
           </Button>
         </div>
       </Grid>
@@ -198,10 +198,13 @@ const ProductBox: React.FC<Props> = ({ product, renderSeo = true }) => {
 const ProductView: React.FC<{
   product: string | ShopifyBuy.Product
   renderSeo?: boolean
-}> = props => {
-
-  return <ProductLoader {...props}>
-    {product => <ProductBox product={product} renderSeo={props.renderSeo} />}
-  </ProductLoader>
+}> = (props) => {
+  return (
+    <ProductLoader {...props}>
+      {(product) => (
+        <ProductBox product={product} renderSeo={props.renderSeo} />
+      )}
+    </ProductLoader>
+  )
 }
 export default ProductView

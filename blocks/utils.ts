@@ -1,7 +1,11 @@
-import { Builder, Component, builder } from '@builder.io/sdk';
+import { Builder, Component, builder } from '@builder.io/sdk'
 
-export function restrictedRegister(component: any, options: Component, models: string[]) {
+export function restrictedRegister(
+  component: any,
+  options: Component,
+  models: string[]
+) {
   if (!Builder.isEditing || models.includes(builder.editingModel!)) {
-    return Builder.registerComponent(component, options);
+    return Builder.registerComponent(component, options)
   }
 }

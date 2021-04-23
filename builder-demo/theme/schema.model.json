@@ -214,10 +214,7 @@
               "subFields": [],
               "broadcast": false,
               "hideFromUI": false,
-              "allowedFileTypes": [
-                "jpeg",
-                "png"
-              ],
+              "allowedFileTypes": ["jpeg", "png"],
               "permissionsRequiredToEdit": "",
               "helperText": "",
               "showIf": "",

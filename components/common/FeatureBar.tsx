@@ -10,7 +10,7 @@ interface FeatureBarProps {
   description?: string
   hide?: boolean
   action?: React.ReactNode
-  delay?: number;
+  delay?: number
 }
 
 const FeatureBar: React.FC<FeatureBarProps> = ({
@@ -18,15 +18,15 @@ const FeatureBar: React.FC<FeatureBarProps> = ({
   description,
   action,
   hide,
-  delay
+  delay,
 }) => {
-  const [delayPassed, setDelayPassed] = useState(false);
+  const [delayPassed, setDelayPassed] = useState(false)
   useEffect(() => {
-    const timeout = setTimeout(() => setDelayPassed(true), delay || 6000);
-    return () => clearTimeout(timeout);
+    const timeout = setTimeout(() => setDelayPassed(true), delay || 6000)
+    return () => clearTimeout(timeout)
   })
   return (
-    <CenterModal  isOpen={delayPassed && !hide}>
+    <CenterModal isOpen={delayPassed && !hide}>
       <ModalTitle>{title}</ModalTitle>
       {description}
       <Themed.div sx={{ display: 'flex', justifyContent: 'center', p: [1, 2] }}>

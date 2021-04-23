@@ -86,7 +86,7 @@ Builder.registerComponent(LazyProductGrid, {
 Builder.registerComponent(LazyProductGrid, {
   name: 'ProductCollectionGrid',
   image: 'https://unpkg.com/css.gg@2.0.0/icons/svg/display-grid.svg',
-  description: "Choose a collection to show its products in a grid",
+  description: 'Choose a collection to show its products in a grid',
   inputs: [
     {
       name: 'collection',
