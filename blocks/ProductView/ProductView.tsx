@@ -23,9 +23,16 @@ interface Props {
   children?: any
   product: ShopifyBuy.Product
   renderSeo?: boolean
+  description?: string
+  title?: string
 }
 
-const ProductBox: React.FC<Props> = ({ product, renderSeo = true }) => {
+const ProductBox: React.FC<Props> = ({
+  product,
+  renderSeo = true,
+  description = product.description,
+  title = product.title,
+}) => {
   const [loading, setLoading] = useState(false)
   const addItem = useAddItemToCart()
   const colors: string[] | undefined = product?.options
@@ -112,18 +119,18 @@ const ProductBox: React.FC<Props> = ({ product, renderSeo = true }) => {
     <React.Fragment>
       {renderSeo && (
         <NextSeo
-          title={product.title}
-          description={product.description}
+          title={title}
+          description={description}
           openGraph={{
             type: 'website',
-            title: product.title,
-            description: product.description,
+            title: title,
+            description: description,
             images: [
               {
                 url: product.images?.[0]?.src!,
                 width: 800,
                 height: 600,
-                alt: product.title,
+                alt: title,
               },
             ],
           }}
@@ -141,7 +148,7 @@ const ProductBox: React.FC<Props> = ({ product, renderSeo = true }) => {
             {variant.image && (
               <Image
                 src={peakingImage?.src || variant.image.src}
-                alt={product.title}
+                alt={title}
                 width={1050}
                 height={1050}
                 priority
@@ -153,12 +160,12 @@ const ProductBox: React.FC<Props> = ({ product, renderSeo = true }) => {
         </div>
         <div sx={{ display: 'flex', flexDirection: 'column' }}>
           <span sx={{ mt: 0, mb: 2 }}>
-            <Themed.h1>{product.title}</Themed.h1>
+            <Themed.h1>{title}</Themed.h1>
             <Themed.h4 aria-label="price" sx={{ mt: 0, mb: 2 }}>
               {getPrice(variant.priceV2.amount, variant.priceV2.currencyCode)}
             </Themed.h4>
           </span>
-          <div dangerouslySetInnerHTML={{ __html: product.description! }} />
+          <div dangerouslySetInnerHTML={{ __html: description! }} />
           <div>
             <Grid padding={2} columns={2}>
               {colors?.length && (
@@ -198,12 +205,12 @@ const ProductBox: React.FC<Props> = ({ product, renderSeo = true }) => {
 const ProductView: React.FC<{
   product: string | ShopifyBuy.Product
   renderSeo?: boolean
-}> = (props) => {
+  description?: string
+  title?: string
+}> = ({ product, ...props }) => {
   return (
-    <ProductLoader {...props}>
-      {(product) => (
-        <ProductBox product={product} renderSeo={props.renderSeo} />
-      )}
+    <ProductLoader product={product}>
+      {(productObject) => <ProductBox {...props} product={productObject} />}
     </ProductLoader>
   )
 }
