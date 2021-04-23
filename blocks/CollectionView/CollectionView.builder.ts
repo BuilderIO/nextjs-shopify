@@ -3,6 +3,7 @@ import { Input } from '@builder.io/sdk'
 import dynamic from 'next/dynamic'
 import { productGridSchema } from '../ProductGrid/ProductGrid.builder'
 import builderConfig from '@config/builder'
+import { restrictedRegister } from 'blocks/utils'
 const LazyCollectionView = dynamic(() => import(`./CollectionView`))
 
 const collectionBoxSchema: Input[] = [
@@ -30,9 +31,10 @@ const collectionBoxSchema: Input[] = [
   },
 ]
 
-Builder.registerComponent(LazyCollectionView, {
+restrictedRegister(LazyCollectionView, {
   name: 'CollectionBox',
-  description: 'Dynamic collection detaills',
+  description: 'Pick a collection to display its details',
+  image: 'https://unpkg.com/css.gg@2.0.0/icons/svg/collage.svg',
   inputs: collectionBoxSchema
     .concat([
       {
@@ -44,9 +46,9 @@ Builder.registerComponent(LazyCollectionView, {
       },
     ])
     .reverse(),
-})
+}, ['page', 'product-page'])
 
-Builder.registerComponent(LazyCollectionView, {
+restrictedRegister(LazyCollectionView, {
   name: 'CollectionView',
   description:
     'Dynamic collection detaills, autobinds to the collection in context, use only on collection pages',
@@ -57,4 +59,5 @@ Builder.registerComponent(LazyCollectionView, {
       'component.options.renderSeo': 'true',
     },
   },
-})
+}, ['collection-page']);
+

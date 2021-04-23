@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import React, { useMemo, useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Themed, jsx } from 'theme-ui'
 import { Grid, Button } from '@theme-ui/components'
 import Thumbnail from '@components/common/Thumbnail'
@@ -9,14 +9,16 @@ import { NextSeo } from 'next-seo'
 import { getPrice } from '@lib/shopify/storefront-data-hooks/src/utils/product'
 import Image from 'next/image'
 import NoSSR from '@components/common/NoSSR'
+import ProductLoader from './ProductLoader'
 
 interface Props {
   className?: string
   children?: any
   product: ShopifyBuy.Product & Record<string, any>
+  renderSeo?: boolean;
 }
 
-const ProductView: React.FC<Props> = ({ product }) => {
+const ProductBox: React.FC<Props> = ({ product, renderSeo = true }) => {
   const variants = product.variants as any[]
   const images = product.images
   const variant = variants.find((v) => v.available) || variants[0]
@@ -43,7 +45,7 @@ const ProductView: React.FC<Props> = ({ product }) => {
 
   return (
     <React.Fragment>
-      <NextSeo
+      { renderSeo && <NextSeo
         title={product.title}
         description={product.body_html}
         openGraph={{
@@ -60,6 +62,7 @@ const ProductView: React.FC<Props> = ({ product }) => {
           ],
         }}
       />
+}
       <Grid gap={4} columns={[1, 2]}>
         <div>
           <div
@@ -114,6 +117,15 @@ const ProductView: React.FC<Props> = ({ product }) => {
       </Grid>
     </React.Fragment>
   )
+}
+const ProductView: React.FC<{
+  product: string | ShopifyBuy.Product,
+  renderSeo?: boolean;
+}> = props => {
+
+  return <ProductLoader {...props}>
+    {product => <ProductBox product={product} renderSeo={props.renderSeo}/>}
+  </ProductLoader>
 }
 
 export default ProductView

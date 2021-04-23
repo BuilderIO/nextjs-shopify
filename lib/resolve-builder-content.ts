@@ -53,6 +53,17 @@ export async function resolveBuilderContent(
           collection,
         }
       },
+      async ProductBox(props) {
+        let product = props.product
+        if (product && typeof product === 'string') {
+          product = await getProduct(builderConfig, {
+            handle: product,
+          })
+        }
+        return {
+          product,
+        }
+      },
 
       async ProductCollectionGrid({ collection }) {
         if (collection && typeof collection === 'string') {

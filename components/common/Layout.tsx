@@ -24,7 +24,7 @@ const FeatureBar = dynamic(() => import('@components/common/FeatureBar'), {
 
 const Layout: React.FC<{ pageProps: any }> = ({ children, pageProps }) => {
   const builderTheme = pageProps.theme
-  const isLive = !Builder.isEditing && !Builder.isPreviewing
+  const isLive = builder.editingModel !== 'theme' || !Builder.isPreviewing
   return (
     <CommerceProvider {...shopifyConfig}>
       <BuilderContent
@@ -90,7 +90,7 @@ const InnerLayout: React.FC<{
       </div>
 
       <Sidebar
-        open={displaySidebar || builder.editingModel === 'cart-upsell-sidebar'}
+        open={displaySidebar || (builder.editingModel || Builder.previewingModel ) === 'cart-upsell-sidebar'}
         onClose={closeSidebar}
       >
         <CartSidebarView />

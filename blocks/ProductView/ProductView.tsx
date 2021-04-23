@@ -15,33 +15,36 @@ import {
 } from '@lib/shopify/storefront-data-hooks/src/utils/product'
 import Image from 'next/image'
 import NoSSR from '@components/common/NoSSR'
+import { LoadingDots } from '@components/ui'
+import ProductLoader from './ProductLoader'
 
 interface Props {
   className?: string
   children?: any
   product: ShopifyBuy.Product
+  renderSeo?: boolean;
 }
 
-const ProductView: React.FC<Props> = ({ product }) => {
+const ProductBox: React.FC<Props> = ({ product, renderSeo = true }) => {
+  const [loading, setLoading] = useState(false);
   const addItem = useAddItemToCart()
-  const colors: string[] | undefined = product.options
+  const colors: string[] | undefined = product?.options
     ?.find((option) => option?.name?.toLowerCase() === 'color')
     ?.values?.map((op) => op.value as string)
 
-  const sizes: string[] | undefined = product.options
+  const sizes: string[] | undefined = product?.options
     ?.find((option) => option?.name?.toLowerCase() === 'size')
     ?.values?.map((op) => op.value as string)
 
   const variants = useMemo(
-    () => prepareVariantsWithOptions(product!.variants! as any),
-    [product.variants]
+    () => prepareVariantsWithOptions(product?.variants),
+    [product?.variants]
   )
   const images = useMemo(() => prepareVariantsImages(variants, 'color'), [
     variants,
   ])
 
   const { openSidebar } = useUI()
-  const [loading, setLoading] = useState(false)
   const [peakingImage, setPeakingImage] = useState(
     null as { src: string } | null
   )
@@ -70,6 +73,7 @@ const ProductView: React.FC<Props> = ({ product }) => {
       setLoading(false)
     }
   }
+
   const gallery = (
     <NoSSR>
       <Grid gap={2} columns={[3, 6]}>
@@ -104,9 +108,10 @@ const ProductView: React.FC<Props> = ({ product }) => {
     </NoSSR>
   )
 
+
   return (
     <React.Fragment>
-      <NextSeo
+      { renderSeo && <NextSeo
         title={product.title}
         description={product.description}
         openGraph={{
@@ -123,6 +128,7 @@ const ProductView: React.FC<Props> = ({ product }) => {
           ],
         }}
       />
+      }
       <Grid gap={4} columns={[1, 2]}>
         <div>
           <div
@@ -177,10 +183,11 @@ const ProductView: React.FC<Props> = ({ product }) => {
           </div>
           <Button
             name="add-to-cart"
+            disabled={loading}
             sx={{ margin: 2, display: 'block' }}
             onClick={addToCart}
           >
-            Add to Cart
+            Add to Cart { loading && <LoadingDots />}
           </Button>
         </div>
       </Grid>
@@ -188,4 +195,13 @@ const ProductView: React.FC<Props> = ({ product }) => {
   )
 }
 
+const ProductView: React.FC<{
+  product: string | ShopifyBuy.Product
+  renderSeo?: boolean
+}> = props => {
+
+  return <ProductLoader {...props}>
+    {product => <ProductBox product={product} renderSeo={props.renderSeo} />}
+  </ProductLoader>
+}
 export default ProductView
