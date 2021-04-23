@@ -50,7 +50,7 @@ export async function getStaticPaths({ locales }: GetStaticPathsContext) {
   const paths = await getAllProductPaths(builderConfig)
   return {
     paths: paths.map((path) => `/product/${path}`),
-    fallback: 'blocking',
+    fallback: true,
   }
 }
 
