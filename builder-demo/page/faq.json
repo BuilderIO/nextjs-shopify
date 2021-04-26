@@ -3786,27 +3786,6 @@
             "paddingRight": "10px"
           }
         }
-      },
-      {
-        "id": "builder-pixel-5ux9d3pmdrg",
-        "@type": "@builder.io/sdk:Element",
-        "tagName": "img",
-        "properties": {
-          "src": "https://cdn.builder.io/api/v1/pixel?apiKey=b99ba3685ce3427ba25ec84d21651ce3",
-          "role": "presentation",
-          "width": "0",
-          "height": "0"
-        },
-        "responsiveStyles": {
-          "large": {
-            "height": "0",
-            "width": "0",
-            "display": "inline-block",
-            "opacity": "0",
-            "overflow": "hidden",
-            "pointerEvents": "none"
-          }
-        }
       }
     ],
     "url": "/faq",

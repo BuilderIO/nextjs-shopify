@@ -47,27 +47,6 @@
             "marginTop": "20px"
           }
         }
-      },
-      {
-        "id": "builder-pixel-wk9suykmin",
-        "@type": "@builder.io/sdk:Element",
-        "tagName": "img",
-        "properties": {
-          "src": "https://cdn.builder.io/api/v1/pixel?apiKey=303981477d1e41d08587796c8f3bf623",
-          "role": "presentation",
-          "width": "0",
-          "height": "0"
-        },
-        "responsiveStyles": {
-          "large": {
-            "height": "0",
-            "width": "0",
-            "display": "inline-block",
-            "opacity": "0",
-            "overflow": "hidden",
-            "pointerEvents": "none"
-          }
-        }
       }
     ]
   },

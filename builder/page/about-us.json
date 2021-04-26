@@ -1799,48 +1799,6 @@
             "marginTop": "0px"
           }
         }
-      },
-      {
-        "id": "builder-pixel-lipp2pbn488",
-        "@type": "@builder.io/sdk:Element",
-        "tagName": "img",
-        "properties": {
-          "src": "https://cdn.builder.io/api/v1/pixel?apiKey=b99ba3685ce3427ba25ec84d21651ce3",
-          "role": "presentation",
-          "width": "0",
-          "height": "0"
-        },
-        "responsiveStyles": {
-          "large": {
-            "height": "0",
-            "width": "0",
-            "display": "inline-block",
-            "opacity": "0",
-            "overflow": "hidden",
-            "pointerEvents": "none"
-          }
-        }
-      },
-      {
-        "id": "builder-pixel-das6p5e9xug",
-        "@type": "@builder.io/sdk:Element",
-        "tagName": "img",
-        "properties": {
-          "src": "https://cdn.builder.io/api/v1/pixel?apiKey=303981477d1e41d08587796c8f3bf623",
-          "role": "presentation",
-          "width": "0",
-          "height": "0"
-        },
-        "responsiveStyles": {
-          "large": {
-            "height": "0",
-            "width": "0",
-            "display": "inline-block",
-            "opacity": "0",
-            "overflow": "hidden",
-            "pointerEvents": "none"
-          }
-        }
       }
     ]
   },
