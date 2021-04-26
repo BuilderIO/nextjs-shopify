@@ -16,7 +16,7 @@ Demo live at: [headless.builders](https://headless.builders/)
 
 ## Video walkthrough
 
-Learn how to get started with this Builder + Next.js + Shoipfy starter with this step by step video guide here:
+Learn how to get started with this Builder + Next.js + Shopify starter with this step by step video guide here:
 
 <a href="https://www.youtube.com/watch?v=uIHqPu2t1O0">
   <img width="400" src="https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2Fc161ccb26f6446869cba865d014c7caf" />  
