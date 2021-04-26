@@ -70,16 +70,6 @@
       "hideFromUI": false,
       "autoFocus": false,
       "showTemplatePicker": true,
-      "defaultValue": {
-        "request": {
-          "method": "GET",
-          "url": "https://www.aloyoga.com/collections/airbrush.json"
-        },
-        "@type": "@builder.io/core:Request",
-        "options": {
-          "collection": 424562050
-        }
-      },
       "model": "",
       "name": "collectionPreview",
       "subFields": [],

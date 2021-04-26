@@ -90,16 +90,6 @@
       "hidden": false,
       "subFields": [],
       "permissionsRequiredToEdit": "",
-      "defaultValue": {
-        "options": {
-          "product": 1928387068022
-        },
-        "@type": "@builder.io/core:Request",
-        "request": {
-          "url": "https://www.aloyoga.com/products/w5548r-high-waist-dash-legging-black-cherry.json",
-          "method": "GET"
-        }
-      },
       "simpleTextOnly": false,
       "advanced": false,
       "autoFocus": false,

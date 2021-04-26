@@ -50,16 +50,6 @@
       "disallowRemove": false,
       "noPhotoPicker": false,
       "model": "",
-      "defaultValue": {
-        "options": {
-          "product": 5544666464407
-        },
-        "request": {
-          "method": "GET",
-          "url": "https://cdn.builder.io/api/v1/shopify/products/{{this.options.product}}.json?apiKey=6e5b10afb1a9457ba648112d4c5d30e8"
-        },
-        "@type": "@builder.io/core:Request"
-      },
       "onChange": "",
       "permissionsRequiredToEdit": "",
       "@type": "@builder.io/core:Field"

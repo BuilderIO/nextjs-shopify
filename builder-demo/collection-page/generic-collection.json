@@ -2,16 +2,6 @@
   "createdBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
   "createdDate": 1618519492373,
   "data": {
-    "collectionPreview": {
-      "@type": "@builder.io/core:Request",
-      "options": {
-        "collection": 188280078471
-      },
-      "request": {
-        "method": "GET",
-        "url": "https://underoutfit.com/collections/butt.json"
-      }
-    },
     "blocks": [
       {
         "@type": "@builder.io/sdk:Element",

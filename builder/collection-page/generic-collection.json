@@ -5,16 +5,6 @@
   "createdBy": "agZ9n5CUKRfbL9t6CaJOyVSK4Es2",
   "createdDate": 1611769584081,
   "data": {
-    "collectionPreview": {
-      "@type": "@builder.io/core:Request",
-      "options": {
-        "collection": 246780657843
-      },
-      "request": {
-        "method": "GET",
-        "url": "https://cdn.builder.io/api/v1/shopify/collections/{{this.options.collection}}.json?apiKey=9aa8825c0d33424ca3e9076c2cc4a328"
-      }
-    },
     "state": {
       "deviceSize": "large",
       "location": {
