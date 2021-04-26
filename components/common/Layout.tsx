@@ -83,6 +83,7 @@ const InnerLayout: React.FC<{
           margin: `0 auto`,
           px: 20,
           maxWidth: 1920,
+          minWidth: '60vw',
           minHeight: 800,
         }}
       >
