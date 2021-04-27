@@ -74,7 +74,7 @@ export default function Path({
           <meta name="robots" content="noindex" />
           <meta name="title"></meta>
         </Head>
-        <DefaultErrorPage statusCode={404} />
+        { Builder.isBrowser &&  <DefaultErrorPage statusCode={404} /> }
       </>
     )
   }
