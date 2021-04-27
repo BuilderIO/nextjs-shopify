@@ -6,16 +6,6 @@
   "createdDate": 1610516058604,
   "data": {
     "inputs": [],
-    "preview": {
-      "@type": "@builder.io/core:Request",
-      "options": {
-        "product": 6206263558323
-      },
-      "request": {
-        "method": "GET",
-        "url": "https://cdn.builder.io/api/v1/shopify/products/{{this.options.product}}.json?apiKey=6e5b10afb1a9457ba648112d4c5d30e8"
-      }
-    },
     "state": {
       "deviceSize": "large",
       "location": {
