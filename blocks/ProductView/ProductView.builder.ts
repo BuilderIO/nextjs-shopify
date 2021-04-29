@@ -26,7 +26,7 @@ restrictedRegister(
       },
     },
   },
-  ['product-page']
+  ['product-page', 'theme']
 )
 
 restrictedRegister(
@@ -58,5 +58,5 @@ restrictedRegister(
     image: 'https://unpkg.com/css.gg@2.0.0/icons/svg/ereader.svg',
     description: 'Choose a product to show its details on page',
   },
-  ['page', 'collection-page']
+  ['page', 'collection-page', 'theme']
 )

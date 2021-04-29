@@ -49,7 +49,7 @@ restrictedRegister(
       ])
       .reverse(),
   },
-  ['page', 'product-page']
+  ['page', 'product-page', 'theme']
 )
 
 restrictedRegister(
@@ -66,5 +66,5 @@ restrictedRegister(
       },
     },
   },
-  ['collection-page']
+  ['collection-page', 'theme']
 )

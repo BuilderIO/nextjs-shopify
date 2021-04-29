@@ -24,7 +24,7 @@ const FeatureBar = dynamic(() => import('@components/common/FeatureBar'), {
 
 const Layout: React.FC<{ pageProps: any }> = ({ children, pageProps }) => {
   const builderTheme = pageProps.theme
-  const isLive = builder.editingModel !== 'theme' || !Builder.isPreviewing
+  const isLive = !Builder.isEditing && !Builder.isPreviewing
   return (
     <CommerceProvider {...shopifyConfig}>
       <BuilderContent
