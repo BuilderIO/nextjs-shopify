@@ -42,7 +42,6 @@ export async function getStaticProps({
       product: product || null,
       theme: theme || null,
     },
-    revalidate: 120,
   }
 }
 
@@ -50,7 +49,7 @@ export async function getStaticPaths({ locales }: GetStaticPathsContext) {
   const paths = await getAllProductPaths(builderConfig)
   return {
     paths: paths.map((path) => `/product/${path}`),
-    fallback: true,
+    fallback: 'blocking',
   }
 }
 

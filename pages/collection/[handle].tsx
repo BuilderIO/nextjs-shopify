@@ -40,7 +40,6 @@ export async function getStaticProps({
       theme: theme || null,
       collection: collection || null,
     },
-    revalidate: 80,
   }
 }
 
@@ -48,7 +47,7 @@ export async function getStaticPaths({ locales }: GetStaticPathsContext) {
   const paths = await getAllCollectionPaths(builderConfig)
   return {
     paths: paths.map((path) => `/collection/${path}`),
-    fallback: true,
+    fallback: 'blocking',
   }
 }
 
