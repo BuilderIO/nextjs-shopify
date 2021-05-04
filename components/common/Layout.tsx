@@ -103,7 +103,7 @@ const InnerLayout: React.FC<{
       <NoSSR>
         <FeatureBar
           title="This site uses cookies to improve your experience. By clicking, you agree to our Privacy Policy."
-          hide={acceptedCookies}
+          hide={Builder.isEditing ? builder.editingModel !== 'theme' : acceptedCookies}
           action={
             <Button onClick={() => onAcceptCookies()}>Accept cookies</Button>
           }

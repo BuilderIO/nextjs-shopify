@@ -33,11 +33,6 @@ restrictedRegister(
   LazyProductView,
   {
     name: 'ProductBox',
-    defaults: {
-      bindings: {
-        'component.options.renderSeo': 'false',
-      },
-    },
     inputs: [
       {
         name: 'product',
