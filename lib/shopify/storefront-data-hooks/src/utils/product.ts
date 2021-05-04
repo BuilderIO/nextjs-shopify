@@ -99,7 +99,9 @@ export function prepareVariantsImages(
   // }
   const imageDictionary = variants.reduce<Record<string, ShopifyBuy.Image>>(
     (images, variant) => {
-      images[variant[optionKey]] = variant.image
+      if (variant[optionKey]) {
+        images[variant[optionKey]] = variant.image
+      }
       return images
     },
     {}

@@ -55,13 +55,14 @@ const ProductBox: React.FC<Props> = ({
   const [peakingImage, setPeakingImage] = useState(
     null as { src: string } | null
   )
-  const [variant, setVariant] = useState(variants[0])
+  
+  const [variant, setVariant] = useState(variants[0] || {})
   const [color, setColor] = useState(variant.color)
   const [size, setSize] = useState(variant.size)
 
   useEffect(() => {
     const newVariant = variants.find((variant) => {
-      return variant.size === size && variant.color === color
+      return (variant.size === size || !size) && (variant.color === color || !color) 
     })
 
     if (variant.id !== newVariant?.id) {
@@ -84,7 +85,7 @@ const ProductBox: React.FC<Props> = ({
   const gallery = (
     <NoSSR>
       <Grid gap={2} columns={[3, 6]}>
-        {images.length &&
+        {Boolean(images.length) &&
           images.map(({ src, color }, index) => (
             <Thumbnail
               width={30}
