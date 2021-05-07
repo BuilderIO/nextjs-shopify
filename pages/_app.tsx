@@ -14,13 +14,21 @@ import '../blocks/ProductView/ProductView.builder'
 
 Builder.register('insertMenu', {
   name: 'Shopify Collections Components',
-  items: [{ name: 'CollectionBox', label: 'Collection stuff' }, { name: 'ProductCollectionGrid'}, { name: 'CollectionView' }]
-});
+  items: [
+    { name: 'CollectionBox', label: 'Collection stuff' },
+    { name: 'ProductCollectionGrid' },
+    { name: 'CollectionView' },
+  ],
+})
 
 Builder.register('insertMenu', {
   name: 'Shopify Products Components',
-  items: [{ name: 'ProductGrid' } , { name: 'ProductBox'}, { name: 'ProductView'}]
-});
+  items: [
+    { name: 'ProductGrid' },
+    { name: 'ProductBox' },
+    { name: 'ProductView' },
+  ],
+})
 
 const Noop: FC = ({ children }) => <>{children}</>
 

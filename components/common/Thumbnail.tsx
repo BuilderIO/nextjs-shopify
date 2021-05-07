@@ -1,7 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, AspectRatio } from 'theme-ui'
-import Image from 'next/image'
+import { jsx } from 'theme-ui'
+import { Image } from '@builder.io/react'
 
 export interface ThumbnailProps {
   src: any // for now;
