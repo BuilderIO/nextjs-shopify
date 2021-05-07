@@ -116,6 +116,7 @@ const ProductBox: React.FC<Props> = ({
             }}
           >
             <ImageCarousel
+              showZoom
               alt={title}
               width={1050}
               height={1050}

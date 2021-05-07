@@ -41,6 +41,7 @@ const CustomDotGroup: FC<Omit<ImageCarouselProps, 'alt'>> = ({
 }
 
 export type ImageCarouselProps = {
+  showZoom?: boolean;
   images: Array<{ src: string }>
   alt: string
   onThumbnailClick?: (index: number) => void
@@ -55,25 +56,28 @@ export type ImageCarouselProps = {
 const ImageCarousel: FC<ImageCarouselProps> = ({
   images,
   onThumbnailClick,
+  showZoom,
   ...imageProps
 }) => (
   <CarouselProvider
     naturalSlideWidth={1}
     naturalSlideHeight={1}
+    hasMasterSpinner={false}
     totalSlides={images.length}
   >
     <Slider>
       {images.map((image, index) => (
         <Slide index={index} key={index}>
-          <ImageWithZoom src={image.src} />
+          { showZoom ? <ImageWithZoom src={image.src} /> : <Image src={image.src} {...imageProps} /> }
         </Slide>
       ))}
     </Slider>
-    <CustomDotGroup
+    { showZoom && <CustomDotGroup
       {...imageProps}
       onThumbnailClick={onThumbnailClick}
       images={images}
     />
+    }
   </CarouselProvider>
 )
 
