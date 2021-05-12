@@ -19,10 +19,23 @@ const CustomDotGroup: FC<Omit<ImageCarouselProps, 'alt'>> = ({
   ...imageProps
 }) => {
   return (
-    <div sx={{ textAlign: 'center' }}>
+    <div
+      sx={{
+        textAlign: 'center',
+        position: 'absolute',
+        top: '50%',
+        maxHeight: '100%',
+        overflow: 'scroll',
+        display: 'flex',
+        flexDirection: 'column',
+        left: 10,
+        transform: 'translateY(-50%)',
+      }}
+    >
       {images.map((image, slide) => (
         <IconButton
           key={slide}
+          sx={{ height: 80, width: 80 }}
           as="span"
           onClick={() => onThumbnailClick?.(slide)}
         >
@@ -30,8 +43,8 @@ const CustomDotGroup: FC<Omit<ImageCarouselProps, 'alt'>> = ({
             <Image
               src={image.src}
               {...imageProps}
-              height={30}
-              width={30}
+              height={80}
+              width={80}
             ></Image>
           </Dot>
         </IconButton>
@@ -41,7 +54,7 @@ const CustomDotGroup: FC<Omit<ImageCarouselProps, 'alt'>> = ({
 }
 
 export type ImageCarouselProps = {
-  showZoom?: boolean;
+  showZoom?: boolean
   images: Array<{ src: string }>
   alt: string
   onThumbnailClick?: (index: number) => void
@@ -64,20 +77,28 @@ const ImageCarousel: FC<ImageCarouselProps> = ({
     naturalSlideHeight={1}
     hasMasterSpinner={false}
     totalSlides={images.length}
+    orientation="vertical"
   >
-    <Slider>
-      {images.map((image, index) => (
-        <Slide index={index} key={index}>
-          { showZoom ? <ImageWithZoom src={image.src} /> : <Image src={image.src} {...imageProps} /> }
-        </Slide>
-      ))}
-    </Slider>
-    { showZoom && <CustomDotGroup
-      {...imageProps}
-      onThumbnailClick={onThumbnailClick}
-      images={images}
-    />
-    }
+    <div sx={{ position: 'relative' }}>
+      <Slider>
+        {images.map((image, index) => (
+          <Slide index={index} key={index}>
+            {showZoom ? (
+              <ImageWithZoom src={image.src} />
+            ) : (
+              <Image src={image.src} {...imageProps} />
+            )}
+          </Slide>
+        ))}
+      </Slider>
+      {showZoom && (
+        <CustomDotGroup
+          {...imageProps}
+          onThumbnailClick={onThumbnailClick}
+          images={images}
+        />
+      )}
+    </div>
   </CarouselProvider>
 )
 

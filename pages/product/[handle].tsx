@@ -16,6 +16,7 @@ import {
 import DefaultErrorPage from 'next/error'
 import Head from 'next/head'
 import { useThemeUI } from 'theme-ui'
+import { getLayoutProps } from '@lib/get-layout-props'
 builder.init(builderConfig.apiKey!)
 Builder.isStatic = true
 
@@ -34,13 +35,11 @@ export async function getStaticProps({
     locale,
   })
 
-  const theme = await resolveBuilderContent('theme')
-
   return {
     props: {
       page: page || null,
       product: product || null,
-      theme: theme || null,
+      ...(await getLayoutProps()),
     },
   }
 }
