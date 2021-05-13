@@ -1,7 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import React from 'react'
-import { ThemeProvider, jsx, Themed, Close } from 'theme-ui'
+import { ThemeProvider, jsx } from 'theme-ui'
 import dynamic from 'next/dynamic'
 import { ManagedUIContext, useUI } from '@components/ui/context'
 import { Head, Navbar } from '@components/common'

@@ -3,7 +3,6 @@
 import React, { useMemo, useState, useEffect } from 'react'
 import { Themed, jsx } from 'theme-ui'
 import { Grid, Button } from '@theme-ui/components'
-import Thumbnail from '@components/common/Thumbnail'
 import OptionPicker from '@components/common/OptionPicker'
 import { NextSeo } from 'next-seo'
 import { useUI } from '@components/ui/context'
@@ -13,9 +12,7 @@ import {
   prepareVariantsImages,
   getPrice,
 } from '@lib/shopify/storefront-data-hooks/src/utils/product'
-import Image from 'next/image'
-import NoSSR from '@components/common/NoSSR'
-import { LoadingDots } from '@components/ui'
+import { ImageCarousel, LoadingDots } from '@components/ui'
 import ProductLoader from './ProductLoader'
 
 interface Props {
@@ -52,22 +49,20 @@ const ProductBox: React.FC<Props> = ({
   ])
 
   const { openSidebar } = useUI()
-  const [peakingImage, setPeakingImage] = useState(
-    null as { src: string } | null
-  )
-  
+
   const [variant, setVariant] = useState(variants[0] || {})
   const [color, setColor] = useState(variant.color)
   const [size, setSize] = useState(variant.size)
 
   useEffect(() => {
     const newVariant = variants.find((variant) => {
-      return (variant.size === size || !size) && (variant.color === color || !color) 
+      return (
+        (variant.size === size || !size) && (variant.color === color || !color)
+      )
     })
 
     if (variant.id !== newVariant?.id) {
       setVariant(newVariant)
-      setPeakingImage(null)
     }
   }, [size, color, variants, variant.id])
 
@@ -81,40 +76,14 @@ const ProductBox: React.FC<Props> = ({
       setLoading(false)
     }
   }
-
-  const gallery = (
-    <NoSSR>
-      <Grid gap={2} columns={[3, 6]}>
-        {Boolean(images.length) &&
-          images.map(({ src, color }, index) => (
-            <Thumbnail
-              width={30}
-              height={60}
-              name={color}
-              key={src.src + index}
-              src={src.src}
-              onClick={() => {
-                setColor(color)
-                setPeakingImage(null)
-              }}
-            />
-          ))}
-        {product.images &&
-          product.images
-            .filter(({ src }) => !images.find((image) => image.src.src === src))
-            .map(({ src }, index) => (
-              <Thumbnail
-                width={30}
-                height={60}
-                name={color}
-                key={src + index}
-                src={src}
-                onClick={() => setPeakingImage({ src })}
-              />
-            ))}
-      </Grid>
-    </NoSSR>
-  )
+  const allImages = images
+    .map(({ src }) => ({ src: src.src }))
+    .concat(
+      product.images &&
+        product.images.filter(
+          ({ src }) => !images.find((image) => image.src.src === src)
+        )
+    )
 
   return (
     <React.Fragment>
@@ -146,18 +115,20 @@ const ProductBox: React.FC<Props> = ({
               marginBottom: 2,
             }}
           >
-            {variant.image && (
-              <Image
-                src={peakingImage?.src || variant.image.src}
-                alt={title}
-                width={1050}
-                height={1050}
-                priority
-                quality={85}
-              />
-            )}
+            <ImageCarousel
+              showZoom
+              alt={title}
+              width={1050}
+              height={1050}
+              priority
+              onThumbnailClick={(index) => {
+                if (images[index]?.color) {
+                  setColor(images[index].color)
+                }
+              }}
+              images={allImages}
+            ></ImageCarousel>
           </div>
-          {gallery}
         </div>
         <div sx={{ display: 'flex', flexDirection: 'column' }}>
           <span sx={{ mt: 0, mb: 2 }}>

@@ -44,7 +44,7 @@
     ]
   },
   "dependencies": {
-    "@builder.io/react": "^1.1.43",
+    "@builder.io/react": "^1.1.44",
     "@builder.io/utils": "^1.0.3",
     "@builder.io/widgets": "^1.2.19",
     "@netlify/plugin-nextjs": "^3.1.0-experimental-odb.2",
@@ -78,6 +78,7 @@
     "next-seo": "^4.11.0",
     "next-themes": "^0.0.4",
     "postcss-nesting": "^7.0.1",
+    "pure-react-carousel": "^1.27.6",
     "qs": "^6.9.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

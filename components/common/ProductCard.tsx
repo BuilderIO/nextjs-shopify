@@ -1,12 +1,10 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { Themed, jsx } from 'theme-ui'
-import Image from 'next/image'
 import { Card, Text } from '@theme-ui/components'
-import { Link } from '@components/ui'
+import { Link, ImageCarousel } from '@components/ui'
 import { getPrice } from '@lib/shopify/storefront-data-hooks/src/utils/product'
 import { useState } from 'react'
-import NoSSR from './NoSSR'
 
 export interface ProductCardProps {
   className?: string
@@ -28,15 +26,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
   imgSizes,
   imgLayout = 'responsive',
 }) => {
-  const [showAlternate, setShowAlternate] = useState(false)
-  const src = product.images[0]?.src || `https://via.placeholder.com/${imgWidth}x${imgHeight}`;
   const handle = (product as any).handle
   const productVariant: any = product.variants[0]
   const price = getPrice(
     productVariant.priceV2.amount,
     productVariant.priceV2.currencyCode
   )
-  const alternateImage = product.images[1]?.src
 
   return (
     <Card
@@ -46,42 +41,24 @@ const ProductCard: React.FC<ProductCardProps> = ({
         display: 'flex',
         flexDirection: 'column',
       }}
-      onMouseOut={() => setShowAlternate(false)}
-      onMouseOver={() => setShowAlternate(true)}
     >
       <Link href={`/product/${handle}/`}>
         <div sx={{ flexGrow: 1 }}>
-          {alternateImage && (
-            <div sx={{ display: showAlternate ? 'block' : 'none' }}>
-              <NoSSR>
-                <Image
-                  quality="85"
-                  src={alternateImage}
-                  alt={product.title}
-                  width={imgWidth || 540}
-                  sizes={imgSizes}
-                  height={imgHeight || 540}
-                  layout={imgLayout}
-                  loading="lazy"
-                />
-              </NoSSR>
-            </div>
-          )}
-          <div
-            sx={{ display: showAlternate && alternateImage ? 'none' : 'block' }}
-          >
-            <Image
-              quality="85"
-              src={src}
-              alt={product.title}
-              width={imgWidth || 540}
-              sizes={imgSizes}
-              height={imgHeight || 540}
-              layout={imgLayout}
-              loading={imgLoading}
-              priority={imgPriority}
-            />
-          </div>
+          <ImageCarousel
+            currentSlide={product.images ? product.images.length - 1 : 0}
+            width={imgWidth}
+            height={imgHeight}
+            priority={imgPriority}
+            loading={imgLoading}
+            layout={imgLayout}
+            sizes={imgSizes}
+            alt={product.title}
+            images={
+              product.images || [
+                `https://via.placeholder.com/${imgWidth}x${imgHeight}`,
+              ]
+            }
+          />
         </div>
         <div sx={{ textAlign: 'center' }}>
           <Themed.h2 sx={{ mt: 4, mb: 0, fontSize: 14 }}>
