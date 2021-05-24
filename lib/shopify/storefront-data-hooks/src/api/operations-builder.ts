@@ -1,4 +1,3 @@
-import { BuilderContent } from '@builder.io/react'
 import * as qs from 'qs'
 
 export interface BuillderConfig {
@@ -20,13 +19,13 @@ export async function getAllProducts(
   limit = 100,
   offset = 0
 ) {
-  const productsContent: BuilderContent[] = (
+  const productsContent = (
     await fetch(
       `https://cdn.builder.io/api/v2/content/${config.productsModel}?apiKey=${config.apiKey}&limit=${limit}&offset=${offset}`
     ).then((res) => res.json())
   ).results
 
-  return productsContent.map((pr) => pr.data)
+  return productsContent.map((pr: any) => pr.data)
 }
 
 export async function searchProducts(
@@ -45,7 +44,7 @@ export async function searchProducts(
     { allowDots: true }
   )
 
-  const productsContent: BuilderContent[] = (
+  const productsContent = (
     await fetch(
       `https://cdn.builder.io/api/v2/content/${
         config.productsModel
@@ -55,7 +54,7 @@ export async function searchProducts(
       })}`
     ).then((res) => res.json())
   ).results
-  return productsContent?.map((product) => product.data) || []
+  return productsContent?.map((product: any) => product.data) || []
 }
 
 export async function getAllProductPaths(
@@ -87,7 +86,7 @@ export async function getProduct(
     },
   })
 
-  const productsContent: BuilderContent[] = (
+  const productsContent = (
     await fetch(
       `https://cdn.builder.io/api/v2/content/${config.productsModel}?${query}`
     ).then((res) => res.json())
@@ -119,13 +118,13 @@ export async function getAllCollections(
     { allowDots: true }
   )
 
-  const collectionsContent: BuilderContent[] = (
+  const collectionsContent = (
     await fetch(
       `https://cdn.builder.io/api/v2/content/${config.collectionsModel}?${query}`
     ).then((res) => res.json())
   ).results
 
-  return collectionsContent?.map((entry) => entry.data) || []
+  return collectionsContent?.map((entry: any) => entry.data) || []
 }
 
 export async function searchCollections(
@@ -144,7 +143,7 @@ export async function searchCollections(
     { allowDots: true }
   )
 
-  const collectionsContent: BuilderContent[] = (
+  const collectionsContent = (
     await fetch(
       `https://cdn.builder.io/api/v2/content/${
         config.collectionsModel
@@ -158,7 +157,7 @@ export async function searchCollections(
       ])}`
     ).then((res) => res.json())
   ).results
-  return collectionsContent?.map((entry) => entry.data) || []
+  return collectionsContent?.map((entry: any) => entry.data) || []
 }
 
 export async function getAllCollectionPaths(
@@ -195,7 +194,7 @@ export async function getCollection(
     },
   })
 
-  const collectionsContent: BuilderContent[] = (
+  const collectionsContent = (
     await fetch(
       `https://cdn.builder.io/api/v2/content/${config.collectionsModel}?${query}`
     ).then((res) => res.json())
@@ -207,7 +206,7 @@ export async function getCollection(
   }
   const productsQuery = {
     limit: 20,
-    handle: collection.handle,
+    handle: collection?.handle,
     ...options.productsQuery,
     apiKey: config.apiKey,
   }

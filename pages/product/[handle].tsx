@@ -78,7 +78,7 @@ export default function Handle({
   ) : (
     <BuilderComponent
       isStatic
-      key={product.id}
+      key={product!.id}
       model={builderModel}
       data={{ product, theme }}
       {...(page && { content: page })}
