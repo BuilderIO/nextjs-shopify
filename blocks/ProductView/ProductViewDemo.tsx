@@ -3,13 +3,11 @@
 import React, { useState } from 'react'
 import { Themed, jsx } from 'theme-ui'
 import { Grid, Button } from '@theme-ui/components'
-import Thumbnail from '@components/common/Thumbnail'
 import OptionPicker from '@components/common/OptionPicker'
 import { NextSeo } from 'next-seo'
 import { getPrice } from '@lib/shopify/storefront-data-hooks/src/utils/product'
-import Image from 'next/image'
-import NoSSR from '@components/common/NoSSR'
 import ProductLoader from './ProductLoader'
+import { ImageCarousel } from '@components/ui'
 
 interface Props {
   className?: string
@@ -34,22 +32,6 @@ const ProductBox: React.FC<Props> = ({
     variant.featured_image || product.images[0]
   )
 
-  const gallery =
-    images.length > 1 ? (
-      <NoSSR>
-        <Grid gap={1} columns={[4, 7]}>
-          {images.map(({ src }) => (
-            <Thumbnail
-              width={60}
-              height={80}
-              src={src}
-              onHover={() => setImage({ src })}
-            />
-          ))}
-        </Grid>
-      </NoSSR>
-    ) : null
-
   return (
     <React.Fragment>
       {renderSeo && (
@@ -72,27 +54,23 @@ const ProductBox: React.FC<Props> = ({
         />
       )}
       <Grid gap={4} columns={[1, 2]}>
-        <div>
-          <div
-            sx={{
-              border: '1px solid gray',
-              padding: 2,
-              marginBottom: 2,
-            }}
-          >
-            {image && (
-              <Image
-                src={image.src}
-                alt={title}
-                width={1050}
-                height={1050}
-                priority
-                quality={85}
-              />
-            )}
-          </div>
-          {gallery}
+        <div
+          sx={{
+            border: '1px solid gray',
+            padding: 2,
+            marginBottom: 2,
+          }}
+        >
+          <ImageCarousel
+            showZoom
+            alt={title}
+            width={1050}
+            height={1050}
+            priority
+            images={images}
+          ></ImageCarousel>
         </div>
+
         <div sx={{ display: 'flex', flexDirection: 'column' }}>
           <span sx={{ mt: 0, mb: 2 }}>
             <Themed.h1>{title}</Themed.h1>

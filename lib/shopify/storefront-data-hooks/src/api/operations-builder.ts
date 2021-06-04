@@ -21,7 +21,7 @@ export async function getAllProducts(
 ) {
   const productsContent = (
     await fetch(
-      `https://cdn.builder.io/api/v2/content/${config.productsModel}?apiKey=${config.apiKey}&limit=${limit}&offset=${offset}`
+      `https://cdn.builder.io/api/v2/content/${config.productsModel}?apiKey=${config.apiKey}&limit=${limit}&offset=${offset}&cachebust=true`
     ).then((res) => res.json())
   ).results
 
@@ -114,6 +114,7 @@ export async function getAllCollections(
       limit,
       offset,
       apiKey: config.apiKey,
+      cachebust: true,
     },
     { allowDots: true }
   )
