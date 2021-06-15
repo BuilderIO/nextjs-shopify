@@ -54,9 +54,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
             sizes={imgSizes}
             alt={product.title}
             images={
-              product.images || [
-                `https://via.placeholder.com/${imgWidth}x${imgHeight}`,
-              ]
+              product.images.length ? product.images : [{
+                src: `https://via.placeholder.com/${imgWidth}x${imgHeight}`,
+              }]
             }
           />
         </div>

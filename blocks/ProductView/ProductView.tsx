@@ -126,7 +126,9 @@ const ProductBox: React.FC<Props> = ({
                   setColor(images[index].color)
                 }
               }}
-              images={allImages}
+              images={allImages?.length > 0 ? allImages: [{
+                  src: `https://via.placeholder.com/1050x1050`,
+                }]}
             ></ImageCarousel>
           </div>
         </div>
