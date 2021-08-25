@@ -109,7 +109,8 @@ export default function Path({
         model="page"
         data={{ theme }}
         renderLink={(props: any) => {
-          if (props.target === '_blank') {
+          // nextjs link doesn't handle hash links well if it's on the same page (starts with #)
+          if (props.target === '_blank' || props.href?.startsWith('#') ) {
             return <Themed.a {...props} />
           }
           return <Themed.a {...props} as={Link} />
