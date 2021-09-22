@@ -3,7 +3,6 @@
 import React, { FC, useState, useEffect } from 'react'
 import Link from 'next/link'
 import { UserNav } from '@components/common'
-import env from '@config/env'
 import { BuilderComponent, builder } from '@builder.io/react'
 import { useCart } from '@lib/shopify/storefront-data-hooks'
 import { jsx, Themed, useThemeUI } from 'theme-ui'
@@ -22,7 +21,7 @@ const Navbar: FC = () => {
       const items = cart?.lineItems || []
       const anouncementContent = await builder
         .get('announcement-bar', {
-          cachebust: env.isDev,
+          cacheSeconds: 120,
           userAttributes: {
             itemInCart: items.map((item: any) => item.variant.product.handle),
           } as any,
