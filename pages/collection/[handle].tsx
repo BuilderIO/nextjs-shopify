@@ -18,7 +18,6 @@ import { useThemeUI } from '@theme-ui/core'
 import { getLayoutProps } from '@lib/get-layout-props'
 
 builder.init(builderConfig.apiKey!)
-Builder.isStatic = true
 const builderModel = 'collection-page'
 
 export async function getStaticProps({

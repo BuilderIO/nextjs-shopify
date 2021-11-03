@@ -18,7 +18,6 @@ import Head from 'next/head'
 import { useThemeUI } from 'theme-ui'
 import { getLayoutProps } from '@lib/get-layout-props'
 builder.init(builderConfig.apiKey!)
-Builder.isStatic = true
 
 const builderModel = 'product-page'
 
@@ -56,7 +55,6 @@ export default function Handle({
   product,
   page,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  Builder.isStatic = true
   const router = useRouter()
   const isLive = !Builder.isEditing && !Builder.isPreviewing
   const { theme } = useThemeUI()

@@ -79,7 +79,6 @@ export default function Path({
   }
 
   const { title, description, image } = page?.data! || {}
-  Builder.isStatic = true;
   return (
     <div>
       {title && (

@@ -7,7 +7,6 @@ import {
   searchProducts,
 } from './shopify/storefront-data-hooks/src/api/operations-builder'
 builder.init(builderConfig.apiKey)
-Builder.isStatic = true
 
 export async function resolveBuilderContent(
   modelName: string,
