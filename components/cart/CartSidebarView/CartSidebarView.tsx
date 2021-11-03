@@ -24,7 +24,7 @@ const CartSidebarView: FC = () => {
       const items = cart?.lineItems || []
       const cartUpsellContent = await builder
         .get('cart-upsell-sidebar', {
-          cachebust: env.isDev,
+          cacheSeconds: 120,
           userAttributes: {
             itemInCart: items.map((item: any) => item.variant.product.handle),
           } as any,
