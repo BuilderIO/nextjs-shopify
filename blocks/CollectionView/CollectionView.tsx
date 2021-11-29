@@ -4,9 +4,9 @@ import React, { FC, useState, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import { Themed, jsx } from 'theme-ui'
 import { LoadingDots } from '@components/ui'
-import builderConfig from '@config/builder'
+import shopifyConfig from '@config/shopify'
 import { ProductGrid, ProductGridProps } from '../ProductGrid/ProductGrid'
-import { getCollection } from '@lib/shopify/storefront-data-hooks/src/api/operations-builder'
+import { getCollection } from '@lib/shopify/storefront-data-hooks/src/api/operations'
 
 interface Props {
   className?: string
@@ -29,7 +29,7 @@ const CollectionPreview: FC<Props> = ({
   useEffect(() => {
     const fetchCollection = async () => {
       setLoading(true)
-      const result = await getCollection(builderConfig, {
+      const result = await getCollection(shopifyConfig, {
         handle: collection,
       })
       setCollection(result)

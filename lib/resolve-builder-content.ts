@@ -1,11 +1,11 @@
-import { builder, Builder } from '@builder.io/react'
+import { builder } from '@builder.io/react'
 import { getAsyncProps } from '@builder.io/utils'
 import builderConfig from '@config/builder'
+import shopifyConfig from '@config/shopify'
 import {
   getCollection,
   getProduct,
-  searchProducts,
-} from './shopify/storefront-data-hooks/src/api/operations-builder'
+} from './shopify/storefront-data-hooks/src/api/operations'
 builder.init(builderConfig.apiKey)
 
 export async function resolveBuilderContent(
@@ -31,7 +31,7 @@ export async function resolveBuilderContent(
             .filter((handle: string | undefined) => typeof handle === 'string')
             .map(
               async (handle: string) =>
-                await getProduct(builderConfig, { handle })
+                await getProduct(shopifyConfig, { handle })
             )
           products = await Promise.all(promises)
         }
@@ -44,7 +44,7 @@ export async function resolveBuilderContent(
       async CollectionBox(props) {
         let collection = props.collection
         if (collection && typeof collection === 'string') {
-          collection = await getCollection(builderConfig, {
+          collection = await getCollection(shopifyConfig, {
             handle: collection,
           })
         }
@@ -55,7 +55,7 @@ export async function resolveBuilderContent(
       async ProductBox(props) {
         let product = props.product
         if (product && typeof product === 'string') {
-          product = await getProduct(builderConfig, {
+          product = await getProduct(shopifyConfig, {
             handle: product,
           })
         }
@@ -66,7 +66,7 @@ export async function resolveBuilderContent(
 
       async ProductCollectionGrid({ collection }) {
         if (collection && typeof collection === 'string') {
-          const { products } = await getCollection(builderConfig, {
+          const { products } = await getCollection(shopifyConfig, {
             handle: collection,
           })
           return {

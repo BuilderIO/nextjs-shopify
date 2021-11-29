@@ -9,10 +9,11 @@ import { BuilderComponent, Builder, builder } from '@builder.io/react'
 import { resolveBuilderContent } from '@lib/resolve-builder-content'
 import '../../blocks/ProductView/ProductView.builder'
 import builderConfig from '@config/builder'
+import shopifyConfig from '@config/shopify'
 import {
   getAllProductPaths,
   getProduct,
-} from '@lib/shopify/storefront-data-hooks/src/api/operations-builder'
+} from '@lib/shopify/storefront-data-hooks/src/api/operations'
 import DefaultErrorPage from 'next/error'
 import Head from 'next/head'
 import { useThemeUI } from 'theme-ui'
@@ -25,7 +26,7 @@ export async function getStaticProps({
   params,
   locale,
 }: GetStaticPropsContext<{ handle: string }>) {
-  const product = await getProduct(builderConfig, {
+  const product = await getProduct(shopifyConfig, {
     handle: params?.handle,
   })
 
@@ -44,7 +45,7 @@ export async function getStaticProps({
 }
 
 export async function getStaticPaths({ locales }: GetStaticPathsContext) {
-  const paths = await getAllProductPaths(builderConfig)
+  const paths = await getAllProductPaths(shopifyConfig)
   return {
     paths: paths.map((path) => `/product/${path}`),
     fallback: 'blocking',
