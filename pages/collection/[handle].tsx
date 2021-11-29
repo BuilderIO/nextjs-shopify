@@ -8,10 +8,11 @@ import { Layout } from '@components/common'
 import { BuilderComponent, Builder, builder } from '@builder.io/react'
 import { resolveBuilderContent } from '@lib/resolve-builder-content'
 import builderConfig from '@config/builder'
+import shopifyConfig from '@config/shopify'
 import {
   getCollection,
   getAllCollectionPaths,
-} from '@lib/shopify/storefront-data-hooks/src/api/operations-builder'
+} from '@lib/shopify/storefront-data-hooks/src/api/operations'
 import DefaultErrorPage from 'next/error'
 import Head from 'next/head'
 import { useThemeUI } from '@theme-ui/core'
@@ -24,7 +25,7 @@ export async function getStaticProps({
   params,
   locale,
 }: GetStaticPropsContext<{ handle: string }>) {
-  const collection = await getCollection(builderConfig, {
+  const collection = await getCollection(shopifyConfig, {
     handle: params?.handle,
   })
 
@@ -43,7 +44,7 @@ export async function getStaticProps({
 }
 
 export async function getStaticPaths({ locales }: GetStaticPathsContext) {
-  const paths = await getAllCollectionPaths(builderConfig)
+  const paths = await getAllCollectionPaths(shopifyConfig)
   return {
     paths: paths.map((path) => `/collection/${path}`),
     fallback: 'blocking',

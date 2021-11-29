@@ -3,10 +3,10 @@
 import React, { FC, useState, useEffect, useCallback, useRef } from 'react'
 import { useRouter } from 'next/router'
 import { LoadingDots } from '@components/ui'
-import builderConfig from '@config/builder'
+import shopifyConfig from '@config/shopify'
 import { ProductGrid } from 'blocks/ProductGrid/ProductGrid'
 import { Button, Themed, jsx, Input, Label } from 'theme-ui'
-import { searchProducts } from '@lib/shopify/storefront-data-hooks/src/api/operations-builder'
+import { searchProducts } from '@lib/shopify/storefront-data-hooks/src/api/operations'
 import { ExpandModal } from 'react-spring-modal'
 import { throttle } from 'lodash'
 import 'react-spring-modal/styles.css'
@@ -98,11 +98,8 @@ const SearchModalContent = (props: {
   const getProducts = async (searchTerm: string) => {
     setLoading(true)
     const results = await searchProducts(
-      builderConfig,
+      shopifyConfig,
       String(searchTerm),
-      // TODO: pagination
-      20,
-      0
     )
     setSearch(searchTerm)
     setProducts(results)

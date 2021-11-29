@@ -10,8 +10,8 @@ import { ProductCardDemo, ProductCard } from '@components/common'
 import {
   getCollection,
   getProduct,
-} from '@lib/shopify/storefront-data-hooks/src/api/operations-builder'
-import builderConfig from '@config/builder'
+} from '@lib/shopify/storefront-data-hooks/src/api/operations'
+import shopifyConfig from '@config/shopify'
 interface HighlightedCardProps extends Omit<ProductCardProps, 'product'> {
   index: number
 }
@@ -45,7 +45,7 @@ export const ProductGrid: FC<ProductGridProps> = ({
         .map((entry) => entry.product)
         .filter((handle: string | undefined) => typeof handle === 'string')
         .map(
-          async (handle: string) => await getProduct(builderConfig, { handle })
+          async (handle: string) => await getProduct(shopifyConfig, { handle })
         )
       setProducts(await Promise.all(promises))
       setLoading(false)
@@ -58,7 +58,7 @@ export const ProductGrid: FC<ProductGridProps> = ({
   useEffect(() => {
     const fetchCollection = async () => {
       setLoading(true)
-      const result = await getCollection(builderConfig, {
+      const result = await getCollection(shopifyConfig, {
         handle: collection,
       })
       setProducts(result.products)
