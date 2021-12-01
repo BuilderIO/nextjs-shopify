@@ -5,7 +5,11 @@ import { isCart } from '../../utils'
 function set(key: string, value: string) {
   const isBrowser = typeof window !== 'undefined'
   if (isBrowser) {
-    window.localStorage.setItem(key, value)
+    try {
+      window.localStorage.setItem(key, value)
+    } catch {
+      console.warn(' Error reading from local storage');
+    }
   }
 }
 
