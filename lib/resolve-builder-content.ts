@@ -16,7 +16,6 @@ export async function resolveBuilderContent(
     .get(modelName, {
       userAttributes: targetingAttributes,
       includeRefs: true,
-      preview: modelName,
       cachebust: true,
     } as any)
     .toPromise()
