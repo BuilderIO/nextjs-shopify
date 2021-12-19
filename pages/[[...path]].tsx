@@ -30,7 +30,6 @@ export async function getStaticProps({
     locale,
     urlPath: '/' + (params?.path?.join('/') || ''),
   })
-
   return {
     props: {
       page,
@@ -45,13 +44,8 @@ export async function getStaticProps({
 }
 
 export async function getStaticPaths({ locales }: GetStaticPathsContext) {
-  const pages = await builder.getAll('page', {
-    options: { noTargeting: true },
-    apiKey: builderConfig.apiKey,
-  })
-
   return {
-    paths: pages.map((page) => `${page.data?.url}`),
+    paths: [],
     fallback: true,
   }
 }
@@ -109,7 +103,7 @@ export default function Path({
         data={{ theme }}
         renderLink={(props: any) => {
           // nextjs link doesn't handle hash links well if it's on the same page (starts with #)
-          if (props.target === '_blank' || props.href?.startsWith('#') ) {
+          if (props.target === '_blank' || props.href?.startsWith('#')) {
             return <Themed.a {...props} />
           }
           return <Themed.a {...props} as={Link} />

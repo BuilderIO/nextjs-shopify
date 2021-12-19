@@ -5,7 +5,7 @@ const bundleAnalyzer = require('@next/bundle-analyzer')({
 module.exports = bundleAnalyzer({
   target: 'serverless',
   images: {
-    domains: ['cdn.shopify.com', 'cdn.builder.io', 'via.placeholder.com'],
+    domains: ['res.cloudinary.com', 'cdn.shopify.com', 'cdn.builder.io', 'via.placeholder.com'],
   },
   async headers() {
     return [

@@ -11,6 +11,7 @@ builder.init(builderConfig.apiKey)
 import '../blocks/ProductGrid/ProductGrid.builder'
 import '../blocks/CollectionView/CollectionView.builder'
 import '../blocks/ProductView/ProductView.builder'
+import Image from 'next/image'
 
 Builder.register('insertMenu', {
   name: 'Shopify Collections Components',
@@ -21,6 +22,25 @@ Builder.register('insertMenu', {
   ],
 })
 
+Builder.registerComponent(
+  (props: any) => {
+    if (!props.cloudinaryOptions) {
+      return 'Choose an Image'
+    }
+    return (
+      <Image
+        src={props.cloudinaryOptions.url}
+        width={props.cloudinaryOptions.width}
+        height={props.cloudinaryOptions.height}
+      />
+    )
+  },
+  {
+    name: 'CloudinaryImage',
+    inputs: [{ name: 'cloudinaryOptions', type: 'cloudinaryImageEditor' }],
+  }
+)
+
 Builder.register('insertMenu', {
   name: 'Shopify Products Components',
   items: [
@@ -30,11 +50,15 @@ Builder.register('insertMenu', {
   ],
 })
 
+Builder.register('insertMenu', {
+  name: 'Cloudinary Components',
+  items: [{ name: 'CloudinaryImage' }],
+})
+
 const Noop: FC = ({ children }) => <>{children}</>
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const Layout = (Component as any).Layout || Noop
-
   return (
     <>
       <Layout pageProps={pageProps}>
