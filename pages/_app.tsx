@@ -11,7 +11,7 @@ builder.init(builderConfig.apiKey)
 import '../blocks/ProductGrid/ProductGrid.builder'
 import '../blocks/CollectionView/CollectionView.builder'
 import '../blocks/ProductView/ProductView.builder'
-import Image from 'next/image'
+import '../blocks/CloudinaryImage/CloudinaryImage.builder'
 
 Builder.register('insertMenu', {
   name: 'Shopify Collections Components',
@@ -21,25 +21,6 @@ Builder.register('insertMenu', {
     { name: 'CollectionView' },
   ],
 })
-
-Builder.registerComponent(
-  (props: any) => {
-    if (!props.cloudinaryOptions) {
-      return 'Choose an Image'
-    }
-    return (
-      <Image
-        src={props.cloudinaryOptions.url}
-        width={props.cloudinaryOptions.width}
-        height={props.cloudinaryOptions.height}
-      />
-    )
-  },
-  {
-    name: 'CloudinaryImage',
-    inputs: [{ name: 'cloudinaryOptions', type: 'cloudinaryImageEditor' }],
-  }
-)
 
 Builder.register('insertMenu', {
   name: 'Shopify Products Components',
