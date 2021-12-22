@@ -19,6 +19,8 @@ import { useThemeUI } from '@theme-ui/core'
 import { Link } from '@components/ui'
 import { Themed } from '@theme-ui/mdx'
 import { getLayoutProps } from '@lib/get-layout-props'
+import { useAddItemToCart } from '@lib/shopify/storefront-data-hooks'
+import { useUI } from '@components/ui/context'
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -56,6 +58,8 @@ export default function Path({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter()
   const { theme } = useThemeUI()
+  const addToCart = useAddItemToCart()
+  const { openSidebar } = useUI()
   if (router.isFallback) {
     return <h1>Loading...</h1>
   }
@@ -101,6 +105,17 @@ export default function Path({
         options={{ includeRefs: true } as any}
         model="page"
         data={{ theme }}
+        context={{
+          productBoxService: {
+            addToCart,
+            navigateToCart() {
+              openSidebar();
+            },
+            navigateToProductPage(product: { handle: string }) {
+              router.push(`/product/${product.handle}`)
+            }
+          }
+        }}
         renderLink={(props: any) => {
           // nextjs link doesn't handle hash links well if it's on the same page (starts with #)
           if (props.target === '_blank' || props.href?.startsWith('#')) {
