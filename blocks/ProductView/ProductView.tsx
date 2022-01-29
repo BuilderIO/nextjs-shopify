@@ -26,7 +26,7 @@ interface Props {
 
 const ProductBox: React.FC<Props> = ({
   product,
-  renderSeo = true,
+  renderSeo,
   description = product.description,
   title = product.title,
 }) => {

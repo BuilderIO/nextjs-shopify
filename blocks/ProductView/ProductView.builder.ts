@@ -1,4 +1,3 @@
-import { Builder, builder } from '@builder.io/react'
 import { restrictedRegister } from 'blocks/utils'
 import dynamic from 'next/dynamic'
 
@@ -23,6 +22,7 @@ restrictedRegister(
         'component.options.product': 'state.product',
         'component.options.title': 'state.product.title',
         'component.options.description': 'state.product.descriptionHtml',
+        'component.options.renderSeo': 'true',
       },
     },
   },
