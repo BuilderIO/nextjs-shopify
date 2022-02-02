@@ -100,7 +100,9 @@ npm install --global "@builder.io/cli"
 
 builder create --key "<private-key>" --name "<space-name>" --debug
 ```
-Note if you're only interested in this for a landing page with Shopify use this command instead:
+
+Note:
+if you're only interested in using this starter for a landing page with Shopify use this command instead:
 
 ```
 builder create --key "<private-key>" --name "<space-name>" --input builer-landing-page-only --debug
