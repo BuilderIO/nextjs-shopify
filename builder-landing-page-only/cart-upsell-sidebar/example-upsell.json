@@ -1,0 +1,61 @@
+{
+  "@originContentId": "557824d6fabf8ead751524661db27e8adf9689263e6ecbf63545d05f5365f3d8",
+  "@originModelId": "7bc3282a5519382b731f1b5aef6ab5a910b731d4313286e1a8bba6c8979fab54",
+  "@originOrg": "303981477d1e41d08587796c8f3bf623",
+  "createdBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
+  "createdDate": 1613962807575,
+  "data": {
+    "state": {
+      "deviceSize": "large",
+      "location": {
+        "path": "",
+        "query": {}
+      }
+    },
+    "blocks": [
+      {
+        "@type": "@builder.io/sdk:Element",
+        "@version": 2,
+        "id": "builder-e5275b993d72497bb205c76b82d27afd",
+        "component": {
+          "name": "Text",
+          "options": {
+            "text": "<p>Target this message content based on items in cart in Builder.io</p>"
+          }
+        },
+        "responsiveStyles": {
+          "large": {
+            "display": "flex",
+            "flexDirection": "column",
+            "position": "relative",
+            "flexShrink": "0",
+            "boxSizing": "border-box",
+            "marginTop": "20px",
+            "lineHeight": "normal",
+            "height": "auto",
+            "textAlign": "center",
+            "paddingTop": "10px",
+            "paddingBottom": "10px"
+          }
+        }
+      }
+    ]
+  },
+  "id": "9432a47bfd554578bfa930794a481c0a",
+  "lastUpdated": 1613963041567,
+  "lastUpdatedBy": "4FFFg0MNRJT0z0nW4uUizDHfHJV2",
+  "meta": {
+    "hasLinks": false,
+    "kind": "component",
+    "needsHydration": false,
+    "shopifyDomain": "builder-io-demo.myshopify.com/"
+  },
+  "modelId": "0e6804aae83c428a847619d5656d0a06",
+  "name": "fur purka upsell",
+  "published": "published",
+  "query": [],
+  "rev": "9759cniekdr",
+  "screenshot": "https://cdn.builder.io/api/v1/image/assets%2F9aa8825c0d33424ca3e9076c2cc4a328%2Fc2b32e129c014208ae8a5fd81dd99ae3",
+  "testRatio": 1,
+  "variations": {}
+}

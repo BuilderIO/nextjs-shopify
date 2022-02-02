@@ -36,6 +36,7 @@ export async function getStaticProps({
   })
 
   return {
+    notFound: !page ,
     props: {
       page: page || null,
       product: product || null,

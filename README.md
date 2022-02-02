@@ -100,6 +100,12 @@ npm install --global "@builder.io/cli"
 
 builder create --key "<private-key>" --name "<space-name>" --debug
 ```
+Note if you're only interested in this for a landing page with Shopify use this command instead:
+
+```
+builder create --key "<private-key>" --name "<space-name>" --input builer-landing-page-only --debug
+```
+
 
 If this was a success you should be greeted with a message that
 includes a public API key for your newly minted Builder.io space.
