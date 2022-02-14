@@ -105,7 +105,7 @@ Note:
 if you're only interested in using this starter for a landing page with Shopify use this command instead:
 
 ```
-builder create --key "<private-key>" --name "<space-name>" --input builer-landing-page-only --debug
+builder create --key "<private-key>" --name "<space-name>" --input builder-landing-page-only --debug
 ```
 
 
