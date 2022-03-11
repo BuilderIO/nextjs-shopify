@@ -148,25 +148,14 @@ SHOPIFY_STOREFRONT_API_TOKEN=
 SHOPIFY_STORE_DOMAIN=
 ```
 
-### 4. Shopify private app
+### 4. Shopify Custom App 
 
-Create a [private app](https://help.shopify.com/en/manual/apps/private-apps) for your Shopify store. If you don't have a Shopify store already, you can create a [development store](https://help.shopify.com/en/partners/dashboard/managing-stores/development-stores).
-
-![Example of how to create find private app section](./docs/images/shopify-private-app-flow.png)
+Create a [custom app](https://help.shopify.com/en/manual/apps/custom-apps) for your Shopify store. If you don't have a Shopify store already, you can create a [development store](https://help.shopify.com/en/partners/dashboard/managing-stores/development-stores).
 
 When creating the private app you'll have to set a number of permissions so that builder can retrieve your Shopify inventory.
 
-**Storefront API**
-
-- Grant all permissions
-
-**Admin API**
-
 - Enable read access to Products (read_products scope)
 
-You should see something like the image below:
-
-![Example of Shopify private app permissions](./docs/images/shopify-permissions.png)
 
 ### 5. Connecting Builder to Shopify
 
