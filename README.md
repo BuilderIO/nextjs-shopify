@@ -169,11 +169,11 @@ And copy the generated access token.
 Access your newly created space by selecting it from the [list of spaces](https://builder.io/spaces?root=true)
 in your organization.
 
-You should be greeted by a modal asking for various Shopify API keys, this will allow Builder.io to import your products and register webhooks so that it's updated when your Shopify products and collection change.
+You should be greeted by a modal asking for various your storefront Access toke (from preview step) and your store domain, this will allow Builder.io to communicate with your store API:
 
-![Example of where the Shopify API keys map to Builder settings](./docs/images/shopify-api-key-mapping.png)
+![Example of where the Shopify API keys map to Builder settings](https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F30b68ab3caf544ca92a06f073bb27b55)
 
-Fill in the required keys and press "Connect your store"!
+Fill in the required keys and press "Connect your Shopify Custom App"!
 
 ### 6. Configure the project to talk to Shopify
 
