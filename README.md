@@ -153,9 +153,15 @@ SHOPIFY_STORE_DOMAIN=
 Create a [custom app](https://help.shopify.com/en/manual/apps/custom-apps) for your Shopify store. If you don't have a Shopify store already, you can create a [development store](https://help.shopify.com/en/partners/dashboard/managing-stores/development-stores).
 
 When creating the private app you'll have to set a number of permissions so that builder can retrieve your Shopify inventory. For this press on `Storefront API` in the configuration tab and choose all the following permissions:
+
 ![List of required permissions](https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F24ebad91e8774a7e814487432391f4c6)
 
 
+Then in the `API Credentials` tab, click `install`:
+
+![installing custom app](https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2Ffd00307e14ed40babe2d569d7a297e81)
+
+And copy the generated access token.
 
 
 ### 5. Connecting Builder to Shopify
