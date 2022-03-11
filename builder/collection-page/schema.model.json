@@ -81,7 +81,7 @@
   "allowTests": true,
   "name": "collection-page",
   "componentsOnlyMode": false,
-  "examplePageUrl": "${space.siteUrl}/collection/${previewCollection.handle}",
+  "examplePageUrl": "${space.siteUrl}/collection/${previewResource.handle}",
   "@originId": "9a6144ddc728d24cf2cff46cb334779370cb5c2c8c477c7031f6340da44f1262",
   "id": "09a22d81c68e4c148c822c73398b1c04",
   "subType": "",
