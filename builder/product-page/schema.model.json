@@ -60,7 +60,7 @@
   "hooks": {},
   "publicWritable": false,
   "designerVersion": 1,
-  "examplePageUrl": "${space.siteUrl}/product/${previewProduct.handle}",
+  "examplePageUrl": "${space.siteUrl}/product/${previewResource.handle}",
   "allowTests": true,
   "getSchemaFromPage": false,
   "name": "product-page",
