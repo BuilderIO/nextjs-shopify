@@ -91,7 +91,7 @@
     "react-ticker": "^1.2.2",
     "shopify-buy": "^2.11.0",
     "tailwindcss": "^1.9",
-    "theme-ui": "^0.6.2",
+    "theme-ui": "^0.13.1",
     "traverse": "^0.6.6"
   },
   "devDependencies": {
