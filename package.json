@@ -90,7 +90,7 @@
     "react-sticky": "^6.0.3",
     "react-ticker": "^1.2.2",
     "shopify-buy": "^2.11.0",
-    "tailwindcss": "^1.9",
+    "tailwindcss": "^2.2.0",
     "theme-ui": "^0.13.1",
     "traverse": "^0.6.6"
   },
