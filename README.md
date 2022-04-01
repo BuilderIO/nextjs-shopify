@@ -44,7 +44,7 @@ Learn how to get started with this Builder + Next.js + Shopify starter with this
 This guide will assume that you have the following software installed:
 
 - nodejs (>=12.0.0)
-- npm or yarn
+- npm
 - git
 
 You should already have a [Shopify](https://www.shopify.com/online-store) account and store created before starting as well. 
