@@ -66,7 +66,7 @@
     "body-scroll-lock": "^3.1.5",
     "bowser": "^2.11.0",
     "cheerio": "^1.0.0-rc.6",
-    "classnames": "^2.2.6",
+    "classnames": "^2.3.1",
     "css-color-names": "^1.0.1",
     "email-validator": "^2.0.4",
     "jest": "^26.6.3",
