@@ -47,7 +47,7 @@
     "@builder.io/react": "^1.1.50",
     "@builder.io/utils": "^1.0.4",
     "@builder.io/widgets": "^1.2.21",
-    "@netlify/plugin-nextjs": "^3.1.0",
+    "@netlify/plugin-nextjs": "^3.9.2",
     "@reach/portal": "^0.16.2",
     "@tailwindcss/ui": "^0.7.2",
     "@testing-library/react-hooks": "^3.7.0",
