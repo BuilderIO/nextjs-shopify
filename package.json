@@ -58,7 +58,7 @@
     "@types/body-scroll-lock": "^2.6.1",
     "@types/lodash.throttle": "^4.1.6",
     "@types/qs": "^6.9.7",
-    "@types/react-sticky": "^6.0.3",
+    "@types/react-sticky": "^6.0.4",
     "@types/shopify-buy": "^2.10.10",
     "@types/traverse": "^0.6.32",
     "@vercel/fetch": "^6.2.0",
