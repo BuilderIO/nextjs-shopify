@@ -54,7 +54,7 @@
     "@theme-ui/components": "^0.14.2",
     "@theme-ui/match-media": "^0.13.1",
     "@theme-ui/preset-base": "^0.14.1",
-    "@theme-ui/presets": "^0.14.1",
+    "@theme-ui/presets": "^0.14.2",
     "@types/body-scroll-lock": "^2.6.1",
     "@types/lodash.throttle": "^4.1.6",
     "@types/qs": "^6.9.7",
