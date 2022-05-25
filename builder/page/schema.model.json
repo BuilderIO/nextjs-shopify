@@ -103,6 +103,7 @@
     }
   ],
   "isPage": false,
+  "examplePageUrl": "http://localhost:3000",
   "useQueryParamTargetingClientSide": false,
   "designerVersion": 1,
   "name": "page",
