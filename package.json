@@ -46,7 +46,7 @@
   "dependencies": {
     "@builder.io/react": "^1.1.50",
     "@builder.io/utils": "^1.0.4",
-    "@builder.io/widgets": "^1.2.21",
+    "@builder.io/widgets": "^1.2.22",
     "@netlify/plugin-nextjs": "^3.9.2",
     "@reach/portal": "^0.16.2",
     "@tailwindcss/ui": "^0.7.2",
