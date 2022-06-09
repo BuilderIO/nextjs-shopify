@@ -198,13 +198,6 @@ npm run dev
 
 This will start a server at `http://localhost:3000`.
 
-Go to your [new space settings](https://builder.io/account/space) and change the site url to your localhost `http://localhost:3000` for site editing.
-
-<!-- This guide needs a lot more work here, clarifying how to get some basic stuff -->
-<!-- working with in builder, building out product grids etc - the ./builder content -->
-<!-- that's intially published is hard coded to the collections on the demo store -->
-<!-- and won' work out of the box. -->
-
 ### 8. Start building
 Now that we have everything setup, start building and publishing pages on builder.io, for a demo on building something similar to the [demo homepage](https://headless.builders), follow the steps in this [short video](https://www.loom.com/share/9b947acbbf714ee3ac6c319c130cdb85)
 

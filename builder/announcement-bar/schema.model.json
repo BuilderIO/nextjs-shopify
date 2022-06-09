@@ -56,7 +56,7 @@
   "strictPrivateWrite": false,
   "requiredTargets": [],
   "schema": {},
-  "examplePageUrl": "",
+  "examplePageUrl": "http://localhost:3000",
   "createdDate": 1618890591751,
   "webhooks": [],
   "individualEmbed": false,
