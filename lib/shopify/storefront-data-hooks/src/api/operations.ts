@@ -67,6 +67,6 @@ export async function searchProducts(
   const client = buildClient(config)
   return client.product.fetchQuery({
     query: searchString ? `title:*${searchString}*` : '',
-    sortBy: 'title'
+    sortKey: 'title'
   })
 }
