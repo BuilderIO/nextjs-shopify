@@ -89,7 +89,7 @@
     "react-spring-modal": "^2.0.7",
     "react-sticky": "^6.0.3",
     "react-ticker": "^1.2.2",
-    "shopify-buy": "^2.11.0",
+    "shopify-buy": "2.16.1",
     "tailwindcss": "^1.9",
     "theme-ui": "^0.6.2",
     "traverse": "^0.6.6"
