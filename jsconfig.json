@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "paths": {
+      "@lib/*": ["lib/*"],
+      "@assets/*": ["assets/*"],
+      "@config/*": ["config/*"],
+      "@components/*": ["components/*"],
+      "@components": ["components"],
+      "@utils/*": ["utils/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", "pages/collection/[handle].jsx", "pages/product/[handle].jsx", "pages/_app.jsx", "pages/_document.jsx", "pages/[[...path]].jsx", "pages/cart.jsx", "components/UserNav.jsx", "components/UntilInteraction.jsx", "components/Thumbnail.jsx", "components/Searchbar.jsx", "components/ProductCardDemo.jsx", "components/ProductCard.jsx", "components/OptionPicker.jsx", "components/NoSSR.jsx", "components/Navbar.jsx", "components/LazyImageCarousel.jsx", "components/Layout.jsx", "components/ImageCarousel.jsx", "components/Head.jsx", "components/FeatureBar.jsx", "components/context.jsx", "components/Sidebar/Sidebar.jsx", "components/ProductView/ProductViewDemo.jsx", "components/ProductView/ProductView.jsx", "components/ProductView/ProductLoader.jsx", "components/ProductGrid/ProductGrid.jsx", "components/LoadingDots/LoadingDots.jsx", "components/Link/Link.jsx", "components/icons/Vercel.jsx", "components/icons/Trash.jsx", "components/icons/Sun.jsx", "components/icons/RightArrow.jsx", "components/icons/Plus.jsx", "components/icons/Moon.jsx", "components/icons/Minus.jsx", "components/icons/Info.jsx", "components/icons/Heart.jsx", "components/icons/Github.jsx", "components/icons/DoubleChevron.jsx", "components/icons/Cross.jsx", "components/icons/ChevronUp.jsx", "components/icons/Check.jsx", "components/icons/Bag.jsx", "components/icons/ArrowLeft.jsx", "components/CollectionView/CollectionView.jsx", "components/CloudinaryImage/CloudinaryImage.builder.jsx", "components/CartSidebarView/CartSidebarView.jsx", "components/CartItem/CartItem.jsx"],
+  "exclude": ["node_modules"]
+}
