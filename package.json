@@ -115,5 +115,8 @@
   "resolutions": {
     "webpack": "^5.0.0-beta.30"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "engines" : { 
+    "node" : ">=8.0.0 <16.0.0" 
+  }
 }
