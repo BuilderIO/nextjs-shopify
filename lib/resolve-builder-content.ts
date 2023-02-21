@@ -12,7 +12,6 @@ export async function resolveBuilderContent(
   locale = 'en-US',
   targetingAttributes?: Record<string, any>
 ) {
-
   let page = await builder
     .get(modelName, {
       apiKey: builderConfig.apiKey,
@@ -20,7 +19,7 @@ export async function resolveBuilderContent(
         locale,
         includeRefs: true,
         // only cachebust if you're statically generating the page
-        cachebust: true,  
+        cachebust: true,
       },
       userAttributes: {
         ...targetingAttributes,

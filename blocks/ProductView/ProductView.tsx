@@ -44,9 +44,10 @@ const ProductBox: React.FC<Props> = ({
     () => prepareVariantsWithOptions(product?.variants),
     [product?.variants]
   )
-  const images = useMemo(() => prepareVariantsImages(variants, 'color'), [
-    variants,
-  ])
+  const images = useMemo(
+    () => prepareVariantsImages(variants, 'color'),
+    [variants]
+  )
 
   const { openSidebar } = useUI()
 
@@ -126,16 +127,22 @@ const ProductBox: React.FC<Props> = ({
                   setColor(images[index].color)
                 }
               }}
-              images={allImages?.length > 0 ? allImages: [{
-                  src: `https://via.placeholder.com/1050x1050`,
-                }]}
+              images={
+                allImages?.length > 0
+                  ? allImages
+                  : [
+                      {
+                        src: `https://via.placeholder.com/1050x1050`,
+                      },
+                    ]
+              }
             ></ImageCarousel>
           </div>
         </div>
         <div sx={{ display: 'flex', flexDirection: 'column' }}>
           <span sx={{ mt: 0, mb: 2 }}>
             <Heading>{title}</Heading>
-            <Heading as='h4' aria-label="price" sx={{ mt: 0, mb: 2 }}>
+            <Heading as="h4" aria-label="price" sx={{ mt: 0, mb: 2 }}>
               {getPrice(variant.priceV2.amount, variant.priceV2.currencyCode)}
             </Heading>
           </span>

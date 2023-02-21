@@ -34,12 +34,14 @@ Builder.register('insertMenu', {
   items: [{ name: 'CloudinaryImage' }],
 })
 
-const Noop: FC<{ children: React.ReactNode}> = ({ children }) => <>{children}</>
+const Noop: FC<{ children: React.ReactNode }> = ({ children }) => (
+  <>{children}</>
+)
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-      <Layout pageProps={pageProps}>
-        <Component {...pageProps} />
-      </Layout>
+    <Layout pageProps={pageProps}>
+      <Component {...pageProps} />
+    </Layout>
   )
 }

@@ -93,10 +93,7 @@ const SearchModalContent = (props: {
   const [loading, setLoading] = useState(false)
   const getProducts = async (searchTerm: string) => {
     setLoading(true)
-    const results = await searchProducts(
-      shopifyConfig,
-      String(searchTerm),
-    )
+    const results = await searchProducts(shopifyConfig, String(searchTerm))
     setSearch(searchTerm)
     setProducts(results)
     setLoading(false)

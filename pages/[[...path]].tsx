@@ -5,7 +5,12 @@ import type {
 } from 'next'
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
-import { BuilderComponent, Builder, builder, useIsPreviewing } from '@builder.io/react'
+import {
+  BuilderComponent,
+  Builder,
+  builder,
+  useIsPreviewing,
+} from '@builder.io/react'
 import builderConfig from '@config/builder'
 import DefaultErrorPage from 'next/error'
 import Head from 'next/head'
@@ -56,7 +61,7 @@ export default function Path({
   const router = useRouter()
   const { theme } = useThemeUI()
   const addToCart = useAddItemToCart()
-  const isPreviewing = useIsPreviewing();
+  const isPreviewing = useIsPreviewing()
   const { openSidebar } = useUI()
   if (router.isFallback) {
     return <h1>Loading...</h1>
@@ -107,17 +112,17 @@ export default function Path({
           productBoxService: {
             addToCart,
             navigateToCart() {
-              openSidebar();
+              openSidebar()
             },
             navigateToProductPage(product: { handle: string }) {
               router.push(`/product/${product.handle}`)
-            }
-          }
+            },
+          },
         }}
         renderLink={(props: any) => {
           // nextjs link doesn't handle hash links well if it's on the same page (starts with #)
           if (props.target === '_blank' || props.href?.startsWith('#')) {
-            return <Link as='a' {...props} />
+            return <Link as="a" {...props} />
           }
           return <Link {...props} as={Link} />
         }}
@@ -126,4 +131,3 @@ export default function Path({
     </div>
   )
 }
-

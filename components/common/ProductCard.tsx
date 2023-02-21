@@ -43,9 +43,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
         flexDirection: 'column',
       }}
     >
-      <Link href={`/product/${handle}/`} sx={{
-        color: 'inherit',
-      }}>
+      <Link
+        href={`/product/${handle}/`}
+        sx={{
+          color: 'inherit',
+        }}
+      >
         <div sx={{ flexGrow: 1 }}>
           <ImageCarousel
             currentSlide={product.images ? product.images.length - 1 : 0}
@@ -57,9 +60,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
             sizes={imgSizes}
             alt={product.title}
             images={
-              product.images.length ? product.images : [{
-                src: `https://via.placeholder.com/${imgWidth}x${imgHeight}`,
-              }]
+              product.images.length
+                ? product.images
+                : [
+                    {
+                      src: `https://via.placeholder.com/${imgWidth}x${imgHeight}`,
+                    },
+                  ]
             }
           />
         </div>

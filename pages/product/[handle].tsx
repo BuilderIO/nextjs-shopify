@@ -57,7 +57,7 @@ export default function Handle({
   page,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter()
-  const isLive = !useIsPreviewing();
+  const isLive = !useIsPreviewing()
   const { theme } = useThemeUI()
   // This includes setting the noindex header because static files always return a status 200 but the rendered not found page page should obviously not be indexed
   if (!product && isLive) {
@@ -79,10 +79,9 @@ export default function Handle({
       isStatic
       key={product!.id}
       model={builderModel}
-      options={{includeRefs: true}}
+      options={{ includeRefs: true }}
       data={{ product, theme }}
       content={page}
     />
   )
 }
-

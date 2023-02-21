@@ -1,6 +1,6 @@
 import { buildClient } from 'shopify-buy'
 
-const fastClone = (obj: any) =>JSON.parse(JSON.stringify(obj));
+const fastClone = (obj: any) => JSON.parse(JSON.stringify(obj))
 
 export function getAllProducts(config: ShopifyBuy.Config, limit?: number) {
   const client = buildClient(config)
@@ -57,16 +57,16 @@ export async function getCollection(
   if (!options.id) {
     throw new Error('A collection ID or handle is required')
   }
-  return fastClone(await client.collection.fetch(options.id));
+  return fastClone(await client.collection.fetch(options.id))
 }
 
 export async function searchProducts(
   config: ShopifyBuy.Config,
-  searchString: string,
+  searchString: string
 ) {
   const client = buildClient(config)
   return client.product.fetchQuery({
     query: searchString ? `title:*${searchString}*` : '',
-    sortBy: 'title'
+    sortBy: 'title',
   })
 }

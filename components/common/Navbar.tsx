@@ -61,11 +61,7 @@ const Navbar: FC = () => {
           }}
         >
           {navigationLinks?.map((link, index) => (
-            <Link
-              key={index}
-              sx={{ padding: 10 }}
-              href={link.link || '//'}
-            >
+            <Link key={index} sx={{ padding: 10 }} href={link.link || '//'}>
               {link.title}
             </Link>
           ))}

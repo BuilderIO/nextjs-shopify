@@ -47,10 +47,7 @@ const CollectionPreview: FC<Props> = ({
   const { title, description, products } = collection
 
   return (
-    <Box
-      sx={{ display: 'flex', flexDirection: 'column' }}
-      key={collection.id}
-    >
+    <Box sx={{ display: 'flex', flexDirection: 'column' }} key={collection.id}>
       {renderSeo && (
         <NextSeo
           title={collection.title}

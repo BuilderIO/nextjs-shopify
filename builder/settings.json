@@ -1,7 +1,10 @@
 {
   "parentOrganization": "31690b9fbad346358ed64d2cc349bd49",
   "hasIntegrated": "local",
-  "loadPlugins": ["@builder.io/plugin-shopify", "@builder.io/plugin-cloudinary"],
+  "loadPlugins": [
+    "@builder.io/plugin-shopify",
+    "@builder.io/plugin-cloudinary"
+  ],
   "settings": {
     "optimizeContentVisibility": true,
     "plugins": {

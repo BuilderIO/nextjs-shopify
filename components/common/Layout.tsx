@@ -21,15 +21,14 @@ const FeatureBar = dynamic(() => import('@components/common/FeatureBar'), {
   ssr: false,
 })
 
-const Layout: React.FC<{ pageProps: any, children: React.ReactNode }> = ({ children, pageProps }) => {
+const Layout: React.FC<{ pageProps: any; children: React.ReactNode }> = ({
+  children,
+  pageProps,
+}) => {
   const builderTheme = pageProps.theme
   return (
     <CommerceProvider {...shopifyConfig}>
-      <BuilderContent
-        isStatic
-        content={builderTheme}
-        modelName="theme"
-      >
+      <BuilderContent isStatic content={builderTheme} modelName="theme">
         {(data, loading) => {
           if (loading && !builderTheme) {
             return 'loading ...'
@@ -56,7 +55,7 @@ const Layout: React.FC<{ pageProps: any, children: React.ReactNode }> = ({ child
 
 const InnerLayout: React.FC<{
   themeName: string
-  children: React.ReactNode;
+  children: React.ReactNode
   colorOverrides?: {
     text?: string
     background?: string

@@ -57,7 +57,7 @@ export default function Handle({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter()
   const isPreviewing = useIsPreviewing()
-  const isLive = !isPreviewing ;
+  const isLive = !isPreviewing
   const { theme } = useThemeUI()
   if (!collection && isLive) {
     return (
@@ -77,11 +77,10 @@ export default function Handle({
     <BuilderComponent
       isStatic
       key={collection.id}
-      options={{includeRefs: true}}
+      options={{ includeRefs: true }}
       model={builderModel}
       data={{ collection, theme }}
       content={page}
     />
   )
 }
-
