@@ -1,7 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import React from 'react'
-import { Themed, jsx, Text, Card, Grid, Divider, NavLink } from 'theme-ui'
+import { Box, jsx, Text, Card, Grid, Divider, NavLink } from 'theme-ui'
 import { FC, useEffect, useState } from 'react'
 import { Bag } from '@components/icons'
 import { useCart, useCheckoutUrl } from '@lib/shopify/storefront-data-hooks'
@@ -36,7 +36,7 @@ const CartSidebarView: FC = () => {
   }, [cart?.lineItems])
 
   return (
-    <Themed.div
+    <Box
       sx={{
         height: '100%',
         overflow: 'auto',
@@ -98,7 +98,7 @@ const CartSidebarView: FC = () => {
           )}
         </>
       )}
-    </Themed.div>
+    </Box>
   )
 }
 

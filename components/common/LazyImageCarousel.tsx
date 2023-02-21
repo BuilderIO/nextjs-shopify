@@ -9,7 +9,7 @@ import {
   Slider,
   Dot,
 } from 'pure-react-carousel'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 
 import 'pure-react-carousel/dist/react-carousel.es.css'
 
@@ -40,6 +40,7 @@ const CustomDotGroup: FC<Omit<ImageCarouselProps, 'alt'>> = ({
         >
           <Dot slide={slide}>
             <Image
+              alt="dot"
               src={image.src}
               {...imageProps}
               height={80}
@@ -57,10 +58,11 @@ export type ImageCarouselProps = {
   images: Array<{ src: string }>
   alt: string
   onThumbnailClick?: (index: number) => void
-  width: number | string
-  height: number | string
+  width: number 
+  height: number
   layout?: 'fixed' | 'intrinsic' | 'responsive' | undefined
   priority?: boolean
+  fill?: boolean
   loading?: 'eager' | 'lazy'
   sizes?: string
   currentSlide?: number

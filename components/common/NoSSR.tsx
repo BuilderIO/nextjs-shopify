@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const NoSSR: React.FC<{ skeleton?: React.ReactNode }> = ({
+const NoSSR: React.FC<{ skeleton?: React.ReactNode, children: React.ReactNode }> = ({
   children,
   skeleton,
 }) => {

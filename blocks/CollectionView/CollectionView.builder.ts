@@ -2,8 +2,6 @@ import { Builder } from '@builder.io/react'
 import { Input } from '@builder.io/sdk'
 import dynamic from 'next/dynamic'
 import { productGridSchema } from '../ProductGrid/ProductGrid.builder'
-import builderConfig from '@config/builder'
-import { restrictedRegister } from 'blocks/utils'
 const LazyCollectionView = dynamic(() => import(`./CollectionView`))
 
 const collectionBoxSchema: Input[] = [
@@ -31,9 +29,10 @@ const collectionBoxSchema: Input[] = [
   },
 ]
 
-restrictedRegister(
+Builder.registerComponent(
   LazyCollectionView,
   {
+    models:   ['page', 'product-page', 'theme'],
     name: 'CollectionBox',
     description: 'Pick a collection to display its details',
     image: 'https://unpkg.com/css.gg@2.0.0/icons/svg/collage.svg',
@@ -42,19 +41,17 @@ restrictedRegister(
         {
           name: 'collection',
           // ShopifyCollectionHandle is a custom type defined in @builder.io/plugin-shopify that let's the user pick a collection from a picker and resolves to it's handle
-          type: `${
-            builderConfig.isDemo ? 'ShopifyStore' : 'Shopify'
-          }CollectionHandle`,
+          type: `ShopifyCollectionHandle`,
         },
       ])
       .reverse(),
-  },
-  ['page', 'product-page', 'theme']
+  }
 )
 
-restrictedRegister(
+Builder.registerComponent(
   LazyCollectionView,
   {
+    models: ['collection-page', 'theme'],
     name: 'CollectionView',
     description:
       'Dynamic collection detaills, autobinds to the collection in context, use only on collection pages',
@@ -65,6 +62,4 @@ restrictedRegister(
         'component.options.renderSeo': 'true',
       },
     },
-  },
-  ['collection-page', 'theme']
-)
+  })

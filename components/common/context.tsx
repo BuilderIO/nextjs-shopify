@@ -25,7 +25,7 @@ export const UIContext = React.createContext<State>(initialState)
 
 UIContext.displayName = 'UIContext'
 
-export const UIProvider: FC<{ siteSettings: Partial<State> }> = ({
+export const UIProvider: FC<{ siteSettings: Partial<State>, children: React.ReactNode }> = ({
   siteSettings,
   children,
 }) => {
@@ -58,7 +58,7 @@ export const useUI = () => {
   return context
 }
 
-export const ManagedUIContext: FC<{ siteSettings: Partial<State> }> = ({
+export const ManagedUIContext: FC<{ siteSettings: Partial<State>, children: React.ReactNode }> = ({
   children,
   siteSettings,
 }) => <UIProvider siteSettings={siteSettings}>{children}</UIProvider>

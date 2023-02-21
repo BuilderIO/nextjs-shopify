@@ -1,18 +1,14 @@
-import { restrictedRegister } from 'blocks/utils'
+import { Builder } from '@builder.io/react'
 import dynamic from 'next/dynamic'
 
-const isDemo = Boolean(process.env.IS_DEMO)
 const LazyProductView = dynamic(
-  () =>
-    isDemo
-      ? import(`blocks/ProductView/ProductViewDemo`)
-      : import(`blocks/ProductView/ProductView`),
+  () => import(`blocks/ProductView/ProductView`),
   { ssr: true }
 )
 
-restrictedRegister(
+Builder.registerComponent(
   LazyProductView,
-  {
+  { models: ['product-page', 'theme'],
     name: 'ProductView',
     image: 'https://unpkg.com/css.gg@2.0.0/icons/svg/inpicture.svg',
     description:
@@ -25,18 +21,17 @@ restrictedRegister(
         'component.options.renderSeo': 'true',
       },
     },
-  },
-  ['product-page', 'theme']
-)
+  })
 
-restrictedRegister(
+Builder.registerComponent(
   LazyProductView,
   {
     name: 'ProductBox',
+    models:   ['page', 'collection-page', 'theme'],
     inputs: [
       {
         name: 'product',
-        type: `${isDemo ? 'ShopifyStore' : 'Shopify'}ProductHandle`,
+        type: `ShopifyProductHandle`,
       },
       {
         name: 'description',
@@ -52,6 +47,4 @@ restrictedRegister(
     ],
     image: 'https://unpkg.com/css.gg@2.0.0/icons/svg/ereader.svg',
     description: 'Choose a product to show its details on page',
-  },
-  ['page', 'collection-page', 'theme']
-)
+  })

@@ -1,18 +1,20 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, Close, Themed } from 'theme-ui'
+import { jsx, Close, Box } from 'theme-ui'
 import { useResponsiveValue } from '@theme-ui/match-media'
 import { FC } from 'react'
-import { BaseModal, ModalCloseTarget } from 'react-spring-modal'
+import { BaseModal, ModalCloseTarget } from '@components/modals'
+import NoSSR from './NoSSR'
 
 interface Props {
   open: boolean
   onClose: () => void
 }
 
-const Sidebar: FC<Props> = ({ children, open = false, onClose }) => {
+const Sidebar: FC<Props & { children: React.ReactNode }> = ({ children, open = false, onClose }) => {
   const width = useResponsiveValue(['100%', 500])
   return (
+<NoSSR>
     <BaseModal
       isOpen={open}
       onDismiss={onClose}
@@ -32,7 +34,7 @@ const Sidebar: FC<Props> = ({ children, open = false, onClose }) => {
       }}
     >
       <ModalCloseTarget>
-        <Themed.div
+        <Box
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
@@ -42,10 +44,11 @@ const Sidebar: FC<Props> = ({ children, open = false, onClose }) => {
           }}
         >
           <Close />
-        </Themed.div>
+        </Box>
       </ModalCloseTarget>
       {children}
     </BaseModal>
+    </NoSSR>
   )
 }
 

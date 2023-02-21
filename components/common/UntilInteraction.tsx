@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const UntilInteraction: React.FC<{ skeleton: React.ReactNode }> = ({
+const UntilInteraction: React.FC<{ skeleton: React.ReactNode, children: React.ReactNode }> = ({
   children,
   skeleton,
 }) => {

@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import { Builder } from '@builder.io/react'
 
 Builder.registerComponent(

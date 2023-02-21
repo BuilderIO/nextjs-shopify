@@ -4,7 +4,6 @@ import { Input } from '@builder.io/sdk'
 const LazyProductGrid = dynamic(async () => {
   return (await import('./ProductGrid')).ProductGrid
 })
-const isDemo = Boolean(process.env.IS_DEMO)
 
 const productCardFields: Input[] = [
   {
@@ -33,9 +32,15 @@ const productCardFields: Input[] = [
   {
     name: 'imgLayout',
     type: 'enum',
-    enum: ['fixed', 'intrinsic', 'responsive', 'fill'],
+    enum: ['fixed', 'intrinsic', 'responsive'],
     advanced: true,
-    defaultValue: 'fill',
+    defaultValue: 'fixed',
+  },
+  {
+    name: 'fillImage',
+    type: 'boolean',
+    advanced: true,
+    defaultValue: true,
   },
 ]
 
@@ -76,7 +81,7 @@ Builder.registerComponent(LazyProductGrid, {
       subFields: [
         {
           name: 'product',
-          type: `${isDemo ? 'ShopifyStore' : 'Shopify'}ProductHandle`,
+          type: `ShopifyProductHandle`,
         },
       ],
     },
@@ -90,7 +95,7 @@ Builder.registerComponent(LazyProductGrid, {
   inputs: [
     {
       name: 'collection',
-      type: `${isDemo ? 'ShopifyStore' : 'Shopify'}CollectionHandle`,
+      type: `ShopifyCollectionHandle`,
     },
   ].concat(productGridSchema),
 })

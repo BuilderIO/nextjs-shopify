@@ -1,16 +1,15 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { Themed, jsx, Grid, Button, Input, Text, IconButton } from 'theme-ui'
+import { Box, jsx, Grid, Input, Text, IconButton } from 'theme-ui'
 import React, { ChangeEvent, useEffect, useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from 'next/legacy/image'
 import { Plus, Minus } from '@components/icons'
 import { getPrice } from '@lib/shopify/storefront-data-hooks/src/utils/product'
 import {
   useUpdateItemQuantity,
   useRemoveItemFromCart,
 } from '@lib/shopify/storefront-data-hooks'
-
+import Link from '@components/common/Link'
 const CartItem = ({
   item,
   currencyCode,
@@ -81,14 +80,12 @@ const CartItem = ({
         <Image
           height={130}
           width={130}
-          unoptimized
-          alt={item.variant.image.altText}
+          alt={item.variant.image.altText || 'Product Image'}
           src={item.variant.image.src}
         />
       </div>
       <div>
-        <Themed.div
-          as={Link}
+        <Link
           href={`/product/${item.variant.product.handle}/`}
           sx={{ fontSize: 3, m: 0, fontWeight: 700 }}
         >
@@ -108,8 +105,8 @@ const CartItem = ({
               )}
             </Text>
           </>
-        </Themed.div>
-        <Themed.ul sx={{ mt: 2, mb: 0, padding: 0, listStyle: 'none' }}>
+        </Link>
+        <ul sx={{ mt: 2, mb: 0, padding: 0, listStyle: 'none' }}>
           <li>
             <div sx={{ display: 'flex', justifyItems: 'center' }}>
               <IconButton onClick={() => increaseQuantity(-1)}>
@@ -140,7 +137,7 @@ const CartItem = ({
               {option.name}:{option.value}
             </li>
           ))}
-        </Themed.ul>
+        </ul>
       </div>
     </Grid>
   )

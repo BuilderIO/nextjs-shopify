@@ -1,18 +1,18 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { Themed, jsx } from 'theme-ui'
-import Image from 'next/image'
+import { Heading, jsx } from 'theme-ui'
+import Image from 'next/legacy/image'
 import { Card, Text } from '@theme-ui/components'
-import { Link } from '@components/ui'
 import { getPrice } from '@lib/shopify/storefront-data-hooks/src/utils/product'
 import { useState } from 'react'
 import NoSSR from './NoSSR'
+import Link from '@components/common/Link'
 
 export interface ProductCardProps {
   className?: string
   product: ShopifyBuy.Product
-  imgWidth: number | string
-  imgHeight: number | string
+  imgWidth: number
+  imgHeight: number
   imgLayout?: 'fixed' | 'intrinsic' | 'responsive' | undefined
   imgPriority?: boolean
   imgLoading?: 'eager' | 'lazy'
@@ -61,10 +61,9 @@ const ProductCardDemo: React.FC<ProductCardProps> = ({
                   quality="85"
                   src={alternateImage}
                   alt={product.title}
-                  width={imgWidth || 540}
+                  width={Number(imgWidth || 540)}
                   sizes={imgSizes}
-                  height={imgHeight || 540}
-                  layout={imgLayout}
+                  height={Number(imgHeight || 540)}
                   onLoad={() => setCanToggle(true)}
                   loading="eager"
                 />
@@ -91,9 +90,9 @@ const ProductCardDemo: React.FC<ProductCardProps> = ({
           </div>
         </div>
         <div sx={{ textAlign: 'center' }}>
-          <Themed.h2 sx={{ mt: 4, mb: 0, fontSize: 14 }}>
+          <Heading as="h2" sx={{ mt: 4, mb: 0, fontSize: 14 }}>
             {product.title}
-          </Themed.h2>
+          </Heading>
           <Text sx={{ fontSize: 12, mb: 2 }}>{price}</Text>
         </div>
       </Link>
