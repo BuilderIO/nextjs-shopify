@@ -1,19 +1,19 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import React, { FC, useState, useEffect } from 'react'
-import Link from 'next/link'
-import { UserNav } from '@components/common'
 import { BuilderComponent, builder } from '@builder.io/react'
 import { useCart } from '@lib/shopify/storefront-data-hooks'
-import { jsx, Themed, useThemeUI } from 'theme-ui'
-import { useUI } from '@components/ui/context'
-import Image from 'next/image'
+import { jsx, Box, useThemeUI, Heading, Button } from 'theme-ui'
+import { useUI } from '@components/common/context'
+import Image from 'next/legacy/image'
 import Searchbar from './Searchbar'
+import Link from '@components/common/Link'
+import { Bag } from '@components/icons'
 
 const Navbar: FC = () => {
   const [announcement, setAnnouncement] = useState()
   const { theme } = useThemeUI()
-  const { navigationLinks, logo } = useUI()
+  const { navigationLinks, logo, openSidebar } = useUI()
   const cart = useCart()
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const Navbar: FC = () => {
         data={{ theme }}
         model="announcement-bar"
       />
-      <Themed.div
+      <Box
         as="header"
         sx={{
           margin: `0 auto`,
@@ -52,7 +52,7 @@ const Navbar: FC = () => {
           position: 'relative',
         }}
       >
-        <Themed.div
+        <Box
           sx={{
             display: ['none', 'none', 'flex'],
             flexBasis: 0,
@@ -61,32 +61,26 @@ const Navbar: FC = () => {
           }}
         >
           {navigationLinks?.map((link, index) => (
-            <Themed.a
-              key={index}
-              sx={{ padding: 10, minWidth: 90 }}
-              as={Link}
-              href={link.link}
-            >
+            <Link key={index} sx={{ padding: 10 }} href={link.link || '//'}>
               {link.title}
-            </Themed.a>
+            </Link>
           ))}
-        </Themed.div>
-        <Themed.div
+        </Box>
+        <Box
           sx={{
             transform: 'translateX(-50%)',
             left: '50%',
             position: 'absolute',
           }}
         >
-          <Themed.h1
+          <Heading
             sx={{
               fontSize: 20,
               fontWeight: 'bold',
             }}
           >
             {logo && logo.image && (
-              <Themed.a
-                as={Link}
+              <Link
                 href="/"
                 sx={{
                   letterSpacing: -1,
@@ -95,16 +89,15 @@ const Navbar: FC = () => {
                 }}
               >
                 <Image
-                  layout="fixed"
+                  alt="Logo"
                   width={logo.width}
                   height={logo.height}
                   src={logo.image}
                 ></Image>
-              </Themed.a>
+              </Link>
             )}
             {logo && logo.text && !logo.image && (
-              <Themed.a
-                as={Link}
+              <Link
                 href="/"
                 sx={{
                   letterSpacing: -1,
@@ -113,11 +106,11 @@ const Navbar: FC = () => {
                 }}
               >
                 {logo.text}
-              </Themed.a>
+              </Link>
             )}
-          </Themed.h1>
-        </Themed.div>
-        <Themed.div
+          </Heading>
+        </Box>
+        <Box
           sx={{
             display: 'flex',
             minWidth: 140,
@@ -126,9 +119,11 @@ const Navbar: FC = () => {
           }}
         >
           <Searchbar />
-          <UserNav />
-        </Themed.div>
-      </Themed.div>
+          <Button onClick={openSidebar} aria-label="Cart">
+            <Bag />
+          </Button>
+        </Box>
+      </Box>
     </React.Fragment>
   )
 }

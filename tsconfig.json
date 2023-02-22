@@ -20,7 +20,8 @@
       "@config/*": ["config/*"],
       "@components/*": ["components/*"],
       "@utils/*": ["utils/*"]
-    }
+    },
+    "incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],
   "exclude": ["node_modules"]

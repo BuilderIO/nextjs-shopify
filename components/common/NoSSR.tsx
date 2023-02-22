@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 
-const NoSSR: React.FC<{ skeleton?: React.ReactNode }> = ({
-  children,
-  skeleton,
-}) => {
+const NoSSR: React.FC<{
+  skeleton?: React.ReactNode
+  children: React.ReactNode
+}> = ({ children, skeleton }) => {
   const [render, setRender] = useState(false)
   useEffect(() => setRender(true), [])
   if (render) {

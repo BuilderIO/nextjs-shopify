@@ -2,14 +2,12 @@
 /** @jsx jsx */
 import React, { FC, useState, useEffect, useCallback, useRef } from 'react'
 import { useRouter } from 'next/router'
-import { LoadingDots } from '@components/ui'
 import shopifyConfig from '@config/shopify'
 import { ProductGrid } from 'blocks/ProductGrid/ProductGrid'
-import { Button, Themed, jsx, Input, Label } from 'theme-ui'
+import { Button, Box, jsx, Input, Label } from 'theme-ui'
 import { searchProducts } from '@lib/shopify/storefront-data-hooks/src/api/operations'
-import { ExpandModal } from 'react-spring-modal'
+import { ExpandModal } from '@components/modals'
 import { throttle } from 'lodash'
-import 'react-spring-modal/styles.css'
 import { Cross } from '@components/icons'
 
 interface Props {
@@ -30,8 +28,6 @@ const Searchbar: FC<Props> = () => {
   return (
     <React.Fragment>
       <ExpandModal
-        transitionConfig={{}}
-        contentTransition={{}}
         overlayProps={{
           style: {
             maxWidth: 1920,
@@ -57,7 +53,7 @@ const Searchbar: FC<Props> = () => {
         />
       </ExpandModal>
 
-      <Themed.div
+      <Box
         ref={buttonRef}
         as={Button}
         mx={2}
@@ -81,7 +77,7 @@ const Searchbar: FC<Props> = () => {
             />
           </svg>
         )}
-      </Themed.div>
+      </Box>
     </React.Fragment>
   )
 }
@@ -97,10 +93,7 @@ const SearchModalContent = (props: {
   const [loading, setLoading] = useState(false)
   const getProducts = async (searchTerm: string) => {
     setLoading(true)
-    const results = await searchProducts(
-      shopifyConfig,
-      String(searchTerm),
-    )
+    const results = await searchProducts(shopifyConfig, String(searchTerm))
     setSearch(searchTerm)
     setProducts(results)
     setLoading(false)
@@ -118,7 +111,7 @@ const SearchModalContent = (props: {
   const throttleSearch = useCallback(throttle(getProducts), [])
 
   return (
-    <Themed.div
+    <Box
       sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -135,7 +128,7 @@ const SearchModalContent = (props: {
         onChange={(event) => throttleSearch(event.target.value)}
       />
       {loading ? (
-        <LoadingDots />
+        <span>Loading...</span>
       ) : products.length ? (
         <>
           <Label>
@@ -163,7 +156,7 @@ const SearchModalContent = (props: {
           )}
         </span>
       )}
-    </Themed.div>
+    </Box>
   )
 }
 

@@ -1,0 +1,59 @@
+.ModalOverlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  background-color: hsla(0deg, 0%, 0%, 0.5);
+}
+.dark-mode .ModalOverlay {
+  background-color: hsla(0deg, 0%, 50%, 0.7);
+}
+
+.ModalContent {
+  color: #222;
+  background-color: white;
+  box-shadow: 0 15px 30px 0 hsl(0deg, 0%, 0%, 0.11%),
+    0 5px 15px 0 hsl(0deg, 0%, 0%, 0.8%);
+}
+.dark-mode .ModalContent {
+  color: white;
+  background-color: #222;
+}
+
+.ModalOverlay--center {
+  display: grid;
+  place-items: center;
+}
+.CenterModal {
+  --padding: 2rem;
+
+  width: calc(100vw - 1rem - var(--padding) * 2);
+  max-width: 40rem;
+  max-height: calc(100vh - 4rem - var(--padding) * 2);
+  padding: var(--padding);
+
+  border-radius: 0.2rem;
+}
+
+.ModalOverlay--bottom {
+  display: flex;
+  align-items: flex-end;
+}
+.BottomModal {
+  --padding: 2rem;
+  width: calc(100% - var(--padding) * 2);
+  max-width: 40rem;
+
+  margin: 0 auto;
+  padding: var(--padding);
+
+  --radius: 0.5rem;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+
+  background-color: white;
+}

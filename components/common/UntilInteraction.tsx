@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
-const UntilInteraction: React.FC<{ skeleton: React.ReactNode }> = ({
-  children,
-  skeleton,
-}) => {
+const UntilInteraction: React.FC<{
+  skeleton: React.ReactNode
+  children: React.ReactNode
+}> = ({ children, skeleton }) => {
   const [render, setRender] = useState(false)
   if (render) {
     return <>{children}</>

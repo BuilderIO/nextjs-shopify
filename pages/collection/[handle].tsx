@@ -4,8 +4,7 @@ import type {
   InferGetStaticPropsType,
 } from 'next'
 import { useRouter } from 'next/router'
-import { Layout } from '@components/common'
-import { BuilderComponent, Builder, builder } from '@builder.io/react'
+import { BuilderComponent, builder, useIsPreviewing } from '@builder.io/react'
 import { resolveBuilderContent } from '@lib/resolve-builder-content'
 import builderConfig from '@config/builder'
 import shopifyConfig from '@config/shopify'
@@ -29,16 +28,16 @@ export async function getStaticProps({
     handle: params?.handle,
   })
 
-  const page = await resolveBuilderContent(builderModel, {
+  const page = await resolveBuilderContent(builderModel, locale, {
     collectionHandle: params?.handle,
-    locale,
   })
 
   return {
-    notFound: !page,
+    notFound: !collection,
+    revalidate: 30,
     props: {
-      page: page || null,
-      collection: collection || null,
+      page: page,
+      collection: collection,
       ...(await getLayoutProps()),
     },
   }
@@ -57,7 +56,8 @@ export default function Handle({
   page,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter()
-  const isLive = !Builder.isEditing && !Builder.isPreviewing
+  const isPreviewing = useIsPreviewing()
+  const isLive = !isPreviewing
   const { theme } = useThemeUI()
   if (!collection && isLive) {
     return (
@@ -72,16 +72,15 @@ export default function Handle({
   }
 
   return router.isFallback && isLive ? (
-    <h1>Loading...</h1> // TODO (BC) Add Skeleton Views
+    <h1>Loading...</h1>
   ) : (
     <BuilderComponent
       isStatic
       key={collection.id}
+      options={{ includeRefs: true }}
       model={builderModel}
       data={{ collection, theme }}
-      {...(page && { content: page })}
+      content={page}
     />
   )
 }
-
-Handle.Layout = Layout

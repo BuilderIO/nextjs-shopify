@@ -8,7 +8,7 @@ function set(key: string, value: string) {
     try {
       window.localStorage.setItem(key, value)
     } catch {
-      console.warn(' Error reading from local storage');
+      console.warn(' Error reading from local storage')
     }
   }
 }

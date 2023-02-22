@@ -6,21 +6,29 @@ import {
   getCollection,
   getProduct,
 } from './shopify/storefront-data-hooks/src/api/operations'
-builder.init(builderConfig.apiKey)
 
 export async function resolveBuilderContent(
   modelName: string,
-  targetingAttributes?: any
+  locale = 'en-US',
+  targetingAttributes?: Record<string, any>
 ) {
   let page = await builder
     .get(modelName, {
-      userAttributes: targetingAttributes,
-      includeRefs: true,
-      cachebust: true,
-    } as any)
+      apiKey: builderConfig.apiKey,
+      options: {
+        locale,
+        includeRefs: true,
+        // only cachebust if you're statically generating the page
+        cachebust: true,
+      },
+      userAttributes: {
+        ...targetingAttributes,
+        locale,
+      },
+    })
     .toPromise()
 
-  if (page) {
+  if (page && process.env.NODE_ENV === 'production') {
     return await getAsyncProps(page, {
       async ProductGrid(props) {
         let products: any[] = []
@@ -75,5 +83,5 @@ export async function resolveBuilderContent(
       },
     })
   }
-  return null
+  return page || null
 }

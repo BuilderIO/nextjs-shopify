@@ -2,10 +2,8 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { FC, useEffect, useState } from 'react'
-import { LoadingDots } from '@components/ui'
-import { Grid } from '@theme-ui/components'
-import { ProductCardProps } from '@components/common/ProductCard'
-import { ProductCardDemo, ProductCard } from '@components/common'
+import { Box, Grid } from '@theme-ui/components'
+import ProductCard, { ProductCardProps } from '@components/common/ProductCard'
 
 import {
   getCollection,
@@ -70,16 +68,13 @@ export const ProductGrid: FC<ProductGridProps> = ({
   }, [collection])
 
   if (loading) {
-    return <LoadingDots />
+    return <Box>Loading...</Box>
   }
-  const ProductComponent: any = process.env.IS_DEMO
-    ? ProductCardDemo
-    : ProductCard
 
   return (
     <Grid gap={2} width={['100%', '40%', '24%']}>
       {products.slice(offset, limit).map((product, i) => (
-        <ProductComponent
+        <ProductCard
           key={String(product.id) + i}
           {...(highlightCard?.index === i ? highlightCard : cardProps)}
           product={product}

@@ -1,18 +1,18 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import React, { useMemo, useState, useEffect } from 'react'
-import { Themed, jsx } from 'theme-ui'
-import { Grid, Button } from '@theme-ui/components'
+import { jsx } from 'theme-ui'
+import { Grid, Button, Heading } from '@theme-ui/components'
 import OptionPicker from '@components/common/OptionPicker'
 import { NextSeo } from 'next-seo'
-import { useUI } from '@components/ui/context'
+import { useUI } from '@components/common/context'
 import { useAddItemToCart } from '@lib/shopify/storefront-data-hooks'
 import {
   prepareVariantsWithOptions,
   prepareVariantsImages,
   getPrice,
 } from '@lib/shopify/storefront-data-hooks/src/utils/product'
-import { ImageCarousel, LoadingDots } from '@components/ui'
+import ImageCarousel from '@components/common/ImageCarousel'
 import ProductLoader from './ProductLoader'
 
 interface Props {
@@ -44,9 +44,10 @@ const ProductBox: React.FC<Props> = ({
     () => prepareVariantsWithOptions(product?.variants),
     [product?.variants]
   )
-  const images = useMemo(() => prepareVariantsImages(variants, 'color'), [
-    variants,
-  ])
+  const images = useMemo(
+    () => prepareVariantsImages(variants, 'color'),
+    [variants]
+  )
 
   const { openSidebar } = useUI()
 
@@ -126,18 +127,24 @@ const ProductBox: React.FC<Props> = ({
                   setColor(images[index].color)
                 }
               }}
-              images={allImages?.length > 0 ? allImages: [{
-                  src: `https://via.placeholder.com/1050x1050`,
-                }]}
+              images={
+                allImages?.length > 0
+                  ? allImages
+                  : [
+                      {
+                        src: `https://via.placeholder.com/1050x1050`,
+                      },
+                    ]
+              }
             ></ImageCarousel>
           </div>
         </div>
         <div sx={{ display: 'flex', flexDirection: 'column' }}>
           <span sx={{ mt: 0, mb: 2 }}>
-            <Themed.h1>{title}</Themed.h1>
-            <Themed.h4 aria-label="price" sx={{ mt: 0, mb: 2 }}>
+            <Heading>{title}</Heading>
+            <Heading as="h4" aria-label="price" sx={{ mt: 0, mb: 2 }}>
               {getPrice(variant.priceV2.amount, variant.priceV2.currencyCode)}
-            </Themed.h4>
+            </Heading>
           </span>
           <div dangerouslySetInnerHTML={{ __html: description! }} />
           <div>
@@ -168,7 +175,7 @@ const ProductBox: React.FC<Props> = ({
             sx={{ margin: 2, display: 'block' }}
             onClick={addToCart}
           >
-            Add to Cart {loading && <LoadingDots />}
+            Add to Cart {loading && '...'}
           </Button>
         </div>
       </Grid>

@@ -3,18 +3,17 @@
 import React from 'react'
 import { ThemeProvider, jsx } from 'theme-ui'
 import dynamic from 'next/dynamic'
-import { ManagedUIContext, useUI } from '@components/ui/context'
-import { Head, Navbar } from '@components/common'
-import { useAcceptCookies } from '@lib/hooks/useAcceptCookies'
 import { Button } from 'theme-ui'
-import { Sidebar } from '@components/ui'
+import { ManagedUIContext, useUI } from '@components/common/context'
+import Head from '@components/common/Head'
+import Navbar from '@components/common/Navbar'
+import { useAcceptCookies } from '@lib/hooks/useAcceptCookies'
+import Sidebar from '@components/common/Sidebar'
 import { CartSidebarView } from '@components/cart'
 import { CommerceProvider } from '@lib/shopify/storefront-data-hooks'
 import shopifyConfig from '@config/shopify'
 import { builder, BuilderContent, Builder } from '@builder.io/react'
 import themesMap from '@config/theme'
-import '@builder.io/widgets'
-import 'react-spring-modal/styles.css'
 import seoConfig from '@config/seo.json'
 import NoSSR from './NoSSR'
 
@@ -22,16 +21,14 @@ const FeatureBar = dynamic(() => import('@components/common/FeatureBar'), {
   ssr: false,
 })
 
-const Layout: React.FC<{ pageProps: any }> = ({ children, pageProps }) => {
+const Layout: React.FC<{ pageProps: any; children: React.ReactNode }> = ({
+  children,
+  pageProps,
+}) => {
   const builderTheme = pageProps.theme
-  const isLive = !Builder.isEditing && !Builder.isPreviewing
   return (
     <CommerceProvider {...shopifyConfig}>
-      <BuilderContent
-        isStatic
-        {...(isLive && { content: builderTheme })}
-        modelName="theme"
-      >
+      <BuilderContent isStatic content={builderTheme} modelName="theme">
         {(data, loading) => {
           if (loading && !builderTheme) {
             return 'loading ...'
@@ -58,6 +55,7 @@ const Layout: React.FC<{ pageProps: any }> = ({ children, pageProps }) => {
 
 const InnerLayout: React.FC<{
   themeName: string
+  children: React.ReactNode
   colorOverrides?: {
     text?: string
     background?: string

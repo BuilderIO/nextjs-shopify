@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react'
 import { jsx } from 'theme-ui'
 import { getProduct } from '@lib/shopify/storefront-data-hooks/src/api/operations'
 import shopifyConfig from '@config/shopify'
-import { LoadingDots } from '@components/ui'
 
 interface Props {
   className?: string
@@ -36,7 +35,7 @@ const ProductLoader: React.FC<Props> = ({
   }, [product])
 
   if (!product || typeof product === 'string' || loading) {
-    return <LoadingDots />
+    return <div>Loading...</div>
   }
   return children(product)
 }

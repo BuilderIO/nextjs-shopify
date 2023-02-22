@@ -4,8 +4,7 @@ import type {
   InferGetStaticPropsType,
 } from 'next'
 import { useRouter } from 'next/router'
-import { Layout } from '@components/common'
-import { BuilderComponent, Builder, builder } from '@builder.io/react'
+import { BuilderComponent, builder, useIsPreviewing } from '@builder.io/react'
 import { resolveBuilderContent } from '@lib/resolve-builder-content'
 import '../../blocks/ProductView/ProductView.builder'
 import builderConfig from '@config/builder'
@@ -30,16 +29,16 @@ export async function getStaticProps({
     handle: params?.handle,
   })
 
-  const page = await resolveBuilderContent(builderModel, {
+  const page = await resolveBuilderContent(builderModel, locale, {
     productHandle: params?.handle,
-    locale,
   })
 
   return {
-    notFound: !page ,
+    notFound: !product,
+    revalidate: 30,
     props: {
-      page: page || null,
-      product: product || null,
+      page: page,
+      product: product,
       ...(await getLayoutProps()),
     },
   }
@@ -58,7 +57,7 @@ export default function Handle({
   page,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter()
-  const isLive = !Builder.isEditing && !Builder.isPreviewing
+  const isLive = !useIsPreviewing()
   const { theme } = useThemeUI()
   // This includes setting the noindex header because static files always return a status 200 but the rendered not found page page should obviously not be indexed
   if (!product && isLive) {
@@ -74,16 +73,15 @@ export default function Handle({
   }
 
   return router.isFallback && isLive ? (
-    <h1>Loading...</h1> // TODO (BC) Add Skeleton Views
+    <h1>Loading...</h1>
   ) : (
     <BuilderComponent
       isStatic
       key={product!.id}
       model={builderModel}
+      options={{ includeRefs: true }}
       data={{ product, theme }}
-      {...(page && { content: page })}
+      content={page}
     />
   )
 }
-
-Handle.Layout = Layout

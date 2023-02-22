@@ -1,7 +1,6 @@
-
 # Next.js + Shopify + Builder.io starter kit
 
-The ultimate starter for headless Shopify stores. 
+The ultimate starter for headless Shopify stores.
 
 Demo live at: [headless.builders](https://headless.builders/)
 
@@ -23,18 +22,17 @@ Learn how to get started with this Builder + Next.js + Shopify starter with this
 
 ## Table of contents
 
-  - [Getting Started](#getting-started)
-      - [1: Create an account for Builder.io](#1-create-an-account-for-builderio)
-      - [2: Your Builder.io private key](#2-your-builderio-private-key)
-      - [3: Clone this repository and initialize a Builder.io space](#3-clone-this-repository-and-initialize-a-builderio-space)
-      - [4. Shopify private app](#4-shopify-private-app)
-      - [5. Connecting Builder to Shopify](#5-connecting-builder-to-shopify)
-      - [6. Configure the project to talk to Shopify](#6-configure-the-project-to-talk-to-shopify)
-      - [7. Up and Running!](#7-up-and-running)
-  - [Deploy](#deploy)
+- [Getting Started](#getting-started)
+  - [1: Create an account for Builder.io](#1-create-an-account-for-builderio)
+  - [2: Your Builder.io private key](#2-your-builderio-private-key)
+  - [3: Clone this repository and initialize a Builder.io space](#3-clone-this-repository-and-initialize-a-builderio-space)
+  - [4. Shopify private app](#4-shopify-private-app)
+  - [5. Connecting Builder to Shopify](#5-connecting-builder-to-shopify)
+  - [6. Configure the project to talk to Shopify](#6-configure-the-project-to-talk-to-shopify)
+  - [7. Up and Running!](#7-up-and-running)
+- [Deploy](#deploy)
 
 <!-- markdown-toc end -->
-
 
 ## Getting Started
 
@@ -46,7 +44,7 @@ This guide will assume that you have the following software installed:
 - npm
 - git
 
-You should already have a [Shopify](https://www.shopify.com/online-store) account and store created before starting as well. 
+You should already have a [Shopify](https://www.shopify.com/online-store) account and store created before starting as well.
 
 **Introduction**
 
@@ -70,14 +68,13 @@ Head over to your [organization settings page](https://builder.io/account/organi
 private key, copy the key for the next step.
 
 - Visit the [organization settings page](https://builder.io/account/organization?root=true), or select
-  an organization from the list 
+  an organization from the list
 
 ![organizations drop down list](./docs/images/builder-io-organizations.png)
 
 - Click "Account" from the left hand sidebar
 - Click the edit icon for the "Private keys" row
 - Copy the value of the auto-generated key, or create a new one with a name that's meaningful to you
-
 
 ![Example of how to get your private key](./docs/images/private-key-flow.png)
 
@@ -95,6 +92,8 @@ meaningful to you -- don't worry, you can change it later!
 git clone https://github.com/BuilderIO/nextjs-shopify.git
 cd nextjs-shopify
 
+unzip builder
+
 npm install --global "@builder.io/cli"
 
 builder create --key "<private-key>" --name "<space-name>" --debug
@@ -104,19 +103,19 @@ Note:
 if you're only interested in using this starter for a landing page with Shopify use this command instead:
 
 ```
+unzip builder-landing-page-only
 builder create --key "<private-key>" --name "<space-name>" --input builder-landing-page-only --debug
 ```
-
 
 If this was a success you should be greeted with a message that
 includes a public API key for your newly minted Builder.io space.
 
-*Note: This command will also publish some starter builder.io cms
+_Note: This command will also publish some starter builder.io cms
 content from the ./builder directory to your new space when it's
-created.*
+created._
 
-``` bash
-  ____            _   _       _                     _                    _   _ 
+```bash
+  ____            _   _       _                     _                    _   _
 | __ )   _   _  (_) | |   __| |   ___   _ __      (_)   ___       ___  | | (_)
 |  _ \  | | | | | | | |  / _` |  / _ \ | '__|     | |  / _ \     / __| | | | |
 | |_) | | |_| | | | | | | (_| | |  __/ | |     _  | | | (_) |   | (__  | | | |
@@ -147,7 +146,7 @@ SHOPIFY_STOREFRONT_API_TOKEN=
 SHOPIFY_STORE_DOMAIN=
 ```
 
-### 4. Shopify Custom App 
+### 4. Shopify Custom App
 
 Create a [custom app](https://help.shopify.com/en/manual/apps/custom-apps) for your Shopify store. If you don't have a Shopify store already, you can create a [development store](https://help.shopify.com/en/partners/dashboard/managing-stores/development-stores).
 
@@ -155,13 +154,11 @@ When creating the private app you'll have to set a number of permissions so that
 
 ![List of required permissions](https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F24ebad91e8774a7e814487432391f4c6)
 
-
 Then in the `API Credentials` tab, click `install`:
 
 ![installing custom app](https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2Ffd00307e14ed40babe2d569d7a297e81)
 
 And copy the generated access token.
-
 
 ### 5. Connecting Builder to Shopify
 
@@ -199,6 +196,7 @@ npm run dev
 This will start a server at `http://localhost:3000`.
 
 ### 8. Start building
+
 Now that we have everything setup, start building and publishing pages on builder.io, for a demo on building something similar to the [demo homepage](https://headless.builders), follow the steps in this [short video](https://www.loom.com/share/9b947acbbf714ee3ac6c319c130cdb85)
 
 ## Deployment Options
@@ -207,9 +205,8 @@ You can deploy this code anywhere you like - you can find many deployment option
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fbuilderio%2Fnextjs-shopify)
 
-  - Vercel: for more information check [Vercel docs on Next.js deployments](https://vercel.com/docs/next.js/overview) Or try the one click install by clicking the button above.
+- Vercel: for more information check [Vercel docs on Next.js deployments](https://vercel.com/docs/next.js/overview) Or try the one click install by clicking the button above.
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/BuilderIO/nextjs-shopify)
 
 - Netlify: For more information check [Netlify docs on Next.js deployments](https://www.netlify.com/blog/2020/11/30/how-to-deploy-next.js-sites-to-netlify/) Or try the one click install by clicking the button above.
-

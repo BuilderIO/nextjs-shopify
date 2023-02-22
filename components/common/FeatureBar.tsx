@@ -1,8 +1,8 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import React, { useEffect, useState } from 'react'
-import { Themed, jsx } from 'theme-ui'
-import { CenterModal, ModalTitle, ModalCloseTarget } from 'react-spring-modal'
+import { Box, jsx } from 'theme-ui'
+import { CenterModal, ModalTitle } from '@components/modals'
 
 interface FeatureBarProps {
   className?: string
@@ -29,9 +29,9 @@ const FeatureBar: React.FC<FeatureBarProps> = ({
     <CenterModal isOpen={delayPassed && !hide}>
       <ModalTitle>{title}</ModalTitle>
       {description}
-      <Themed.div sx={{ display: 'flex', justifyContent: 'center', p: [1, 2] }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center', p: [1, 2] }}>
         {action && action}
-      </Themed.div>
+      </Box>
     </CenterModal>
   )
 }
