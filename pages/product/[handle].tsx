@@ -76,10 +76,9 @@ export default function Handle({
     <h1>Loading...</h1>
   ) : (
     <BuilderComponent
-      isStatic
       key={product!.id}
       model={builderModel}
-      options={{ includeRefs: true }}
+      options={{ enrich: true }}
       data={{ product, theme }}
       content={page}
     />

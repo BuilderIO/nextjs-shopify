@@ -105,7 +105,7 @@ export default function Path({
         />
       )}
       <BuilderComponent
-        options={{ includeRefs: true }}
+        options={{ enrich: true }}
         model="page"
         data={{ theme }}
         context={{

@@ -12,7 +12,7 @@ import env from '@config/env'
 const CartSidebarView: FC = () => {
   const checkoutUrl = useCheckoutUrl()
   const cart = useCart()
-  const subTotal = cart?.subtotalPrice
+  const subTotal = (cart?.subtotalPrice as any)?.amount || cart?.subtotalPrice || '-';
   const total = ' - '
 
   const items = cart?.lineItems ?? []

@@ -28,7 +28,7 @@ const Layout: React.FC<{ pageProps: any; children: React.ReactNode }> = ({
   const builderTheme = pageProps.theme
   return (
     <CommerceProvider {...shopifyConfig}>
-      <BuilderContent isStatic content={builderTheme} modelName="theme">
+      <BuilderContent content={builderTheme} modelName="theme">
         {(data, loading) => {
           if (loading && !builderTheme) {
             return 'loading ...'
