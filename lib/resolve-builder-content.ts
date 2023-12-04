@@ -15,9 +15,9 @@ export async function resolveBuilderContent(
   let page = await builder
     .get(modelName, {
       apiKey: builderConfig.apiKey,
+      enrich: true,
       options: {
         locale,
-        includeRefs: true,
         // only cachebust if you're statically generating the page
         cachebust: true,
       },
